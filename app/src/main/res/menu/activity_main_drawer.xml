@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:showIn="navigation_view">
+
+
+
+    <group android:checkableBehavior="single">
+        <item
+                android:id="@+id/nav_song_alfabetical"
+                android:icon="@drawable/ic_menu_camera"
+                android:title="Indice Alfabético"/>
+        <item
+                android:id="@+id/nav_song_liturgic"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="Liturgia"/>
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item android:title="Por etapa">
+            <menu>
+            <item
+                    android:id="@+id/nav_song_pre"
+                    android:icon="@drawable/ic_menu_slideshow"
+                    android:title="Pré-Catecumenato"/>
+
+            <item
+                    android:id="@+id/nav_song_cat"
+                    android:icon="@drawable/ic_menu_manage"
+                    android:title="Catecumenato"/>
+
+            <item
+                    android:id="@+id/nav_song_eleition"
+                    android:icon="@drawable/ic_menu_manage"
+                    android:title="Eleição"/>
+
+
+            </menu>
+
+        </item>
+    </group>
+    <group android:checkableBehavior="single">
+
+    <item android:title="Utilidades">
+        <menu>
+
+            <item
+                    android:id="@+id/nav_set_accords"
+                    android:icon="@drawable/ic_menu_share"
+                    android:title="Arcodes"/>
+
+            <item
+                    android:id="@+id/nav_set_settings"
+                    android:icon="@drawable/ic_menu_share"
+                    android:title="Configurações"/>
+
+            <item
+                    android:id="@+id/nav_set_harp"
+                    android:icon="@drawable/ic_menu_send"
+                    android:title="Arpejos"/>
+        </menu>
+    </item>
+    </group>
+
+</menu>

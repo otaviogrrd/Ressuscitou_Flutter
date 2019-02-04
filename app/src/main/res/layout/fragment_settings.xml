@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context=".Fragment.Settings">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+        <RelativeLayout android:layout_width="match_parent"
+                        android:padding="10dp"
+                        android:id="@+id/network"
+                        android:layout_height="wrap_content">
+            <TextView
+                    android:id="@+id/title_wifi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="20dp"
+                    android:text="Apenas redes WI-FI"/>
+
+            <CheckBox
+                    android:layout_below="@id/title_wifi"
+                    android:text="Selecione para não usar Dados Moveis"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/settings_wifi" android:layout_marginTop="0dp"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:layout_below="@+id/network"
+                android:id="@+id/chipper"
+                android:layout_width="match_parent"
+                android:padding="10dp"
+                android:layout_height="90dp">
+
+            <TextView android:layout_width="match_parent"
+                      android:text="Modo Extendido"
+                      android:id="@+id/extend_title"
+                      android:textSize="20dp"
+                      android:layout_marginBottom="10dp"
+                      android:layout_height="wrap_content"/>
+
+            <CheckBox
+                    android:layout_width="match_parent"
+                    android:layout_below="@id/extend_title"
+                    android:layout_alignParentBottom="true"
+                    android:id="@+id/settings_mod"
+                    android:text="Exibe o refrão completo dos cantos substituindo as reticências(...) e as barras por BIS"
+                    android:layout_height="wrap_content"/>
+        </RelativeLayout>
+
+        <RelativeLayout android:layout_width="wrap_content"
+                        android:padding="10dp"
+                        android:layout_below="@id/chipper" android:id="@+id/cipher" android:layout_height="wrap_content">
+            <TextView android:layout_width="match_parent"
+                      android:text="Cifras americanas"
+                      android:id="@+id/title_chiper"
+                      android:textSize="20dp"
+                      android:layout_marginBottom="10dp"
+                      android:layout_height="wrap_content"/>
+
+            <CheckBox android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_below="@id/title_chiper"
+                      android:id="@+id/settings_chipper"
+                      android:text="Do, Re, Mi, Fa, Sol, La, Si viram: C,D,E,F,G,A,B"
+            />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</FrameLayout>
