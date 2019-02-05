@@ -18,8 +18,6 @@ import android.widget.AdapterView
 import android.widget.Spinner
 import android.widget.TextView
 import br.org.cn.ressuscitou.R
-import android.support.v4.view.MenuItemCompat.getActionView
-import android.support.v4.view.MenuItemCompat.setOnActionExpandListener
 import android.support.v4.view.MenuItemCompat
 import android.view.*
 
