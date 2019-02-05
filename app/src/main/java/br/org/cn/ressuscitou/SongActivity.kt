@@ -3,12 +3,9 @@ package br.org.cn.ressuscitou
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Base64
-import android.util.Log
 import android.webkit.WebView
-import android.widget.Toast
 import br.org.cn.ressuscitou.Persistence.DataBaseHelper
-import br.org.cn.ressuscitou.Persistence.Songs
-import br.org.cn.ressuscitou.Persistence.SongsDAO
+import br.org.cn.ressuscitou.Persistence.DAO.SongsDAO
 import br.org.cn.ressuscitou.Utils.Preferences
 import java.io.File
 

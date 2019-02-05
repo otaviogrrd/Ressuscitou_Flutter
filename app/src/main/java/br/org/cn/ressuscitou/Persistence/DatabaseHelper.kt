@@ -2,6 +2,7 @@ package br.org.cn.ressuscitou.Persistence
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
+import br.org.cn.ressuscitou.Persistence.Entities.Songs
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper
 import com.j256.ormlite.support.ConnectionSource
 import com.j256.ormlite.table.TableUtils
@@ -16,7 +17,7 @@ class DataBaseHelper : OrmLiteSqliteOpenHelper {
     constructor(context: Context?) : super(context,db,null,versao)
 
     override fun onCreate(database: SQLiteDatabase?, connectionSource: ConnectionSource?) {
-        TableUtils.createTable(connectionSource,Songs::class.java)
+        TableUtils.createTable(connectionSource, Songs::class.java)
 
     }
 

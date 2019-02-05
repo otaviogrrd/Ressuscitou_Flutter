@@ -5,13 +5,10 @@ import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.SearchView
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import br.org.cn.ressuscitou.Adapter.SongAdapter
 import br.org.cn.ressuscitou.Persistence.DataBaseHelper
-import br.org.cn.ressuscitou.Persistence.Songs
-import br.org.cn.ressuscitou.Persistence.SongsDAO
+import br.org.cn.ressuscitou.Persistence.Entities.Songs
+import br.org.cn.ressuscitou.Persistence.DAO.SongsDAO
 
 import kotlinx.android.synthetic.main.fragment_songs.view.*
 import android.support.v7.widget.RecyclerView
@@ -21,6 +18,10 @@ import android.widget.AdapterView
 import android.widget.Spinner
 import android.widget.TextView
 import br.org.cn.ressuscitou.R
+import android.support.v4.view.MenuItemCompat.getActionView
+import android.support.v4.view.MenuItemCompat.setOnActionExpandListener
+import android.support.v4.view.MenuItemCompat
+import android.view.*
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -40,7 +41,6 @@ class SongsFragment : Fragment(){
     //ELEMENTS ON VIEW
     var not_result: TextView? = null;
     var recyclerView: RecyclerView? = null;
-    var searchView: SearchView? = null;
     var liturgic_filter:Spinner? = null;
 
 
@@ -67,21 +67,23 @@ class SongsFragment : Fragment(){
     ): View? {
         var view =inflater.inflate(R.layout.fragment_songs, container, false)
 
+        setHasOptionsMenu(true);
         recyclerView = view.song_list
 
         liturgic_filter = view.liturgic_filter;
         not_result = view.not_results;
-        searchView  = view.searchView;
 
 
         return view;
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+        inflater!!.inflate(R.menu.main,menu)
 
-        searchView!!.setQueryHint("Busque um cantico");
-        searchView!!.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
+        val item = menu!!.findItem(R.id.action_search)
+        val searchViewT = MenuItemCompat.getActionView(item) as SearchView
+
+        searchViewT.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(term: String?): Boolean {
                 termStr = term.toString();
                 songs(termStr.toString(), col);
@@ -98,6 +100,24 @@ class SongsFragment : Fragment(){
             }
 
         })
+
+        item.setOnActionExpandListener(object : MenuItem.OnActionExpandListener{
+
+            override fun onMenuItemActionExpand(item: MenuItem): Boolean {
+
+                return true
+            }
+
+            override fun onMenuItemActionCollapse(item: MenuItem): Boolean {
+                return true
+
+            }
+        })
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
 
         liturgic_filter!!.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onNothingSelected(parent: AdapterView<*>?) {

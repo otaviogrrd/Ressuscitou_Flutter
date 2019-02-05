@@ -11,7 +11,7 @@ import android.view.ViewGroup
 import br.org.cn.ressuscitou.Fragment.SongsFragment
 import br.org.cn.ressuscitou.Fragment.SongDetail
 import br.org.cn.ressuscitou.MainActivity
-import br.org.cn.ressuscitou.Persistence.Songs
+import br.org.cn.ressuscitou.Persistence.Entities.Songs
 import br.org.cn.ressuscitou.R
 import kotlinx.android.synthetic.main.song_item.view.*
 

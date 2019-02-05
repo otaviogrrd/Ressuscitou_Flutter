@@ -1,4 +1,4 @@
-package br.org.cn.ressuscitou.Persistence
+package br.org.cn.ressuscitou.Persistence.Entities
 
 import com.j256.ormlite.field.DatabaseField
 import com.j256.ormlite.table.DatabaseTable

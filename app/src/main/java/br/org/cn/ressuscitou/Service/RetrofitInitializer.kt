@@ -13,7 +13,7 @@ class RetrofitInitializer {
         .create()
 
         val retrofit = Retrofit.Builder()
-        .baseUrl("https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/Kotlin/")
+        .baseUrl("https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
 

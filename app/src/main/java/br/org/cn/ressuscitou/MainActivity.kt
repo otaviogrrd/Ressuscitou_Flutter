@@ -5,9 +5,7 @@ import android.support.design.widget.NavigationView
 import android.support.v4.app.Fragment
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
-import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
-import android.view.Menu
 import android.view.MenuItem
 import br.org.cn.ressuscitou.Service.RetrofitInitializer
 import br.org.cn.ressuscitou.Utils.Preferences
@@ -23,8 +21,8 @@ import android.widget.Toast
 import br.org.cn.ressuscitou.Fragment.SettingsFragment
 import br.org.cn.ressuscitou.Fragment.SongsFragment
 import br.org.cn.ressuscitou.Persistence.DataBaseHelper
-import br.org.cn.ressuscitou.Persistence.Songs
-import br.org.cn.ressuscitou.Persistence.SongsDAO
+import br.org.cn.ressuscitou.Persistence.Entities.Songs
+import br.org.cn.ressuscitou.Persistence.DAO.SongsDAO
 import br.org.cn.ressuscitou.Service.SongService
 import br.org.cn.ressuscitou.Utils.ManagePermissions
 import com.google.gson.JsonParser
@@ -175,7 +173,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     fun fetchSongs(version: Int, progressBar: ProgressBar){
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/Kotlin/")
+            .baseUrl("https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/")
             .addConverterFactory(ScalarsConverterFactory.create())
             .build()
 

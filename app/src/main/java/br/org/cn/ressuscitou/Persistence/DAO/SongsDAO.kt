@@ -1,5 +1,6 @@
-package br.org.cn.ressuscitou.Persistence
+package br.org.cn.ressuscitou.Persistence.DAO
 
+import br.org.cn.ressuscitou.Persistence.Entities.Songs
 import com.j256.ormlite.dao.BaseDaoImpl
 import com.j256.ormlite.support.ConnectionSource
 

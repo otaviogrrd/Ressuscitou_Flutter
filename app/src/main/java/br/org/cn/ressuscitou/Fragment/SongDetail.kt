@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
 import br.org.cn.ressuscitou.Persistence.DataBaseHelper
-import br.org.cn.ressuscitou.Persistence.SongsDAO
+import br.org.cn.ressuscitou.Persistence.DAO.SongsDAO
 
 import br.org.cn.ressuscitou.R
 import br.org.cn.ressuscitou.Utils.Preferences
