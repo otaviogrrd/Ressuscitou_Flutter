@@ -26,4 +26,11 @@
         <item>Comunhão</item>
         <item>Canto final</item>
     </string-array>
+
+    <string-array name="list_type">
+        <item>Tipo</item>
+        <item>Eucaristia</item>
+        <item>Celebração</item>
+    </string-array>
+
 </resources>

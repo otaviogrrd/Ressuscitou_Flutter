@@ -6,19 +6,27 @@
              xmlns:app="http://schemas.android.com/apk/res-auto"
              tools:context=".Fragment.SongDetail">
 
+
+    <RelativeLayout android:layout_width="match_parent"
+                    android:id="@+id/network"
+                    android:layout_height="match_parent">
+        <CheckBox
+                android:layout_below="@id/title_wifi"
+                android:text="Visualizar em modo extendido"
+                android:layout_width="match_parent"
+                android:gravity="center_horizontal"
+                android:padding="10dp"
+                android:layout_height="wrap_content" android:id="@+id/extend_song" android:layout_marginTop="0dp"/>
+
+
+
     <WebView
+            android:layout_below="@id/extend_song"
             android:id="@+id/song_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent" android:padding="20dp"/>
 
-    <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_margin="@dimen/fab_margin"
-            app:srcCompat="@android:drawable/ic_menu_add"/>
+    </RelativeLayout>
+
 
 </FrameLayout>

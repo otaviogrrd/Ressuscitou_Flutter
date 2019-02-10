@@ -2,16 +2,19 @@ package br.org.cn.ressuscitou.Fragment
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.util.Base64
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.util.Base64
 import android.webkit.WebView
+import android.widget.CompoundButton
 import br.org.cn.ressuscitou.Persistence.DataBaseHelper
 import br.org.cn.ressuscitou.Persistence.DAO.SongsDAO
+import br.org.cn.ressuscitou.Persistence.Entities.Songs
 
 import br.org.cn.ressuscitou.R
 import br.org.cn.ressuscitou.Utils.Preferences
+import kotlinx.android.synthetic.main.fragment_song_detail.view.*
 import java.io.File
 
 // TODO: Rename parameter arguments, choose names that match
@@ -27,12 +30,13 @@ private const val SONG_ID = "SONGID"
  * create an instance of this fragment.
  *
  */
-class SongDetail : Fragment() {
+class SongDetail : Fragment(), CompoundButton.OnCheckedChangeListener  {
+
+
     // TODO: Rename and change types of parameters
     private var songId: Int? = null
-
-    var prefs: Preferences? = null;
-    var EXT_MOD: Boolean? = false;
+    private var songView: Songs? = null;
+    var webView: WebView? = null;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,44 +51,46 @@ class SongDetail : Fragment() {
     ): View? {
 
         val view = inflater.inflate(R.layout.fragment_song_detail, container, false)
-        // Inflate the layout for this fragment
 
-        val webView = view.findViewById<WebView>(R.id.song_view)
+        webView = view.findViewById<WebView>(R.id.song_view)
 
         var dbHelper = DataBaseHelper(context);
         var dao = SongsDAO(dbHelper.connectionSource);
         val queryBuilder = dao.queryBuilder();
-        queryBuilder.where().eq("id", SONG_ID);
+        queryBuilder.where().eq("id", songId);
 
         val song = queryBuilder.query();
+
+        view.extend_song.setOnCheckedChangeListener(this)
+
+        songView = song.get(0);
+        changeSongView(false);
+
+        return view;
+    }
+
+    override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
+        changeSongView(isChecked)
+    }
+
+    fun changeSongView(
+        extend: Boolean
+    )
+    {
+        var base64Str: String? = null;
+
+        if(extend == true){
+            base64Str = songView!!.ext_base64
+        }else{
+            base64Str = songView!!.html_base64;
+        }
 
 
         val path = context!!.filesDir
         val file = File(path, "temp.html")
 
-
-        //SongsFragment().activity!!.supportFragmentManager
-
-        prefs = Preferences(SongDetail().activity!!)
-        EXT_MOD = prefs!!.settings_mod
-
-        if(song.get(0) != null)
-        {
-
-            var base64Str: String? = null;
-
-            if(EXT_MOD == true){
-                base64Str = song.get(0).ext_base64;
-            }else{
-                base64Str = song.get(0).html_base64;
-            }
-
-            file.writeBytes(Base64.decode(base64Str!!.toByteArray(), Base64.DEFAULT))
-            webView!!.loadUrl("file://" + path + "/temp.html" )
-        }
-
-
-        return view;
+        file.writeBytes(Base64.decode(base64Str!!.toByteArray(), Base64.DEFAULT))
+        webView!!.loadUrl("file://" + path + "/temp.html" )
     }
 
 

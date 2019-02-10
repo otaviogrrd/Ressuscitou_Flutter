@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context=".Fragment.FragmentLists">
+
+
+    <LinearLayout
+            android:id="@+id/celebration"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:text="Tipo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/list_type"
+                android:padding="10dp"
+                android:id="@+id/spinner"/>
+
+        <TextView
+                android:text="Cântico de entrada"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"/>
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:text="Name"
+                android:ems="10"
+                android:layout_marginBottom="20dp"
+                android:id="@+id/input"/>
+
+        <TextView
+                android:text="1 Leitura"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:text="Name"
+                android:ems="10"
+                android:layout_marginBottom="20dp"
+                android:id="@+id/first_reading"/>
+
+        <TextView
+                android:text="2 Leitura"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:text="Name"
+                android:ems="10"
+                android:layout_marginBottom="20dp"
+                android:id="@+id/second_reading"/>
+
+
+        <TextView
+                android:text="3 Leitura"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:text="Name"
+                android:ems="10"
+                android:layout_marginBottom="20dp"
+                android:id="@+id/thirt_reading"/>
+
+        <TextView
+                android:text="Paz"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:text="Name"
+                android:ems="10"
+                android:layout_marginBottom="20dp"
+                android:id="@+id/peace"/>
+
+        <TextView
+                android:text="Final"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:text="Name"
+                android:ems="10"
+                android:layout_marginBottom="20dp"
+                android:id="@+id/final_celebration"/>
+
+
+
+
+
+    </LinearLayout>
+</FrameLayout>

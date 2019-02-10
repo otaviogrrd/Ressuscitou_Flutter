@@ -155,11 +155,12 @@ class SongsFragment : Fragment(){
             not_result!!.visibility = View.GONE;
         }
 
+//        val manager = supportFragmentManager
         recyclerView.layoutAnimation = animation
 
         recyclerView.removeAllViewsInLayout();
         recyclerView.layoutManager = LinearLayoutManager(context);
-        recyclerView.adapter = SongAdapter(list, context, this);
+        recyclerView.adapter = SongAdapter(list, context, this!!.fragmentManager!!);
         recyclerView.visibility = View.VISIBLE;
         recyclerView.scheduleLayoutAnimation();
 

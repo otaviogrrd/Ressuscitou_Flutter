@@ -3,30 +3,27 @@ package br.org.cn.ressuscitou.Adapter
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
-import android.support.v4.app.FragmentActivity
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.RecyclerView.Adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import br.org.cn.ressuscitou.Fragment.SongsFragment
-import br.org.cn.ressuscitou.Fragment.SongDetail
 import br.org.cn.ressuscitou.Persistence.Entities.Songs
 import br.org.cn.ressuscitou.R
 import kotlinx.android.synthetic.main.song_item.view.*
-import android.app.Activity
-
-
+import android.support.v4.app.FragmentManager
+import br.org.cn.ressuscitou.Fragment.SongDetail
 
 
 class SongAdapter(
     private val songs: List<Songs>,
     private val context: Context?,
-    songsFragment: SongsFragment,
-    activity: FragmentActivity?
+    manager: FragmentManager
 ) : Adapter<ViewHolder>(){
 
     val fragment = SongsFragment
+    val manager = manager;
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -52,7 +49,7 @@ class SongAdapter(
 
 
         holder?.wrapper.setOnClickListener({
-
+            manager.beginTransaction().replace(R.id.container, SongDetail.newInstance(song.id)).addToBackStack(null).commit()
         })
 
 
