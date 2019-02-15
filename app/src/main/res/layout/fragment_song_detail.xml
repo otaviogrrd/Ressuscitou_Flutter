@@ -9,19 +9,74 @@
 
     <RelativeLayout android:layout_width="match_parent"
                     android:id="@+id/network"
+                    android:background="@color/colorPrimary"
                     android:layout_height="match_parent">
-        <CheckBox
-                android:layout_below="@id/title_wifi"
-                android:text="Visualizar em modo extendido"
+
+        <RelativeLayout android:padding="25dp"
+                        android:background="#000000"
+                        android:id="@+id/player_audio"
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
+                    app:srcCompat="@drawable/ic_play_arrow_white_24dp"
+                    android:id="@+id/play"/>
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:visibility="gone"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
+                    app:srcCompat="@drawable/ic_pause_white_24dp"
+                    android:id="@+id/stop"/>
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    app:srcCompat="@android:drawable/stat_sys_download"
+                    android:id="@+id/download"/>
+            <ProgressBar
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="197dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_height="34dp"
+                    android:outlineSpotShadowColor="#ffffff"
+                    android:layout_toRightOf="@id/download"
+                    android:id="@+id/progressbar"/>
+
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="0:00"
+                    android:textColor="#ffffff"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/time_all"
+                    android:layout_toRightOf="@+id/progressbar"
+
+                    android:textAlignment="textEnd"/>
+        </RelativeLayout>
+
+        <include
+                android:id="@+id/menu"
+                android:layout_below="@+id/player_audio"
                 android:layout_width="match_parent"
-                android:gravity="center_horizontal"
-                android:padding="10dp"
-                android:layout_height="wrap_content" android:id="@+id/extend_song" android:layout_marginTop="0dp"/>
-
-
+                layout="@layout/menu_song_detail"
+                android:layout_height="50dp"
+        />
 
     <WebView
-            android:layout_below="@id/extend_song"
+            android:layout_below="@id/menu"
             android:id="@+id/song_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent" android:padding="20dp"/>
