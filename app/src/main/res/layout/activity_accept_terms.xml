@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".AcceptTermsActivity">
+
+    <ImageView
+            android:layout_width="331dp"
+            android:layout_height="257dp"
+            app:srcCompat="@drawable/ilustra_violao"
+            android:id="@+id/iluster" android:layout_marginTop="80dp" android:layout_alignParentLeft="true"
+            android:layout_marginLeft="-30dp"/>
+
+    <RelativeLayout
+            android:layout_below="@+id/iluster"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginTop="40dp">
+        <TextView
+                android:text="IMPORTANTE"
+                android:fontFamily="@font/quicksand_bold"
+                android:textSize="18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/important_title"
+                android:layout_centerHorizontal="true" android:textColor="@android:color/black"
+                android:layout_marginBottom="12dp"/>
+        <TextView
+                android:text="Irmãos, esse aplicativo não deve ser usado em celebrações. Deve servir apenas como apoio aos salmistas em ensaios e preparações."
+                android:layout_below="@+id/important_title"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/important_description" android:fontFamily="@font/quicksand_regular"
+                android:layout_centerHorizontal="true" android:textColor="@android:color/black" android:padding="0dp"/>
+        <Button
+                android:text="Entendi"
+                android:layout_below="@id/important_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/accepted"
+                android:background="@android:color/transparent" android:textColor="#FF0010"
+                android:layout_marginTop="30dp" android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
+</RelativeLayout>

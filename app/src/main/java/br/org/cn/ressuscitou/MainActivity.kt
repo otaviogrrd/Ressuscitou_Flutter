@@ -48,6 +48,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
 
         nav_view.setNavigationItemSelectedListener(this)
+
+
+
+        addFragment(SongsFragment.newInstance("ALL", "RESSUCITOU"), false, "songs");
+        supportActionBar!!.setTitle(title);
     }
 
     override fun onBackPressed() {
@@ -82,10 +87,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 fragment = SongsFragment.newInstance("ELEICAO", "Eleição");
                 title = "Eleição";
             }
-//            R.id.nav_song_liturgic -> {
-//                fragment = SongsFragment.newInstance("LITURGIA", "Liturgia");
-//                title = "Liturgia";
-//            }
             R.id.nav_set_accords -> {
                 fragment = SongsFragment.newInstance("ACORDES", "Acordes");
                 title = "Acordes";
@@ -95,12 +96,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 title = "Configurações";
             }
             R.id.nav_set_harp -> {
-//                categorySong = "ARPEJOS"
                 title = "Harpejos";
             }else ->{
-//                categorySong = "ALL";
-            title = "todos"
-        }
+                title = "todos"
+                fragment = SongsFragment.newInstance("ALL", "RESSUCITOU");
+            }
         }
 
 

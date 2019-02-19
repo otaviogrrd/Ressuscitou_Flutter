@@ -15,6 +15,7 @@ import br.org.cn.ressuscitou.R
 import kotlinx.android.synthetic.main.song_item.view.*
 import android.support.v4.app.FragmentManager
 import android.support.v7.content.res.AppCompatResources
+import android.util.Log
 import br.org.cn.ressuscitou.Fragment.SongDetail
 
 
@@ -59,6 +60,14 @@ class SongAdapter(
 
         holder?.title.text = song.title
 
+//        Log.d("URLCANTICLE", song.url.toString());
+        holder?.downloadImage.visibility= View.VISIBLE
+
+        Log.d("URL", song.url.toString());
+
+//        if(song.url.equals("X")){
+//            holder?.downloadImage.visibility= View.VISIBLE
+//        }
 
     }
 
@@ -84,5 +93,5 @@ class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     var page = itemView.song_page_number
     var title = itemView.song_title
     var wrapper = itemView.song_item
-    var downloadImage = itemView.download_image
+    var downloadImage = itemView.download
 }

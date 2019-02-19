@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.view.Window
@@ -23,6 +24,9 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.scalars.ScalarsConverterFactory
+import android.support.v4.os.HandlerCompat.postDelayed
+
+
 
 class SplashActivity : AppCompatActivity() {
 
@@ -48,9 +52,6 @@ class SplashActivity : AppCompatActivity() {
 
         val progressBar = findViewById<ProgressBar>(R.id.progressbarupdate)
 
-
-        //progressBar.progressDrawable.setColorFilter(Color.WHITE,  android.graphics.PorterDuff.Mode.SRC_IN)
-
         context = this.applicationContext
 
         //VERIFY SIZE COUNTOF CANTICLES
@@ -64,8 +65,7 @@ class SplashActivity : AppCompatActivity() {
             }
             //IF CURRENT VERSION IS LAST VERSION APP ON REPOSITORY
             else{
-                startActivity(Intent(this, MainActivity::class.java))
-                finish()
+                nextActivity()
             }
         }
         //IF EMPTY CANTICLES ON APP
@@ -123,6 +123,7 @@ class SplashActivity : AppCompatActivity() {
                                 var obj = item as com.google.gson.JsonObject
                                 var songs = Songs()
                                 songs.title = obj.get("titulo").asString;
+                                songs.url = obj.get("url").asString;
                                 songs.numero = obj.get("numero").asString;
                                 songs.categoria = obj.get("categoria").asInt
                                 songs.adve = obj.get("adve").asBoolean
@@ -141,15 +142,15 @@ class SplashActivity : AppCompatActivity() {
                                 songs.conteudo = obj.get("conteudo").asString
                                 songs.html_base64 = obj.get("html_base64").asString
                                 songs.ext_base64 = obj.get("ext_base64").asString
+
+                                Log.d("SONG",obj.get("url").asString);
                                 dao.create(songs);
                             }
 
                             if(dao.countOf() > 0) {
 
                                 progressBar.visibility = View.GONE;
-                                startActivity(Intent(context, MainActivity::class.java))
-                                finish()
-
+                                nextActivity()
                             }else{
                                 Toast.makeText(applicationContext, "não foi possivel atualizar", Toast.LENGTH_SHORT).show();
                             }
@@ -160,5 +161,17 @@ class SplashActivity : AppCompatActivity() {
                 }
             })
         }
+    }
+
+    fun nextActivity(){
+        val handle = Handler()
+        handle.postDelayed(Runnable {
+            if(prefs!!.accepted_terms) {
+                startActivity(Intent(this, MainActivity::class.java))
+            }else{
+                startActivity(Intent(this, AcceptTermsActivity::class.java))
+            }
+        }, 2000)
+        finish()
     }
 }

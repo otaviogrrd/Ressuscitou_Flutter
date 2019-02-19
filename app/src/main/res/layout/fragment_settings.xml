@@ -28,6 +28,11 @@
                     android:text="Selecione para não usar Dados Moveis"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" android:id="@+id/settings_wifi" android:layout_marginTop="0dp"/>
+            <Switch
+                    android:text="Switch"
+                    android:id="@+id/switchD"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
         </RelativeLayout>
 
         <RelativeLayout

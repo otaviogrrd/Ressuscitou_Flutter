@@ -9,6 +9,7 @@ class Preferences(context: Context) {
     val APP_SETTINGS_WIFI = "WIFI_NEWTWORK"
     val APP_SETTINGS_EXTEND_MOD = "EXTEND_MOD"
     val APP_CHIPPER_AMERICAN = "CHIPPER_AMERICAN"
+    val ACCEPTED_TERMS = "ACCEPTED_TERMS"
 
     val prefs: SharedPreferences = context.getSharedPreferences(PREFERENCES_FILENAME, 0);
 
@@ -28,6 +29,10 @@ class Preferences(context: Context) {
     var settings_chipper: Boolean
         get() = prefs.getBoolean(APP_CHIPPER_AMERICAN, false)
         set(value) = prefs.edit().putBoolean(APP_CHIPPER_AMERICAN, value).apply()
+
+    var accepted_terms: Boolean
+        get() = prefs.getBoolean(ACCEPTED_TERMS, false)
+        set(value: Boolean) = prefs.edit().putBoolean(ACCEPTED_TERMS, value).apply()
 
 
 }

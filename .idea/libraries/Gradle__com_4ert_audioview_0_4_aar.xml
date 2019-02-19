@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.4ert:audioview:0.4@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/audioview-0.4.aar/b7041595094b0cc6923cd91d2c1b4a7c/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/audioview-0.4.aar/b7041595094b0cc6923cd91d2c1b4a7c/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/audioview-0.4.aar/5eb5ac59983e8d89823d092d578d106a/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/audioview-0.4.aar/5eb5ac59983e8d89823d092d578d106a/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

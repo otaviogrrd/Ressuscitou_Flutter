@@ -10,6 +10,7 @@
     <android.support.v7.widget.RecyclerView android:layout_width="match_parent"
                                             android:layout_height="match_parent"
                                             android:visibility="gone"
+                                            android:padding="24sp"
                                             android:id="@+id/song_list"
     >
 
