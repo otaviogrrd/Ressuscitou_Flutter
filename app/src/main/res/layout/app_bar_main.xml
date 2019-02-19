@@ -19,6 +19,7 @@
           android:layout_height="wrap_content"
           android:background="?attr/colorPrimary"
           android:minHeight="?attr/actionBarSize"
+          app:titleTextAppearance="@style/TitleBarTextAppearance"
           app:theme="@style/ThemeOverlay.AppCompat.Dark" />
 
     </android.support.design.widget.AppBarLayout>

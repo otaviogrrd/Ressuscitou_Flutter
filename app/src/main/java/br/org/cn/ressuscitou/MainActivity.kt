@@ -1,5 +1,6 @@
 package br.org.cn.ressuscitou
 
+import android.graphics.Typeface
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.v4.app.Fragment
@@ -30,19 +31,10 @@ import org.jetbrains.anko.doAsync
 
 import retrofit2.Retrofit
 import retrofit2.converter.scalars.ScalarsConverterFactory
+import java.util.*
 
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-
-    var prefs: Preferences? = null;
-    var versionApp = 0;
-    val permission = false;
-
-    private val PermissionsRequestCode = 123
-    private lateinit var managePermissions: ManagePermissions
-
-    var dbHelper = DataBaseHelper(this);
-    var dao = SongsDAO(dbHelper.connectionSource);
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,11 +46,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         )
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
-
-        prefs = Preferences(this)
-        versionApp = prefs!!.version
-
-        populateFirst();
 
         nav_view.setNavigationItemSelectedListener(this)
     }
@@ -75,7 +62,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         var title = "";
         var fragment:Fragment?  = null;
-
 
         when (item.itemId) {
             R.id.nav_song_alfabetical -> {
@@ -96,10 +82,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 fragment = SongsFragment.newInstance("ELEICAO", "Eleição");
                 title = "Eleição";
             }
-            R.id.nav_song_liturgic -> {
-                fragment = SongsFragment.newInstance("LITURGIA", "Liturgia");
-                title = "Liturgia";
-            }
+//            R.id.nav_song_liturgic -> {
+//                fragment = SongsFragment.newInstance("LITURGIA", "Liturgia");
+//                title = "Liturgia";
+//            }
             R.id.nav_set_accords -> {
                 fragment = SongsFragment.newInstance("ACORDES", "Acordes");
                 title = "Acordes";
@@ -133,111 +119,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return true
     }
 
-    fun populateFirst(){
-        if(dao.countOf() <= 0){
-            val progressBar = findViewById<ProgressBar>(R.id.progressBar);
-
-            progressBar.visibility = View.VISIBLE;
-
-            fetchData(progressBar);
-        }else{
-
-
-            addFragment(SongsFragment.newInstance("ALL", "Todos"), false , "songs");
-            supportActionBar!!.setTitle("Todos");
-        }
-    }
-
-    fun fetchData(progressBar: ProgressBar) {
-
-       val call =  RetrofitInitializer().ressucitouApp().verifyVersion();
-
-        call.enqueue(object: Callback<Int>{
-            override fun onFailure(call: Call<Int>, t: Throwable) {
-
-            }
-
-            override fun onResponse(call: Call<Int>, response: Response<Int>) {
-
-
-                if(response.body()!! > versionApp){
-                    fetchSongs(response.body()!!.toInt(), progressBar);
-                }
-            }
-
-        })
-
-
-    }
-
-    fun fetchSongs(version: Int, progressBar: ProgressBar){
-
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/")
-            .addConverterFactory(ScalarsConverterFactory.create())
-            .build()
-
-        doAsync {
-            val call = retrofit.create(SongService::class.java);
-
-            call.getSongs().enqueue(object: Callback<String>{
-                override fun onFailure(call: Call<String>, t: Throwable) {
-                    Log.i("ERROR_R", "request not working")
-                }
-
-                override fun onResponse(call: Call<String>, response: Response<String>) {
-                    if(response.isSuccessful){
-                        if(response.body() != null){
-                            var parser = JsonParser();
-
-                            var arr = parser.parse(response.body().toString()).asJsonArray;
 
 
 
-                            for(item in arr){
-                                var obj = item as com.google.gson.JsonObject
-                                var songs = Songs()
-                                songs.title = obj.get("titulo").asString;
-                                songs.numero = obj.get("numero").asString;
-                                songs.categoria = obj.get("categoria").asInt
-                                songs.adve = obj.get("adve").asBoolean
-                                songs.laud = obj.get("adve").asBoolean
-                                songs.entr = obj.get("entr").asBoolean
-                                songs.nata = obj.get("nata").asBoolean
-                                songs.quar = obj.get("quar").asBoolean
-                                songs.pasc = obj.get("pasc").asBoolean
-                                songs.pent = obj.get("pent").asBoolean
-                                songs.virg = obj.get("virg").asBoolean
-                                songs.cria = obj.get("cria").asBoolean
-                                songs.cpaz = obj.get("cpaz").asBoolean
-                                songs.fpao = obj.get("fpao").asBoolean
-                                songs.comu = obj.get("comu").asBoolean
-                                songs.cfin = obj.get("cfin").asBoolean
-                                songs.conteudo = obj.get("conteudo").asString
-                                songs.html_base64 = obj.get("html_base64").asString
-                                songs.ext_base64 = obj.get("ext_base64").asString
-                                dao.create(songs);
-                            }
-
-                            if(dao.countOf() > 0) {
-                                addFragment(SongsFragment.newInstance("ALL", "Todos"), false , "songs");
-                                supportActionBar!!.setTitle("Todos");
-
-                                progressBar.visibility = View.GONE;
-
-                            }else{
-                                Toast.makeText(applicationContext, "não foi possivel atualizar", Toast.LENGTH_SHORT).show();
-                            }
-                        }else{
-                            Log.i("onEmptyResponse", "Returned empty response");
-                        }
-                    }
-                }
-
-            })
-        }
-
-    }
 
     fun addFragment(fragment: Fragment, addToBackStack: Boolean, tag: String) {
 

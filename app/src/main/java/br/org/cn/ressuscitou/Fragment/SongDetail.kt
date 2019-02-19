@@ -24,6 +24,7 @@ import org.jetbrains.anko.doAsync
 import java.io.File
 import android.media.AudioManager
 import android.util.Log
+import br.org.cn.ressuscitou.MainActivity
 import java.net.URLEncoder
 
 
@@ -79,6 +80,8 @@ class SongDetail : Fragment(), View.OnClickListener {
 
 
         songView = song.get(0);
+
+        (activity as MainActivity).supportActionBar?.title = songView!!.title
 
 
         changeSongView(false);

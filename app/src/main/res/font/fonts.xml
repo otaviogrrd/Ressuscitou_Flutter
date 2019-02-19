@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android">
+        <font
+            android:fontStyle="normal"
+            android:fontWeight="400"
+            android:font="@font/quicksand_bold" />
+
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/quicksand_light" />
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/quicksand_medium" />
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/quicksand_regular" />
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/leaguegothic_condenseditalic" />
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/leaguegothic_condensedregular" />
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/leaguegothic_italic" />
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/leaguegothic_regular" />
+
+</font-family>

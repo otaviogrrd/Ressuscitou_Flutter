@@ -9,12 +9,10 @@
         <item
                 android:id="@+id/nav_song_alfabetical"
                 android:icon="@drawable/ic_menu_camera"
-                android:title="Indice Alfabético"/>
-        <item
-                android:id="@+id/nav_song_liturgic"
-                android:icon="@drawable/ic_menu_manage"
-                android:title="Liturgia"/>
+                android:title="Configurações"/>
     </group>
+
+
 
     <group android:checkableBehavior="single">
         <item android:title="Por etapa">

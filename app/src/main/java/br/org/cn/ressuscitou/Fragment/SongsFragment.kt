@@ -39,7 +39,7 @@ class SongsFragment : Fragment(){
     //ELEMENTS ON VIEW
     var not_result: TextView? = null;
     var recyclerView: RecyclerView? = null;
-    var liturgic_filter:Spinner? = null;
+   // var liturgic_filter:Spinner? = null;
 
 
 
@@ -68,7 +68,7 @@ class SongsFragment : Fragment(){
         setHasOptionsMenu(true);
         recyclerView = view.song_list
 
-        liturgic_filter = view.liturgic_filter;
+//        liturgic_filter = view.liturgic_filter;
         not_result = view.not_results;
 
 
@@ -117,26 +117,26 @@ class SongsFragment : Fragment(){
         super.onActivityCreated(savedInstanceState)
 
 
-        liturgic_filter!!.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-            }
-
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                var col: String? = null
-
-                if(position > 0) {
-                    col = getColumnFilters(position);
-                }else{
-                    col = null;
-                }
-
-
-
-                songs(termStr.toString(), col);
-                populateRecycle(recyclerView, not_result,songs);
-            }
-
-        }
+//        liturgic_filter!!.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+//            override fun onNothingSelected(parent: AdapterView<*>?) {
+//            }
+//
+//            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+//                var col: String? = null
+//
+//                if(position > 0) {
+//                    col = getColumnFilters(position);
+//                }else{
+//                    col = null;
+//                }
+//
+//
+//
+//                songs(termStr.toString(), col);
+//                populateRecycle(recyclerView, not_result,songs);
+//            }
+//
+//        }
 
         songs(termStr.toString(), col);
         populateRecycle(recyclerView, not_result, songs);

@@ -2,6 +2,7 @@ package br.org.cn.ressuscitou.Adapter
 
 import android.content.Context
 import android.graphics.Color
+import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.RecyclerView.Adapter
@@ -13,6 +14,7 @@ import br.org.cn.ressuscitou.Persistence.Entities.Songs
 import br.org.cn.ressuscitou.R
 import kotlinx.android.synthetic.main.song_item.view.*
 import android.support.v4.app.FragmentManager
+import android.support.v7.content.res.AppCompatResources
 import br.org.cn.ressuscitou.Fragment.SongDetail
 
 
@@ -53,10 +55,10 @@ class SongAdapter(
         })
 
 
-
         holder?.page.background = drawable
-        holder?.page.text = song.numero
+
         holder?.title.text = song.title
+
 
     }
 
@@ -65,7 +67,7 @@ class SongAdapter(
 
 
     fun colorsByCategory(category:Int): String {
-        val colors = arrayOf<String>("d5d5d5","6da3d1","6dd175","f2e2a0");
+        val colors = arrayOf<String>("EFEFEF","6da3d1","6dd175","f2e2a0");
         val response: String;
 
         if(!colors[category -1].isNullOrEmpty()){
@@ -82,4 +84,5 @@ class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     var page = itemView.song_page_number
     var title = itemView.song_title
     var wrapper = itemView.song_item
+    var downloadImage = itemView.download_image
 }
