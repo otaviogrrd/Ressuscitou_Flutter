@@ -14,6 +14,7 @@ import br.org.cn.ressuscitou.Persistence.Entities.Songs
 import br.org.cn.ressuscitou.R
 import kotlinx.android.synthetic.main.song_item.view.*
 import android.support.v4.app.FragmentManager
+import android.support.v4.content.ContextCompat
 import android.support.v7.content.res.AppCompatResources
 import android.util.Log
 import br.org.cn.ressuscitou.Fragment.SongDetail
@@ -58,17 +59,20 @@ class SongAdapter(
 
         holder?.page.background = drawable
 
-        holder?.title.text = song.title
+        var title = song.title!!.toLowerCase();
+        holder?.title.text = title.capitalize();
 
-//        Log.d("URLCANTICLE", song.url.toString());
-        holder?.downloadImage.visibility= View.VISIBLE
+        if(song.url.equals("X",true)){
+            holder?.downloadImage.visibility= View.VISIBLE
+        }else{
+            holder?.downloadImage.visibility= View.GONE;
+        }
 
-        Log.d("URL", song.url.toString());
+        Log.d("HAS_AUDIO", song.hasaudio.toString());
 
-//        if(song.url.equals("X")){
-//            holder?.downloadImage.visibility= View.VISIBLE
-//        }
-
+        if(song.hasaudio){
+            holder?.downloadImage.setImageDrawable(context!!.resources.getDrawable(R.drawable.download_on))
+        }
     }
 
 

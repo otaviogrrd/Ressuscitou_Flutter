@@ -10,8 +10,8 @@ import com.j256.ormlite.table.TableUtils
 class DataBaseHelper : OrmLiteSqliteOpenHelper {
 
     companion object {
-        private val db = "songs.db"
-        private val versao = 2
+        private val db = "songss.db"
+        private val versao = 5
     }
 
     constructor(context: Context?) : super(context,db,null,versao)

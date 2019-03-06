@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/new_navigation"
+            app:startDestination="@id/splashActivity">
+
+    <activity android:id="@+id/splashActivity" android:name="br.org.cn.ressuscitou.SplashActivity"
+              android:label="activity_splash" tools:layout="@layout/activity_splash"/>
+    <activity android:id="@+id/acceptTermsActivity" android:name="br.org.cn.ressuscitou.AcceptTermsActivity"
+              android:label="activity_accept_terms" tools:layout="@layout/activity_accept_terms"/>
+    <fragment android:id="@+id/songsFragment" android:name="br.org.cn.ressuscitou.Fragment.SongsFragment"
+              android:label="SongsFragment">
+        <action android:id="@+id/action_songsFragment_to_songDetail" app:destination="@id/songDetail"
+                app:enterAnim="@anim/slide_up" app:exitAnim="@anim/slide_down"/>
+    </fragment>
+    <fragment android:id="@+id/songDetail" android:name="br.org.cn.ressuscitou.Fragment.SongDetail"
+              android:label="fragment_song_detail" tools:layout="@layout/fragment_song_detail"/>
+</navigation>

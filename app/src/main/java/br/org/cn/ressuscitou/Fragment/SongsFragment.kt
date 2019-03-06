@@ -3,7 +3,6 @@ package br.org.cn.ressuscitou.Fragment
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.SearchView
 import android.util.Log
 import br.org.cn.ressuscitou.Adapter.SongAdapter
 import br.org.cn.ressuscitou.Persistence.DataBaseHelper
@@ -14,12 +13,16 @@ import kotlinx.android.synthetic.main.fragment_songs.view.*
 import android.support.v7.widget.RecyclerView
 import android.view.animation.AnimationUtils
 import android.view.animation.LayoutAnimationController
-import android.widget.AdapterView
-import android.widget.Spinner
 import android.widget.TextView
 import br.org.cn.ressuscitou.R
-import android.support.v4.view.MenuItemCompat
 import android.view.*
+import android.widget.Toolbar
+import android.support.v7.app.AppCompatActivity
+import br.org.cn.ressuscitou.MainActivity
+import kotlinx.android.synthetic.main.app_bar_main.view.*
+import kotlinx.android.synthetic.main.app_bar_main.*
+import kotlinx.android.synthetic.main.toolbar.*
+import kotlinx.android.synthetic.main.toolbar.view.*
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -64,53 +67,66 @@ class SongsFragment : Fragment(){
         savedInstanceState: Bundle?
     ): View? {
         var view =inflater.inflate(R.layout.fragment_songs, container, false)
+        val toolbar = (activity as MainActivity).toolbar
 
+        initToolBar(toolbar);
         setHasOptionsMenu(true);
         recyclerView = view.song_list
 
-//        liturgic_filter = view.liturgic_filter;
         not_result = view.not_results;
 
 
         return view;
     }
 
+    fun initToolBar(toolbar: android.support.v7.widget.Toolbar) {
+        toolbar.section_title.setText(title!!.toUpperCase())
+        toolbar.section_title.compoundDrawablePadding = 0;
+        toolbar.bt_search.visibility = View.VISIBLE;
+        toolbar.options.visibility = View.GONE;
+        toolbar.bt_audio.visibility = View.GONE;
+
+        toolbar.bt_search.setOnClickListener({
+            toolbar.search_term.visibility = View.VISIBLE
+        })
+    }
+
     override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
-        inflater!!.inflate(R.menu.main,menu)
+//        inflater!!.inflate(R.menu.main,menu)
 
-        val item = menu!!.findItem(R.id.action_search)
-        val searchViewT = MenuItemCompat.getActionView(item) as SearchView
-
-        searchViewT.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
-            override fun onQueryTextSubmit(term: String?): Boolean {
-                termStr = term.toString();
-                songs(termStr.toString(), col);
-                populateRecycle(recyclerView, not_result,songs);
-                return true;
-            }
-
-            override fun onQueryTextChange(term: String?): Boolean {
-                Log.d("TERM_SEARCH", term.toString());
-                termStr = term.toString();
-                songs(termStr.toString(), col);
-                populateRecycle(recyclerView, not_result,songs);
-                return true;
-            }
-
-        })
-
-        item.setOnActionExpandListener(object : MenuItem.OnActionExpandListener{
-
-            override fun onMenuItemActionExpand(item: MenuItem): Boolean {
-
-                return true
-            }
-
-            override fun onMenuItemActionCollapse(item: MenuItem): Boolean {
-                return true
-
-            }
-        })
+//        val item = menu!!.findItem(R.id.action_search)
+//        val searchViewT = MenuItemCompat.getActionView(item) as SearchView
+//
+//        searchViewT.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
+//            override fun onQueryTextSubmit(term: String?): Boolean {
+//                termStr = term.toString();
+//                songs(termStr.toString(), col);
+//                populateRecycle(recyclerView, not_result,songs);
+//                return true;
+//            }
+//
+//            override fun onQueryTextChange(term: String?): Boolean {
+//                Log.d("TERM_SEARCH", term.toString());
+//                termStr = term.toString();
+//                songs(termStr.toString(), col);
+//                populateRecycle(recyclerView, not_result,songs);
+//                return true;
+//            }
+//
+//        })
+//
+//        item.setOnActionExpandListener(object : MenuItem.OnActionExpandListener{
+//
+//            override fun onMenuItemActionExpand(item: MenuItem): Boolean {
+//
+//                return true
+//            }
+//
+//            override fun onMenuItemActionCollapse(item: MenuItem): Boolean {
+//                return true
+//
+//            }
+//        })
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -204,7 +220,9 @@ class SongsFragment : Fragment(){
         }
 
         if(!term.isNullOrEmpty() && !term.equals("null")) {
-            where.and().like("conteudo", "%" + term.toString().toLowerCase() + "%");
+            where.and().like("conteudo", "%" + term.toString().toLowerCase() + "%")
+                .or()
+                .like("title", "%" + term.toString().toLowerCase() + "%");
         }
 
         if(!ligurgic.isNullOrEmpty()) {

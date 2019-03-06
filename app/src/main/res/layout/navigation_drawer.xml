@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <RelativeLayout
+            android:id="@+id/settings_container"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:background="@drawable/border">
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" app:srcCompat="@drawable/ic_settings" android:id="@+id/imageView"
+                android:layout_gravity="left" android:paddingLeft="24dp" android:paddingBottom="28dp"
+                android:paddingTop="28dp" android:layout_weight="4" android:layout_centerVertical="true"/>
+        <TextView
+                android:text="Configurações"
+                android:layout_alignBaseline="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_centerVertical="true"
+                android:layout_marginLeft="90dp" android:fontFamily="@font/quicksand_regular" android:textSize="18dp"
+                android:textColor="@android:color/black"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_below="@+id/settings_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/section_title_menu_first">
+        <TextView
+                android:id="@+id/section_title_first"
+                android:layout_width="match_parent"
+                android:text="Ver todos(A-Z)"
+                android:layout_height="wrap_content" android:fontFamily="@font/quicksand_bold" android:textSize="18dp"
+                android:textColor="@android:color/black" android:paddingTop="23dp" android:paddingLeft="24dp"
+                android:paddingBottom="24dp"/>
+        <TextView
+                android:layout_below="@+id/section_title_first"
+                android:text="ETAPA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/textView2" android:layout_marginLeft="24dp"
+                android:paddingTop="23dp" android:paddingBottom="27dp" android:fontFamily="@font/quicksand_bold"
+                android:textSize="11sp" android:textColor="@android:color/black"/>
+
+    </RelativeLayout>
+    <RelativeLayout
+            android:id="@+id/container_pre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/section_title_menu_first"
+            android:paddingLeft="24dp"
+            android:paddingTop="24dp"
+            android:paddingBottom="24dp">
+        <ImageView android:layout_width="15dp"
+                   android:layout_height="15dp"
+                   android:background="@drawable/drawable_round_gray"
+                   android:layout_gravity="center_vertical" android:padding="10dp"
+                   android:layout_centerVertical="true" android:paddingLeft="24dp"/>
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/pre"
+                  android:text="Pré-Catecumenato" android:paddingLeft="24dp"
+                  android:fontFamily="@font/quicksand_regular" android:textSize="18dp"
+                  android:textColor="@android:color/black"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:id="@+id/container_liturgic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/container_pre"
+            android:paddingLeft="24dp"
+            android:paddingTop="24dp"
+            android:paddingBottom="24dp">
+        <ImageView android:layout_width="15dp"
+                   android:layout_height="15dp"
+                   android:background="@drawable/drawable_round_orange"
+                   android:layout_gravity="center_vertical" android:padding="10dp"
+                   android:layout_centerVertical="true" android:paddingLeft="24dp"/>
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:id="@+id/liturgic"
+                  android:text="Cantos Litúrgicos" android:paddingLeft="24dp"
+                  android:fontFamily="@font/quicksand_regular" android:textSize="18dp"
+                  android:textColor="@android:color/black"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:id="@+id/container_catecumenato"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/container_liturgic"
+            android:paddingLeft="24dp"
+            android:paddingTop="24dp"
+            android:paddingBottom="24dp">
+        <ImageView android:layout_width="15dp"
+                   android:layout_height="15dp"
+                   android:background="@drawable/drawable_round_blue"
+                   android:layout_gravity="center_vertical" android:padding="10dp"
+                   android:layout_centerVertical="true" android:paddingLeft="24dp"/>
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:id="@+id/catecumenato"
+                  android:text="Catecumenato" android:paddingLeft="24dp"
+                  android:fontFamily="@font/quicksand_regular" android:textSize="18dp"
+                  android:textColor="@android:color/black"/>
+    </RelativeLayout>
+</RelativeLayout>

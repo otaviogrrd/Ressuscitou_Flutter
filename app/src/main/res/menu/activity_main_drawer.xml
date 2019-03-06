@@ -4,33 +4,37 @@
       tools:showIn="navigation_view">
 
 
-
     <group android:checkableBehavior="single">
         <item
                 android:id="@+id/nav_song_alfabetical"
-                android:icon="@drawable/ic_menu_camera"
+                android:icon="@drawable/ic_settings"
                 android:title="Configurações"/>
     </group>
 
 
 
     <group android:checkableBehavior="single">
-        <item android:title="Por etapa">
+        <item android:title="Ver todos">
             <menu>
-            <item
-                    android:id="@+id/nav_song_pre"
-                    android:icon="@drawable/ic_menu_slideshow"
-                    android:title="Pré-Catecumenato"/>
+                <item
+                        android:id="@+id/nav_song_pre"
+                        android:icon="@drawable/drawable_round_gray"
+                        android:title="@string/pr_catecumenato"/>
 
-            <item
-                    android:id="@+id/nav_song_cat"
-                    android:icon="@drawable/ic_menu_manage"
-                    android:title="Catecumenato"/>
+                <item
+                        android:id="@+id/nav_song_liturgic"
+                        android:icon="@drawable/drawable_round_orange"
+                        android:title="Cânticos Liturgicos"/>
 
-            <item
-                    android:id="@+id/nav_song_eleition"
-                    android:icon="@drawable/ic_menu_manage"
-                    android:title="Eleição"/>
+                <item
+                        android:id="@+id/nav_song_cat"
+                        android:icon="@drawable/drawable_round_blue"
+                        android:title="Catecumenato"/>
+
+                <item
+                        android:id="@+id/nav_song_eleition"
+                        android:icon="@drawable/ic_menu_manage"
+                        android:title="Eleição"/>
 
 
             </menu>

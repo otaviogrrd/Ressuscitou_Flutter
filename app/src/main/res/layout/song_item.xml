@@ -33,6 +33,7 @@
             android:id="@+id/download"
             android:layout_width="20sp"
             android:layout_height="20sp"
+            android:visibility="gone"
             android:src="@drawable/download_off"
             android:layout_gravity="center_vertical|end"/>
 </LinearLayout>

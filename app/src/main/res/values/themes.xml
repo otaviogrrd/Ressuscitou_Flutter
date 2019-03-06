@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.FixedSize" parent="@android:style/Theme.Holo.Light.DarkActionBar">
+        <item name="actionBarSize">24dip</item>
+        <item name="android:actionBarSize">24dip</item>
+    </style>
+</resources>

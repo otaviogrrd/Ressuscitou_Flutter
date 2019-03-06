@@ -1,61 +1,73 @@
 package br.org.cn.ressuscitou.Fragment
 
+import android.content.Intent
+import android.media.AudioManager
 import android.media.MediaPlayer
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
-import android.provider.MediaStore
 import android.support.v4.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.util.Base64
 import android.webkit.WebView
-import android.widget.CompoundButton
-import android.widget.RelativeLayout
 import br.org.cn.ressuscitou.Persistence.DataBaseHelper
 import br.org.cn.ressuscitou.Persistence.DAO.SongsDAO
 import br.org.cn.ressuscitou.Persistence.Entities.Songs
 
 import br.org.cn.ressuscitou.R
-import br.org.cn.ressuscitou.Utils.Preferences
-import kotlinx.android.synthetic.main.fragment_song_detail.view.*
-import kotlinx.android.synthetic.main.menu_song_detail.view.*
-import org.jetbrains.anko.doAsync
 import java.io.File
-import android.media.AudioManager
-import android.util.Log
+import android.view.*
 import br.org.cn.ressuscitou.MainActivity
-import java.net.URLEncoder
+import android.os.StrictMode
+import android.text.format.DateUtils
+import android.widget.*
+import br.org.cn.ressuscitou.Utils.Common
+import android.support.v7.widget.Toolbar
+import android.util.Log
+import java.util.concurrent.TimeUnit
+import android.view.MenuInflater
+import android.view.animation.AnimationUtils
+import br.org.cn.ressuscitou.Utils.UtilitiesAudio
+import kotlinx.android.synthetic.main.toolbar.*
+import kotlinx.android.synthetic.main.toolbar.view.*
+import android.widget.ToggleButton
+import br.org.cn.ressuscitou.AsyncTask.AudioDownload
+import br.org.cn.ressuscitou.ServicesApp.MediaPlayerService
 
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val SONG_ID = "SONGID"
 
-/**
- * A simple [Fragment] subclass.
- * Activities that contain this fragment must implement the
- * [SongDetail.OnFragmentInteractionListener] interface
- * to handle interaction events.
- * Use the [SongDetail.newInstance] factory method to
- * create an instance of this fragment.
- *
- */
-class SongDetail : Fragment(), View.OnClickListener {
+class SongDetail : Fragment() {
 
 
 
     // TODO: Rename and change types of parameters
     private var songId: Int? = null
     private var songView: Songs? = null;
+
+    var audioFile: String? = null;
     var webView: WebView? = null;
-    var player_audio: RelativeLayout? = null;
-    val mediaPlayer: MediaPlayer? = null
+    var player_audio: LinearLayout? = null;
+    var progress_download: LinearLayout? = null;
+    var time_all: TextView? = null;
+    var controlplayer: ImageButton? = null
+    var wrapper_player: RelativeLayout? = null;
+    var progresstime: SeekBar? = null;
+    var media: Intent? = null;
+    var feedback_msg: TextView? = null;
+
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             songId = it.getInt(SONG_ID)
+        }
+
+        if(android.os.Build.VERSION.SDK_INT > 9){
+            val policy = StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+
         }
     }
 
@@ -66,36 +78,130 @@ class SongDetail : Fragment(), View.OnClickListener {
 
         val view = inflater.inflate(R.layout.fragment_song_detail, container, false)
 
-        webView = view.findViewById<WebView>(R.id.song_view)
-        player_audio = view.findViewById<RelativeLayout>(R.id.player_audio)
+        setHasOptionsMenu(true);
+
+        val toolbar = (activity as MainActivity).toolbar
+
 
         var dbHelper = DataBaseHelper(context);
         var dao = SongsDAO(dbHelper.connectionSource);
+
+        media = Intent(context, MediaPlayerService::class.java);
+
+        //CASTS
+        webView = view.findViewById<WebView>(R.id.song_view)
+        player_audio = view.findViewById<LinearLayout>(R.id.player_audio);
+        controlplayer = view.findViewById<ImageButton>(R.id.controlplayer);
+        time_all = view.findViewById<TextView>(R.id.time_all);
+        wrapper_player  =view.findViewById<RelativeLayout>(R.id.wrapper_player);
+        progress_download = view.findViewById<LinearLayout>(R.id.progress_download);
+        progresstime = view.findViewById<SeekBar>(R.id.progresstime)
+        feedback_msg = view.findViewById<TextView>(R.id.feedback_msg);
+
         val queryBuilder = dao.queryBuilder();
         queryBuilder.where().eq("id", songId);
 
         val song = queryBuilder.query();
 
-        view.play_song.setOnClickListener(this);
-
-
         songView = song.get(0);
 
         (activity as MainActivity).supportActionBar?.title = songView!!.title
 
+        audioFile = Common().unaccent(songView!!.title!!) + ".mp3";
 
+
+        initToolBar(toolbar);
         changeSongView(false);
 
         return view;
     }
 
+    fun initToolBar(toolbar: Toolbar) {
+        toolbar.section_title.setText(songView!!.title!!.toUpperCase())
+        toolbar.section_title.compoundDrawablePadding = 0;
+        toolbar.bt_search.visibility = View.GONE;
+        toolbar.options.visibility = View.VISIBLE;
+        toolbar.bt_audio.visibility = View.VISIBLE;
 
-    override fun onClick(v: View?) {
-        if(v!!.id == R.id.play_song){
-            player_audio!!.visibility = View.VISIBLE;
-            playSong();
+        var showPlayer: Boolean = false;
+
+        var animation = AnimationUtils.loadAnimation(context, R.anim.bounce);
+
+        if(songView!!.url.equals("X",true)){
+            toolbar.bt_audio.visibility = View.VISIBLE;
+
+            toolbar.bt_audio.setOnClickListener({
+                if(showPlayer == false)
+                {
+                    showPlayer = true;
+                }else{
+                    showPlayer = false;
+                }
+
+                wrapper_player?.animation = animation;
+
+                if(songView!!.hasaudio) {
+
+                    if (showPlayer) {
+
+                        wrapper_player?.visibility = View.VISIBLE;
+                        player_audio?.visibility = View.VISIBLE;
+
+                        controlMediaPlayer();
+                    } else {
+                        wrapper_player?.visibility = View.GONE;
+                        player_audio?.visibility = View.GONE;
+                    }
+                }else{
+                    wrapper_player?.visibility = View.VISIBLE;
+                    progress_download?.visibility = View.VISIBLE;
+
+                    AudioDownload(context, songView!!.title, songView!!.id, this, progress_download, player_audio, feedback_msg).execute();
+                }
+
+
+            });
+        }else{
+            toolbar.bt_audio.visibility = View.GONE;
+        }
+
+    }
+
+
+    override fun onDestroy() {
+        super.onDestroy()
+        context!!.stopService(media);
+    }
+
+    fun controlMediaPlayer(){
+        if(existFile())
+        {
+            media?.putExtra("SONG", getUriSongDownloaded());
+
+            var isPlaing = false;
+            controlplayer?.setOnClickListener({
+                Log.d("SONG_URI", getUriSongDownloaded().toString());
+                if(isPlaing == false)
+                {
+                    isPlaing = true;
+                }else{
+                    isPlaing = false;
+                }
+
+                if(isPlaing)
+                {
+                    context!!.startService(media);
+                    controlplayer?.setBackgroundResource(R.drawable.ic_pause);
+
+                }else{
+                    context!!.stopService(media);
+                    controlplayer?.setBackgroundResource(R.drawable.ic_play);
+                }
+            })
         }
     }
+
+
 
     fun changeSongView(
         extend: Boolean
@@ -116,69 +222,33 @@ class SongDetail : Fragment(), View.OnClickListener {
         file.writeBytes(Base64.decode(base64Str!!.toByteArray(), Base64.DEFAULT))
         webView!!.loadUrl("file://" + path + "/temp.html" )
 
-        ScrollRunnable().run()
-    }
-
-    fun playSong(){
-//        if(!songView!!.url.isNullOrEmpty()) {
-//            https://github.com/otaviogrrd/Ressuscitou_Android/blob/master/audios/A%20CEIFA%20DAS%20NACOES.mp3?raw=true
-            var titleSong = songView!!.title;
-
-            val titleFile = unnacent(titleSong)
-
-
-            var url = String.format("https://github.com/otaviogrrd/Ressuscitou_Android/blob/master/audios/%s.mp3?raw=true",titleFile);
-
-
-            Log.d("URL", url);
-            mediaPlayer!!.setAudioStreamType(AudioManager.STREAM_MUSIC);
-            mediaPlayer.setDataSource(url);
-            mediaPlayer.setVolume(30F, 30F)
-            mediaPlayer.prepare();
-            mediaPlayer.start();
-
-//        }
-    }
-
-    fun unnacent(text: String?) : String{
-        val accents 	= "È,É,Ê,Ë,Û,Ù,Ï,Î,À,Â,Ô,è,é,ê,ë,û,ù,ï,î,à,â,ô,Ç,ç,Ã,ã,Õ,õ";
-        val expected	= "E,E,E,E,U,U,I,I,A,A,O,e,e,e,e,u,u,i,i,a,a,o,C,c,A,a,O,o";
-
-        val accents2	= "çÇáéíóúýÁÉÍÓÚÝàèìòùÀÈÌÒÙãõñäëïöüÿÄËÏÖÜÃÕÑâêîôûÂÊÎÔÛ";
-        val expected2	= "cCaeiouyAEIOUYaeiouAEIOUaonaeiouyAEIOUAONaeiouAEIOU";
-
-        text!!.replace(accents, expected);
-        text!!.replace(accents, expected2);
-
-        return text;
-
-
     }
 
 
-    val h = Handler()
-    inner class ScrollRunnable() : Runnable{
-        override fun run() {
-            if(webView!!.canScrollVertically(1)){
-                webView!!.scrollBy(0, 0)
-                h.postDelayed(this, 17L);
-            }
+    fun getUriSongDownloaded() : String{
+
+        var filePath = "";
+
+        val file = File(context!!.getExternalFilesDir(null).toString() + File.separator + audioFile);
+
+
+        if(existFile()){
+            filePath = file.toURI().toString();
         }
 
+        return filePath;
+
     }
 
+    fun existFile(): Boolean
+    {
+        val file = File(context!!.getExternalFilesDir(null).toString() + File.separator + audioFile);
 
+        return file.exists()
+    }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SongDetail.
-         */
-        // TODO: Rename and change types and number of parameters
+
         @JvmStatic
         fun newInstance(songId: Int) =
             SongDetail().apply {

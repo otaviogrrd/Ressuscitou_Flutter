@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.view.Window
@@ -24,8 +23,8 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.scalars.ScalarsConverterFactory
-import android.support.v4.os.HandlerCompat.postDelayed
-
+import br.org.cn.ressuscitou.AsyncTask.ServiceTask
+import org.jetbrains.anko.uiThread
 
 
 class SplashActivity : AppCompatActivity() {
@@ -55,22 +54,24 @@ class SplashActivity : AppCompatActivity() {
         context = this.applicationContext
 
         //VERIFY SIZE COUNTOF CANTICLES
-        if(dao.countOf() > 0){
-            val verifyVersion = getVersion();
+
+        Toast.makeText(this, "countOF ->" + dao.countOf().toString(), Toast.LENGTH_SHORT).show();
+
+
+        if(dao.count() == 0){
+            fetchSongs(getVersion(), progressBar);
+        }else{
+//            val verifyVersion = getVersion();
 
             //IF CURRENT VERSION APP INSTALLED IS MAJOR VERSION APP ON REPOSITORY
-            if(verifyVersion > versionApp){
-                //FETCH CANTICLES
-                fetchSongs(verifyVersion, progressBar);
-            }
+//            if(verifyVersion > versionApp){
+//                //FETCH CANTICLES
+//                fetchSongs(verifyVersion, progressBar);
+//            }
             //IF CURRENT VERSION IS LAST VERSION APP ON REPOSITORY
-            else{
+//            else{
                 nextActivity()
-            }
-        }
-        //IF EMPTY CANTICLES ON APP
-        else{
-            fetchSongs(getVersion(), progressBar);
+//            }
         }
     }
 
@@ -105,73 +106,17 @@ class SplashActivity : AppCompatActivity() {
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .build()
 
-        doAsync {
-            val call = retrofit.create(SongService::class.java);
+        var result = ServiceTask(this, progressBar, retrofit).execute();
 
-            call.getSongs().enqueue(object: Callback<String>{
-                override fun onFailure(call: Call<String>, t: Throwable) {
-                    Log.i("ERROR_R", "request not working")
-                }
 
-                override fun onResponse(call: Call<String>, response: Response<String>) {
-                    if(response.isSuccessful){
-                        if(response.body() != null){
-                            var parser = JsonParser();
-                            var arr = parser.parse(response.body().toString()).asJsonArray;
-
-                            for(item in arr){
-                                var obj = item as com.google.gson.JsonObject
-                                var songs = Songs()
-                                songs.title = obj.get("titulo").asString;
-                                songs.url = obj.get("url").asString;
-                                songs.numero = obj.get("numero").asString;
-                                songs.categoria = obj.get("categoria").asInt
-                                songs.adve = obj.get("adve").asBoolean
-                                songs.laud = obj.get("adve").asBoolean
-                                songs.entr = obj.get("entr").asBoolean
-                                songs.nata = obj.get("nata").asBoolean
-                                songs.quar = obj.get("quar").asBoolean
-                                songs.pasc = obj.get("pasc").asBoolean
-                                songs.pent = obj.get("pent").asBoolean
-                                songs.virg = obj.get("virg").asBoolean
-                                songs.cria = obj.get("cria").asBoolean
-                                songs.cpaz = obj.get("cpaz").asBoolean
-                                songs.fpao = obj.get("fpao").asBoolean
-                                songs.comu = obj.get("comu").asBoolean
-                                songs.cfin = obj.get("cfin").asBoolean
-                                songs.conteudo = obj.get("conteudo").asString
-                                songs.html_base64 = obj.get("html_base64").asString
-                                songs.ext_base64 = obj.get("ext_base64").asString
-
-                                Log.d("SONG",obj.get("url").asString);
-                                dao.create(songs);
-                            }
-
-                            if(dao.countOf() > 0) {
-
-                                progressBar.visibility = View.GONE;
-                                nextActivity()
-                            }else{
-                                Toast.makeText(applicationContext, "não foi possivel atualizar", Toast.LENGTH_SHORT).show();
-                            }
-                        }else{
-                            Log.i("onEmptyResponse", "Returned empty response");
-                        }
-                    }
-                }
-            })
-        }
     }
 
     fun nextActivity(){
-        val handle = Handler()
-        handle.postDelayed(Runnable {
-            if(prefs!!.accepted_terms) {
-                startActivity(Intent(this, MainActivity::class.java))
-            }else{
-                startActivity(Intent(this, AcceptTermsActivity::class.java))
-            }
-        }, 2000)
+        if(prefs!!.accepted_terms) {
+            startActivity(Intent(this, MainActivity::class.java))
+        }else{
+            startActivity(Intent(this, AcceptTermsActivity::class.java))
+        }
         finish()
     }
 }

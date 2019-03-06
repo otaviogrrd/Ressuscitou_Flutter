@@ -1,6 +1,5 @@
 package br.org.cn.ressuscitou
 
-import android.graphics.Typeface
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.v4.app.Fragment
@@ -8,33 +7,17 @@ import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
-import br.org.cn.ressuscitou.Service.RetrofitInitializer
-import br.org.cn.ressuscitou.Utils.Preferences
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import android.util.Log
-import android.view.View
-import android.widget.ProgressBar
-import android.widget.Toast
+import android.widget.Toolbar
 import br.org.cn.ressuscitou.Fragment.SettingsFragment
 import br.org.cn.ressuscitou.Fragment.SongsFragment
-import br.org.cn.ressuscitou.Persistence.DataBaseHelper
-import br.org.cn.ressuscitou.Persistence.Entities.Songs
-import br.org.cn.ressuscitou.Persistence.DAO.SongsDAO
-import br.org.cn.ressuscitou.Service.SongService
-import br.org.cn.ressuscitou.Utils.ManagePermissions
-import com.google.gson.JsonParser
-import org.jetbrains.anko.doAsync
-
-import retrofit2.Retrofit
-import retrofit2.converter.scalars.ScalarsConverterFactory
-import java.util.*
+import kotlinx.android.synthetic.main.toolbar.*
 
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,8 +25,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setSupportActionBar(toolbar)
 
         val toggle = ActionBarDrawerToggle(
-            this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
+            this,
+            drawer_layout,
+            toolbar,
+            R.string.navigation_drawer_open,
+            R.string.navigation_drawer_close
         )
+
+        toolbar.setFadingEdgeLength(1000)
+
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
 
@@ -116,6 +106,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
 
 
+
         return true
     }
 
@@ -123,7 +114,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
 
 
-    fun addFragment(fragment: Fragment, addToBackStack: Boolean, tag: String) {
+    fun addFragment(
+        fragment: Fragment,
+        addToBackStack: Boolean,
+        tag: String
+    ) {
 
         val manager = supportFragmentManager
         val ft = manager.beginTransaction()

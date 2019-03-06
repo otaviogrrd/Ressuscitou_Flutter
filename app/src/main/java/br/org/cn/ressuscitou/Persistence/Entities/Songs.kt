@@ -71,6 +71,9 @@ class Songs{
     @DatabaseField
     var ext_base64: String? = null
 
+    @DatabaseField
+    var hasaudio: Boolean = false
+
     constructor()
 
     constructor(
@@ -94,7 +97,8 @@ class Songs{
         cfin: Boolean,
         conteudo: String?,
         html_base64: String?,
-        ext_base64: String?
+        ext_base64: String?,
+        hasAudioOnDevice: Boolean
     ) {
         this.title = title
         this.html = html
@@ -117,5 +121,6 @@ class Songs{
         this.conteudo = conteudo
         this.html_base64 = html_base64
         this.ext_base64 = ext_base64
+        this.hasaudio = hasAudioOnDevice
     }
 }
