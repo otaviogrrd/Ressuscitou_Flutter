@@ -2,10 +2,12 @@ package br.org.cn.ressuscitou.AsyncTask
 
 import android.content.Context
 import android.os.AsyncTask
+import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
+import br.org.cn.ressuscitou.Fragment.AudioPlayer
 import br.org.cn.ressuscitou.Fragment.SongDetail
 import br.org.cn.ressuscitou.Persistence.DAO.SongsDAO
 import br.org.cn.ressuscitou.Persistence.DataBaseHelper
@@ -26,10 +28,8 @@ class AudioDownload(
     var context: Context?,
     var title: String?,
     var id: Int?,
-    var fragment: SongDetail,
-    var download_progress: LinearLayout?,
-    var player_audio: LinearLayout?,
-    var feedback_msg: TextView?
+    var feedback:TextView?,
+    var fragment: AudioPlayer
 ) : AsyncTask<String, String, String>()
 {
 
@@ -48,14 +48,12 @@ class AudioDownload(
             .build();
         val call = retrofit.create(SongService::class.java);
 
-
-
-
         val cleanTitle = Common().unaccent(title!!,false);
         val url = String.format("https://github.com/otaviogrrd/Ressuscitou_Android/blob/master/audios/%s.mp3?raw=true", cleanTitle);
 
         Log.d("URL_FILE", url);
-        feedback_msg!!.setText("Baixando o áudio do cântico...")
+
+        feedback?.text = "Baixando o aúdio do cântico"
 
         call.fetchAudio(url).enqueue(object: Callback<ResponseBody>{
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
@@ -69,7 +67,6 @@ class AudioDownload(
                     val writeDisk = writeResponseBodyToDisk(response.body(), title!!.unaccent()!!.replace(" ","") + ".mp3");
                     Log.d("download", "file download was a success? $writeDisk")
                     result = "downloaded";
-
 
                     var updateBulder:UpdateBuilder<Songs, Int> = dao.updateBuilder();
                     updateBulder.updateColumnValue("hasaudio", true);
@@ -145,14 +142,11 @@ class AudioDownload(
 
     override fun onPostExecute(result: String?) {
         super.onPostExecute(result)
-
-        Log.d("RESULT_DOWNLOAD", result.toString());
-
         if(result.toString() == "downloaded"){
-            download_progress!!.visibility = View.GONE
-            player_audio!!.visibility = View.VISIBLE;
-
-            fragment.controlMediaPlayer();
+            Handler().postDelayed({
+                feedback?.text = "Aúdio baixado com sucesso!"
+                fragment.completeDownload();
+            },3500)
         }
     }
 

@@ -13,7 +13,6 @@ import android.util.Log
 import android.widget.Toolbar
 import br.org.cn.ressuscitou.Fragment.SettingsFragment
 import br.org.cn.ressuscitou.Fragment.SongsFragment
-import kotlinx.android.synthetic.main.toolbar.*
 
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -31,9 +30,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.string.navigation_drawer_open,
             R.string.navigation_drawer_close
         )
-
-        toolbar.setFadingEdgeLength(1000)
-
+        
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
 
@@ -60,7 +57,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         when (item.itemId) {
             R.id.nav_song_alfabetical -> {
-                // Handle the camera action
                 title = "Alfabética";
                 fragment = SongsFragment.newInstance("ALFABETICA", "Alfabética");
             }
@@ -100,7 +96,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             Log.i("DRAWER", drawer_layout.isDrawerOpen(GravityCompat.START).toString());
             if(fragment != null) {
                 addFragment(fragment, false, "songs");
-                supportActionBar!!.setTitle(title);
+                supportActionBar!!.setTitle(title.toUpperCase());
 
             }
         }

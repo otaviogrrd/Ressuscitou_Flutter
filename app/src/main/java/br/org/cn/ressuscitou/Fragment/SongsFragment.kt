@@ -16,14 +16,16 @@ import android.view.animation.LayoutAnimationController
 import android.widget.TextView
 import br.org.cn.ressuscitou.R
 import android.view.*
-import android.widget.Toolbar
+
 import android.support.v7.app.AppCompatActivity
 import br.org.cn.ressuscitou.MainActivity
 import kotlinx.android.synthetic.main.app_bar_main.view.*
 import kotlinx.android.synthetic.main.app_bar_main.*
-import kotlinx.android.synthetic.main.toolbar.*
-import kotlinx.android.synthetic.main.toolbar.view.*
-
+import android.R.id
+import android.graphics.Color
+import android.support.v4.view.MenuItemCompat
+import android.support.v7.widget.SearchView
+import android.widget.EditText
 
 // TODO: Rename parameter arguments, choose names that match
 private const val TYPEQUERY = "CATEGORY"
@@ -42,10 +44,6 @@ class SongsFragment : Fragment(){
     //ELEMENTS ON VIEW
     var not_result: TextView? = null;
     var recyclerView: RecyclerView? = null;
-   // var liturgic_filter:Spinner? = null;
-
-
-
 
     var songs:List<Songs>;
 
@@ -67,9 +65,6 @@ class SongsFragment : Fragment(){
         savedInstanceState: Bundle?
     ): View? {
         var view =inflater.inflate(R.layout.fragment_songs, container, false)
-        val toolbar = (activity as MainActivity).toolbar
-
-        initToolBar(toolbar);
         setHasOptionsMenu(true);
         recyclerView = view.song_list
 
@@ -79,80 +74,33 @@ class SongsFragment : Fragment(){
         return view;
     }
 
-    fun initToolBar(toolbar: android.support.v7.widget.Toolbar) {
-        toolbar.section_title.setText(title!!.toUpperCase())
-        toolbar.section_title.compoundDrawablePadding = 0;
-        toolbar.bt_search.visibility = View.VISIBLE;
-        toolbar.options.visibility = View.GONE;
-        toolbar.bt_audio.visibility = View.GONE;
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+        inflater!!.inflate(R.menu.main,menu)
 
-        toolbar.bt_search.setOnClickListener({
-            toolbar.search_term.visibility = View.VISIBLE
+        val item = menu!!.findItem(R.id.action_search)
+        val searchViewT = item!!.getActionView() as SearchView
+
+        searchViewT.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(term: String?): Boolean {
+                termStr = term.toString();
+                songs(termStr.toString(), col);
+                populateRecycle(recyclerView, not_result,songs);
+                return true;
+            }
+
+            override fun onQueryTextChange(term: String?): Boolean {
+                Log.d("TERM_SEARCH", term.toString());
+                termStr = term.toString();
+                songs(termStr.toString(), col);
+                populateRecycle(recyclerView, not_result,songs);
+                return true;
+            }
         })
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
-//        inflater!!.inflate(R.menu.main,menu)
-
-//        val item = menu!!.findItem(R.id.action_search)
-//        val searchViewT = MenuItemCompat.getActionView(item) as SearchView
-//
-//        searchViewT.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
-//            override fun onQueryTextSubmit(term: String?): Boolean {
-//                termStr = term.toString();
-//                songs(termStr.toString(), col);
-//                populateRecycle(recyclerView, not_result,songs);
-//                return true;
-//            }
-//
-//            override fun onQueryTextChange(term: String?): Boolean {
-//                Log.d("TERM_SEARCH", term.toString());
-//                termStr = term.toString();
-//                songs(termStr.toString(), col);
-//                populateRecycle(recyclerView, not_result,songs);
-//                return true;
-//            }
-//
-//        })
-//
-//        item.setOnActionExpandListener(object : MenuItem.OnActionExpandListener{
-//
-//            override fun onMenuItemActionExpand(item: MenuItem): Boolean {
-//
-//                return true
-//            }
-//
-//            override fun onMenuItemActionCollapse(item: MenuItem): Boolean {
-//                return true
-//
-//            }
-//        })
-    }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
-
-//        liturgic_filter!!.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-//            override fun onNothingSelected(parent: AdapterView<*>?) {
-//            }
-//
-//            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-//                var col: String? = null
-//
-//                if(position > 0) {
-//                    col = getColumnFilters(position);
-//                }else{
-//                    col = null;
-//                }
-//
-//
-//
-//                songs(termStr.toString(), col);
-//                populateRecycle(recyclerView, not_result,songs);
-//            }
-//
-//        }
 
         songs(termStr.toString(), col);
         populateRecycle(recyclerView, not_result, songs);
@@ -171,17 +119,12 @@ class SongsFragment : Fragment(){
             not_result!!.visibility = View.GONE;
         }
 
-//        val manager = supportFragmentManager
         recyclerView.layoutAnimation = animation
-
         recyclerView.removeAllViewsInLayout();
         recyclerView.layoutManager = LinearLayoutManager(context);
-        recyclerView.adapter = SongAdapter(list, context, this!!.fragmentManager!!);
+        recyclerView.adapter = SongAdapter(list, context, fragmentManager!!);
         recyclerView.visibility = View.VISIBLE;
         recyclerView.scheduleLayoutAnimation();
-
-
-
     }
 
     private fun songs(term: String?, ligurgic: String?){
@@ -234,18 +177,6 @@ class SongsFragment : Fragment(){
         songs = queryBuilder.query();
     }
 
-    fun getColumnFilters(index: Int): String? {
-        var response: String? = null;
-
-        val cols = arrayOf<String>("adve","nata","quar","pasc","pent","virg","cria","laud","entr","cpaz","fpao","comu","cfin")
-
-        if(!cols[index -1].isNullOrEmpty()){
-           response = cols[index -1].toString()
-        }
-
-        return response;
-
-    }
 
 
     companion object {

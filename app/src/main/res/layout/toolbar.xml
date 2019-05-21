@@ -20,7 +20,7 @@
             <TextView
                     android:id="@+id/section_title"
                     android:layout_width="0dp"
-                    android:layout_height="35dp"
+                    android:layout_height="50dp"
                     android:layout_weight="5"
                     android:textSize="32sp"
                     android:fontFamily="@font/leaguegothic_condensedregular"
@@ -33,19 +33,19 @@
                     android:requiresFadingEdge="horizontal|vertical"
                     android:padding="0dp" android:background="@android:color/transparent"/>
 
-            <ImageButton android:layout_width="20dp"
-                         android:layout_height="20dp"
+            <ImageButton android:layout_width="30dp"
+                         android:layout_height="30dp"
                          android:id="@+id/bt_audio"
-                         android:background="@drawable/ic_audio"
+                         android:background="@drawable/ic_action_audio"
                          android:layout_gravity="center_vertical|end"
                          android:layout_marginRight="20dp"
                          android:layout_alignParentRight="true"
                          android:layout_centerInParent="true"
-                         android:visibility="visible"/>
+                         android:visibility="visible" android:layout_marginLeft="20dp"/>
 
             <ImageButton
-                    android:layout_width="6dp"
-                    android:layout_height="20dp"
+                    android:layout_width="8dp"
+                    android:layout_height="30dp"
                     android:background="@drawable/ic_options"
                     android:layout_alignParentRight="true"
                     android:padding="10dp"
@@ -65,7 +65,7 @@
             <SearchView
                     android:id="@+id/search_term"
                     android:layout_width="0dp"
-                    android:layout_height="20dp"
+                    android:layout_height="40dp"
                     android:background="@drawable/searchviewrradius"
                     android:padding="2dp"
                     android:visibility="gone"

@@ -33,6 +33,7 @@ class AcceptTermsActivity : AppCompatActivity() {
         accepted.setOnClickListener({
             prefs!!.accepted_terms = true;
             startActivity(Intent(this, MainActivity::class.java))
+            finish()
         })
     }
 }

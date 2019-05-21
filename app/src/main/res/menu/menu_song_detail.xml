@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+            android:id="@+id/btn_audio"
+            android:icon="@drawable/ic_action_audio"
+            android:title="Search"
+            app:showAsAction="ifRoom|collapseActionView" />
+
+    <item
+            android:id="@+id/btn_options"
+            android:icon="@drawable/ic_options"
+            android:title="Search"
+            app:showAsAction="ifRoom|collapseActionView" />
+</menu>

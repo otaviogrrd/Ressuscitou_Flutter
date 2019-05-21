@@ -1,11 +1,7 @@
 package br.org.cn.ressuscitou.Fragment
 
 import android.content.Intent
-import android.media.AudioManager
-import android.media.MediaPlayer
-import android.net.Uri
 import android.os.Bundle
-import android.os.Handler
 import android.support.v4.app.Fragment
 import android.util.Base64
 import android.webkit.WebView
@@ -18,20 +14,17 @@ import java.io.File
 import android.view.*
 import br.org.cn.ressuscitou.MainActivity
 import android.os.StrictMode
-import android.text.format.DateUtils
+import android.support.v7.widget.SearchView
 import android.widget.*
 import br.org.cn.ressuscitou.Utils.Common
 import android.support.v7.widget.Toolbar
 import android.util.Log
-import java.util.concurrent.TimeUnit
-import android.view.MenuInflater
 import android.view.animation.AnimationUtils
-import br.org.cn.ressuscitou.Utils.UtilitiesAudio
-import kotlinx.android.synthetic.main.toolbar.*
 import kotlinx.android.synthetic.main.toolbar.view.*
-import android.widget.ToggleButton
 import br.org.cn.ressuscitou.AsyncTask.AudioDownload
 import br.org.cn.ressuscitou.ServicesApp.MediaPlayerService
+
+
 
 
 private const val SONG_ID = "SONGID"
@@ -48,12 +41,10 @@ class SongDetail : Fragment() {
     var webView: WebView? = null;
     var player_audio: LinearLayout? = null;
     var progress_download: LinearLayout? = null;
-    var time_all: TextView? = null;
-    var controlplayer: ImageButton? = null
     var wrapper_player: RelativeLayout? = null;
-    var progresstime: SeekBar? = null;
     var media: Intent? = null;
     var feedback_msg: TextView? = null;
+    var frame: FrameLayout? = null;
 
 
 
@@ -80,9 +71,6 @@ class SongDetail : Fragment() {
 
         setHasOptionsMenu(true);
 
-        val toolbar = (activity as MainActivity).toolbar
-
-
         var dbHelper = DataBaseHelper(context);
         var dao = SongsDAO(dbHelper.connectionSource);
 
@@ -90,13 +78,9 @@ class SongDetail : Fragment() {
 
         //CASTS
         webView = view.findViewById<WebView>(R.id.song_view)
-        player_audio = view.findViewById<LinearLayout>(R.id.player_audio);
-        controlplayer = view.findViewById<ImageButton>(R.id.controlplayer);
-        time_all = view.findViewById<TextView>(R.id.time_all);
-        wrapper_player  =view.findViewById<RelativeLayout>(R.id.wrapper_player);
-        progress_download = view.findViewById<LinearLayout>(R.id.progress_download);
-        progresstime = view.findViewById<SeekBar>(R.id.progresstime)
+
         feedback_msg = view.findViewById<TextView>(R.id.feedback_msg);
+        frame = view.findViewById<FrameLayout>(R.id.child_fragment_container)
 
         val queryBuilder = dao.queryBuilder();
         queryBuilder.where().eq("id", songId);
@@ -109,62 +93,30 @@ class SongDetail : Fragment() {
 
         audioFile = Common().unaccent(songView!!.title!!) + ".mp3";
 
-
-        initToolBar(toolbar);
         changeSongView(false);
 
         return view;
     }
 
-    fun initToolBar(toolbar: Toolbar) {
-        toolbar.section_title.setText(songView!!.title!!.toUpperCase())
-        toolbar.section_title.compoundDrawablePadding = 0;
-        toolbar.bt_search.visibility = View.GONE;
-        toolbar.options.visibility = View.VISIBLE;
-        toolbar.bt_audio.visibility = View.VISIBLE;
 
-        var showPlayer: Boolean = false;
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+        inflater!!.inflate(R.menu.menu_song_detail,menu)
 
-        var animation = AnimationUtils.loadAnimation(context, R.anim.bounce);
-
-        if(songView!!.url.equals("X",true)){
-            toolbar.bt_audio.visibility = View.VISIBLE;
-
-            toolbar.bt_audio.setOnClickListener({
-                if(showPlayer == false)
+        val item = menu!!.findItem(R.id.btn_audio);
+        item.setOnMenuItemClickListener(object: MenuItem.OnMenuItemClickListener {
+            override fun onMenuItemClick(item: MenuItem?): Boolean {
+                if(existFile())
                 {
-                    showPlayer = true;
+                    insertNestedFragment(getUriSongDownloaded(),songView!!.title.toString(), songView!!.id,"player");
                 }else{
-                    showPlayer = false;
+                    insertNestedFragment(getUriSongDownloaded(),songView!!.title.toString(), songView!!.id,"loading");
                 }
+                frame!!.visibility = View.VISIBLE;
 
-                wrapper_player?.animation = animation;
+                return true
+            }
 
-                if(songView!!.hasaudio) {
-
-                    if (showPlayer) {
-
-                        wrapper_player?.visibility = View.VISIBLE;
-                        player_audio?.visibility = View.VISIBLE;
-
-                        controlMediaPlayer();
-                    } else {
-                        wrapper_player?.visibility = View.GONE;
-                        player_audio?.visibility = View.GONE;
-                    }
-                }else{
-                    wrapper_player?.visibility = View.VISIBLE;
-                    progress_download?.visibility = View.VISIBLE;
-
-                    AudioDownload(context, songView!!.title, songView!!.id, this, progress_download, player_audio, feedback_msg).execute();
-                }
-
-
-            });
-        }else{
-            toolbar.bt_audio.visibility = View.GONE;
-        }
-
+        })
     }
 
 
@@ -172,35 +124,6 @@ class SongDetail : Fragment() {
         super.onDestroy()
         context!!.stopService(media);
     }
-
-    fun controlMediaPlayer(){
-        if(existFile())
-        {
-            media?.putExtra("SONG", getUriSongDownloaded());
-
-            var isPlaing = false;
-            controlplayer?.setOnClickListener({
-                Log.d("SONG_URI", getUriSongDownloaded().toString());
-                if(isPlaing == false)
-                {
-                    isPlaing = true;
-                }else{
-                    isPlaing = false;
-                }
-
-                if(isPlaing)
-                {
-                    context!!.startService(media);
-                    controlplayer?.setBackgroundResource(R.drawable.ic_pause);
-
-                }else{
-                    context!!.stopService(media);
-                    controlplayer?.setBackgroundResource(R.drawable.ic_play);
-                }
-            })
-        }
-    }
-
 
 
     fun changeSongView(
@@ -246,6 +169,21 @@ class SongDetail : Fragment() {
 
         return file.exists()
     }
+
+    private fun insertNestedFragment(uriSongDownloaded: String, title: String, id:Int,  view: String) {
+
+        val childFragment = AudioPlayer()
+
+        var bundle = Bundle();
+        bundle.putString("VIEW", view);
+        bundle.putString("SONG_URI", uriSongDownloaded)
+        bundle.putString("TITLE",title)
+        bundle.putInt("ID", id)
+        childFragment.arguments = bundle
+        val transaction = childFragmentManager.beginTransaction()
+        transaction.replace(R.id.child_fragment_container, childFragment).commit()
+    }
+
 
     companion object {
 

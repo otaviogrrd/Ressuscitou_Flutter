@@ -53,25 +53,20 @@ class SplashActivity : AppCompatActivity() {
 
         context = this.applicationContext
 
-        //VERIFY SIZE COUNTOF CANTICLES
-
-        Toast.makeText(this, "countOF ->" + dao.countOf().toString(), Toast.LENGTH_SHORT).show();
-
-
         if(dao.count() == 0){
             fetchSongs(getVersion(), progressBar);
         }else{
-//            val verifyVersion = getVersion();
+            val verifyVersion = getVersion();
 
             //IF CURRENT VERSION APP INSTALLED IS MAJOR VERSION APP ON REPOSITORY
-//            if(verifyVersion > versionApp){
-//                //FETCH CANTICLES
-//                fetchSongs(verifyVersion, progressBar);
-//            }
+            if(verifyVersion > versionApp){
+            //FETCH CANTICLES
+                fetchSongs(verifyVersion, progressBar);
+            }
             //IF CURRENT VERSION IS LAST VERSION APP ON REPOSITORY
-//            else{
+            else{
                 nextActivity()
-//            }
+            }
         }
     }
 
@@ -114,9 +109,11 @@ class SplashActivity : AppCompatActivity() {
     fun nextActivity(){
         if(prefs!!.accepted_terms) {
             startActivity(Intent(this, MainActivity::class.java))
+            finish()
         }else{
             startActivity(Intent(this, AcceptTermsActivity::class.java))
+            finish()
         }
-        finish()
+
     }
 }
