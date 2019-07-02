@@ -105,47 +105,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="69047836-20db-43bc-ac56-cabdfe3bdbd6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/debug/res/drawable-hdpi/ic_action_audios.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/debug/res/drawable-mdpi/ic_action_audios.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/debug/res/drawable-xhdpi/ic_action_audios.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/debug/res/drawable-xxhdpi/ic_action_audios.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/debug/res/drawable-xxxhdpi/ic_action_audios.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Fragment/AudioPlayer.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/ic_headphone_symbol.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_audio_player.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/menu/main.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_song_detail.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/res/drawable-hdpi/ic_action_audio.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/res/drawable-hdpi/ic_burger.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/res/drawable-hdpi/ic_options.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/res/drawable-hdpi/ic_pause.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/res/drawable-hdpi/ic_play.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/res/drawable-hdpi/ic_search.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/res/drawable-mdpi/ic_action_audio.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/res/drawable-mdpi/ic_burger.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/res/drawable-mdpi/ic_options.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/res/drawable-mdpi/ic_pause.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/res/drawable-mdpi/ic_play.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/res/drawable-mdpi/ic_search.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/res/drawable-xhdpi/ic_action_audio.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/res/drawable-xhdpi/ic_burger.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/res/drawable-xhdpi/ic_options.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/res/drawable-xhdpi/ic_pause.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/res/drawable-xhdpi/ic_play.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/res/drawable-xhdpi/ic_search.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/res/drawable-xxhdpi/ic_action_audio.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/res/drawable-xxhdpi/ic_burger.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/res/drawable-xxhdpi/ic_options.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/res/drawable-xxhdpi/ic_pause.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/res/drawable-xxhdpi/ic_play.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/res/drawable-xxhdpi/ic_search.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/res/drawable-xxxhdpi/ic_action_audio.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/res/drawable-xxxhdpi/ic_burger.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/res/drawable-xxxhdpi/ic_options.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/res/drawable-xxxhdpi/ic_pause.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/res/drawable-xxxhdpi/ic_play.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/res/drawable-xxxhdpi/ic_search.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/corner_searchview.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/dialog.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
@@ -156,101 +117,17 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_onesignal_OneSignal_3_10_6_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/navEditor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/navEditor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/AcceptTermsActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/AcceptTermsActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/AsyncTask/AudioDownload.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/AsyncTask/AudioDownload.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/AsyncTask/ServiceTask.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/AsyncTask/ServiceTask.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Fragment/SettingsFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Fragment/SettingsFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Adapter/SongAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Adapter/SongAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Fragment/AudioPlayer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Fragment/AudioPlayer.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Fragment/SongDetail.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Fragment/SongDetail.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Fragment/SongsFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Fragment/SongsFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/ServicesApp/MediaPlayerService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/ServicesApp/MediaPlayerService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Service/RetrofitInitializer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Service/RetrofitInitializer.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/SplashActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/SplashActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Utils/Common.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Utils/Common.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Utils/UtilitiesAudio.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Utils/UtilitiesAudio.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/anim/bounce.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/anim/bounce.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/anim/slide_down.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/anim/slide_down.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/anim/slide_up.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/anim/slide_up.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v21/download_off.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v21/download_off.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v21/download_on.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v21/download_on.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ic_audio.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ic_burguer.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ic_options.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ic_pause.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ic_play.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ic_replay.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ic_replay.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ic_search.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ic_settings.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ic_settings.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ilustra_violao.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ilustra_violao.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v24/download_off.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/download_off.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v24/download_on.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/download_on.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v24/ic_audio.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v24/ic_burguer.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v24/ic_options.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v24/ic_pause.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v24/ic_play.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v24/ic_replay.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/ic_replay.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v24/ic_search.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v24/ic_settings.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/ic_settings.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/drawable_round_blue.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/drawable_round_blue.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/drawable_round_gray.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/drawable_round_gray.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/drawable_round_gree.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/drawable_round_gree.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/drawable_round_orange.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/drawable_round_orange.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ilustra_violao.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ilustra_violao.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/searchviewrradius.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/searchviewrradius.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/toggle_audio.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/toggle_audio.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/toggle_player.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/toggle_player.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_accept_terms.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_accept_terms.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/app_bar_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/app_bar_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_song_detail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_song_detail.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/navigation_drawer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/navigation_drawer.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/toolbar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/toolbar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/navigation/new_navigation.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/navigation/new_navigation.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/res/drawable-hdpi/ic_stat_name.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/res/drawable-mdpi/ic_stat_name.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/res/drawable-xhdpi/ic_stat_name.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/res/drawable-xxhdpi/ic_stat_name.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/res/drawable-xxxhdpi/ic_stat_name.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/res/drawable/ic_cloud_download_black_24dp.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/res/drawable/ic_download.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/res/drawable/ic_download_transparency.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/res/drawable/ic_launcher_background.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/res/mipmap-hdpi/ic_launcher_foreground.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/res/mipmap-hdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/res/mipmap-mdpi/ic_launcher_foreground.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/res/mipmap-mdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/res/mipmap-xhdpi/ic_launcher_foreground.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/res/mipmap-xhdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/res/mipmap-xxhdpi/ic_launcher_foreground.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/res/mipmap-xxhdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/res/mipmap-xxxhdpi/ic_launcher_foreground.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/res/mipmap-xxxhdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-v21/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-v21/styles.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -281,11 +158,97 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/MainActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
+            <state relative-caret-position="165">
+              <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Fragment/SongDetail.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2460">
+              <caret line="189" column="34" selection-start-line="189" selection-start-column="34" selection-end-line="189" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Fragment/AudioPlayer.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="227">
+              <caret line="221" column="33" selection-start-line="221" selection-start-column="33" selection-end-line="221" selection-end-column="33" />
+              <folding>
+                <element signature="e#41#681#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Fragment/SongsFragment.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1575">
+              <caret line="125" column="75" selection-start-line="125" selection-start-column="75" selection-end-line="125" selection-end-column="75" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Adapter/SongAdapter.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1005">
+              <caret line="81" column="5" selection-start-line="81" selection-start-column="5" selection-end-line="81" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/SplashActivity.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="750">
+              <caret line="77" column="30" selection-start-line="77" selection-start-column="30" selection-end-line="77" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+            </state>
+          </provider>
+          <provider editor-type-id="android-manifest" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Utils/Common.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1065">
+              <caret line="71" column="17" selection-start-line="71" selection-start-column="17" selection-end-line="71" selection-end-column="17" />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/corner_searchview.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="66" selection-start-line="2" selection-start-column="66" selection-end-line="2" selection-end-column="66" />
             </state>
           </provider>
         </entry>
@@ -295,8 +258,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin File" />
         <option value="resourceFile" />
+        <option value="Kotlin File" />
+        <option value="layoutResourceFile" />
       </list>
     </option>
   </component>
@@ -331,8 +295,6 @@
       <list>
         <option value="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/SongDetail.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/SongDetailActivity.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Adapter/SongAdapter.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Fragment/SettingsFragment.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/searchviewrradius.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/main.xml" />
@@ -340,26 +302,36 @@
         <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_song_detail.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/toggle_audio.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/toolbar.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Fragment/SongDetail.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/app_bar_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/progress_control.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/audio_progress.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_audio_player.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/MainActivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/AcceptTermsActivity.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/SplashActivity.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Fragment/SongsFragment.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_song_detail.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/AsyncTask/AudioDownload.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Service/RetrofitInitializer.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_songs.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/app_bar_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/corner_searchview.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Fragment/SongsFragment.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Adapter/SongAdapter.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/BroadCast/ConnectivityReceiver.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/MainActivity.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/BaseActivity.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Utils/Common.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/SplashActivity.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Fragment/SongDetail.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Fragment/AudioPlayer.kt" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="55" />
+    <option name="x" value="25" />
+    <option name="y" value="23" />
     <option name="width" value="1260" />
-    <option name="height" value="737" />
+    <option name="height" value="772" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -369,6 +341,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -406,41 +379,14 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Ressuscitou_Kotlin" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-            </path>
-            <path>
-              <item name="Ressuscitou_Kotlin" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-            </path>
-            <path>
-              <item name="Ressuscitou_Kotlin" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="ressuscitou" type="cbb59c9e:AndroidPsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Ressuscitou_Kotlin" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="algorithm" value="Thumbnailator" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
-    <property name="device.picker.selection" value="281a9c8f9905" />
+    <property name="device.picker.selection" value="Pixel_2_API_28" />
     <property name="format" value="PNG" />
     <property name="lastFolderRoot" value="$USER_HOME$/Desktop/_icon/drawable-v24/ic_audio_new.png" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable-v24" />
@@ -569,11 +515,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="55" width="1260" height="737" extended-state="0" />
+    <frame x="25" y="23" width="1260" height="772" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49884528" visible="true" weight="0.23026316" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49884528" visible="true" weight="0.23026316" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -585,11 +531,11 @@
       <window_info anchor="bottom" id="TODO" order="1" weight="0.32868218" />
       <window_info anchor="bottom" id="Terminal" order="2" weight="0.32868218" />
       <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.50246304" side_tool="true" weight="0.5131783" />
-      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.49753696" weight="0.4232558" />
+      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.49753696" weight="0.42205882" />
       <window_info anchor="bottom" id="Logcat" order="5" weight="0.33488372" />
-      <window_info anchor="bottom" id="Android Profiler" order="6" />
+      <window_info anchor="bottom" id="Android Profiler" order="6" show_stripe_button="false" />
       <window_info anchor="bottom" id="Debug" order="7" />
-      <window_info anchor="bottom" id="Build" order="8" sideWeight="0.49425286" weight="0.20930232" />
+      <window_info anchor="bottom" id="Build" order="8" sideWeight="0.49425286" visible="true" weight="0.1985294" />
       <window_info anchor="bottom" id="Find" order="9" weight="0.32868218" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
       <window_info anchor="right" id="Theme Preview" order="1" />
@@ -614,37 +560,8 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/AsyncTask/ServiceTask.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-847">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Adapter/SongAdapter.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="60" selection-start-line="60" selection-end-line="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/SongDetailActivity.kt" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-215">
-          <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_song_detail.xml" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Fragment/SettingsFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="82" column="22" selection-start-line="82" selection-start-column="22" selection-end-line="82" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-28/android/app/Activity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -653,16 +570,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/navigation_drawer.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="66" selection-start-line="2" selection-start-column="66" selection-end-line="2" selection-end-column="66" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_songs.xml">
       <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/ServicesApp/MediaPlayerService.kt">
       <provider selected="true" editor-type-id="text-editor">
@@ -679,8 +592,8 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_main.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.3.20/3a9a71152b278d5e36e7346554b4dbb03e565e30/kotlin-stdlib-1.3.20-sources.jar!/kotlin/Any.kt">
       <provider selected="true" editor-type-id="text-editor">
@@ -696,14 +609,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values-v21/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -716,29 +621,13 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-v24/ic_headphone_symbol.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_song_detail.xml">
-      <provider selected="true" editor-type-id="android-designer2" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/toolbar.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
           <caret line="37" column="51" selection-start-line="37" selection-start-column="51" selection-end-line="37" selection-end-column="51" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/app_bar_main.xml">
       <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/progress_control.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/audio_progress.xml" />
@@ -749,10 +638,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="229">
@@ -761,42 +646,17 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_audio_player.xml">
-      <provider selected="true" editor-type-id="android-designer2" />
       <provider editor-type-id="text-editor">
         <state relative-caret-position="245">
           <caret line="75" selection-start-line="75" selection-end-line="75" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/main.xml">
       <provider selected="true" editor-type-id="android-designer2" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="46" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/ApplicationClass.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Fragment/SongsFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2696">
-          <caret line="186" column="32" selection-start-line="186" selection-start-column="32" selection-end-line="186" selection-end-column="32" />
-          <folding>
-            <element signature="e#40#1060#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Fragment/SongDetail.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-231">
-          <caret line="93" column="8" selection-start-line="93" selection-start-column="8" selection-end-line="93" selection-end-column="67" />
         </state>
       </provider>
     </entry>
@@ -814,38 +674,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/SplashActivity.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
-          <folding>
-            <element signature="e#31#968#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_song_detail.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/AsyncTask/AudioDownload.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="143">
           <caret line="147" selection-start-line="147" selection-end-line="147" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Fragment/AudioPlayer.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="183" column="44" lean-forward="true" selection-start-line="183" selection-start-column="44" selection-end-line="183" selection-end-column="44" />
-          <folding>
-            <element signature="e#41#681#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -856,10 +688,167 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Service/RetrofitInitializer.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/AsyncTask/ServiceTask.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="59">
+          <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Fragment/SettingsFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1035">
+          <caret line="82" column="22" selection-start-line="82" selection-start-column="22" selection-end-line="82" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_song_detail.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/drawable_round_gray.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="34" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_songs.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_song_detail.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-325">
+          <caret line="20" column="59" selection-start-line="20" selection-start-column="59" selection-end-line="20" selection-end-column="59" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/app_bar_main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="45" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/round_border.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/BroadCast/ConnectivityReceiver.kt" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/BaseActivity.kt" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/MainActivity.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
+        <state relative-caret-position="165">
+          <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Fragment/SongDetail.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2460">
+          <caret line="189" column="34" selection-start-line="189" selection-start-column="34" selection-end-line="189" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Fragment/SongsFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1575">
+          <caret line="125" column="75" selection-start-line="125" selection-start-column="75" selection-end-line="125" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Adapter/SongAdapter.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1005">
+          <caret line="81" column="5" selection-start-line="81" selection-start-column="5" selection-end-line="81" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/SplashActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="750">
+          <caret line="77" column="30" selection-start-line="77" selection-start-column="30" selection-end-line="77" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Utils/Common.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1065">
+          <caret line="71" column="17" selection-start-line="71" selection-start-column="17" selection-end-line="71" selection-end-column="17" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/corner_searchview.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="66" selection-start-line="2" selection-start-column="66" selection-end-line="2" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/org/cn/ressuscitou/Fragment/AudioPlayer.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="221" column="33" selection-start-line="221" selection-start-column="33" selection-end-line="221" selection-end-column="33" />
+          <folding>
+            <element signature="e#41#681#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -179,7 +179,7 @@ class AudioPlayer : Fragment(), View.OnClickListener, SeekBar.OnSeekBarChangeLis
 
                 progresstime!!.setProgress(progressPercent);
 
-                if(progressPercent == 99){
+                if(progressPercent >= 99){
                     Handler().postDelayed({
                         progressPercent = 0;
                         controlElementPlayer("stop")
@@ -212,7 +212,7 @@ class AudioPlayer : Fragment(), View.OnClickListener, SeekBar.OnSeekBarChangeLis
     }
 
     override fun onStopTrackingTouch(seekBar: SeekBar?) {
-
+        timeToMove = ((seekProgress!!.toLong() * mediaPlayer!!.duration) / 100).toInt()
         if(mediaPlayer!!.isPlaying()){
             mediaPlayer!!.pause()
 
@@ -220,6 +220,8 @@ class AudioPlayer : Fragment(), View.OnClickListener, SeekBar.OnSeekBarChangeLis
 
             mediaPlayer!!.seekTo(timeToMove!!)
             mediaPlayer!!.start()
+        }else{
+            mediaPlayer!!.seekTo(timeToMove!!)
         }
         Toast.makeText(context, "here +>" + seekProgress.toString(), Toast.LENGTH_SHORT).show()
 
@@ -227,7 +229,11 @@ class AudioPlayer : Fragment(), View.OnClickListener, SeekBar.OnSeekBarChangeLis
 
     override fun onDestroy() {
         super.onDestroy()
-        mediaPlayer!!.stop();
+
+        if(mediaPlayer!!.isPlaying()){
+            mediaPlayer!!.stop();
+        }
+
     }
 
     fun formatToDigitalClock(miliSeconds: Long): String {

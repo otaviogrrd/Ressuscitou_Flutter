@@ -1,6 +1,9 @@
 package br.org.cn.ressuscitou.Fragment
 
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.util.Base64
@@ -91,6 +94,7 @@ class SongDetail : Fragment() {
 
         (activity as MainActivity).supportActionBar?.title = songView!!.title
 
+
         audioFile = Common().unaccent(songView!!.title!!) + ".mp3";
 
         changeSongView(false);
@@ -105,14 +109,25 @@ class SongDetail : Fragment() {
         val item = menu!!.findItem(R.id.btn_audio);
         item.setOnMenuItemClickListener(object: MenuItem.OnMenuItemClickListener {
             override fun onMenuItemClick(item: MenuItem?): Boolean {
-                if(existFile())
-                {
-                    insertNestedFragment(getUriSongDownloaded(),songView!!.title.toString(), songView!!.id,"player");
-                }else{
-                    insertNestedFragment(getUriSongDownloaded(),songView!!.title.toString(), songView!!.id,"loading");
+                if (existFile()) {
+                    insertNestedFragment(
+                        getUriSongDownloaded(),
+                        songView!!.title.toString(),
+                        songView!!.id,
+                        "player"
+                    );
+                    frame!!.visibility = View.VISIBLE;
+                } else if(existFile() == false && isConnect()) {
+                    insertNestedFragment(
+                        getUriSongDownloaded(),
+                        songView!!.title.toString(),
+                        songView!!.id,
+                        "loading"
+                    );
+                    frame!!.visibility = View.VISIBLE;
+                }else if(!isConnect()){
+                    Toast.makeText(context, "Sem internet", Toast.LENGTH_SHORT).show()
                 }
-                frame!!.visibility = View.VISIBLE;
-
                 return true
             }
 
@@ -173,16 +188,26 @@ class SongDetail : Fragment() {
     private fun insertNestedFragment(uriSongDownloaded: String, title: String, id:Int,  view: String) {
 
         val childFragment = AudioPlayer()
-
         var bundle = Bundle();
+
         bundle.putString("VIEW", view);
         bundle.putString("SONG_URI", uriSongDownloaded)
-        bundle.putString("TITLE",title)
+        bundle.putString("TITLE", title)
         bundle.putInt("ID", id)
         childFragment.arguments = bundle
         val transaction = childFragmentManager.beginTransaction()
         transaction.replace(R.id.child_fragment_container, childFragment).commit()
+
     }
+
+    fun isConnect() : Boolean{
+        val cm = context!!.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetwork: NetworkInfo? = cm.activeNetworkInfo
+        val isConnected: Boolean = activeNetwork?.isConnectedOrConnecting == true
+
+        return isConnected
+    }
+
 
 
     companion object {

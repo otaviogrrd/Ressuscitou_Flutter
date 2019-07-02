@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white" >
+
+    <TextView
+            android:id="@+id/dialogtitle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="Internet Connection"
+            android:textAppearance="@android:style/TextAppearance.Medium"
+            android:textColor="@android:color/black" />
+
+    <View
+            android:id="@+id/view1"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/dialogtitle"
+            android:layout_marginTop="25dp"
+            android:background="#C83437" />
+
+    <TextView
+            android:id="@+id/dialogMessage"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/view1"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="You are not connected to internet.\nDo you want to on connection?"
+            android:textAppearance="@android:style/TextAppearance.Medium"
+            android:textColor="@android:color/black" />
+
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="70dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="150dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="1" >
+
+        <TextView
+                android:id="@+id/dialogyes"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="0.5"
+                android:gravity="center"
+                android:text="YES"
+                android:textColor="@android:color/black" />
+
+        <TextView
+                android:id="@+id/dialogno"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="0.5"
+                android:gravity="center"
+                android:text="NO"
+                android:textColor="@android:color/black" />
+    </LinearLayout>
+
+</RelativeLayout>

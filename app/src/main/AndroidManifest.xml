@@ -26,7 +26,6 @@
                 android:name=".AcceptTermsActivity"
                 android:screenOrientation="portrait">
         </activity>
-
         <activity
                 android:name=".SplashActivity"
                 android:screenOrientation="portrait">

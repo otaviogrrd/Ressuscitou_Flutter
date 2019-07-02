@@ -17,15 +17,10 @@ import android.widget.TextView
 import br.org.cn.ressuscitou.R
 import android.view.*
 
-import android.support.v7.app.AppCompatActivity
-import br.org.cn.ressuscitou.MainActivity
-import kotlinx.android.synthetic.main.app_bar_main.view.*
-import kotlinx.android.synthetic.main.app_bar_main.*
-import android.R.id
 import android.graphics.Color
-import android.support.v4.view.MenuItemCompat
 import android.support.v7.widget.SearchView
 import android.widget.EditText
+import br.org.cn.ressuscitou.Utils.Common
 
 // TODO: Rename parameter arguments, choose names that match
 private const val TYPEQUERY = "CATEGORY"
@@ -77,20 +72,26 @@ class SongsFragment : Fragment(){
     override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
         inflater!!.inflate(R.menu.main,menu)
 
+        var comon = Common()
+
         val item = menu!!.findItem(R.id.action_search)
         val searchViewT = item!!.getActionView() as SearchView
+        searchViewT.setBackgroundResource(R.drawable.corner_searchview)
+
+        val editText = searchViewT.findViewById<EditText>(android.support.v7.appcompat.R.id.search_src_text)
+        editText.setTextColor(Color.BLACK)
+
 
         searchViewT.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(term: String?): Boolean {
-                termStr = term.toString();
+                termStr = comon.unaccent(term.toString(), true)
                 songs(termStr.toString(), col);
                 populateRecycle(recyclerView, not_result,songs);
                 return true;
             }
 
             override fun onQueryTextChange(term: String?): Boolean {
-                Log.d("TERM_SEARCH", term.toString());
-                termStr = term.toString();
+                termStr = comon.unaccent(term.toString(), true)
                 songs(termStr.toString(), col);
                 populateRecycle(recyclerView, not_result,songs);
                 return true;

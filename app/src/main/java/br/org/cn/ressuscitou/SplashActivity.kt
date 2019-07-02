@@ -2,6 +2,8 @@ package br.org.cn.ressuscitou
 
 import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -24,6 +26,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import br.org.cn.ressuscitou.AsyncTask.ServiceTask
+import org.jetbrains.anko.custom.async
 import org.jetbrains.anko.uiThread
 
 
@@ -53,23 +56,29 @@ class SplashActivity : AppCompatActivity() {
 
         context = this.applicationContext
 
+        isConnect()
+
         if(dao.count() == 0){
             fetchSongs(getVersion(), progressBar);
         }else{
-            val verifyVersion = getVersion();
 
-            //IF CURRENT VERSION APP INSTALLED IS MAJOR VERSION APP ON REPOSITORY
-            if(verifyVersion > versionApp){
-            //FETCH CANTICLES
-                fetchSongs(verifyVersion, progressBar);
-            }
-            //IF CURRENT VERSION IS LAST VERSION APP ON REPOSITORY
-            else{
+            if(isConnect()) {
+                val verifyVersion = getVersion();
+
+                //IF CURRENT VERSION APP INSTALLED IS MAJOR VERSION APP ON REPOSITORY
+                if (verifyVersion > versionApp) {
+                    //FETCH CANTICLES
+                    fetchSongs(verifyVersion, progressBar);
+                }
+                //IF CURRENT VERSION IS LAST VERSION APP ON REPOSITORY
+                else {
+                    nextActivity()
+                }
+            }else{
                 nextActivity()
             }
         }
     }
-
 
     fun getVersion() : Int{
 
@@ -104,6 +113,14 @@ class SplashActivity : AppCompatActivity() {
         var result = ServiceTask(this, progressBar, retrofit).execute();
 
 
+    }
+
+    fun isConnect() : Boolean{
+        val cm = this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetwork: NetworkInfo? = cm.activeNetworkInfo
+        val isConnected: Boolean = activeNetwork?.isConnectedOrConnecting == true
+
+        return isConnected
     }
 
     fun nextActivity(){
