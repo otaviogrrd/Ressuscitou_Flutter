@@ -18,8 +18,10 @@ import br.org.cn.ressuscitou.R
 import android.view.*
 
 import android.graphics.Color
+import android.os.AsyncTask
 import android.support.v7.widget.SearchView
 import android.widget.EditText
+import br.org.cn.ressuscitou.Auxiliar.Filter
 import br.org.cn.ressuscitou.Utils.Common
 
 // TODO: Rename parameter arguments, choose names that match
@@ -192,4 +194,27 @@ class SongsFragment : Fragment(){
                 }
             }
     }
+
+    class SongTask : AsyncTask<Filter, String, List<Songs>>()
+    {
+        override fun onPreExecute() {
+            super.onPreExecute()
+
+            var dao = SongsDAO(dbHelper.connectionSource);
+
+            val queryBuilder = dao.queryBuilder();
+            var where = queryBuilder.where();
+        }
+
+        override fun doInBackground(vararg params: Filter?): List<Songs> {
+            params[0]!!.term;
+
+        }
+
+        override fun onPostExecute(result: List<Songs>?) {
+            super.onPostExecute(result)
+        }
+
+    }
 }
+
