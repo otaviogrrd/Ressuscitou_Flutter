@@ -8,8 +8,8 @@ import android.widget.ProgressBar
 import br.org.cn.ressuscitou.Persistence.DAO.SongsDAO
 import br.org.cn.ressuscitou.Persistence.DataBaseHelper
 import br.org.cn.ressuscitou.Persistence.Entities.Songs
-import br.org.cn.ressuscitou.Service.SongService
-import br.org.cn.ressuscitou.SplashActivity
+import br.org.cn.ressuscitou.Service.CanticleService
+import br.org.cn.ressuscitou.Activities.SplashActivity
 import com.google.gson.JsonParser
 import retrofit2.Call
 import retrofit2.Callback
@@ -32,9 +32,9 @@ class ServiceTask(
     }
 
     override fun doInBackground(vararg params: String?): String {
-        val call = retrofit.create(SongService::class.java);
+        val call = retrofit.create(CanticleService::class.java);
 
-        call.getSongs().enqueue(object: Callback<String> {
+        call.getCanticles().enqueue(object: Callback<String> {
             override fun onFailure(call: Call<String>, t: Throwable) {
                 Log.i("ERROR_R", "request not working")
             }

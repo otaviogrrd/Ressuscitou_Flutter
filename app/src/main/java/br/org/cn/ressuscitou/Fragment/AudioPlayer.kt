@@ -1,7 +1,5 @@
 package br.org.cn.ressuscitou.Fragment
 
-
-import android.content.Intent
 import android.media.AudioManager
 import android.media.MediaPlayer
 import android.net.Uri
@@ -13,7 +11,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.webkit.WebView
 import android.widget.*
 import br.org.cn.ressuscitou.AsyncTask.AudioDownload
 
@@ -24,9 +21,6 @@ import java.io.File
 import java.util.concurrent.TimeUnit
 
 
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val SONG_URI = "SONG_URI"
 private const val VIEW_SHOW = "VIEW"
 private const val SONG_TITLE = "TITLE"
@@ -49,14 +43,10 @@ class AudioPlayer : Fragment(), View.OnClickListener, SeekBar.OnSeekBarChangeLis
     var wrapper_player: RelativeLayout? = null;
     var feedback_msg:TextView? = null;
     var progresstime: SeekBar? = null;
-    var playing:Boolean? = false;
     var seekProgress:Int? = 0;
 
 
     var mediaPlayer: MediaPlayer? = null;
-    var song: String? = null;
-    var stop: Boolean? = null;
-    var duration: Long? = null;
 
     var timeToMove:Int? = 0
 
@@ -67,18 +57,23 @@ class AudioPlayer : Fragment(), View.OnClickListener, SeekBar.OnSeekBarChangeLis
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
         arguments?.let {
             songUri = it.getString(SONG_URI)
             viewShow = it.getString(VIEW_SHOW)
             songTitle = it.getString(SONG_TITLE)
             songId = it.getInt(SONG_ID)
-
         }
 
+        strictMode()
+
+
+    }
+
+    fun strictMode(){
         if(android.os.Build.VERSION.SDK_INT > 9){
             val policy = StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
-
         }
     }
 
@@ -98,6 +93,8 @@ class AudioPlayer : Fragment(), View.OnClickListener, SeekBar.OnSeekBarChangeLis
         progresstime = view.findViewById<SeekBar>(R.id.progresstime)
         feedback_msg = view.findViewById<TextView>(R.id.feedback_msg)
 
+
+        Log.d("show", viewShow);
         if(viewShow == "loading")
         {
             AudioDownload(context, songTitle, songId, feedback_msg,this).execute();
@@ -292,5 +289,18 @@ class AudioPlayer : Fragment(), View.OnClickListener, SeekBar.OnSeekBarChangeLis
 
         return file.toURI().toString();
 
+    }
+
+    companion object {
+        @JvmStatic
+        fun newInstance(songUri: String, viewShow: String, songTitle:String, id:Int) =
+            AudioPlayer().apply {
+                arguments = Bundle().apply {
+                    putString(SONG_URI, songUri.toString());
+                    putString(VIEW_SHOW, viewShow.toString());
+                    putString(SONG_TITLE, songTitle.toString());
+                    putInt(SONG_ID, id);
+                }
+            }
     }
 }

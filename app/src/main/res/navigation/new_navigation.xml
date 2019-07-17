@@ -4,9 +4,9 @@
             xmlns:tools="http://schemas.android.com/tools" android:id="@+id/new_navigation"
             app:startDestination="@id/splashActivity">
 
-    <activity android:id="@+id/splashActivity" android:name="br.org.cn.ressuscitou.SplashActivity"
+    <activity android:id="@+id/splashActivity" android:name="br.org.cn.ressuscitou.Activities.SplashActivity"
               android:label="activity_splash" tools:layout="@layout/activity_splash"/>
-    <activity android:id="@+id/acceptTermsActivity" android:name="br.org.cn.ressuscitou.AcceptTermsActivity"
+    <activity android:id="@+id/acceptTermsActivity" android:name="br.org.cn.ressuscitou.Activities.AcceptTermsActivity"
               android:label="activity_accept_terms" tools:layout="@layout/activity_accept_terms"/>
     <fragment android:id="@+id/songsFragment" android:name="br.org.cn.ressuscitou.Fragment.SongsFragment"
               android:label="SongsFragment">
@@ -14,5 +14,5 @@
                 app:enterAnim="@anim/slide_up" app:exitAnim="@anim/slide_down"/>
     </fragment>
     <fragment android:id="@+id/songDetail" android:name="br.org.cn.ressuscitou.Fragment.SongDetail"
-              android:label="fragment_song_detail" tools:layout="@layout/fragment_song_detail"/>
+              android:label="fragment_song_detail" tools:layout="@layout/fragment_canticle_detail"/>
 </navigation>

@@ -8,7 +8,7 @@ import android.net.Uri
 import android.os.Handler
 import android.os.IBinder
 import android.util.Log
-import br.org.cn.ressuscitou.Fragment.SongDetail
+import br.org.cn.ressuscitou.Activities.CanticleDetail
 import br.org.cn.ressuscitou.Utils.UtilitiesAudio
 import java.util.concurrent.TimeUnit
 

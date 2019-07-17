@@ -4,15 +4,13 @@ import android.content.Context
 import android.os.AsyncTask
 import android.os.Handler
 import android.util.Log
-import android.view.View
-import android.widget.LinearLayout
 import android.widget.TextView
 import br.org.cn.ressuscitou.Fragment.AudioPlayer
-import br.org.cn.ressuscitou.Fragment.SongDetail
+import br.org.cn.ressuscitou.Activities.CanticleDetail
 import br.org.cn.ressuscitou.Persistence.DAO.SongsDAO
 import br.org.cn.ressuscitou.Persistence.DataBaseHelper
 import br.org.cn.ressuscitou.Persistence.Entities.Songs
-import br.org.cn.ressuscitou.Service.SongService
+import br.org.cn.ressuscitou.Service.CanticleService
 import br.org.cn.ressuscitou.Utils.Common
 import com.j256.ormlite.stmt.UpdateBuilder
 import okhttp3.ResponseBody
@@ -46,7 +44,7 @@ class AudioDownload(
             .baseUrl("https://github.com/otaviogrrd/Ressuscitou_Android/blob/master/audios/")
             .addConverterFactory(ScalarsConverterFactory.create())
             .build();
-        val call = retrofit.create(SongService::class.java);
+        val call = retrofit.create(CanticleService::class.java);
 
         val cleanTitle = Common().unaccent(title!!,false);
         val url = String.format("https://github.com/otaviogrrd/Ressuscitou_Android/blob/master/audios/%s.mp3?raw=true", cleanTitle);

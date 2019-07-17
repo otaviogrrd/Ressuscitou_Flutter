@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".Fragment.CanticleFragment">
+
+
+
+    <android.support.v7.widget.RecyclerView android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:visibility="gone"
+                                            android:padding="24sp"
+                                            android:id="@+id/song_list"
+    >
+
+    </android.support.v7.widget.RecyclerView>
+
+    <TextView android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:id="@+id/not_results"
+              android:visibility="gone"
+              android:gravity="center_horizontal|center_vertical"
+              android:text="Nenhum resultado encontrado!"
+    />
+
+</RelativeLayout>

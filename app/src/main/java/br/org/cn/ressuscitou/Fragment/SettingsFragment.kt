@@ -72,7 +72,7 @@ class SettingsFragment : Fragment(), CompoundButton.OnCheckedChangeListener {
             prefs!!.settings_mod = isChecked;
 
         }
-        }
+    }
 
 
     override fun onDetach() {
