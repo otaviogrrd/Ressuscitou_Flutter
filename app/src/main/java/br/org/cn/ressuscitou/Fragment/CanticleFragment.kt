@@ -20,11 +20,13 @@ import br.org.cn.ressuscitou.Utils.Common
 
 // TODO: Rename parameter arguments, choose names that match
 private const val TYPEQUERY = "CATEGORY"
+private const val LITURGIC = "LITURGIC"
 
 class CanticleFragment : Fragment() {
 
     //DATA ON VIEW
     private var categorySong: String? = null
+    private var ligurgicSong: String? = null
     var col: String? = null;
     var termStr: String? = null;
 
@@ -43,6 +45,7 @@ class CanticleFragment : Fragment() {
         super.onCreate(savedInstanceState)
         arguments?.let {
             categorySong = it.getString(TYPEQUERY)
+            ligurgicSong = it.getString(LITURGIC)
         }
     }
 
@@ -102,7 +105,7 @@ class CanticleFragment : Fragment() {
 
         var filter = Filter()
         filter.term = term
-        filter.liturgic = ligurgic
+        filter.liturgic = ligurgicSong
         filter.category = categorySong
 
 
@@ -114,10 +117,11 @@ class CanticleFragment : Fragment() {
     companion object {
 
         @JvmStatic
-        fun newInstance(categorySong: String?) =
+        fun newInstance(categorySong: String?, ligurgicSong: String?) =
             CanticleFragment().apply {
                 arguments = Bundle().apply {
-                    putString(TYPEQUERY, categorySong.toString());
+                    putString(TYPEQUERY, categorySong.toString())
+                    putString(LITURGIC,ligurgicSong.toString())
                 }
             }
     }

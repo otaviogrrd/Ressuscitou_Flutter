@@ -3,62 +3,93 @@
       xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
       tools:showIn="navigation_view">
 
-
     <group android:checkableBehavior="single">
+        <item android:title="">
+            <menu>
+                <item
+                        android:id="@+id/nav_settings"
+                        android:icon="@drawable/ic_settings"
+                        android:title="@string/menu_settings"/>
+            </menu>
+        </item>
+    </group>
+
+    <group android:checkableBehavior="none">
         <item
-                android:id="@+id/nav_song_alfabetical"
-                android:icon="@drawable/ic_settings"
-                android:title="Configurações"/>
+                android:id="@+id/all"
+                android:title="@string/menu_all"/>
     </group>
 
 
-
-    <group android:checkableBehavior="single">
-        <item android:title="Ver todos">
+    <group android:checkableBehavior="none">
+        <item android:title="@string/title_stage">
             <menu>
                 <item
                         android:id="@+id/nav_song_pre"
-                        android:icon="@drawable/drawable_round_gray"
-                        android:title="@string/pr_catecumenato"/>
-
+                        android:icon="@drawable/gray_ball"
+                        android:title="@string/menu_pre"/>
                 <item
                         android:id="@+id/nav_song_liturgic"
-                        android:icon="@drawable/drawable_round_orange"
-                        android:title="Cânticos Liturgicos"/>
-
+                        android:icon="@drawable/orange_ball"
+                        android:title="@string/menu_liturgic"/>
                 <item
                         android:id="@+id/nav_song_cat"
-                        android:icon="@drawable/drawable_round_blue"
-                        android:title="Catecumenato"/>
-
+                        android:icon="@drawable/blue_ball"
+                        android:title="@string/menu_way"/>
                 <item
                         android:id="@+id/nav_song_eleition"
-                        android:icon="@drawable/ic_menu_manage"
-                        android:title="Eleição"/>
-
-
+                        android:icon="@drawable/green_ball"
+                        android:title="@string/menu_eleition"/>
             </menu>
 
         </item>
     </group>
+
+    <group android:checkableBehavior="single">
+        <item android:title="@string/title_liturgic_time">
+            <menu>
+                <item
+                        android:id="@+id/nav_advent"
+                        android:title="@string/menu_advent"/>
+                <item
+                        android:id="@+id/nav_christmans"
+                        android:title="@string/menu_christmans"/>
+                <item
+                        android:id="@+id/nav_lent"
+                        android:title="@string/menu_lent"/>
+                <item
+                        android:id="@+id/nav_easter"
+                        android:title="@string/menu_easter"/>
+                <item
+                        android:id="@+id/nav_pentecost"
+                        android:title="@string/menu_pentecost"/>
+            </menu>
+
+        </item>
+    </group>
+
     <group android:checkableBehavior="single">
 
-    <item android:title="Utilidades">
-        <menu>
+        <item android:title="@string/title_eucharist">
+            <menu>
+                <item
+                        android:id="@+id/nav_input"
+                        android:title="@string/menu_input"/>
+                <item
+                        android:id="@+id/nav_peace"
+                        android:title="@string/menu_peace"/>
+                <item
+                        android:id="@+id/nav_fraction"
+                        android:title="@string/menu_fraction"/>
 
-            <item
-                    android:id="@+id/nav_set_accords"
-                    android:title="Arcodes"/>
-
-            <item
-                    android:id="@+id/nav_set_settings"
-                    android:title="Configurações"/>
-
-            <item
-                    android:id="@+id/nav_set_harp"
-                    android:title="Arpejos"/>
-        </menu>
-    </item>
+                <item
+                        android:id="@+id/nav_communion"
+                        android:title="@string/menu_communion"/>
+                <item
+                        android:id="@+id/nav_final"
+                        android:title="@string/menu_final"/>
+            </menu>
+        </item>
     </group>
 
 </menu>

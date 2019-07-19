@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              tools:context=".Fragment.AudioPlayer">
@@ -62,20 +63,23 @@
                         android:visibility="gone"
                         android:layout_gravity="center_vertical" android:layout_marginLeft="20dp"/>
 
-                <SeekBar
-                        style="?android:attr/progressBarStyleHorizontal"
-                        android:layout_width="wrap_content"
-                        android:layout_marginLeft="0dp"
-                        android:layout_centerVertical="true"
-                        android:layout_height="match_parent"
-                        android:outlineSpotShadowColor="#ffffff"
-                        android:layout_toRightOf="@id/btn_pause"
-                        android:id="@+id/progresstime"
-                        android:progressTint="#ffffff"
-                        android:thumbTint="#ffffff"
-                        android:layout_weight="8"
-                        android:layout_gravity="center_horizontal|center_vertical"/>
 
+                <rm.com.audiowave.AudioWaveView
+                        android:id="@+id/progresstime"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_margin="16dp"
+                        app:animateExpansion="true"
+                        app:chunkWidth="10dp"
+                        app:chunkHeight="24dp"
+                        app:minChunkHeight="2dp"
+                        app:chunkSpacing="1dp"
+                        app:chunkRadius="1dp"
+                        app:touchable="true"
+                        android:layout_weight="8"
+                        app:waveColor="@android:color/white"
+                />
 
                 <TextView
                         android:layout_width="0dp"

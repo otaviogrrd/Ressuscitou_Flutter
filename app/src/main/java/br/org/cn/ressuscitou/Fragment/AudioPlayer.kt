@@ -1,5 +1,7 @@
 package br.org.cn.ressuscitou.Fragment
 
+import android.animation.ObjectAnimator
+import android.graphics.Color
 import android.media.AudioManager
 import android.media.MediaPlayer
 import android.net.Uri
@@ -7,18 +9,23 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.StrictMode
 import android.support.v4.app.Fragment
+import android.support.v4.content.ContextCompat
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.LinearInterpolator
 import android.widget.*
 import br.org.cn.ressuscitou.AsyncTask.AudioDownload
 
 import br.org.cn.ressuscitou.R
 import br.org.cn.ressuscitou.Utils.Common
 import br.org.cn.ressuscitou.Utils.UtilitiesAudio
+import rm.com.audiowave.AudioWaveView
 import java.io.File
 import java.util.concurrent.TimeUnit
+import java.io.FileInputStream
+import java.io.IOException
 
 
 private const val SONG_URI = "SONG_URI"
@@ -26,7 +33,8 @@ private const val VIEW_SHOW = "VIEW"
 private const val SONG_TITLE = "TITLE"
 private const val SONG_ID = "ID"
 
-class AudioPlayer : Fragment(), View.OnClickListener, SeekBar.OnSeekBarChangeListener {
+
+class AudioPlayer : Fragment(), View.OnClickListener {
 
 
 
@@ -42,8 +50,12 @@ class AudioPlayer : Fragment(), View.OnClickListener, SeekBar.OnSeekBarChangeLis
     var btn_pause: ImageButton? = null
     var wrapper_player: RelativeLayout? = null;
     var feedback_msg:TextView? = null;
-    var progresstime: SeekBar? = null;
-    var seekProgress:Int? = 0;
+    var waveformSeekBar:AudioWaveView? = null
+
+
+
+
+
 
 
     var mediaPlayer: MediaPlayer? = null;
@@ -90,8 +102,9 @@ class AudioPlayer : Fragment(), View.OnClickListener, SeekBar.OnSeekBarChangeLis
         time_all = view.findViewById<TextView>(R.id.time_all);
         wrapper_player  =view.findViewById<RelativeLayout>(R.id.wrapper_player);
         progress_download = view.findViewById<LinearLayout>(R.id.progress_download);
-        progresstime = view.findViewById<SeekBar>(R.id.progresstime)
         feedback_msg = view.findViewById<TextView>(R.id.feedback_msg)
+
+        waveformSeekBar = view.findViewById<AudioWaveView>(R.id.progresstime)
 
 
         Log.d("show", viewShow);
@@ -118,10 +131,10 @@ class AudioPlayer : Fragment(), View.OnClickListener, SeekBar.OnSeekBarChangeLis
         btn_play?.setOnClickListener(this);
         btn_pause?.setOnClickListener(this);
 
-        progresstime!!.setOnSeekBarChangeListener(this);
 
         return view;
     }
+
 
     override fun onClick(v: View?)
     {
@@ -153,6 +166,10 @@ class AudioPlayer : Fragment(), View.OnClickListener, SeekBar.OnSeekBarChangeLis
             mediaPlayer!!.seekTo(timeToMove!!)
             mediaPlayer!!.start();
 
+            inflateWave()
+
+
+
             durationHandler.postDelayed(updateSeekBarTime, 1000);
         }
 
@@ -174,7 +191,8 @@ class AudioPlayer : Fragment(), View.OnClickListener, SeekBar.OnSeekBarChangeLis
                     mediaPlayer!!.duration.toLong()
                 );
 
-                progresstime!!.setProgress(progressPercent);
+                waveformSeekBar!!.progress = progressPercent.toFloat()
+
 
                 if(progressPercent >= 99){
                     Handler().postDelayed({
@@ -183,7 +201,8 @@ class AudioPlayer : Fragment(), View.OnClickListener, SeekBar.OnSeekBarChangeLis
                         now = "0.00"
                         timeToMove = 0
 
-                        progresstime!!.setProgress(0);
+                        waveformSeekBar!!.progress = 0.0f
+
                     }, 2500)
 
                 }
@@ -199,31 +218,6 @@ class AudioPlayer : Fragment(), View.OnClickListener, SeekBar.OnSeekBarChangeLis
     }
 
 
-
-    override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-        seekProgress = progress
-
-    }
-
-    override fun onStartTrackingTouch(seekBar: SeekBar?) {
-    }
-
-    override fun onStopTrackingTouch(seekBar: SeekBar?) {
-        timeToMove = ((seekProgress!!.toLong() * mediaPlayer!!.duration) / 100).toInt()
-        if(mediaPlayer!!.isPlaying()){
-            mediaPlayer!!.pause()
-
-            timeToMove = ((seekProgress!!.toLong() * mediaPlayer!!.duration) / 100).toInt()
-
-            mediaPlayer!!.seekTo(timeToMove!!)
-            mediaPlayer!!.start()
-        }else{
-            mediaPlayer!!.seekTo(timeToMove!!)
-        }
-        Toast.makeText(context, "here +>" + seekProgress.toString(), Toast.LENGTH_SHORT).show()
-
-    }
-
     override fun onDestroy() {
         super.onDestroy()
 
@@ -232,6 +226,7 @@ class AudioPlayer : Fragment(), View.OnClickListener, SeekBar.OnSeekBarChangeLis
         }
 
     }
+
 
     fun formatToDigitalClock(miliSeconds: Long): String {
         val hours = TimeUnit.MILLISECONDS.toHours(miliSeconds).toInt() % 24
@@ -289,6 +284,40 @@ class AudioPlayer : Fragment(), View.OnClickListener, SeekBar.OnSeekBarChangeLis
 
         return file.toURI().toString();
 
+    }
+
+    private fun inflateWave() {
+
+
+        var animator = ObjectAnimator.ofFloat(waveformSeekBar, "progress", 0F, 100F).apply {
+                interpolator = LinearInterpolator()
+                duration = 1000
+            }
+
+        waveformSeekBar!!.setRawData(fileToBytes(File(getUriSongDownloaded()))) { animator.start() }
+
+        waveformSeekBar!!.onProgressChanged = { progress, byUser ->
+
+            if (progress == 100F && !byUser) {
+                waveformSeekBar!!.waveColor = ContextCompat.getColor(context!!, R.color.colorWhite)
+                waveformSeekBar!!.isTouchable = true
+            }
+        }
+    }
+
+    fun fileToBytes(file: File): ByteArray {
+        var bytes = ByteArray(0)
+        try {
+            FileInputStream(file).use({ inputStream ->
+                bytes = ByteArray(inputStream.available())
+
+                inputStream.read(bytes)
+            })
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+
+        return bytes
     }
 
     companion object {

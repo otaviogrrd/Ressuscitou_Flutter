@@ -22,6 +22,8 @@
             android:layout_gravity="start"
             android:fitsSystemWindows="true"
             app:menu="@menu/activity_main_drawer"
+            app:itemTextColor="#000000"
+            app:itemTextAppearance="@style/NavigationDrawerFont"
             android:background="@android:color/white">
     </android.support.design.widget.NavigationView>
 

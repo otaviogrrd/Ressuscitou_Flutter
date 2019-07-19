@@ -58,9 +58,16 @@ class CanticleTask(
             where.and().like("conteudo", "%" + params[0]!!.term.toString().toLowerCase() + "%")
         }
 
-        if(!params[0]!!.liturgic.isNullOrEmpty()) {
+
+
+        if(!(params[0]!!.liturgic.isNullOrEmpty() && params[0]!!.liturgic.isNullOrBlank()) && !params[0]!!.liturgic.equals("null")){
+            Log.d("COLUMN",params[0]!!.liturgic);
             where.and().eq(params[0]!!.liturgic, true);
         }
+
+//        if(null != params[0]!!.liturgic) {
+//
+//        }
 
         Log.d("QUERY_SQL",queryBuilder.prepareStatementString())
         return queryBuilder.query();

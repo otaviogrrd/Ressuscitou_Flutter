@@ -9,29 +9,29 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="pr_catecumenato">Pré-Catecumenato</string>
 
-    <string-array name="liturgic_options">
-        <item>Tempo Liturgico</item>
-        <item>Advento</item>
-        <item>Natal</item>
-        <item>Quaresma</item>
-        <item>Páscoa</item>
-        <item>Pentecostes</item>
-        <item>Cantos à virgem</item>
-        <item>Cantos para às crianças</item>
-        <item>Laudes - Vésperas</item>
-        <item>Cantos de entrada</item>
-        <item>Paz - Apresentação das Oferendas</item>
-        <item>Fração do pão</item>
-        <item>Comunhão</item>
-        <item>Canto final</item>
-    </string-array>
+    <string name="menu_settings">Configurações</string>
 
-    <string-array name="list_type">
-        <item>Tipo</item>
-        <item>Eucaristia</item>
-        <item>Celebração</item>
-    </string-array>
+    <string name="title_stage">Étapa</string>
+    <string name="menu_pre">Pré-Catecumenato</string>
+    <string name="menu_liturgic">Cânticos litúrgicos</string>
+    <string name="menu_way">Catecumenato</string>
+    <string name="menu_eleition">Eleição</string>
+
+    <string name="title_liturgic_time">Tempo litúrgico</string>
+    <string name="menu_all">Ver todos (A-Z)</string>
+    <string name="menu_advent">Advento</string>
+    <string name="menu_christmans">Natal</string>
+    <string name="menu_lent">Quaresma</string>
+    <string name="menu_easter">Páscoa</string>
+    <string name="menu_pentecost">Pentencostes</string>
+
+    <string name="title_eucharist">Eucaristia</string>
+    <string name="menu_input">Entrada</string>
+    <string name="menu_peace">Paz</string>
+    <string name="menu_fraction">Fração do pão</string>
+    <string name="menu_communion">Comunhão</string>
+    <string name="menu_final">Final</string>
+
 
 </resources>
