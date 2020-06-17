@@ -1,0 +1,32 @@
+name: ressuscitou
+description: Ressuscitou
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.2.2 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  http: ^0.12.0+2
+  cupertino_icons: ^0.1.2
+  flutter_keyboard_size: ^0.1.2+2
+  splashscreen: ^1.2.0
+  get: ^2.5.6
+  flutter_webview_plugin: ^0.3.11
+  shared_preferences: ^0.5.7+2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
+    - assets/img/
