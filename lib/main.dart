@@ -11,6 +11,7 @@ void main() => runApp(MainPage());
 class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
     return GetMaterialApp(
       defaultTransition: Transition.cupertino,
       debugShowCheckedModeBanner: false,
@@ -32,21 +33,21 @@ class MainPage extends StatelessWidget {
           fillColor: Colors.white,
           contentPadding:
          EdgeInsets.all(10),
-//          disabledBorder: OutlineInputBorder(
-//              borderSide:BorderSide(color: globals.darkRed),
-//              gapPadding: 10),
-//          enabledBorder: OutlineInputBorder(
-//              borderSide:BorderSide(color: globals.darkRed),
-//              gapPadding: 10),
-//          focusedBorder: OutlineInputBorder(
-//              borderSide:BorderSide(color: globals.darkRed),
-//              gapPadding: 10),
-//          errorBorder: OutlineInputBorder(
-//              borderSide:BorderSide(color: globals.darkRed),
-//              gapPadding: 10),
-//          focusedErrorBorder: OutlineInputBorder(
-//              borderSide:BorderSide(color: globals.darkRed),
-//              gapPadding: 10),
+          disabledBorder: OutlineInputBorder(
+              borderSide:BorderSide(color: globals.darkRed),
+              gapPadding: 10),
+          enabledBorder: OutlineInputBorder(
+              borderSide:BorderSide(color: globals.darkRed),
+              gapPadding: 10),
+          focusedBorder: OutlineInputBorder(
+              borderSide:BorderSide(color: globals.darkRed),
+              gapPadding: 10),
+          errorBorder: OutlineInputBorder(
+              borderSide:BorderSide(color: globals.darkRed),
+              gapPadding: 10),
+          focusedErrorBorder: OutlineInputBorder(
+              borderSide:BorderSide(color: globals.darkRed),
+              gapPadding: 10),
         ),
       ),
       home: Splash(),

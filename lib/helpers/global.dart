@@ -8,6 +8,7 @@ var globals = new Globals();
 class Globals {
   Color lightRed = hexToColor("#af282f");
   Color darkRed = hexToColor("#650000");
+  Color darkRedShadow = hexToColor("#2d0000");
   double fontSizeBig = 20.0;
   double fontSizeNormal = 17.0;
 }
