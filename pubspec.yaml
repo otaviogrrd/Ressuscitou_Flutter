@@ -1,7 +1,7 @@
 name: ressuscitou
 description: Ressuscitou
 
-version: 1.0.0+1
+version: 3.0.0+1
 
 environment:
   sdk: ">=2.2.2 <3.0.0"
@@ -30,6 +30,13 @@ dependencies:
   flutter_webview_plugin: ^0.3.11
   shared_preferences: ^0.5.7+2
   flutter_form_builder: ^3.9.0
+  audioplayers: ^0.15.1
+  uuid: ^2.0.4
+  path_provider: ^1.5.1
+  package_info: ^0.4.1
+  dio: ^3.0.9
+  url_launcher: ^5.4.11
+  percent_indicator: ^2.1.5
 
 
 dev_dependencies:

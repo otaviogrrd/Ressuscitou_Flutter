@@ -1,12 +1,17 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:ressuscitou/model/canto.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'dart:convert';
 import 'package:get/get.dart';
 import '../helpers/global.dart';
 import 'dart:async';
+import 'dart:io';
+import 'package:path_provider/path_provider.dart';
+import '../helpers/player_widget.dart';
 
 class CantoPage extends StatefulWidget {
   final Canto canto;
@@ -18,23 +23,74 @@ class CantoPage extends StatefulWidget {
 }
 
 class _CantoPageState extends State<CantoPage> {
-  WebViewController webViewController;
+  final GlobalKey<PlayerWidgetState> playerKey = GlobalKey<PlayerWidgetState>();
   final flutterWebviewPlugin = new FlutterWebviewPlugin();
-  String str;
-  int scrolling = 0;
+  WebViewController webViewController;
+  bool exibePlayer = false;
+  String localFilePath = "";
+  String strCanto;
+  int scroll = 0;
   int transp = 0;
+  double percentDownload = 0;
+
+  Future _loadFile() async {
+    final dir = await getApplicationDocumentsDirectory();
+    final file = File('${dir.path}/' + widget.canto.html + '.mp3');
+    if (await file.exists()) {
+      setState(() {
+        localFilePath = file.path;
+      });
+    }
+    if (localFilePath == "") {
+      snackBar('Iniciando download');
+      var url = "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/" +
+          widget.canto.html +
+          ".mp3";
+
+      StreamController<int> progressStreamController = new StreamController();
+      Dio dio = new Dio();
+      dio.get(
+        url,
+        onReceiveProgress: (received, total) {
+          progressStreamController.add(((received / total) * 100).round());
+        },
+        options: Options(
+            responseType: ResponseType.bytes,
+            followRedirects: false,
+            validateStatus: (status) {
+              return status < 500;
+            }),
+      ).then((Response response) async {
+        file.writeAsBytes(response.data).then((value) {
+          widget.canto.downloaded = true;
+          localFilePath = file.path;
+          exibePlayer = true;
+          setState(() {});
+        });
+      }).whenComplete(() => progressStreamController.close());
+
+      await for (int p in progressStreamController.stream) {
+        setState(() {
+          percentDownload = p / 100;
+        });
+      }
+    } else {
+      exibePlayer = true;
+      setState(() {});
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     transpor(transp);
     return WillPopScope(
       onWillPop: () {
-        scrolling = 0;
+        scroll = 0;
         Navigator.pop(context, false);
         return Future.value(false);
       },
       child: Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(elevation: 0),
         floatingActionButton: SpeedDial(
             closeManually: true,
             animatedIcon: AnimatedIcons.menu_close,
@@ -47,8 +103,6 @@ class _CantoPageState extends State<CantoPage> {
               SpeedDialChild(
                   elevation: 2,
                   child: Center(child: Text('Tansp', style: TextStyle(fontSize: 12, color: globals.darkRed))),
-                  //Icon(Icons.music_note, color: globals.darkRed),
-                  //label: 'Transpor',
                   onTap: () => getTraspDialog(),
                   backgroundColor: Colors.grey[100]),
               SpeedDialChild(
@@ -56,46 +110,71 @@ class _CantoPageState extends State<CantoPage> {
                   child: Stack(
                     children: <Widget>[
                       Center(child: Icon(Icons.arrow_downward, color: globals.darkRed)),
-                      if (scrolling > 0)
+                      if (scroll > 0)
                         Positioned(
                             bottom: 2,
                             right: 5,
-                            child: Text(scrolling.toString() + 'x', style: TextStyle(color: globals.darkRed))),
+                            child: Text(scroll.toString() + 'x', style: TextStyle(color: globals.darkRed))),
                     ],
                   ),
-                  //label: 'Scroll',
                   onTap: () async {
                     if (await webViewController.canScrollVertically()) setState(() => setTimer());
                   },
                   backgroundColor: Colors.grey[100]),
+              if (widget.canto.url != '')
+                SpeedDialChild(
+                    elevation: 2,
+                    child: Center(child: Icon(Icons.music_note, color: globals.darkRed)),
+                    onTap: () => _loadFile(),
+                    backgroundColor: Colors.grey[100]),
             ]),
-        body: WebView(
-          onWebViewCreated: (WebViewController controller) {
-            webViewController = controller;
-          },
-          initialUrl: Uri.dataFromString(str, mimeType: 'text/html', encoding: Encoding.getByName('utf-8')).toString(),
-          gestureNavigationEnabled: true,
+        body: Column(
+          children: <Widget>[
+            if (exibePlayer)
+              PlayerWidget(
+                key: playerKey,
+                url: localFilePath,
+              ),
+            if (percentDownload > 0 && percentDownload < 1)
+              LinearPercentIndicator(
+                lineHeight: 20.0,
+                percent: percentDownload,
+                center: Text("${(percentDownload * 100).toInt()}%", style: TextStyle(color: Colors.white)),
+                linearStrokeCap: LinearStrokeCap.butt,
+                progressColor: globals.darkRed,
+              ),
+            Expanded(
+              child: WebView(
+                onWebViewCreated: (WebViewController controller) {
+                  webViewController = controller;
+                },
+                initialUrl: Uri.dataFromString(strCanto, mimeType: 'text/html', encoding: Encoding.getByName('utf-8'))
+                    .toString(),
+                gestureNavigationEnabled: true,
+              ),
+            ),
+          ],
         ),
       ),
     );
   }
 
   setTimer() {
-    scrolling++;
+    scroll++;
     Timer.periodic(Duration(milliseconds: 200), (timer) async {
       if (!(await webViewController.canScrollVertically())) {
-        setState(() => scrolling = 0);
+        setState(() => scroll = 0);
         return;
       }
-      if (scrolling == 0) timer.cancel();
+      if (scroll == 0) timer.cancel();
       webViewController.scrollBy(0, 3);
     });
   }
 
   void transpor(int numero) {
     LineSplitter ls = new LineSplitter();
-    str = utf8.decode(base64.decode(widget.canto.extBase64));
-    List<String> content = ls.convert(str);
+    strCanto = utf8.decode(base64.decode(widget.canto.extBase64));
+    List<String> content = ls.convert(strCanto);
 
     List<String> escalaTmp = [
       "zerofiller",
@@ -220,9 +299,9 @@ class _CantoPageState extends State<CantoPage> {
         content[c] = content[c].replaceAll(escalaMenos[i], escalaMenor[i]);
       }
     }
-    str = "";
+    strCanto = "";
     content.forEach((c) {
-      str = str + c + '\n';
+      strCanto = strCanto + c + '\n';
     });
   }
 
@@ -272,9 +351,11 @@ class _CantoPageState extends State<CantoPage> {
             textColor: Colors.black,
             onPressed: () {
               transpor(numero);
-              scrolling = 0;
+              scroll = 0;
               webViewController.loadUrl(
-                  Uri.dataFromString(str, mimeType: 'text/html', encoding: Encoding.getByName('utf-8')).toString());
+                  Uri.dataFromString(strCanto, mimeType: 'text/html', encoding: Encoding.getByName('utf-8'))
+                      .toString());
+              setState(() {});
               Navigator.of(context).pop();
             }));
   }

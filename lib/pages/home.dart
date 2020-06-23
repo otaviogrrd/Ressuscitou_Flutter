@@ -3,6 +3,7 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:get/get.dart';
 import 'package:ressuscitou/helpers/global.dart';
 import 'package:ressuscitou/model/canto.dart';
+import 'package:ressuscitou/pages/audios.dart';
 import 'package:ressuscitou/pages/canto.dart';
 import 'package:ressuscitou/pages/settings.dart';
 import '../helpers/global.dart';
@@ -42,7 +43,7 @@ class _HomePageState extends State<HomePage> {
             case ConnectionState.waiting:
               return getCantosLocal();
             case ConnectionState.done:
-              if (snapshot.hasData) listCantos = snapshot.data;
+              //if (snapshot.hasData) listCantos = snapshot.data;
               return getCantosLocal();
             default:
               if (snapshot.hasError) snackBar('Erro: ${snapshot.error}');
@@ -54,7 +55,6 @@ class _HomePageState extends State<HomePage> {
   listaCantos() {
     if (listCantos != null) {
       filtrar();
-
       return Column(
         children: <Widget>[
           if (showSearch) searchInput(),
@@ -63,26 +63,28 @@ class _HomePageState extends State<HomePage> {
                 itemCount: filterListCantos.length,
                 itemBuilder: (context, index) {
                   return InkWell(
-                    onTap: () => Get.to(CantoPage(canto: filterListCantos[index])),
+                    onTap: () => Get.to(CantoPage(canto: filterListCantos[index])).then((value) => {setState(() {})}),
                     child: ListTile(
                       dense: true,
-                      contentPadding: EdgeInsets.only(left:16, right: 10),
-                        leading: ClipOval(
-                            child: Material(
-                          color: getColorCateg(filterListCantos[index].categoria), // button color
-                          child: SizedBox(
-                              width: 35,
-                              height: 35,
-                              child: Center(
-                                  child: Text(
-                                filterListCantos[index].nr2019,
-                                style: TextStyle(fontSize: 12),
-                              ))),
-                        )),
-                        title: Text(
-                          filterListCantos[index].titulo,
-                          style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
-                        )),
+                      contentPadding: EdgeInsets.only(left: 16, right: 10),
+                      leading: ClipOval(
+                          child: Material(
+                        color: getColorCateg(filterListCantos[index].categoria), // button color
+                        child: SizedBox(
+                            width: 35,
+                            height: 35,
+                            child: Center(
+                                child: Text(
+                              filterListCantos[index].nr2019,
+                              style: TextStyle(fontSize: 12),
+                            ))),
+                      )),
+                      title: Text(
+                        filterListCantos[index].titulo,
+                        style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                      ),
+                      trailing: geticon(filterListCantos[index]),
+                    ),
                   );
                 }),
           ),
@@ -90,6 +92,16 @@ class _HomePageState extends State<HomePage> {
       );
     }
     return Container();
+  }
+
+  geticon(Canto canto) {
+    if (canto.url != '') {
+      if (canto.downloaded != null && canto.downloaded)
+        return Icon(Icons.music_note, color: globals.darkRed);
+      else
+        return Icon(Icons.music_note, color: Colors.grey);
+    } else
+      return Icon(Icons.music_note, color: Colors.transparent);
   }
 
   getCantosLocal() {
@@ -126,6 +138,7 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+
   getMenuLateral() {
     double statusBarHeight = MediaQuery.of(context).padding.top;
     return Stack(
@@ -185,6 +198,13 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 onTap: () => setState(() => selectCateg(3))),
+            divider(),
+            ListTile(
+                title: Text("Audios"),
+                leading: Icon(Icons.music_note, size: 25, color: globals.darkRed),
+                onTap: () {
+                  Get.to(AudiosPage()).then((value) => setState(() {}));
+                }),
             divider(),
             Center(child: Text("Configurações", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 11))),
             ListTile(
