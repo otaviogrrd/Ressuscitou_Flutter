@@ -11,7 +11,7 @@ void main() => runApp(MainPage());
 class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
+    globals.inicial();
     return GetMaterialApp(
       defaultTransition: Transition.cupertino,
       debugShowCheckedModeBanner: false,
@@ -21,7 +21,7 @@ class MainPage extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
       ],
       supportedLocales: [
-       Locale('pt'),
+        Locale('pt'),
       ],
       theme: ThemeData(
         backgroundColor: Colors.white,
@@ -31,23 +31,12 @@ class MainPage extends StatelessWidget {
         inputDecorationTheme: InputDecorationTheme(
           filled: true,
           fillColor: Colors.white,
-          contentPadding:
-         EdgeInsets.all(10),
-          disabledBorder: OutlineInputBorder(
-              borderSide:BorderSide(color: globals.darkRed),
-              gapPadding: 10),
-          enabledBorder: OutlineInputBorder(
-              borderSide:BorderSide(color: globals.darkRed),
-              gapPadding: 10),
-          focusedBorder: OutlineInputBorder(
-              borderSide:BorderSide(color: globals.darkRed),
-              gapPadding: 10),
-          errorBorder: OutlineInputBorder(
-              borderSide:BorderSide(color: globals.darkRed),
-              gapPadding: 10),
-          focusedErrorBorder: OutlineInputBorder(
-              borderSide:BorderSide(color: globals.darkRed),
-              gapPadding: 10),
+          contentPadding: EdgeInsets.all(10),
+          disabledBorder: OutlineInputBorder(borderSide: BorderSide(color: globals.darkRed), gapPadding: 10),
+          enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: globals.darkRed), gapPadding: 10),
+          focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: globals.darkRed), gapPadding: 10),
+          errorBorder: OutlineInputBorder(borderSide: BorderSide(color: globals.darkRed), gapPadding: 10),
+          focusedErrorBorder: OutlineInputBorder(borderSide: BorderSide(color: globals.darkRed), gapPadding: 10),
         ),
       ),
       home: Splash(),

@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+import 'package:numberpicker/numberpicker.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:ressuscitou/model/canto.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -30,7 +31,8 @@ class _CantoPageState extends State<CantoPage> {
   String localFilePath = "";
   String strCanto;
   int scroll = 0;
-  int transp = 0;
+  int hasTransp = 0;
+  int capoSelected = 0;
   double percentDownload = 0;
 
   Future _loadFile() async {
@@ -82,7 +84,7 @@ class _CantoPageState extends State<CantoPage> {
 
   @override
   Widget build(BuildContext context) {
-    transpor(transp);
+    transpor();
     return WillPopScope(
       onWillPop: () {
         scroll = 0;
@@ -107,6 +109,11 @@ class _CantoPageState extends State<CantoPage> {
                   backgroundColor: Colors.grey[100]),
               SpeedDialChild(
                   elevation: 2,
+                  child: Center(child: Text('Capo', style: TextStyle(fontSize: 12, color: globals.darkRed))),
+                  onTap: () => getCapoDialog(),
+                  backgroundColor: Colors.grey[100]),
+              SpeedDialChild(
+                  elevation: 2,
                   child: Stack(
                     children: <Widget>[
                       Center(child: Icon(Icons.arrow_downward, color: globals.darkRed)),
@@ -128,32 +135,40 @@ class _CantoPageState extends State<CantoPage> {
                     onTap: () => _loadFile(),
                     backgroundColor: Colors.grey[100]),
             ]),
-        body: Column(
-          children: <Widget>[
-            if (exibePlayer)
-              PlayerWidget(
-                key: playerKey,
-                url: localFilePath,
+        body: Container(
+          color: Colors.white,
+          child: Column(
+            children: <Widget>[
+              if (exibePlayer)
+                Card(
+                  child: PlayerWidget(
+                    key: playerKey,
+                    url: localFilePath,
+                  ),
+                ),
+              if (percentDownload > 0 && percentDownload < 1)
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 8),
+                  child: LinearPercentIndicator(
+                    lineHeight: 20.0,
+                    percent: percentDownload,
+                    center: Text("Baixando ${(percentDownload * 100).toInt()}%", style: TextStyle(color: Colors.white)),
+                    linearStrokeCap: LinearStrokeCap.butt,
+                    progressColor: globals.darkRed,
+                  ),
+                ),
+              Expanded(
+                child: WebView(
+                  onWebViewCreated: (WebViewController controller) {
+                    webViewController = controller;
+                  },
+                  initialUrl: Uri.dataFromString(strCanto, mimeType: 'text/html', encoding: Encoding.getByName('utf-8'))
+                      .toString(),
+                  gestureNavigationEnabled: true,
+                ),
               ),
-            if (percentDownload > 0 && percentDownload < 1)
-              LinearPercentIndicator(
-                lineHeight: 20.0,
-                percent: percentDownload,
-                center: Text("${(percentDownload * 100).toInt()}%", style: TextStyle(color: Colors.white)),
-                linearStrokeCap: LinearStrokeCap.butt,
-                progressColor: globals.darkRed,
-              ),
-            Expanded(
-              child: WebView(
-                onWebViewCreated: (WebViewController controller) {
-                  webViewController = controller;
-                },
-                initialUrl: Uri.dataFromString(strCanto, mimeType: 'text/html', encoding: Encoding.getByName('utf-8'))
-                    .toString(),
-                gestureNavigationEnabled: true,
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -171,88 +186,60 @@ class _CantoPageState extends State<CantoPage> {
     });
   }
 
-  void transpor(int numero) {
+  void transpor() {
     LineSplitter ls = new LineSplitter();
+    int numero = 0;
+
+    var transSalv = globals.prefs.getInt("TRANSP_" + widget.canto.html) ?? 0;
+    var capotSalv = globals.prefs.getInt("CAPOT_" + widget.canto.html) ?? 0;
+
     strCanto = utf8.decode(base64.decode(widget.canto.extBase64));
     List<String> content = ls.convert(strCanto);
 
-    List<String> escalaTmp = [
-      "zerofiller",
-      "@01",
-      "@02",
-      "@03",
-      "@04",
-      "@05",
-      "@06",
-      "@07",
-      "@08",
-      "@09",
-      "@10",
-      "@11",
-      "@12"
-    ];
-    List<String> escalaEuropeia = [
-      "zerofiller",
-      "Do",
-      "Do#",
-      "Re",
-      "Mib",
-      "Mi",
-      "Fa",
-      "Fa#",
-      "Sol",
-      "Sol#",
-      "La",
-      "Sib",
-      "Si",
-      "Do",
-      "Do#",
-      "Re",
-      "Mib",
-      "Mi",
-      "Fa",
-      "Fa#",
-      "Sol",
-      "Sol#",
-      "La",
-      "Sib",
-      "Si"
-    ];
-//    List<String> escalaAmericana = new List<String>.from(["zerofiller", "C", "C#", "D", "Eb", "E", "F", "F#", "G", "G#", "A", "Bb", "B", "C", "C#", "D", "Eb", "E", "F", "F#", "G", "G#", "A", "Bb", "B"]);
-    List<String> escalaMenos =
-        new List<String>.from(["C-", "C#-", "D-", "Eb-", "E-", "F-", "F#-", "G-", "G#-", "A-", "Bb-", "B-"]);
-    List<String> escalaMenor =
-        new List<String>.from(["Cm", "C#m", "Dm", "Ebm", "Em", "Fm", "F#m", "Gm", "G#m", "Am", "Bbm", "Bm"]);
+    if (hasTransp != 0)
+      numero = hasTransp;
+    else
+      numero = transSalv;
+
+    List<String> escalaTmp = globals.escalaTmp;
+    List<String> escalaEuropeia = globals.escalaEuropeia;
+    List<String> escalaAmericana = globals.escalaAmericana;
+    List<String> escalaMenos = globals.escalaMenos;
+    List<String> escalaMenor = globals.escalaMenor;
     List<String> escala = escalaEuropeia;
-//    if (settings.getBoolean("escalaAmericana", false)) {
-//      escala = escalaAmericana;
-//    }
+
+    if (globals.prefs.getBool("escalaAmericana") ?? false) escala = escalaAmericana;
+
     int pri = 99;
     int dif = 0;
 
     for (var c = 0; c < content.length; c++) {
       if (!content[c].contains("FF0000")) {
         if (content[c].contains("@transp@")) {
-          //int transSalv = settings.getInt("TRANSP_" + html, 0);
-          //if (transSalv != 0) {
-          //   receiveString = (((("<FONT COLOR=\"#8a00e0\">" + getString(R.string.saved)) + getString(R.string.transpo)) + escalaTmp[transSalv]) + "</FONT>");
-          //  pri = 98;
-          //} else {
-          continue;
-          // }
-        }
-        if (content[c].contains("@capot@")) {
-//            int capotSalv = settings.getInt("CAPOT_" + html, 0);
-//            if (capotSalv != 0) {
-//              receiveString = (((((("<FONT COLOR=\"#8a00e0\">" + getString(R.string.saved)) + getString(R.string.capo)) + capotSalv) + "ª ") + getString(R.string.traste)) + "</FONT>");
-//              pri = 98;
-//            } else {
+          if (transSalv != 0) {
+            content[c] = "<FONT COLOR=\"#8a00e0\"> Salvo Transposição: " + escalaTmp[transSalv] + "</FONT>";
+            pri = 98;
+          } else {
+            if (numero > 0) {
+              content[c] = "<FONT COLOR=\"#002de0\"> Transposição: " + escalaTmp[numero] + "</FONT>";
+              pri = 98;
+            } else {
+              continue;
+            }
+          }
+        } else if (content[c].contains("@capot@")) {
+          if (capotSalv != 0) {
+            content[c] = "<FONT COLOR=\"#8a00e0\"> Salvo Capo: " + capotSalv.toString() + "ª traste</FONT>";
+            pri = 98;
+          } else {
 //              if (receiveString.contains(getString(R.string.capo))) {
 //                stringBuilder.append(receiveString).append("\n");
 //              }
+            continue;
+          }
+        } else {
           continue;
         }
-        continue;
       }
       if (content[c].contains("<H2>")) {
         continue;
@@ -337,20 +324,25 @@ class _CantoPageState extends State<CantoPage> {
                   TableRow(children: [
                     transporButton(11, "Sib/Sib-"),
                     transporButton(12, "Si/Si-"),
+                  ]),
+                  TableRow(children: [
+                    transporSaveButton(hasTransp),
+                    transporSaveButton(0),
                   ])
                 ]))));
   }
 
   Widget transporButton(int numero, String nota) {
     return Container(
-        margin: EdgeInsets.all(8),
+        margin: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         width: 100,
         child: FlatButton(
             child: Text(nota),
             color: Colors.grey[200],
             textColor: Colors.black,
-            onPressed: () {
-              transpor(numero);
+            onPressed: () async {
+              hasTransp = numero;
+              transpor();
               scroll = 0;
               webViewController.loadUrl(
                   Uri.dataFromString(strCanto, mimeType: 'text/html', encoding: Encoding.getByName('utf-8'))
@@ -358,5 +350,90 @@ class _CantoPageState extends State<CantoPage> {
               setState(() {});
               Navigator.of(context).pop();
             }));
+  }
+
+  Widget transporSaveButton(int salvar) {
+    return Container(
+        margin: EdgeInsets.only(left: 8, right: 8, top: 20),
+        width: 120,
+        child: FlatButton.icon(
+            icon: (salvar > 0) ? Icon(Icons.save) : Icon(Icons.delete),
+            label: (salvar > 0) ? Text('Salvar') : Text('Remove'),
+            color: Colors.grey[200],
+            textColor: globals.darkRed,
+            onPressed: () async {
+              await globals.prefs.setInt("TRANSP_" + widget.canto.html, salvar);
+              hasTransp = salvar;
+              transpor();
+              scroll = 0;
+              webViewController.loadUrl(
+                  Uri.dataFromString(strCanto, mimeType: 'text/html', encoding: Encoding.getByName('utf-8'))
+                      .toString());
+              setState(() {});
+              Navigator.of(context).pop();
+            }));
+  }
+
+  getCapoDialog() {
+    int localSelection = capoSelected;
+    return Get.defaultDialog(
+        title: 'Braçadeira',
+        radius: 4,
+        content: ConstrainedBox(
+            constraints: BoxConstraints(minWidth: MediaQuery.of(context).size.width * 0.6),
+            child: Padding(
+              padding: EdgeInsets.all(4),
+              child: Column(
+                children: <Widget>[
+                  Stack(
+                    children: <Widget>[
+                      Align(
+                          alignment: Alignment.center,
+                          child: NumberPicker.integer(
+                            initialValue: capoSelected,
+                            highlightSelectedValue: false,
+                            itemExtent: 45,
+                            minValue: 0,
+                            maxValue: 30,
+                            onChanged: (value) {
+                              if (value != localSelection) {
+                                localSelection = value;
+                              }
+                            },
+                          )),
+                      Align(
+                          alignment: Alignment.center,
+                          child: Container(
+                            margin: EdgeInsets.only(top: 50),
+                            height: 35,
+                            width: 40,
+                            decoration: BoxDecoration(
+                              border: Border.all(color: globals.darkRed),
+                            ),
+                          )),
+                    ],
+                  ),
+                  Container(
+                      margin: EdgeInsets.all(8),
+                      width: 100,
+                      child: FlatButton(
+                        child: Text('OK'),
+                        color: Colors.grey[200],
+                        textColor: Colors.black,
+                        onPressed: () async {
+                          await globals.prefs.setInt("CAPOT_" + widget.canto.html, localSelection);
+                          capoSelected = localSelection;
+                          transpor();
+                          scroll = 0;
+                          webViewController.loadUrl(
+                              Uri.dataFromString(strCanto, mimeType: 'text/html', encoding: Encoding.getByName('utf-8'))
+                                  .toString());
+                          setState(() {});
+                          Navigator.of(context).pop();
+                        },
+                      )),
+                ],
+              ),
+            )));
   }
 }

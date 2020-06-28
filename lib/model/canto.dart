@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:ressuscitou/helpers/global.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Canto {
