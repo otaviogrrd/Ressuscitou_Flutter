@@ -29,15 +29,15 @@ class AnimatedFloatingButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var margin = visible ? 0.0 : 28.0;
+    var margin = visible ? 0.0 : 18.0;
 
     return Container(
       constraints: BoxConstraints(
         minHeight: 0.0,
         minWidth: 0.0,
       ),
-      width: 56.0,
-      height: 56.0,
+      width: 62.0,
+      height: 62.0,
       child: AnimatedContainer(
           curve: curve,
           margin: EdgeInsets.all(margin),

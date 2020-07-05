@@ -1,18 +1,20 @@
+import 'dart:async';
+import 'dart:io';
+import 'dart:convert';
+import 'package:connectivity/connectivity.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+import 'package:get/get.dart';
 import 'package:numberpicker/numberpicker.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:ressuscitou/model/canto.dart';
+import 'package:ressuscitou/pages/listas.dart';
+import 'package:ressuscitou/helpers/global.dart';
+import 'package:ressuscitou/helpers/player_widget.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-import 'dart:convert';
-import 'package:get/get.dart';
-import '../helpers/global.dart';
-import 'dart:async';
-import 'dart:io';
 import 'package:path_provider/path_provider.dart';
-import '../helpers/player_widget.dart';
 
 class CantoPage extends StatefulWidget {
   final Canto canto;
@@ -24,7 +26,6 @@ class CantoPage extends StatefulWidget {
 }
 
 class _CantoPageState extends State<CantoPage> {
-  final GlobalKey<PlayerWidgetState> playerKey = GlobalKey<PlayerWidgetState>();
   final flutterWebviewPlugin = new FlutterWebviewPlugin();
   WebViewController webViewController;
   bool exibePlayer = false;
@@ -32,54 +33,20 @@ class _CantoPageState extends State<CantoPage> {
   String strCanto;
   int scroll = 0;
   int hasTransp = 0;
+  int transSalv = 0;
+  int capotSalv = 0;
   int capoSelected = 0;
   double percentDownload = 0;
+  bool estendido = false;
 
-  Future _loadFile() async {
-    final dir = await getApplicationDocumentsDirectory();
-    final file = File('${dir.path}/' + widget.canto.html + '.mp3');
-    if (await file.exists()) {
-      setState(() {
-        localFilePath = file.path;
-      });
-    }
-    if (localFilePath == "") {
-      snackBar('Iniciando download');
-      var url = "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/" +
-          widget.canto.html +
-          ".mp3";
+  @override
+  void initState() {
+    estendido = globals.prefs.getBool("estendido") ?? true;
+    super.initState();
+  }
 
-      StreamController<int> progressStreamController = new StreamController();
-      Dio dio = new Dio();
-      dio.get(
-        url,
-        onReceiveProgress: (received, total) {
-          progressStreamController.add(((received / total) * 100).round());
-        },
-        options: Options(
-            responseType: ResponseType.bytes,
-            followRedirects: false,
-            validateStatus: (status) {
-              return status < 500;
-            }),
-      ).then((Response response) async {
-        file.writeAsBytes(response.data).then((value) {
-          widget.canto.downloaded = true;
-          localFilePath = file.path;
-          exibePlayer = true;
-          setState(() {});
-        });
-      }).whenComplete(() => progressStreamController.close());
-
-      await for (int p in progressStreamController.stream) {
-        setState(() {
-          percentDownload = p / 100;
-        });
-      }
-    } else {
-      exibePlayer = true;
-      setState(() {});
-    }
+  navigateOption(String value) {
+    if (value == '1') Get.to(ListasPage(select: widget.canto.id)).then((value) => setState(() {}));
   }
 
   @override
@@ -92,7 +59,20 @@ class _CantoPageState extends State<CantoPage> {
         return Future.value(false);
       },
       child: Scaffold(
-        appBar: AppBar(elevation: 0),
+        appBar: AppBar(elevation: 0, actions: [
+          Padding(
+            padding: EdgeInsets.only(right: 8),
+            child: PopupMenuButton<String>(
+              child: Icon(Icons.more_vert),
+              onSelected: (value) => navigateOption(value),
+              itemBuilder: (BuildContext context) {
+                return [
+                  PopupMenuItem(value: '1', child: Text('Adicionar à lista')),
+                ];
+              },
+            ),
+          ),
+        ]),
         floatingActionButton: SpeedDial(
             closeManually: true,
             animatedIcon: AnimatedIcons.menu_close,
@@ -104,24 +84,50 @@ class _CantoPageState extends State<CantoPage> {
             children: [
               SpeedDialChild(
                   elevation: 2,
-                  child: Center(child: Text('Tansp', style: TextStyle(fontSize: 12, color: globals.darkRed))),
+                  child: Center(
+                      child: Container(
+                    height: 40,
+                    width: 40,
+                    child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text('Transp', style: TextStyle(fontSize: 12, color: globals.darkRed))),
+                  )),
                   onTap: () => getTraspDialog(),
                   backgroundColor: Colors.grey[100]),
               SpeedDialChild(
                   elevation: 2,
-                  child: Center(child: Text('Capo', style: TextStyle(fontSize: 12, color: globals.darkRed))),
+                  child: Center(
+                      child: Container(
+                    height: 40,
+                    width: 40,
+                    child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text('Capo', style: TextStyle(fontSize: 12, color: globals.darkRed))),
+                  )),
                   onTap: () => getCapoDialog(),
                   backgroundColor: Colors.grey[100]),
               SpeedDialChild(
                   elevation: 2,
                   child: Stack(
                     children: <Widget>[
-                      Center(child: Icon(Icons.arrow_downward, color: globals.darkRed)),
+                      Padding(
+                          padding: EdgeInsets.only(top: 10),
+                          child: Center(child: Icon(Icons.keyboard_arrow_down, color: globals.darkRed))),
+                      Padding(
+                          padding: EdgeInsets.only(bottom: 2),
+                          child: Center(child: Icon(Icons.keyboard_arrow_down, color: globals.darkRed))),
+                      Padding(
+                          padding: EdgeInsets.only(bottom: 14),
+                          child: Center(child: Icon(Icons.keyboard_arrow_down, color: globals.darkRed))),
                       if (scroll > 0)
-                        Positioned(
-                            bottom: 2,
-                            right: 5,
-                            child: Text(scroll.toString() + 'x', style: TextStyle(color: globals.darkRed))),
+                        Align(
+                            alignment: Alignment.bottomCenter,
+                            child: Container(
+                                height: 15,
+                                width: 40,
+                                child: FittedBox(
+                                    fit: BoxFit.scaleDown,
+                                    child: Text(scroll.toString() + 'x', style: TextStyle(color: globals.darkRed))))),
                     ],
                   ),
                   onTap: () async {
@@ -131,7 +137,20 @@ class _CantoPageState extends State<CantoPage> {
               if (widget.canto.url != '')
                 SpeedDialChild(
                     elevation: 2,
-                    child: Center(child: Icon(Icons.music_note, color: globals.darkRed)),
+                    child: (widget.canto.downloaded)
+                        ? Icon(Icons.music_note, color: globals.darkRed)
+                        : Stack(children: <Widget>[
+                            Center(
+                                child: Padding(
+                              padding: EdgeInsets.only(bottom: 5, right: 10),
+                              child: Icon(Icons.music_note, color: Colors.grey),
+                            )),
+                            Center(
+                                child: Padding(
+                              padding: EdgeInsets.only(left: 10, top: 5),
+                              child: Icon(Icons.file_download, size: 20, color: globals.darkRed),
+                            )),
+                          ]),
                     onTap: () => _loadFile(),
                     backgroundColor: Colors.grey[100]),
             ]),
@@ -139,20 +158,14 @@ class _CantoPageState extends State<CantoPage> {
           color: Colors.white,
           child: Column(
             children: <Widget>[
-              if (exibePlayer)
-                Card(
-                  child: PlayerWidget(
-                    key: playerKey,
-                    url: localFilePath,
-                  ),
-                ),
+              if (exibePlayer) Card(child: PlayerWidget(url: localFilePath)),
               if (percentDownload > 0 && percentDownload < 1)
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 8),
                   child: LinearPercentIndicator(
                     lineHeight: 20.0,
                     percent: percentDownload,
-                    center: Text("Baixando ${(percentDownload * 100).toInt()}%", style: TextStyle(color: Colors.white)),
+                    center: Text("${(percentDownload * 100).toInt()}%", style: TextStyle(color: Colors.white)),
                     linearStrokeCap: LinearStrokeCap.butt,
                     progressColor: globals.darkRed,
                   ),
@@ -182,7 +195,7 @@ class _CantoPageState extends State<CantoPage> {
         return;
       }
       if (scroll == 0) timer.cancel();
-      webViewController.scrollBy(0, 3);
+      webViewController.scrollBy(0, 1);
     });
   }
 
@@ -190,10 +203,14 @@ class _CantoPageState extends State<CantoPage> {
     LineSplitter ls = new LineSplitter();
     int numero = 0;
 
-    var transSalv = globals.prefs.getInt("TRANSP_" + widget.canto.html) ?? 0;
-    var capotSalv = globals.prefs.getInt("CAPOT_" + widget.canto.html) ?? 0;
+    transSalv = globals.prefs.getInt("TRANSP_" + widget.canto.id.toString()) ?? 0;
+    capotSalv = globals.prefs.getInt("CAPOT_" + widget.canto.id.toString()) ?? 0;
 
-    strCanto = utf8.decode(base64.decode(widget.canto.extBase64));
+    if (estendido)
+      strCanto = utf8.decode(base64.decode(widget.canto.extBase64));
+    else
+      strCanto = utf8.decode(base64.decode(widget.canto.htmlBase64));
+
     List<String> content = ls.convert(strCanto);
 
     if (hasTransp != 0)
@@ -216,25 +233,22 @@ class _CantoPageState extends State<CantoPage> {
     for (var c = 0; c < content.length; c++) {
       if (!content[c].contains("FF0000")) {
         if (content[c].contains("@transp@")) {
-          if (transSalv != 0) {
-            content[c] = "<FONT COLOR=\"#8a00e0\"> Salvo Transposição: " + escalaTmp[transSalv] + "</FONT>";
+          if (transSalv != 0 || numero > 0) {
+            if (transSalv != 0)
+              content[c] = "<FONT COLOR=\"#8a00e0\">Salvo Transposição: " + escalaTmp[transSalv] + "  </FONT>";
+
+            if (numero > 0 && numero != transSalv)
+              content[c] += "<FONT COLOR=\"#002de0\">Transposição: " + escalaTmp[numero] + "  </FONT>";
+
             pri = 98;
           } else {
-            if (numero > 0) {
-              content[c] = "<FONT COLOR=\"#002de0\"> Transposição: " + escalaTmp[numero] + "</FONT>";
-              pri = 98;
-            } else {
-              continue;
-            }
+            continue;
           }
         } else if (content[c].contains("@capot@")) {
           if (capotSalv != 0) {
-            content[c] = "<FONT COLOR=\"#8a00e0\"> Salvo Capo: " + capotSalv.toString() + "ª traste</FONT>";
+            content[c] = "<FONT COLOR=\"#8a00e0\">Salvo Capotraste: " + capotSalv.toString() + "ª</FONT>";
             pri = 98;
           } else {
-//              if (receiveString.contains(getString(R.string.capo))) {
-//                stringBuilder.append(receiveString).append("\n");
-//              }
             continue;
           }
         } else {
@@ -292,6 +306,13 @@ class _CantoPageState extends State<CantoPage> {
     });
   }
 
+  String getTextoNota(int i) {
+    if (globals.prefs.getBool("escalaAmericana") ?? false)
+      return globals.escalaAmericana[i];
+    else
+      return globals.escalaEuropeia[i];
+  }
+
   getTraspDialog() {
     return Get.defaultDialog(
         title: 'Transpor',
@@ -302,33 +323,34 @@ class _CantoPageState extends State<CantoPage> {
                 padding: EdgeInsets.all(4),
                 child: Table(children: [
                   TableRow(children: [
-                    transporButton(01, "Do/Do-"),
-                    transporButton(02, "Do#/Do#-"),
+                    transporButton(01, getTextoNota(1)),
+                    transporButton(02, getTextoNota(2)),
                   ]),
                   TableRow(children: [
-                    transporButton(03, "Re/Re-"),
-                    transporButton(04, "Mib"),
+                    transporButton(03, getTextoNota(3)),
+                    transporButton(04, getTextoNota(4)),
                   ]),
                   TableRow(children: [
-                    transporButton(05, "Mi/Mi-"),
-                    transporButton(06, "Fa/Fa-"),
+                    transporButton(05, getTextoNota(5)),
+                    transporButton(06, getTextoNota(6)),
                   ]),
                   TableRow(children: [
-                    transporButton(07, "Fa#/Fa#-"),
-                    transporButton(08, "Sol/Sol-"),
+                    transporButton(07, getTextoNota(7)),
+                    transporButton(08, getTextoNota(8)),
                   ]),
                   TableRow(children: [
-                    transporButton(09, "Sol#/Sol#-"),
-                    transporButton(10, "La/La-"),
+                    transporButton(09, getTextoNota(9)),
+                    transporButton(10, getTextoNota(10)),
                   ]),
                   TableRow(children: [
-                    transporButton(11, "Sib/Sib-"),
-                    transporButton(12, "Si/Si-"),
+                    transporButton(11, getTextoNota(11)),
+                    transporButton(12, getTextoNota(12)),
                   ]),
-                  TableRow(children: [
-                    transporSaveButton(hasTransp),
-                    transporSaveButton(0),
-                  ])
+                  if (hasTransp > 0 || transSalv > 0)
+                    TableRow(children: [
+                      (hasTransp > 0) ? transporSaveButton(hasTransp) : Container(),
+                      transporSaveButton(0),
+                    ])
                 ]))));
   }
 
@@ -356,14 +378,14 @@ class _CantoPageState extends State<CantoPage> {
     return Container(
         margin: EdgeInsets.only(left: 8, right: 8, top: 20),
         width: 120,
-        child: FlatButton.icon(
-            icon: (salvar > 0) ? Icon(Icons.save) : Icon(Icons.delete),
-            label: (salvar > 0) ? Text('Salvar') : Text('Remove'),
+        child: FlatButton(
+            child: Icon((salvar > 0) ? Icons.save : Icons.delete, color: globals.darkRed),
             color: Colors.grey[200],
-            textColor: globals.darkRed,
             onPressed: () async {
-              await globals.prefs.setInt("TRANSP_" + widget.canto.html, salvar);
-              hasTransp = salvar;
+              (salvar > 0)
+                  ? globals.prefs.setInt("TRANSP_" + widget.canto.id.toString(), salvar)
+                  : globals.prefs.remove("TRANSP_" + widget.canto.id.toString());
+              hasTransp = 0;
               transpor();
               scroll = 0;
               webViewController.loadUrl(
@@ -377,7 +399,7 @@ class _CantoPageState extends State<CantoPage> {
   getCapoDialog() {
     int localSelection = capoSelected;
     return Get.defaultDialog(
-        title: 'Braçadeira',
+        title: 'Capotraste',
         radius: 4,
         content: ConstrainedBox(
             constraints: BoxConstraints(minWidth: MediaQuery.of(context).size.width * 0.6),
@@ -404,9 +426,9 @@ class _CantoPageState extends State<CantoPage> {
                       Align(
                           alignment: Alignment.center,
                           child: Container(
-                            margin: EdgeInsets.only(top: 50),
-                            height: 35,
-                            width: 40,
+                            margin: EdgeInsets.only(top: 57.5),
+                            height: 20,
+                            width: 20,
                             decoration: BoxDecoration(
                               border: Border.all(color: globals.darkRed),
                             ),
@@ -414,14 +436,14 @@ class _CantoPageState extends State<CantoPage> {
                     ],
                   ),
                   Container(
-                      margin: EdgeInsets.all(8),
+                      margin: EdgeInsets.only(top: 12),
                       width: 100,
                       child: FlatButton(
-                        child: Text('OK'),
+                        child: FittedBox(fit: BoxFit.scaleDown, child: Text("Salvar")),
                         color: Colors.grey[200],
                         textColor: Colors.black,
                         onPressed: () async {
-                          await globals.prefs.setInt("CAPOT_" + widget.canto.html, localSelection);
+                          await globals.prefs.setInt("CAPOT_" + widget.canto.id.toString(), localSelection);
                           capoSelected = localSelection;
                           transpor();
                           scroll = 0;
@@ -435,5 +457,61 @@ class _CantoPageState extends State<CantoPage> {
                 ],
               ),
             )));
+  }
+
+  Future _loadFile() async {
+    final dir = await getApplicationDocumentsDirectory();
+    final file = File('${dir.path}/' + widget.canto.html + '.mp3');
+    if (await file.exists()) {
+      setState(() {
+        localFilePath = file.path;
+      });
+    }
+    if (localFilePath == "") {
+      bool wifiOnly = globals.prefs.getBool('wfOnly') ?? false;
+      if (wifiOnly) {
+        var connectivityResult = await (Connectivity().checkConnectivity());
+        if (connectivityResult == ConnectivityResult.mobile) {
+          snackBar('Uso de redes móveis não permitido nas configurações!');
+          return;
+        }
+      }
+
+      snackBar('Iniciando download');
+      var url = "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/" +
+          widget.canto.html +
+          ".mp3";
+
+      StreamController<int> progressStreamController = new StreamController();
+      Dio dio = new Dio();
+      dio.get(
+        url,
+        onReceiveProgress: (received, total) {
+          progressStreamController.add(((received / total) * 100).round());
+        },
+        options: Options(
+            responseType: ResponseType.bytes,
+            followRedirects: false,
+            validateStatus: (status) {
+              return status < 500;
+            }),
+      ).then((Response response) async {
+        file.writeAsBytes(response.data).then((value) {
+          widget.canto.downloaded = true;
+          localFilePath = file.path;
+          exibePlayer = true;
+          setState(() {});
+        });
+      }).whenComplete(() => progressStreamController.close());
+
+      await for (int p in progressStreamController.stream) {
+        setState(() {
+          percentDownload = p / 100;
+        });
+      }
+    } else {
+      exibePlayer = true;
+      setState(() {});
+    }
   }
 }

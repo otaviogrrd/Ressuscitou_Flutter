@@ -1,4 +1,4 @@
-package br.org.cn.ressuscitou2
+package br.org.cn.ressuscitou
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity

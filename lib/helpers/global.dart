@@ -2,12 +2,15 @@ library globals;
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ressuscitou/model/canto.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 var globals = new Globals();
 
 
 class Globals {
+  List<Canto> cantosGlobal = [];
+  List<Canto> listaGlobal = [];
   SharedPreferences prefs;
   Color lightRed = hexToColor("#af282f");
   Color darkRed = hexToColor("#650000");
@@ -32,6 +35,6 @@ Color hexToColor(String code) {
 snackBar(String str) {
   Get.rawSnackbar(
     message: str,
-    backgroundColor: Colors.black38,
+    backgroundColor: Colors.black45,
   );
 }

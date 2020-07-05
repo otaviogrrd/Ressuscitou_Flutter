@@ -15,7 +15,7 @@ class MainPage extends StatelessWidget {
     return GetMaterialApp(
       defaultTransition: Transition.cupertino,
       debugShowCheckedModeBanner: false,
-      title: 'Spaco',
+      title: 'Ressuscitou',
       localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
@@ -32,11 +32,31 @@ class MainPage extends StatelessWidget {
           filled: true,
           fillColor: Colors.white,
           contentPadding: EdgeInsets.all(10),
-          disabledBorder: OutlineInputBorder(borderSide: BorderSide(color: globals.darkRed), gapPadding: 10),
-          enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: globals.darkRed), gapPadding: 10),
-          focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: globals.darkRed), gapPadding: 10),
-          errorBorder: OutlineInputBorder(borderSide: BorderSide(color: globals.darkRed), gapPadding: 10),
-          focusedErrorBorder: OutlineInputBorder(borderSide: BorderSide(color: globals.darkRed), gapPadding: 10),
+          disabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.transparent),
+            gapPadding: 10,
+            borderRadius: BorderRadius.circular(2),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: globals.darkRed),
+            gapPadding: 10,
+            borderRadius: BorderRadius.circular(2),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: globals.darkRed),
+            gapPadding: 10,
+            borderRadius: BorderRadius.circular(2),
+          ),
+          errorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: globals.darkRed),
+            gapPadding: 10,
+            borderRadius: BorderRadius.circular(2),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: globals.darkRed),
+            gapPadding: 10,
+            borderRadius: BorderRadius.circular(2),
+          ),
         ),
       ),
       home: Splash(),

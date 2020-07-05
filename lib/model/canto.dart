@@ -1,7 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:connectivity/connectivity.dart';
 import 'package:http/http.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:ressuscitou/helpers/global.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Canto {
@@ -30,6 +32,8 @@ class Canto {
   String url;
   bool downloaded = false;
   bool selected = false;
+  String fileSize;
+  double percentDownload = 0;
 
   Canto({
     this.id,
@@ -125,9 +129,11 @@ class Canto {
       final file = File('${dir.path}/' + this.html + '.mp3');
       file.exists().then((value) {
         this.downloaded = value;
+        if (value) this.fileSize = (file.lengthSync() / 1000000).toStringAsFixed(2) + 'mb';
       });
     });
   }
+
   mp3Delete() async {
     await getApplicationDocumentsDirectory().then((dir) {
       final file = File('${dir.path}/' + this.html + '.mp3');
@@ -142,6 +148,12 @@ class CantoService {
   final String urlCantos = "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/cantos.json";
 
   Future<List<Canto>> getCantos() async {
+    var connectivityResult = await (Connectivity().checkConnectivity());
+    if (connectivityResult == ConnectivityResult.none) {
+      globals.cantosGlobal = await getCantosLocal();
+      return globals.cantosGlobal;
+    }
+
     final prefs = await SharedPreferences.getInstance();
     Response res = await get(urlCantos);
     if (res.statusCode == 200) {
@@ -150,6 +162,7 @@ class CantoService {
       for (var i = 0; i < list.length; i++) {
         await list[i].mp3Downloaded();
       }
+      globals.cantosGlobal = list;
       prefs.setString('listCantos', jsonEncode(list.map((i) => i.toJson()).toList()).toString());
       return list;
     }
@@ -165,6 +178,7 @@ class CantoService {
       for (var i = 0; i < list.length; i++) {
         await list[i].mp3Downloaded();
       }
+      globals.cantosGlobal = list;
       return list;
     }
     throw 'Não retornou informações';

@@ -24,7 +24,7 @@ class AnimatedChild extends AnimatedWidget {
     this.index,
     this.backgroundColor,
     this.foregroundColor,
-    this.elevation = 6.0,
+    this.elevation = 4.0,
     this.child,
     this.label,
     this.labelStyle,
@@ -40,7 +40,7 @@ class AnimatedChild extends AnimatedWidget {
   Widget buildLabel() {
     final Animation<double> animation = listenable;
 
-    if (!((label != null || labelWidget != null) && visible && animation.value == 62.0)) {
+    if (!((label != null || labelWidget != null) && visible && animation.value == 60.0)) {
       return Container();
     }
 
@@ -50,7 +50,7 @@ class AnimatedChild extends AnimatedWidget {
       onTap: _performAction,
       child: Container(
         //padding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 8.0),
-        margin: EdgeInsets.only(right: 18.0),
+        margin: EdgeInsets.only(right: 8.0),
         decoration: BoxDecoration(
           color: labelBackgroundColor ?? Colors.white,
           borderRadius: BorderRadius.all(Radius.circular(6.0)),
@@ -92,13 +92,13 @@ class AnimatedChild extends AnimatedWidget {
         children: <Widget>[
           buildLabel(),
           Container(
-            width: 62.0,
+            width: 60.0,
             height: animation.value,
-            padding: EdgeInsets.only(bottom: 62.0 - animation.value),
+            padding: EdgeInsets.only(bottom: 60.0 - animation.value),
             child: Container(
-              height: 62.0,
+              height: 60.0,
               width: animation.value,
-              padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
+              padding: EdgeInsets.only(bottom: 6),
               child: FloatingActionButton(
                 heroTag: heroTag,
                 onPressed: _performAction,
