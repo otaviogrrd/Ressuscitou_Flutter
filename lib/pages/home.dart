@@ -12,7 +12,7 @@ import 'package:ressuscitou/pages/listas.dart';
 import 'package:ressuscitou/pages/liturgico.dart';
 import 'package:ressuscitou/pages/settings.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:ressuscitou/helpers/global.dart';
+import 'package:intl/intl.dart';
 import 'sobre.dart';
 
 class HomePage extends StatefulWidget {
@@ -81,6 +81,32 @@ class _HomePageState extends State<HomePage> {
               }),
         ),
       );
+
+    DateTime messageLida = DateTime.parse(globals.prefs.getString("MessageLida") ?? "1800-01-01");
+    if (messageLida.isBefore(DateTime.parse(DateFormat('yyyy-MM-dd').format(DateTime.now())))) {
+      String message = await CantoService().getMessage();
+      if (message != "")
+        Get.defaultDialog(
+          title: 'Mensagem',
+          radius: 4,
+          content: Column(
+            children: <Widget>[
+              Text(message, style: TextStyle(fontSize: 16), textAlign: TextAlign.center),
+            ],
+          ),
+          confirm: Container(
+            width: 100,
+            child: FlatButton(
+                child: FittedBox(fit: BoxFit.scaleDown, child: Text("Fechar")),
+                color: globals.darkRed,
+                textColor: Colors.white,
+                onPressed: () {
+                  globals.prefs.setString("MessageLida", DateFormat('yyyy-MM-dd').format(DateTime.now()));
+                  Navigator.pop(context);
+                }),
+          ),
+        );
+    }
   }
 
   listaCantos() {

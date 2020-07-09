@@ -4,7 +4,6 @@ import 'package:connectivity/connectivity.dart';
 import 'package:http/http.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:ressuscitou/helpers/global.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class Canto {
   int id;
@@ -146,6 +145,21 @@ class Canto {
 
 class CantoService {
   final String urlCantos = "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/cantos.json";
+  final String urlMessage = "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/messages2.txt";
+
+  Future<String> getMessage() async {
+    var connectivityResult = await (Connectivity().checkConnectivity());
+    if (connectivityResult == ConnectivityResult.none) {
+      globals.cantosGlobal = await getCantosLocal();
+      return "";
+    }
+
+    Response res = await get(urlMessage);
+    if (res.statusCode == 200) {
+      return res.body;
+    }
+    return "";
+  }
 
   Future<List<Canto>> getCantos() async {
     var connectivityResult = await (Connectivity().checkConnectivity());
@@ -154,7 +168,6 @@ class CantoService {
       return globals.cantosGlobal;
     }
 
-    final prefs = await SharedPreferences.getInstance();
     Response res = await get(urlCantos);
     if (res.statusCode == 200) {
       List<dynamic> body = jsonDecode(res.body);
@@ -163,15 +176,14 @@ class CantoService {
         await list[i].mp3Downloaded();
       }
       globals.cantosGlobal = list;
-      prefs.setString('listCantos', jsonEncode(list.map((i) => i.toJson()).toList()).toString());
+      globals.prefs.setString('listCantos', jsonEncode(list.map((i) => i.toJson()).toList()).toString());
       return list;
     }
     throw 'Não retornou informações';
   }
 
   Future<List<Canto>> getCantosLocal() async {
-    final prefs = await SharedPreferences.getInstance();
-    String str = prefs.getString('listCantos');
+    String str = globals.prefs.getString('listCantos');
     if (str != null) {
       List<dynamic> body = jsonDecode(str);
       List<Canto> list = body.map((dynamic item) => Canto.fromJson(item)).toList();

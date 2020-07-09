@@ -36,13 +36,13 @@ class _SobrePageState extends State<SobrePage> {
                         return Container();
                     }
                   }),
-              SizedBox(height: 50),
+              SizedBox(height: 30),
               Text('Este aplicativo NÃO deve ser utilizado em celebrações.',
                   style: TextStyle(fontSize: 16), textAlign: TextAlign.center),
               SizedBox(height: 10),
               Text('Pode ser utilizado apenas como apoio aos samistas para ensaios, consultas e preparações.',
                   textAlign: TextAlign.center),
-              SizedBox(height: 50),
+              SizedBox(height: 30),
               InkWell(
                   onTap: () => launchUrl(),
                   child: Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
@@ -50,13 +50,13 @@ class _SobrePageState extends State<SobrePage> {
                         padding: EdgeInsets.all(8.0),
                         child: Text(
                           'Deixe sua avaliação e cometário!',
-                          style: TextStyle(fontWeight: FontWeight.bold, color: globals.darkRed),
+                          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: globals.darkRed),
                         )),
                     Icon(Icons.arrow_forward, color: globals.darkRed),
                   ])),
-              SizedBox(height: 50),
+              SizedBox(height: 30),
               Text('Desenvolvido por:', textAlign: TextAlign.center),
-              SizedBox(height: 5),
+              SizedBox(height: 3),
               InkWell(
                   onTap: () => launchEmail(),
                   child: RichText(
@@ -72,7 +72,7 @@ class _SobrePageState extends State<SobrePage> {
                       style: TextStyle(fontWeight: FontWeight.bold, color: globals.darkRed),
                     ),
                   )),
-              SizedBox(height: 100),
+              SizedBox(height: 50),
               InkWell(
                 onTap: () => Get.to(LicensePage(
                   applicationLegalese: 'Os Cantos do Livro Ressucitou, de Francisco José Gómez de Argüello Wirtz,'
