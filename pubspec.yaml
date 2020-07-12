@@ -1,7 +1,7 @@
 name: ressuscitou
 description: Ressuscitou
 
-version: 3.0.0+1
+version: 3.0.0+4
 
 environment:
   sdk: ">=2.2.2 <3.0.0"

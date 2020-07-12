@@ -65,8 +65,8 @@ class _ListasPageState extends State<ListasPage> {
                         listCantos[index].cantos.remove(widget.select);
                         listCantos[index].cantos.add(widget.select);
                         CantoListService().saveList(listaOld: listCantos[index].titulo, listaNew: listCantos[index]);
-                        snackBar('Canto adicionado à lista');
                         Get.back();
+                        snackBar('Canto adicionado à lista');
                       } else {
                         Get.to(ListaDetalhePage(lista: listCantos[index]))
                             .then((value) => setState(() => listasLoaded = false));
