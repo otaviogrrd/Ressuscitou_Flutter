@@ -27,7 +27,6 @@ class MainPage extends StatelessWidget {
         backgroundColor: Colors.white,
         primaryColor: globals.darkRed,
         accentColor: globals.lightRed,
-        cursorColor: Colors.black,
         inputDecorationTheme: InputDecorationTheme(
           filled: true,
           fillColor: Colors.white,

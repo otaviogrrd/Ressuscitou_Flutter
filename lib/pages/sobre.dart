@@ -18,8 +18,8 @@ class _SobrePageState extends State<SobrePage> {
           margin: EdgeInsets.all(16),
           child: SingleChildScrollView(
             child: Column(children: <Widget>[
-              Image.asset("assets/img/logocat.png", height: 80),
-              SizedBox(height: 15),
+//              Image.asset("assets/img/logocat.png", height: 80),
+//              SizedBox(height: 15),
               Image.asset("assets/img/logo.png", height: 30),
               SizedBox(height: 20),
               FutureBuilder(
@@ -40,7 +40,7 @@ class _SobrePageState extends State<SobrePage> {
               Text('Este aplicativo NÃO deve ser utilizado em celebrações.',
                   style: TextStyle(fontSize: 16), textAlign: TextAlign.center),
               SizedBox(height: 10),
-              Text('Pode ser utilizado apenas como apoio aos samistas para ensaios, consultas e preparações.',
+              Text('Pode ser utilizado apenas como apoio aos salmistas para ensaios, consultas e preparações.',
                   textAlign: TextAlign.center),
               SizedBox(height: 30),
               InkWell(

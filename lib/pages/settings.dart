@@ -79,6 +79,13 @@ class _SettingsPageState extends State<SettingsPage> {
                     snackBar("Capotrastes apagados");
                   }),
               Divider(color: Colors.black26, height: 2.0),
+              ListTile(
+                  title: Text("Apagar Anotações Salvas"),
+                  onTap: () {
+                    globals.cantosGlobal.forEach((element) => globals.prefs.remove("ANOT_" + element.id.toString()));
+                    snackBar("Anotações apagadas");
+                  }),
+              Divider(color: Colors.black26, height: 2.0),
             ])));
   }
 }

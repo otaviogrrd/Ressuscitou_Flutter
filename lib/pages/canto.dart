@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:connectivity/connectivity.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 import 'package:get/get.dart';
@@ -13,6 +14,7 @@ import 'package:ressuscitou/model/canto.dart';
 import 'package:ressuscitou/pages/listas.dart';
 import 'package:ressuscitou/helpers/global.dart';
 import 'package:ressuscitou/helpers/player_widget.dart';
+import 'package:wakelock/wakelock.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -26,6 +28,8 @@ class CantoPage extends StatefulWidget {
 }
 
 class _CantoPageState extends State<CantoPage> {
+  final GlobalKey<FormBuilderState> _formKey = GlobalKey<FormBuilderState>();
+  final ctrlAnotacoes = TextEditingController();
   final flutterWebviewPlugin = new FlutterWebviewPlugin();
   WebViewController webViewController;
   bool exibePlayer = false;
@@ -41,12 +45,14 @@ class _CantoPageState extends State<CantoPage> {
 
   @override
   void initState() {
+    Wakelock.enable();
     estendido = globals.prefs.getBool("estendido") ?? true;
     super.initState();
   }
 
   navigateOption(String value) {
     if (value == '1') Get.to(ListasPage(select: widget.canto.id)).then((value) => setState(() {}));
+    if (value == '2') anotacoes();
   }
 
   @override
@@ -54,6 +60,7 @@ class _CantoPageState extends State<CantoPage> {
     transpor();
     return WillPopScope(
       onWillPop: () {
+        Wakelock.disable();
         scroll = 0;
         Navigator.pop(context, false);
         return Future.value(false);
@@ -68,6 +75,7 @@ class _CantoPageState extends State<CantoPage> {
               itemBuilder: (BuildContext context) {
                 return [
                   PopupMenuItem(value: '1', child: Text('Adicionar à lista')),
+                  PopupMenuItem(value: '2', child: Text('Anotações')),
                 ];
               },
             ),
@@ -513,5 +521,71 @@ class _CantoPageState extends State<CantoPage> {
       exibePlayer = true;
       setState(() {});
     }
+  }
+
+  anotacoes() {
+    ctrlAnotacoes.text = globals.prefs.getString("ANOT_" + widget.canto.id.toString()) ?? '';
+    Get.defaultDialog(
+        title: 'Anotações',
+        radius: 4,
+        middleText: '',
+        content: ConstrainedBox(
+            constraints: BoxConstraints(
+                minWidth: MediaQuery.of(context).size.width * 0.6, maxHeight: MediaQuery.of(context).size.height * 0.3),
+            child: Padding(
+                padding: EdgeInsets.all(4),
+                child: Column(children: [
+                  Expanded(
+                    child: FormBuilder(
+                      key: _formKey,
+                      child: FormBuilderTextField(
+                        cursorColor: globals.lightRed,
+                          attribute: 'Anotacoes',
+                          minLines: 10,
+                          maxLines: 100,
+
+                          textAlign: TextAlign.center,
+                          textCapitalization: TextCapitalization.sentences,
+                          controller: ctrlAnotacoes,
+                          onFieldSubmitted: (val) {
+                            globals.prefs.setString("ANOT_" + widget.canto.id.toString(), ctrlAnotacoes.text);
+                            Navigator.of(context).pop();
+                          },
+                          onChanged: (val) {
+                            globals.prefs.setString("ANOT_" + widget.canto.id.toString(), ctrlAnotacoes.text);
+                          }),
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: <Widget>[
+                      Container(
+                        margin: EdgeInsets.only(top: 15),
+                        width: 100,
+                        child: FlatButton(
+                            child: Icon(Icons.delete, color: Colors.black87),
+                            color: Colors.grey[400],
+                            textColor: Colors.black,
+                            onPressed: () {
+                              globals.prefs.remove("ANOT_" + widget.canto.id.toString());
+                              Navigator.of(context).pop();
+                              snackBar('Anotação apagada!');
+                            }),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(top: 15),
+                        width: 100,
+                        child: FlatButton(
+                            child: Icon(Icons.check, color: Colors.white),
+                            color: globals.darkRed,
+                            textColor: Colors.black,
+                            onPressed: () {
+                              globals.prefs.setString("ANOT_" + widget.canto.id.toString(), ctrlAnotacoes.text);
+                              Navigator.of(context).pop();
+                            }),
+                      ),
+                    ],
+                  ),
+                ]))));
   }
 }

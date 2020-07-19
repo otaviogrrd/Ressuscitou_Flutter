@@ -6,6 +6,7 @@ import 'package:ressuscitou/helpers/global.dart';
 import 'package:ressuscitou/model/cantoList.dart';
 import 'package:ressuscitou/pages/home.dart';
 import 'package:ressuscitou/pages/canto.dart';
+import 'package:share/share.dart';
 
 class ListaDetalhePage extends StatefulWidget {
   CantoList lista;
@@ -42,8 +43,12 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-        appBar: new AppBar(elevation: 0.0, centerTitle: true, title: Text("Lista"), actions: [
+    String share = '';
+    globals.listaGlobal.forEach((element) {
+      share = share + element.nr2019 + ' - ' + element.titulo + '\n';
+    });
+    return Scaffold(
+        appBar: AppBar(elevation: 0.0, centerTitle: true, title: Text("Lista"), actions: [
           if (listaOld != '') IconButton(icon: Icon(Icons.delete), onPressed: () => deleteList()),
           (editMode)
               ? IconButton(
@@ -53,6 +58,11 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
                       }))
               : IconButton(icon: Icon(Icons.edit), onPressed: () => setState(() => editMode = !editMode)),
         ]),
+          floatingActionButton:
+        !editMode ? FloatingActionButton(child: Icon(Icons.share),
+        onPressed: () {
+          Share.share('Confira a lista ${listaNew.titulo}que criei no App *Ressucitou*:\n\n$share');
+        },): Container(),
         body: Container(
             margin: EdgeInsets.symmetric(horizontal: 16),
             child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
@@ -64,6 +74,7 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
                     readOnly: !editMode,
                     child: Column(children: <Widget>[
                       FormBuilderTextField(
+                          cursorColor: globals.lightRed,
                           attribute: 'Titulo',
                           initialValue: listaOld,
                           textCapitalization: TextCapitalization.sentences,
@@ -94,9 +105,7 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
         shape: BeveledRectangleBorder(borderRadius: BorderRadius.circular(2)),
         child: Column(mainAxisSize: MainAxisSize.max, children: [
           GestureDetector(
-            onTap: (editMode)
-                ? () => Get.to(HomePage(selectable: true)).then((result) => setState(() {}))
-                : () => print('Done'),
+            onTap: (editMode) ? () => Get.to(HomePage(selectable: true)).then((result) => setState(() {})) : () {},
             child: Container(
               height: 45,
               decoration: BoxDecoration(
@@ -123,6 +132,7 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
   }
 
   getCantos() {
+    bool numeracao2015 = globals.prefs.getBool("numeracao2015") ?? false;
     if (globals.listaGlobal != null && globals.listaGlobal.length > 0)
       return Padding(
         padding: EdgeInsets.only(bottom: 8.0),
@@ -133,7 +143,19 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
                       onTap: () => Get.to(CantoPage(canto: item)).then((value) => {setState(() {})}),
                       child: Stack(
                         children: <Widget>[
-                          ListTile(
+                          ListTile(  leading: ClipOval(
+                              child: Material(
+                                  color: getColorCateg(item.categoria), // button color
+                                  child: Container(
+                                      height: 40,
+                                      width: 40,
+                                      child: FittedBox(
+                                          fit: BoxFit.scaleDown,
+                                          child: Padding(
+                                              padding: EdgeInsets.all(8),
+                                              child: Text((numeracao2015)
+                                                  ? item.numero
+                                                  : item.nr2019)))))),
                             title: Text(item.titulo),
                           ),
                           Divider(color: Colors.black26, height: 1)
@@ -181,6 +203,18 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
           child: Center(child: Padding(padding: EdgeInsets.all(10), child: Text('Adicionar Cantos'))));
   }
 
+  getColorCateg(int categoria) {
+    switch (categoria) {
+      case 2:
+        return Colors.blue[200];
+      case 3:
+        return Colors.green[200];
+      case 4:
+        return Colors.orange[100];
+      default:
+        return Colors.grey[200];
+    }
+  }
   salvarLista() async {
     if (formKey.currentState.saveAndValidate()) {
       listaNew.cantos = [];

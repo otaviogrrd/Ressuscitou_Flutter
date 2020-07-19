@@ -11,7 +11,6 @@ var globals = new Globals();
 class Globals {
   List<Canto> cantosGlobal = [];
   List<Canto> listaGlobal = [];
-  SharedPreferences prefs;
   Color lightRed = hexToColor("#af282f");
   Color darkRed = hexToColor("#650000");
   Color darkRedShadow = hexToColor("#2d0000");
@@ -23,6 +22,7 @@ class Globals {
   List<String> escalaMenos = ["C-", "C#-", "D-", "Eb-", "E-", "F-", "F#-", "G-", "G#-", "A-", "Bb-", "B-"];
   List<String> escalaMenor = ["Cm", "C#m", "Dm", "Ebm", "Em", "Fm", "F#m", "Gm", "G#m", "Am", "Bbm", "Bm"];
 
+  SharedPreferences prefs;
   void inicial() {
     SharedPreferences.getInstance().then((value) => this.prefs = value);
   }

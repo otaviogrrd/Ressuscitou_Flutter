@@ -65,7 +65,7 @@ class _HomePageState extends State<HomePage> {
             Text('Este aplicativo NÃO deve ser utilizado em celebrações.',
                 style: TextStyle(fontSize: 16), textAlign: TextAlign.center),
             SizedBox(height: 10),
-            Text('Pode ser utilizado apenas como apoio aos samistas para ensaios, consultas e preparações.',
+            Text('Pode ser utilizado apenas como apoio aos salmistas para ensaios, consultas e preparações.',
                 textAlign: TextAlign.center),
           ],
         ),
@@ -238,13 +238,17 @@ class _HomePageState extends State<HomePage> {
       children: <Widget>[
         ListView(
           children: <Widget>[
-            Row(children: <Widget>[
-              Padding(
-                padding: EdgeInsets.all(20),
-                child: Image.asset("assets/img/logocat.png", height: 80),
-              ),
-              Image.asset("assets/img/logo.png", height: 30),
-            ]),
+//            Row(children: <Widget>[
+//              Padding(
+//                padding: EdgeInsets.all(20),
+//                child: Image.asset("assets/img/logocat.png", height: 80),
+//              ),
+//              Image.asset("assets/img/logo.png", height: 30),
+//            ]),
+            Center(child: Padding(
+              padding: EdgeInsets.symmetric(vertical: 20),
+              child: Image.asset("assets/img/logo.png", height: 30),
+            )),
             divider(),
             ListTile(
                 title: Padding(
@@ -357,6 +361,7 @@ class _HomePageState extends State<HomePage> {
               key: formKey,
               child: Column(children: <Widget>[
                 FormBuilderTextField(
+                    cursorColor: globals.lightRed,
                     attribute: 'search',
                     textCapitalization: TextCapitalization.none,
                     textInputAction: TextInputAction.go,
