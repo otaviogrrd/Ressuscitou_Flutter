@@ -12,7 +12,7 @@ class ImageViwerPage extends StatefulWidget {
 
 class _ImageViwerPageState extends State<ImageViwerPage> {
   Widget build(BuildContext context) {
-    return new Scaffold(
+    return Scaffold(
         appBar: AppBar(),
         body: PhotoView(
           backgroundDecoration: BoxDecoration(color: Colors.black26),

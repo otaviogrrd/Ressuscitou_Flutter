@@ -28,6 +28,7 @@ class _ListasPageState extends State<ListasPage> {
           appBar: AppBar(title: Text('Listas'), centerTitle: false),
           floatingActionButton: FloatingActionButton(
               child: Icon(Icons.add),
+              elevation: 1,
               onPressed: () => Get.to(ListaDetalhePage(
                     lista: CantoList(titulo: '', cantos: (widget.select != null) ? [widget.select] : []),
                   )).then((value) => setState(() => listasLoaded = false))),

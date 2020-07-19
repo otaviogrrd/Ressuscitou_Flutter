@@ -86,7 +86,7 @@ class _CantoPageState extends State<CantoPage> {
             animatedIcon: AnimatedIcons.menu_close,
             foregroundColor: globals.darkRed,
             backgroundColor: Colors.grey[100],
-            elevation: 2,
+            elevation: 1,
             curve: Curves.easeIn,
             overlayOpacity: 0,
             children: [
@@ -539,11 +539,10 @@ class _CantoPageState extends State<CantoPage> {
                     child: FormBuilder(
                       key: _formKey,
                       child: FormBuilderTextField(
-                        cursorColor: globals.lightRed,
+                          cursorColor: globals.lightRed,
                           attribute: 'Anotacoes',
                           minLines: 10,
                           maxLines: 100,
-
                           textAlign: TextAlign.center,
                           textCapitalization: TextCapitalization.sentences,
                           controller: ctrlAnotacoes,

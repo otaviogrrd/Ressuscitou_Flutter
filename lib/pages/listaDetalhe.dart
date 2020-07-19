@@ -45,7 +45,7 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
   Widget build(BuildContext context) {
     String share = '';
     globals.listaGlobal.forEach((element) {
-      share = share + element.nr2019 + ' - ' + element.titulo + '\n';
+      share = share + element.nr2019.padLeft(3,'0') + ' - ' + element.titulo + '\n';
     });
     return Scaffold(
         appBar: AppBar(elevation: 0.0, centerTitle: true, title: Text("Lista"), actions: [
@@ -58,13 +58,14 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
                       }))
               : IconButton(icon: Icon(Icons.edit), onPressed: () => setState(() => editMode = !editMode)),
         ]),
-          floatingActionButton:
-        !editMode ? FloatingActionButton(child: Icon(Icons.share),
-        onPressed: () {
-          Share.share('Confira a lista ${listaNew.titulo}que criei no App *Ressucitou*:\n\n$share');
-        },): Container(),
+        floatingActionButton: FloatingActionButton(
+            child: Icon(Icons.share),
+            elevation: 1,
+            onPressed: () {
+              Share.share('Confira a lista *${listaNew.titulo}*, que criei no App *Ressucitou*:\n\n$share');
+            }),
         body: Container(
-            margin: EdgeInsets.symmetric(horizontal: 16),
+            margin: EdgeInsets.symmetric(horizontal: 11),
             child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
               Container(height: 10),
               Padding(
@@ -75,7 +76,7 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
                     child: Column(children: <Widget>[
                       FormBuilderTextField(
                           cursorColor: globals.lightRed,
-                          attribute: 'Titulo',
+                          attribute: 'Título',
                           initialValue: listaOld,
                           textCapitalization: TextCapitalization.sentences,
                           minLines: 1,
@@ -95,7 +96,7 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
                   child: Container(height: 1, color: (!editMode) ? globals.lightRed : Colors.transparent)),
               Container(height: 9),
               Expanded(child: listCantos()),
-              Container(height: 5),
+              Container(height: 11),
             ])));
   }
 
@@ -143,19 +144,18 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
                       onTap: () => Get.to(CantoPage(canto: item)).then((value) => {setState(() {})}),
                       child: Stack(
                         children: <Widget>[
-                          ListTile(  leading: ClipOval(
-                              child: Material(
-                                  color: getColorCateg(item.categoria), // button color
-                                  child: Container(
-                                      height: 40,
-                                      width: 40,
-                                      child: FittedBox(
-                                          fit: BoxFit.scaleDown,
-                                          child: Padding(
-                                              padding: EdgeInsets.all(8),
-                                              child: Text((numeracao2015)
-                                                  ? item.numero
-                                                  : item.nr2019)))))),
+                          ListTile(
+                            leading: ClipOval(
+                                child: Material(
+                                    color: getColorCateg(item.categoria), // button color
+                                    child: Container(
+                                        height: 40,
+                                        width: 40,
+                                        child: FittedBox(
+                                            fit: BoxFit.scaleDown,
+                                            child: Padding(
+                                                padding: EdgeInsets.all(8),
+                                                child: Text((numeracao2015) ? item.numero : item.nr2019)))))),
                             title: Text(item.titulo),
                           ),
                           Divider(color: Colors.black26, height: 1)
@@ -215,6 +215,7 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
         return Colors.grey[200];
     }
   }
+
   salvarLista() async {
     if (formKey.currentState.saveAndValidate()) {
       listaNew.cantos = [];
