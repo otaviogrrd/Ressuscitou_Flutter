@@ -82,14 +82,9 @@ class _ListasPageState extends State<ListasPage> {
         ],
       );
     }
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Padding(
-          padding: EdgeInsets.all(8.0),
-          child: Text("Não há Listas salvas."),
-        )
-      ],
+    return Padding(
+      padding: EdgeInsets.all(8.0),
+      child: Text("Não há Listas salvas.", textAlign: TextAlign.center),
     );
   }
 }

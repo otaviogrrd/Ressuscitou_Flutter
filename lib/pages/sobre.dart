@@ -45,15 +45,17 @@ class _SobrePageState extends State<SobrePage> {
               SizedBox(height: 30),
               InkWell(
                   onTap: () => launchUrl(),
-                  child: Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-                    Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Text(
-                          'Deixe sua avaliação e cometário!',
-                          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: globals.darkRed),
-                        )),
-                    Icon(Icons.arrow_forward, color: globals.darkRed),
-                  ])),
+                  child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text(
+                        'Deixe sua avaliação e cometário!',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: globals.darkRed,
+                        ),
+                        textAlign: TextAlign.center,
+                      ))),
               SizedBox(height: 30),
               Text('Desenvolvido por:', textAlign: TextAlign.center),
               SizedBox(height: 3),

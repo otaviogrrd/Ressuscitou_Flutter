@@ -60,15 +60,18 @@ class _HomePageState extends State<HomePage> {
       Get.defaultDialog(
         title: 'Atenção',
         radius: 4,
-        content: Column(
-          children: <Widget>[
-            Text('Este aplicativo NÃO deve ser utilizado em celebrações.',
-                style: TextStyle(fontSize: 16), textAlign: TextAlign.center),
-            SizedBox(height: 10),
-            Text('Pode ser utilizado apenas como apoio aos salmistas para ensaios, consultas e preparações.',
-                textAlign: TextAlign.center),
-          ],
-        ),
+        content: Container(
+            height: MediaQuery.of(context).size.height * 0.5,
+            child: SingleChildScrollView(
+                child: Column(
+              children: <Widget>[
+                Text('Este aplicativo NÃO deve ser utilizado em celebrações.',
+                    style: TextStyle(fontSize: 16), textAlign: TextAlign.center),
+                SizedBox(height: 10),
+                Text('Pode ser utilizado apenas como apoio aos salmistas para ensaios, consultas e preparações.',
+                    textAlign: TextAlign.center),
+              ],
+            ))),
         confirm: Container(
           width: 100,
           child: FlatButton(
@@ -89,10 +92,10 @@ class _HomePageState extends State<HomePage> {
         Get.defaultDialog(
           title: 'Mensagem',
           radius: 4,
-          content: Column(
-            children: <Widget>[
-              Text(message, style: TextStyle(fontSize: 16), textAlign: TextAlign.center),
-            ],
+          content: Container(
+            height: MediaQuery.of(context).size.height * 0.5,
+            child: SingleChildScrollView(
+                child: Text(message, style: TextStyle(fontSize: 16), textAlign: TextAlign.center)),
           ),
           confirm: Container(
             width: 100,
@@ -245,7 +248,8 @@ class _HomePageState extends State<HomePage> {
 //              ),
 //              Image.asset("assets/img/logo.png", height: 30),
 //            ]),
-            Center(child: Padding(
+            Center(
+                child: Padding(
               padding: EdgeInsets.symmetric(vertical: 20),
               child: Image.asset("assets/img/logo.png", height: 30),
             )),

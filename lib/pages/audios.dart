@@ -286,14 +286,9 @@ class _AudiosPageState extends State<AudiosPage> {
         ],
       );
     }
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Padding(
-          padding: EdgeInsets.all(8.0),
-          child: Text("Não há arquivos baixados"),
-        )
-      ],
+    return Padding(
+      padding: EdgeInsets.all(8.0),
+      child: Text("Não há arquivos baixados", textAlign: TextAlign.center),
     );
   }
 
