@@ -1,6 +1,7 @@
 import 'dart:async';
-import 'dart:io';
 import 'dart:convert';
+import 'dart:io';
+
 import 'package:connectivity/connectivity.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -9,14 +10,14 @@ import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 import 'package:get/get.dart';
 import 'package:numberpicker/numberpicker.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
-import 'package:ressuscitou/model/canto.dart';
-import 'package:ressuscitou/pages/listas.dart';
 import 'package:ressuscitou/helpers/global.dart';
 import 'package:ressuscitou/helpers/player_widget.dart';
+import 'package:ressuscitou/model/canto.dart';
+import 'package:ressuscitou/pages/listas.dart';
 import 'package:wakelock/wakelock.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-import 'package:path_provider/path_provider.dart';
 
 class CantoPage extends StatefulWidget {
   final Canto canto;
@@ -173,7 +174,9 @@ class _CantoPageState extends State<CantoPage> {
                   child: LinearPercentIndicator(
                     lineHeight: 20.0,
                     percent: percentDownload,
-                    center: Text("${(percentDownload * 100).toInt()}%", style: TextStyle(color: Colors.white)),
+                    center: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Text("${(percentDownload * 100).toInt()}%", style: TextStyle(color: Colors.white))),
                     linearStrokeCap: LinearStrokeCap.butt,
                     progressColor: globals.darkRed,
                   ),
@@ -367,7 +370,7 @@ class _CantoPageState extends State<CantoPage> {
         margin: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         width: 100,
         child: FlatButton(
-            child: Text(nota),
+            child: FittedBox(fit: BoxFit.scaleDown, child: Text(nota)),
             color: Colors.grey[200],
             textColor: Colors.black,
             onPressed: () async {

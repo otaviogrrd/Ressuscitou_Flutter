@@ -133,7 +133,7 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
   }
 
   getCantos() {
-    bool numeracao2015 = globals.prefs.getBool("numeracao2015") ?? false;
+//    bool numeracao2015 = globals.prefs.getBool("numeracao2015") ?? false;
     if (globals.listaGlobal != null && globals.listaGlobal.length > 0)
       return Padding(
         padding: EdgeInsets.only(bottom: 8.0),
@@ -155,7 +155,7 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
                                             fit: BoxFit.scaleDown,
                                             child: Padding(
                                                 padding: EdgeInsets.all(8),
-                                                child: Text((numeracao2015) ? item.numero : item.nr2019)))))),
+                                                child: Text(item.nr2019)))))),
                             title: Text(item.titulo),
                           ),
                           Divider(color: Colors.black26, height: 1)

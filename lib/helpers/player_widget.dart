@@ -113,17 +113,28 @@ class PlayerWidgetState extends State<PlayerWidget> {
                   Positioned(
                     top: 0,
                     left: 15,
-                    child: Text(
-                      _position != null ? '${_positionText ?? ''}' : '',
-                      style: TextStyle(fontSize: 12.0),
+                    child: Container(
+                      height: 15,
+                      child: FittedBox(
+                          fit: BoxFit.scaleDown,
+                          child: Text(
+                            _position != null ? '${_positionText ?? ''}' : '',
+                            style: TextStyle(fontSize: 12.0),
+                          )),
                     ),
                   ),
                   Positioned(
                     bottom: 0,
                     right: 15,
-                    child: Text(
-                      _duration != null ? _durationText : '',
-                      style: TextStyle(fontSize: 12.0),
+                    child: Container(
+                      height: 15,
+                      child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text(
+                          _duration != null ? _durationText : '',
+                          style: TextStyle(fontSize: 12.0),
+                        ),
+                      ),
                     ),
                   ),
                 ],

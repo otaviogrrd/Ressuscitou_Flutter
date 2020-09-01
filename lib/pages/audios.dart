@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+
 import 'package:connectivity/connectivity.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -243,21 +244,44 @@ class _AudiosPageState extends State<AudiosPage> {
     if (listCantos != null && listCantos.isNotEmpty) {
       return Column(
         children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-              FlatButton.icon(
-                icon: Icon(Icons.check_box, color: globals.darkRed),
-                label: Text('Selecionar Todos'),
-                onPressed: () => action('MarkAll'),
-              ),
-              FlatButton.icon(
-                icon: Icon(Icons.check_box_outline_blank, color: globals.darkRed),
-                label: Text('Limpar Seleção'),
-                onPressed: () => action('UnMarkAll'),
-              ),
-            ],
-          ),
+          Table(children: [
+            TableRow(
+              children: <Widget>[
+                InkWell(
+                  onTap: () => action('MarkAll'),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(16,8,0,8),
+                        child: Icon(Icons.check_box, color: globals.darkRed),
+                      ),
+                      Expanded(child: FittedBox(fit: BoxFit.scaleDown, child: Text('Selecionar Todos'))),
+                    ],
+                  ),
+                ),
+
+                InkWell(
+                  onTap: () => action('UnMarkAll'),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(16,8,0,8),
+                        child: Icon(Icons.check_box_outline_blank, color: globals.darkRed),
+                      ),
+                      Expanded(child: FittedBox(fit: BoxFit.scaleDown, child: Text('Limpar Seleção'))),
+                    ],
+                  ),
+                ),
+//                FlatButton.icon(
+//                  icon: Icon(Icons.check_box_outline_blank, color: globals.darkRed),
+//                  label: Text('Limpar Seleção'),
+//                  onPressed: () => action('UnMarkAll'),
+//                ),
+              ],
+            ),
+          ]),
           Expanded(
             child: ListView.builder(
                 itemCount: listCantos.length,

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:ressuscitou/helpers/global.dart';
 import 'package:ressuscitou/model/canto.dart';
 import 'package:ressuscitou/pages/audios.dart';
@@ -12,7 +13,7 @@ import 'package:ressuscitou/pages/listas.dart';
 import 'package:ressuscitou/pages/liturgico.dart';
 import 'package:ressuscitou/pages/settings.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:intl/intl.dart';
+
 import 'sobre.dart';
 
 class HomePage extends StatefulWidget {
@@ -31,7 +32,8 @@ class _HomePageState extends State<HomePage> {
   final GlobalKey<FormBuilderState> formKey = GlobalKey<FormBuilderState>();
   String searchField = '';
   bool showSearch = false;
-  bool numeracao2015 = false;
+
+//  bool numeracao2015 = false;
 
   @override
   void initState() {
@@ -41,7 +43,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    numeracao2015 = globals.prefs.getBool("numeracao2015") ?? false;
+//    numeracao2015 = globals.prefs.getBool("numeracao2015") ?? false;
     return Scaffold(
       appBar: AppBar(title: Text('Ressuscitou'), actions: [
         if (!showSearch)
@@ -60,28 +62,39 @@ class _HomePageState extends State<HomePage> {
       Get.defaultDialog(
         title: 'Atenção',
         radius: 4,
-        content: Container(
-            height: MediaQuery.of(context).size.height * 0.5,
-            child: SingleChildScrollView(
-                child: Column(
-              children: <Widget>[
-                Text('Este aplicativo NÃO deve ser utilizado em celebrações.',
-                    style: TextStyle(fontSize: 16), textAlign: TextAlign.center),
-                SizedBox(height: 10),
-                Text('Pode ser utilizado apenas como apoio aos salmistas para ensaios, consultas e preparações.',
-                    textAlign: TextAlign.center),
-              ],
-            ))),
-        confirm: Container(
-          width: 100,
-          child: FlatButton(
-              child: FittedBox(fit: BoxFit.scaleDown, child: Text("Entendi")),
-              color: globals.darkRed,
-              textColor: Colors.white,
-              onPressed: () {
-                globals.prefs.setBool("TermosIniciaisLidos", true);
-                Navigator.pop(context);
-              }),
+        content: Column(
+          children: <Widget>[
+            Container(
+              constraints: BoxConstraints(minHeight: 100, maxHeight: MediaQuery.of(context).size.height * 0.3),
+              child: SingleChildScrollView(
+                child: Table(
+                  children: [
+                    TableRow(children: [
+                      Text('Este aplicativo NÃO deve ser utilizado em celebrações.',
+                          style: TextStyle(fontSize: 16), textAlign: TextAlign.center)
+                    ]),
+                    TableRow(children: [SizedBox(height: 15)]),
+                    TableRow(children: [
+                      Text('Pode ser utilizado apenas como apoio aos salmistas para ensaios, consultas e preparações.',
+                          textAlign: TextAlign.center)
+                    ]),
+                    TableRow(children: [SizedBox(height: 15)]),
+                  ],
+                ),
+              ),
+            ),
+            Container(
+              width: 100,
+              child: FlatButton(
+                  child: FittedBox(fit: BoxFit.scaleDown, child: Text("Entendi")),
+                  color: globals.darkRed,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    globals.prefs.setBool("TermosIniciaisLidos", true);
+                    Navigator.pop(context);
+                  }),
+            ),
+          ],
         ),
       );
 
@@ -90,25 +103,26 @@ class _HomePageState extends State<HomePage> {
       String message = await CantoService().getMessage();
       if (message != "")
         Get.defaultDialog(
-          title: 'Mensagem',
-          radius: 4,
-          content: Container(
-            height: MediaQuery.of(context).size.height * 0.5,
-            child: SingleChildScrollView(
-                child: Text(message, style: TextStyle(fontSize: 16), textAlign: TextAlign.center)),
-          ),
-          confirm: Container(
-            width: 100,
-            child: FlatButton(
-                child: FittedBox(fit: BoxFit.scaleDown, child: Text("Fechar")),
-                color: globals.darkRed,
-                textColor: Colors.white,
-                onPressed: () {
-                  globals.prefs.setString("MessageLida", DateFormat('yyyy-MM-dd').format(DateTime.now()));
-                  Navigator.pop(context);
-                }),
-          ),
-        );
+            title: 'Mensagem',
+            radius: 4,
+            content: Column(children: <Widget>[
+              Container(
+                constraints: BoxConstraints(minHeight: 100, maxHeight: MediaQuery.of(context).size.height * 0.3),
+                child: SingleChildScrollView(
+                    child: Text(message, style: TextStyle(fontSize: 16), textAlign: TextAlign.center)),
+              ),
+              Container(
+                width: 100,
+                child: FlatButton(
+                    child: FittedBox(fit: BoxFit.scaleDown, child: Text("Fechar")),
+                    color: globals.darkRed,
+                    textColor: Colors.white,
+                    onPressed: () {
+                      globals.prefs.setString("MessageLida", DateFormat('yyyy-MM-dd').format(DateTime.now()));
+                      Navigator.pop(context);
+                    }),
+              ),
+            ]));
     }
   }
 
@@ -146,10 +160,9 @@ class _HomePageState extends State<HomePage> {
                                             child: FittedBox(
                                                 fit: BoxFit.scaleDown,
                                                 child: Padding(
-                                                    padding: EdgeInsets.all(8),
-                                                    child: Text((numeracao2015)
-                                                        ? filterListCantos[index].numero
-                                                        : filterListCantos[index].nr2019)))))),
+                                                  padding: EdgeInsets.all(8),
+                                                  child: Text(filterListCantos[index].nr2019),
+                                                ))))),
                                 Expanded(
                                   child: Padding(
                                     padding: EdgeInsets.only(left: 8),
@@ -174,10 +187,9 @@ class _HomePageState extends State<HomePage> {
                                         child: FittedBox(
                                             fit: BoxFit.scaleDown,
                                             child: Padding(
-                                                padding: EdgeInsets.all(8),
-                                                child: Text((numeracao2015)
-                                                    ? filterListCantos[index].numero
-                                                    : filterListCantos[index].nr2019)))))),
+                                              padding: EdgeInsets.all(8),
+                                              child: Text(filterListCantos[index].nr2019),
+                                            ))))),
                             title: Text(
                               filterListCantos[index].titulo,
                               style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
