@@ -18,10 +18,8 @@ class _SobrePageState extends State<SobrePage> {
           margin: EdgeInsets.all(16),
           child: SingleChildScrollView(
             child: Column(children: <Widget>[
-//              Image.asset("assets/img/logocat.png", height: 80),
-//              SizedBox(height: 15),
-              Image.asset("assets/img/logo.png", height: 30),
-              SizedBox(height: 20),
+              Image.asset("assets/img/logo.png", width: MediaQuery.of(context).size.width * 0.6),
+              SizedBox(height: 10),
               FutureBuilder(
                   future: PackageInfo.fromPlatform(),
                   builder: (BuildContext cont, AsyncSnapshot<PackageInfo> snapshot) {
@@ -41,39 +39,65 @@ class _SobrePageState extends State<SobrePage> {
                   style: TextStyle(fontSize: 16), textAlign: TextAlign.center),
               SizedBox(height: 10),
               Text('Pode ser utilizado apenas como apoio aos salmistas para ensaios, consultas e preparações.',
-                  textAlign: TextAlign.center),
+                  style: TextStyle(fontSize: 16), textAlign: TextAlign.center),
               SizedBox(height: 30),
               InkWell(
-                  onTap: () => launchUrl(),
-                  child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Text(
-                        'Deixe sua avaliação e cometário!',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: globals.darkRed,
-                        ),
-                        textAlign: TextAlign.center,
-                      ))),
-              SizedBox(height: 30),
-              Text('Desenvolvido por:', textAlign: TextAlign.center),
-              SizedBox(height: 3),
+                onTap: () => launchUrl(),
+                child: Container(
+                  height: 45,
+                  width: 350,
+                  child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 10),
+                        child: Text("Deixe sua avaliação e cometário!",
+                            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                      )),
+                  decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(4)), color: globals.darkRed),
+                ),
+              ),
+              SizedBox(height: 50),
+              Text('Desenvolvido por:', style: TextStyle(fontSize: 10), textAlign: TextAlign.center),
               InkWell(
-                  onTap: () => launchEmail(),
-                  child: RichText(
-                    text: TextSpan(
-                      children: [
-                        WidgetSpan(
-                          child: Icon(Icons.mail_outline, size: 14, color: globals.darkRed),
+                onTap: () => launchEmail(),
+                child: Container(
+                  height: 45,
+                  width: 250,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 10),
+                        child: Table(
+                          columnWidths: {
+                            0: IntrinsicColumnWidth(flex: 0.2),
+                            1: IntrinsicColumnWidth(flex: 0.8),
+                          },
+                          defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                          children: [
+                            TableRow(
+                              children: [
+                                Center(child: Icon(Icons.mail_outline)),
+                                FittedBox(
+                                    fit: BoxFit.scaleDown,
+                                    child:
+                                    Text("  Otávio Garrido Moraes", style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500))),
+
+                              ]
+                            )
+                          ],
                         ),
-                        TextSpan(
-                          text: "  Otávio Garrido Moraes  ",
-                        ),
-                      ],
-                      style: TextStyle(fontWeight: FontWeight.bold, color: globals.darkRed),
-                    ),
-                  )),
+                      ),
+//                      FittedBox(
+//                          fit: BoxFit.scaleDown,
+//                          child:
+//                              Text("   Otávio Garrido Moraes   ", style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500))),
+                    ],
+                  ),
+                  decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(4)), color: Colors.grey[200]),
+                ),
+              ),
+
               SizedBox(height: 50),
               InkWell(
                 onTap: () => Get.to(LicensePage(
@@ -82,8 +106,30 @@ class _SobrePageState extends State<SobrePage> {
                       'estão livres de restrições de direitos autorais '
                       'e de direitos conexos conhecidos.',
                 )),
-                child: Text("  Licenças  ", style: TextStyle(fontWeight: FontWeight.bold, color: globals.darkRed)),
+                child: Container(
+                  height: 45,
+                  width: 150,
+                  child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Text("Licenças", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
+                  decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(4)), color: Colors.black45),
+                ),
               ),
+//              InkWell(
+//                  onTap: () => launchEmail(),
+//                  child: RichText(
+//                    text: TextSpan(
+//                      children: [
+//                        WidgetSpan(
+//                          child: Icon(Icons.mail_outline, size: 14, color: globals.darkRed),
+//                        ),
+//                        TextSpan(
+//                          text: "  Otávio Garrido Moraes  ",
+//                        ),
+//                      ],
+//                      style: TextStyle(fontWeight: FontWeight.bold, color: globals.darkRed),
+//                    ),
+//                  )),
             ]),
           ),
         ));

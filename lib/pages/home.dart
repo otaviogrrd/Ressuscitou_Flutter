@@ -100,30 +100,34 @@ class _HomePageState extends State<HomePage> {
 
     DateTime messageLida = DateTime.parse(globals.prefs.getString("MessageLida") ?? "1800-01-01");
     if (messageLida.isBefore(DateTime.parse(DateFormat('yyyy-MM-dd').format(DateTime.now())))) {
-      String message = await CantoService().getMessage();
-      if (message != "")
-        Get.defaultDialog(
-            title: 'Mensagem',
-            radius: 4,
-            content: Column(children: <Widget>[
-              Container(
-                constraints: BoxConstraints(minHeight: 100, maxHeight: MediaQuery.of(context).size.height * 0.3),
-                child: SingleChildScrollView(
-                    child: Text(message, style: TextStyle(fontSize: 16), textAlign: TextAlign.center)),
-              ),
-              Container(
-                width: 100,
-                child: FlatButton(
-                    child: FittedBox(fit: BoxFit.scaleDown, child: Text("Fechar")),
-                    color: globals.darkRed,
-                    textColor: Colors.white,
-                    onPressed: () {
-                      globals.prefs.setString("MessageLida", DateFormat('yyyy-MM-dd').format(DateTime.now()));
-                      Navigator.pop(context);
-                    }),
-              ),
-            ]));
+      getMessage();
     }
+  }
+
+  getMessage() async {
+    String message = await CantoService().getMessage();
+    if (message != "")
+      Get.defaultDialog(
+          title: 'Mensagem',
+          radius: 4,
+          content: Column(children: <Widget>[
+            Container(
+              constraints: BoxConstraints(minHeight: 100, maxHeight: MediaQuery.of(context).size.height * 0.3),
+              child: SingleChildScrollView(
+                  child: Text(message, style: TextStyle(fontSize: 16), textAlign: TextAlign.center)),
+            ),
+            Container(
+              width: 100,
+              child: FlatButton(
+                  child: FittedBox(fit: BoxFit.scaleDown, child: Text("Fechar")),
+                  color: globals.darkRed,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    globals.prefs.setString("MessageLida", DateFormat('yyyy-MM-dd').format(DateTime.now()));
+                    Navigator.pop(context);
+                  }),
+            ),
+          ]));
   }
 
   listaCantos() {
@@ -352,6 +356,10 @@ class _HomePageState extends State<HomePage> {
                 title: Text("Descubra seu Tom"),
                 leading: Icon(Icons.call_made, size: 25, color: globals.darkRed),
                 onTap: () => launchUrl()),
+            ListTile(
+                title: Text("Mensagens"),
+                leading: Icon(Icons.message, size: 25, color: globals.darkRed),
+                onTap: () => getMessage()),
             ListTile(
                 title: Text("Sobre"),
                 leading: Icon(Icons.info_outline, size: 25, color: globals.darkRed),
