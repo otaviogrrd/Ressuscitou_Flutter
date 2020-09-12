@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:package_info/package_info.dart';
@@ -40,22 +42,24 @@ class _SobrePageState extends State<SobrePage> {
               SizedBox(height: 10),
               Text('Pode ser utilizado apenas como apoio aos salmistas para ensaios, consultas e preparações.',
                   style: TextStyle(fontSize: 16), textAlign: TextAlign.center),
-              SizedBox(height: 30),
-              InkWell(
-                onTap: () => launchUrl(),
-                child: Container(
-                  height: 45,
-                  width: 350,
-                  child: FittedBox(
-                      fit: BoxFit.scaleDown,
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 10),
-                        child: Text("Deixe sua avaliação e cometário!",
-                            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-                      )),
-                  decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(4)), color: globals.darkRed),
+              if (Platform.isAndroid) SizedBox(height: 30),
+              if (Platform.isAndroid)
+                InkWell(
+                  onTap: () => launchUrl(),
+                  child: Container(
+                    height: 45,
+                    width: 350,
+                    child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          child: Text("Deixe sua avaliação e cometário!",
+                              style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                        )),
+                    decoration:
+                        BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(4)), color: globals.darkRed),
+                  ),
                 ),
-              ),
               SizedBox(height: 50),
               Text('Desenvolvido por:', style: TextStyle(fontSize: 10), textAlign: TextAlign.center),
               InkWell(
@@ -75,36 +79,28 @@ class _SobrePageState extends State<SobrePage> {
                           },
                           defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                           children: [
-                            TableRow(
-                              children: [
-                                Center(child: Icon(Icons.mail_outline)),
-                                FittedBox(
-                                    fit: BoxFit.scaleDown,
-                                    child:
-                                    Text("  Otávio Garrido Moraes", style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500))),
-
-                              ]
-                            )
+                            TableRow(children: [
+                              Center(child: Icon(Icons.mail_outline)),
+                              FittedBox(
+                                  fit: BoxFit.scaleDown,
+                                  child: Text("  Otávio Garrido Moraes",
+                                      style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500))),
+                            ])
                           ],
                         ),
                       ),
-//                      FittedBox(
-//                          fit: BoxFit.scaleDown,
-//                          child:
-//                              Text("   Otávio Garrido Moraes   ", style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500))),
                     ],
                   ),
-                  decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(4)), color: Colors.grey[200]),
+                  decoration:
+                      BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(4)), color: Colors.grey[200]),
                 ),
               ),
-
               SizedBox(height: 50),
               InkWell(
                 onTap: () => Get.to(LicensePage(
-                  applicationLegalese: 'Os Cantos do Livro Ressucitou, de Francisco José Gómez de Argüello Wirtz,'
-                      'aqui distribuídos pelo Centro Neocatecumenal do Brasil (cn.org.br),'
-                      'estão livres de restrições de direitos autorais '
-                      'e de direitos conexos conhecidos.',
+                  applicationLegalese: 'Os Cantos do Livro Ressuscitou, de Francisco José Gómez de Argüello Wirtz,'
+                      'distribuídos em português(BR) pelo Centro Neocatecumenal do Brasil (neocatechumenaleiter.org),'
+                      'estão livres de restrições de direitos autorais e de direitos conexos conhecidos.',
                 )),
                 child: Container(
                   height: 45,
@@ -115,21 +111,6 @@ class _SobrePageState extends State<SobrePage> {
                   decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(4)), color: Colors.black45),
                 ),
               ),
-//              InkWell(
-//                  onTap: () => launchEmail(),
-//                  child: RichText(
-//                    text: TextSpan(
-//                      children: [
-//                        WidgetSpan(
-//                          child: Icon(Icons.mail_outline, size: 14, color: globals.darkRed),
-//                        ),
-//                        TextSpan(
-//                          text: "  Otávio Garrido Moraes  ",
-//                        ),
-//                      ],
-//                      style: TextStyle(fontWeight: FontWeight.bold, color: globals.darkRed),
-//                    ),
-//                  )),
             ]),
           ),
         ));
