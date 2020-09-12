@@ -1,16 +1,14 @@
 # Ressuscitou
 
-Ressuscitou
+Ressuscitou, Cantos do Caminho Neocatecumenal
 
-## Getting Started
+Os Cantos do Livro Ressuscitou, de Francisco José Gómez de Argüello Wirtz,
+distribuídos em português(BR) pelo [Centro Neocatecumenal do Brasil](https://neocatechumenaleiter.org/pt-br/contatar/),
+estão livres de restrições de direitos autorais e de direitos conexos conhecidos.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+Este aplicativo foi desenvolvido de forma voluntária por Otávio Garrido Moraes, em colaboração com 
+[Hurbis – Soluções em Tecnologia da Informação](https://www.hurbis.com.br).
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Para Suporte e Sugestões: otavio.grrd@gmail.com
