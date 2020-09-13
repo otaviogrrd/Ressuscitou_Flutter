@@ -1,9 +1,9 @@
-import 'dart:async';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:ressuscitou/helpers/global.dart';
-import 'package:ressuscitou/model/cantoList.dart';
-import 'package:ressuscitou/pages/listaDetalhe.dart';
+import "dart:async";
+import "package:flutter/material.dart";
+import "package:get/get.dart";
+import "package:ressuscitou/helpers/global.dart";
+import "package:ressuscitou/model/cantoList.dart";
+import "package:ressuscitou/pages/listaDetalhe.dart";
 
 class ListasPage extends StatefulWidget {
   int select;
@@ -25,12 +25,12 @@ class _ListasPageState extends State<ListasPage> {
           return Future.value(false);
         },
         child: Scaffold(
-          appBar: AppBar(title: Text('Listas'), centerTitle: false),
+          appBar: AppBar(title: Text("Listas"), centerTitle: false),
           floatingActionButton: FloatingActionButton(
               child: Icon(Icons.add),
               elevation: 1,
               onPressed: () => Get.to(ListaDetalhePage(
-                    lista: CantoList(titulo: '', cantos: (widget.select != null) ? [widget.select] : []),
+                    lista: CantoList(titulo: "", cantos: (widget.select != null) ? [widget.select] : []),
                   )).then((value) => setState(() => listasLoaded = false))),
           body: getBody(),
         ));
@@ -67,7 +67,7 @@ class _ListasPageState extends State<ListasPage> {
                         listCantos[index].cantos.add(widget.select);
                         CantoListService().saveList(listaOld: listCantos[index].titulo, listaNew: listCantos[index]);
                         Get.back();
-                        snackBar('Canto adicionado à lista');
+                        snackBar(Get.overlayContext, "Canto adicionado à lista");
                       } else {
                         Get.to(ListaDetalhePage(lista: listCantos[index]))
                             .then((value) => setState(() => listasLoaded = false));

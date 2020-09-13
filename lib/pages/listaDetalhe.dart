@@ -1,12 +1,12 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:get/get.dart';
-import 'package:ressuscitou/helpers/global.dart';
-import 'package:ressuscitou/model/cantoList.dart';
-import 'package:ressuscitou/pages/home.dart';
-import 'package:ressuscitou/pages/canto.dart';
-import 'package:share/share.dart';
+import "package:flutter/cupertino.dart";
+import "package:flutter/material.dart";
+import "package:flutter_form_builder/flutter_form_builder.dart";
+import "package:get/get.dart";
+import "package:ressuscitou/helpers/global.dart";
+import "package:ressuscitou/model/cantoList.dart";
+import "package:ressuscitou/pages/home.dart";
+import "package:ressuscitou/pages/canto.dart";
+import "package:share/share.dart";
 
 class ListaDetalhePage extends StatefulWidget {
   CantoList lista;
@@ -43,13 +43,13 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
 
   @override
   Widget build(BuildContext context) {
-    String share = '';
+    String share = "";
     globals.listaGlobal.forEach((element) {
-      share = share + element.nr2019.padLeft(3,'0') + ' - ' + element.titulo + '\n';
+      share = share + element.nr2019.padLeft(3,"0") + " - " + element.titulo + "\n";
     });
     return Scaffold(
         appBar: AppBar(elevation: 0.0, centerTitle: true, title: Text("Lista"), actions: [
-          if (listaOld != '') IconButton(icon: Icon(Icons.delete), onPressed: () => deleteList()),
+          if (listaOld != "") IconButton(icon: Icon(Icons.delete), onPressed: () => deleteList()),
           (editMode)
               ? IconButton(
                   icon: Icon(Icons.save),
@@ -62,7 +62,7 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
             child: Icon(Icons.share),
             elevation: 1,
             onPressed: () {
-              Share.share('Confira a lista *${listaNew.titulo}*, que criei no App *Ressucitou*:\n\n$share');
+              Share.share("Confira a lista *${listaNew.titulo}*, que criei no App *Ressucitou*:\n\n$share");
             }),
         body: Container(
             margin: EdgeInsets.symmetric(horizontal: 11),
@@ -76,7 +76,7 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
                     child: Column(children: <Widget>[
                       FormBuilderTextField(
                           cursorColor: globals.lightRed,
-                          attribute: 'Título',
+                          attribute: "Título",
                           initialValue: listaOld,
                           textCapitalization: TextCapitalization.sentences,
                           minLines: 1,
@@ -85,7 +85,7 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
                           onChanged: (value) {
                             listaNew.titulo = value;
                           },
-                          validators: [FormBuilderValidators.required(errorText: 'Informe um título para lista!')],
+                          validators: [FormBuilderValidators.required(errorText: "Informe um título para lista!")],
                           decoration: InputDecoration(
                             labelText: "Título",
                           ))
@@ -115,7 +115,7 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
               child: Stack(children: <Widget>[
                 Center(
                     child: Text(
-                  'Cantos',
+                  "Cantos",
                   style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w500),
                 )),
                 if (editMode && globals.listaGlobal.length > 0)
@@ -180,7 +180,7 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
                         background: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            Text('Remover Canto', style: TextStyle(color: globals.darkRed)),
+                            Text("Remover Canto", style: TextStyle(color: globals.darkRed)),
                             Padding(padding: EdgeInsets.all(8.0), child: Icon(Icons.delete, color: globals.darkRed)),
                           ],
                         ),
@@ -200,7 +200,7 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
           onTap: () => Get.to(HomePage(selectable: true)).then((result) => setState(() {
                 editMode = true;
               })),
-          child: Center(child: Padding(padding: EdgeInsets.all(10), child: Text('Adicionar Cantos'))));
+          child: Center(child: Padding(padding: EdgeInsets.all(10), child: Text("Adicionar Cantos"))));
   }
 
   getColorCateg(int categoria) {
@@ -223,14 +223,14 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
         listaNew.cantos.add(element.id);
       });
       CantoListService().saveList(listaOld: listaOld, listaNew: listaNew);
-      snackBar('Lista Salva');
+      snackBar(Get.overlayContext, "Lista Salva");
       listaOld = listaNew.titulo;
     }
   }
 
   deleteList() {
     return Get.defaultDialog(
-        title: 'Apagar Lista?',
+        title: "Apagar Lista?",
         radius: 4,
         content: ConstrainedBox(
             constraints: BoxConstraints(minWidth: MediaQuery.of(context).size.width * 0.6),

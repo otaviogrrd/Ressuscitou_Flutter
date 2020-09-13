@@ -1,10 +1,10 @@
-import 'dart:io';
+import "dart:io";
 
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:package_info/package_info.dart';
-import 'package:ressuscitou/helpers/global.dart';
-import 'package:url_launcher/url_launcher.dart';
+import "package:flutter/material.dart";
+import "package:get/get.dart";
+import "package:package_info/package_info.dart";
+import "package:ressuscitou/helpers/global.dart";
+import "package:url_launcher/url_launcher.dart";
 
 class SobrePage extends StatefulWidget {
   @override
@@ -15,7 +15,7 @@ class _SobrePageState extends State<SobrePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('Ressuscitou')),
+        appBar: AppBar(title: Text("Ressuscitou")),
         body: Container(
           margin: EdgeInsets.all(16),
           child: SingleChildScrollView(
@@ -30,17 +30,17 @@ class _SobrePageState extends State<SobrePage> {
                         return CircularProgressIndicator();
                       case ConnectionState.done:
                         return Text(
-                          'Versão: ${snapshot.data.version}+${snapshot.data.buildNumber}',
+                          "Versão: ${snapshot.data.version}+${snapshot.data.buildNumber}",
                         );
                       default:
                         return Container();
                     }
                   }),
               SizedBox(height: 30),
-              Text('Este aplicativo NÃO deve ser utilizado em celebrações.',
+              Text("Este aplicativo NÃO deve ser utilizado em celebrações.",
                   style: TextStyle(fontSize: 16), textAlign: TextAlign.center),
               SizedBox(height: 10),
-              Text('Pode ser utilizado apenas como apoio aos salmistas para ensaios, consultas e preparações.',
+              Text("Pode ser utilizado apenas como apoio aos salmistas para ensaios, consultas e preparações.",
                   style: TextStyle(fontSize: 16), textAlign: TextAlign.center),
               if (Platform.isAndroid) SizedBox(height: 30),
               if (Platform.isAndroid)
@@ -61,7 +61,7 @@ class _SobrePageState extends State<SobrePage> {
                   ),
                 ),
               SizedBox(height: 50),
-              Text('Desenvolvido por:', style: TextStyle(fontSize: 10), textAlign: TextAlign.center),
+              Text("Desenvolvido por:", style: TextStyle(fontSize: 10), textAlign: TextAlign.center),
               InkWell(
                 onTap: () => launchEmail(),
                 child: Container(
@@ -98,9 +98,9 @@ class _SobrePageState extends State<SobrePage> {
               SizedBox(height: 50),
               InkWell(
                 onTap: () => Get.to(LicensePage(
-                  applicationLegalese: 'Os Cantos do Livro Ressuscitou, de Francisco José Gómez de Argüello Wirtz,'
-                      'distribuídos em português(BR) pelo Centro Neocatecumenal do Brasil (neocatechumenaleiter.org),'
-                      'estão livres de restrições de direitos autorais e de direitos conexos conhecidos.',
+                  applicationLegalese: "Os Cantos do Livro Ressuscitou, de Francisco José Gómez de Argüello Wirtz,"
+                      "distribuídos em português(BR) pelo Centro Neocatecumenal do Brasil (neocatechumenaleiter.org),"
+                      "estão livres de restrições de direitos autorais e de direitos conexos conhecidos.",
                 )),
                 child: Container(
                   height: 45,
@@ -117,20 +117,20 @@ class _SobrePageState extends State<SobrePage> {
   }
 
   launchUrl() async {
-    const url = 'https://play.google.com/store/apps/details?id=br.org.cn.ressuscitou&hl=pt_BR';
+    const url = "https://play.google.com/store/apps/details?id=br.org.cn.ressuscitou&hl=pt_BR";
     if (await canLaunch(url)) {
       await launch(url);
     } else {
-      snackBar('Erro ao abrir navegador');
+      snackBar(Get.overlayContext, "Erro ao abrir navegador");
     }
   }
 
   launchEmail() async {
-    const url = 'mailto:otavio.grrd@gmail.com?subject=App Ressuscitou';
+    const url = "mailto:otavio.grrd@gmail.com?subject=App Ressuscitou";
     if (await canLaunch(url)) {
       await launch(url);
     } else {
-      snackBar('Erro ao iniciar e-mail');
+      snackBar(Get.overlayContext, "Erro ao iniciar e-mail");
     }
   }
 }

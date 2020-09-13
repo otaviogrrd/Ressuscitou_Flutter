@@ -1,5 +1,5 @@
-import 'dart:convert';
-import 'package:ressuscitou/helpers/global.dart';
+import "dart:convert";
+import "package:ressuscitou/helpers/global.dart";
 
 class CantoList {
   String titulo;
@@ -8,9 +8,9 @@ class CantoList {
   CantoList({this.titulo, this.cantos});
 
   factory CantoList.fromJson(Map<String, dynamic> json) {
-    List<dynamic> body = json['cantos'];
+    List<dynamic> body = json["cantos"];
     var cantos = body.map((dynamic item) => item).toList();
-    var canto = CantoList(titulo: json['titulo'], cantos: []);
+    var canto = CantoList(titulo: json["titulo"], cantos: []);
     cantos.forEach((element) {
       canto.cantos.add(element);
     });
@@ -19,7 +19,7 @@ class CantoList {
   }
 
   Map<String, dynamic> toJson() => {
-        'titulo': this.titulo,
+        "titulo": this.titulo,
         "cantos": cantos.toList(),
       };
 }
@@ -27,7 +27,7 @@ class CantoList {
 class CantoListService {
   saveList({String listaOld, CantoList listaNew}) async {
     List<CantoList> list = [];
-    String str = globals.prefs.getString('Listas');
+    String str = globals.prefs.getString("Listas");
     if (str != null && str != "") {
       List<dynamic> body = jsonDecode(str);
       list = body.map((dynamic item) => CantoList.fromJson(item)).toList();
@@ -35,11 +35,11 @@ class CantoListService {
     list.removeWhere((element) => element.titulo == listaOld);
     if (listaNew != null) list.add(listaNew);
     str = jsonEncode(list);
-    globals.prefs.setString('Listas', str);
+    globals.prefs.setString("Listas", str);
   }
 
   Future<List<CantoList>> getCantosList() async {
-    String str = globals.prefs.getString('Listas');
+    String str = globals.prefs.getString("Listas");
     if (str != null && str != "") {
       List<dynamic> body = jsonDecode(str);
       List<CantoList> list = body.map((dynamic item) => CantoList.fromJson(item)).toList();

@@ -1,14 +1,14 @@
-import 'dart:async';
-import 'dart:io';
+import "dart:async";
+import "dart:io";
 
-import 'package:connectivity/connectivity.dart';
-import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:percent_indicator/circular_percent_indicator.dart';
-import 'package:ressuscitou/helpers/global.dart';
-import 'package:ressuscitou/model/canto.dart';
+import "package:connectivity/connectivity.dart";
+import "package:dio/dio.dart";
+import "package:flutter/material.dart";
+import "package:get/get.dart";
+import "package:path_provider/path_provider.dart";
+import "package:percent_indicator/circular_percent_indicator.dart";
+import "package:ressuscitou/helpers/global.dart";
+import "package:ressuscitou/model/canto.dart";
 
 class AudiosPage extends StatefulWidget {
   @override
@@ -38,16 +38,16 @@ class _AudiosPageState extends State<AudiosPage> {
           return Future.value(false);
         },
         child: Scaffold(
-          appBar: AppBar(title: Text('Ressuscitou'), centerTitle: false, actions: [
+          appBar: AppBar(title: Text("Ressuscitou"), centerTitle: false, actions: [
             if (listCantos.where((c) => (c.selected != null && c.selected)).toList().isNotEmpty)
               IconButton(
                 icon: Icon(Icons.delete, color: Colors.white),
-                onPressed: () => action('Apagar'),
+                onPressed: () => action("Apagar"),
               ),
             if (listCantos2.isNotEmpty && !downloading)
               IconButton(
                 icon: Icon(Icons.file_download, color: Colors.white),
-                onPressed: () => action('Download'),
+                onPressed: () => action("Download"),
               ),
           ]),
           body: getBody(),
@@ -55,7 +55,7 @@ class _AudiosPageState extends State<AudiosPage> {
   }
 
   action(String value) async {
-    if (value == 'Apagar') {
+    if (value == "Apagar") {
       for (var i = 0; i < listCantos.length; i++) {
         if (listCantos[i].selected != null && listCantos[i].selected) {
           await listCantos[i].mp3Delete();
@@ -64,20 +64,20 @@ class _AudiosPageState extends State<AudiosPage> {
       cantosLoaded = false;
       setState(() {});
     }
-    if (value == 'UnMarkAll') {
+    if (value == "UnMarkAll") {
       for (var i = 0; i < listCantos.length; i++) {
         listCantos[i].selected = false;
       }
       setState(() {});
     }
-    if (value == 'MarkAll') {
+    if (value == "MarkAll") {
       for (var i = 0; i < listCantos.length; i++) {
         listCantos[i].selected = true;
       }
       setState(() {});
     }
 
-    if (value == 'Download') {
+    if (value == "Download") {
       download();
     }
   }
@@ -85,23 +85,23 @@ class _AudiosPageState extends State<AudiosPage> {
   download() async {
     var connectivityResult = await (Connectivity().checkConnectivity());
     Get.defaultDialog(
-      title: 'Atenção',
+      title: "Atenção",
       radius: 4,
       content: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Text('Download de todos audios disponíveis.'),
+          Text("Download de todos áudios disponíveis."),
           Padding(
             padding: EdgeInsets.only(top: 10),
-            child: Text('Aproximadamente 1GB!'),
+            child: Text("Aproximadamente 1GB!"),
           ),
           if (connectivityResult == ConnectivityResult.mobile)
             Padding(
               padding: EdgeInsets.only(top: 10),
-              child: Text('É recomendado o uso de WiFi', style: TextStyle(fontWeight: FontWeight.bold)),
+              child: Text("É recomendado o uso de WiFi", style: TextStyle(fontWeight: FontWeight.bold)),
             ),
           if (connectivityResult == ConnectivityResult.mobile)
-            Text('para economia de seus dados móveis.', style: TextStyle(fontWeight: FontWeight.bold))
+            Text("para economia de seus dados móveis.", style: TextStyle(fontWeight: FontWeight.bold))
         ],
       ),
       confirm: Container(
@@ -151,7 +151,7 @@ class _AudiosPageState extends State<AudiosPage> {
     StreamController<int> progressStreamController = new StreamController();
     Dio dio = new Dio();
     final dir = await getApplicationDocumentsDirectory();
-    final file = File('${dir.path}/' + listCantos2[index].html + '.mp3');
+    final file = File("${dir.path}/" + listCantos2[index].html + ".mp3");
     var url = "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/" +
         listCantos2[index].html +
         ".mp3";
@@ -248,7 +248,7 @@ class _AudiosPageState extends State<AudiosPage> {
             TableRow(
               children: <Widget>[
                 InkWell(
-                  onTap: () => action('MarkAll'),
+                  onTap: () => action("MarkAll"),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
@@ -256,13 +256,13 @@ class _AudiosPageState extends State<AudiosPage> {
                         padding: EdgeInsets.fromLTRB(16,8,0,8),
                         child: Icon(Icons.check_box, color: globals.darkRed),
                       ),
-                      Expanded(child: FittedBox(fit: BoxFit.scaleDown, child: Text('Selecionar Todos'))),
+                      Expanded(child: FittedBox(fit: BoxFit.scaleDown, child: Text("Selecionar Todos"))),
                     ],
                   ),
                 ),
 
                 InkWell(
-                  onTap: () => action('UnMarkAll'),
+                  onTap: () => action("UnMarkAll"),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
@@ -270,14 +270,14 @@ class _AudiosPageState extends State<AudiosPage> {
                         padding: EdgeInsets.fromLTRB(16,8,0,8),
                         child: Icon(Icons.check_box_outline_blank, color: globals.darkRed),
                       ),
-                      Expanded(child: FittedBox(fit: BoxFit.scaleDown, child: Text('Limpar Seleção'))),
+                      Expanded(child: FittedBox(fit: BoxFit.scaleDown, child: Text("Limpar Seleção"))),
                     ],
                   ),
                 ),
 //                FlatButton.icon(
 //                  icon: Icon(Icons.check_box_outline_blank, color: globals.darkRed),
-//                  label: Text('Limpar Seleção'),
-//                  onPressed: () => action('UnMarkAll'),
+//                  label: Text("Limpar Seleção"),
+//                  onPressed: () => action("UnMarkAll"),
 //                ),
               ],
             ),
@@ -317,7 +317,7 @@ class _AudiosPageState extends State<AudiosPage> {
   }
 
   delaySetState() async {
-    Future<String>.delayed(Duration(milliseconds: 100), () => 'delay').then((String value) {
+    Future<String>.delayed(Duration(milliseconds: 100), () => "delay").then((String value) {
       setState(() {});
     });
   }

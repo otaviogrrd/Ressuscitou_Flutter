@@ -1,9 +1,9 @@
-import 'dart:async';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:ressuscitou/helpers/global.dart';
-import 'package:ressuscitou/model/canto.dart';
-import 'package:ressuscitou/pages/home.dart';
+import "dart:async";
+import "package:flutter/material.dart";
+import "package:get/get.dart";
+import "package:ressuscitou/helpers/global.dart";
+import "package:ressuscitou/model/canto.dart";
+import "package:ressuscitou/pages/home.dart";
 
 class Splash extends StatefulWidget {
   @override
@@ -26,7 +26,7 @@ class _SplashState extends State<Splash> {
                 Timer(Duration(seconds: 1), () => goToHome());
                 return getLogo();
               default:
-                if (snapshot.hasError) snackBar('Erro: ${snapshot.error}');
+                if (snapshot.hasError) snackBar(Get.overlayContext, "Erro: ${snapshot.error}");
                 return getLogo();
             }
           }),

@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:ressuscitou/helpers/global.dart';
-import 'package:ressuscitou/model/canto.dart';
-import 'package:ressuscitou/pages/canto.dart';
-import 'package:tree_view/tree_view.dart';
+import "package:flutter/material.dart";
+import "package:get/get.dart";
+import "package:ressuscitou/helpers/global.dart";
+import "package:ressuscitou/model/canto.dart";
+import "package:ressuscitou/pages/canto.dart";
+import "package:tree_view/tree_view.dart";
 
 class LiturgicoPage extends StatefulWidget {
   @override
@@ -16,7 +16,7 @@ class _LiturgicoPageState extends State<LiturgicoPage> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Índice Litúrgico')),
+      appBar: AppBar(title: Text("Índice Litúrgico")),
       body: FutureBuilder(
           future: CantoService().getCantosLocal(),
           builder: (BuildContext cont, AsyncSnapshot<List<Canto>> snapshot) {
@@ -123,7 +123,7 @@ class _LiturgicoPageState extends State<LiturgicoPage> {
   }
 
   geticon(Canto canto) {
-    if (canto.url != '') {
+    if (canto.url != "") {
       if (canto.downloaded != null && canto.downloaded)
         return Icon(Icons.music_note, color: globals.darkRed);
       else

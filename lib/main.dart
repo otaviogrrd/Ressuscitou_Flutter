@@ -1,10 +1,10 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:ressuscitou/pages/splash.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:get/get.dart';
+import "package:flutter/cupertino.dart";
+import "package:flutter/material.dart";
+import "package:ressuscitou/pages/splash.dart";
+import "package:flutter_localizations/flutter_localizations.dart";
+import "package:get/get.dart";
 
-import 'package:ressuscitou/helpers/global.dart';
+import "package:ressuscitou/helpers/global.dart";
 
 void main() => runApp(MainPage());
 
@@ -15,13 +15,15 @@ class MainPage extends StatelessWidget {
     return GetMaterialApp(
       defaultTransition: Transition.cupertino,
       debugShowCheckedModeBanner: false,
-      title: 'Ressuscitou',
+      title: "Ressuscitou",
       localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        DefaultCupertinoLocalizations.delegate
       ],
       supportedLocales: [
-        Locale('pt'),
+        Locale("pt"),
       ],
       theme: ThemeData(
         backgroundColor: Colors.white,

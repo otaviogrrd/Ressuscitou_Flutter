@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:ressuscitou/helpers/global.dart';
+import "package:flutter/material.dart";
+import 'package:get/get.dart';
+import "package:ressuscitou/helpers/global.dart";
 
 class SettingsPage extends StatefulWidget {
   @override
@@ -24,7 +25,7 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('Ressuscitou')),
+        appBar: AppBar(title: Text("Ressuscitou")),
         body: Container(
             margin: EdgeInsets.symmetric(horizontal: 16),
             child: SingleChildScrollView(
@@ -32,7 +33,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 Divider(color: Colors.black26, height: 2.0),
                 SwitchListTile(
                     title: Text("Apenas WiFi"),
-                    subtitle: Text("Não utilzar dados móveis"),
+                    subtitle: Text("Não utilizar dados móveis"),
                     value: wfOnly,
                     onChanged: (value) {
                       globals.prefs.setBool("wfOnly", value);
@@ -56,35 +57,26 @@ class _SettingsPageState extends State<SettingsPage> {
                       globals.prefs.setBool("escalaAmericana", value);
                       setState(() => escalaAmericana = value);
                     }),
-//                Divider(color: Colors.black26, height: 2.0),
-//                SwitchListTile(
-//                    title: Text("Numeração Antiga"),
-//                    subtitle: Text("Conforme a Edição 2015 do livro"),
-//                    value: numeracao2015,
-//                    onChanged: (value) {
-//                      globals.prefs.setBool("numeracao2015", value);
-//                      setState(() => numeracao2015 = value);
-//                    }),
                 Divider(color: Colors.black26, height: 2.0),
                 ListTile(
                     title: Text("Apagar Transposições Salvas"),
                     onTap: () {
                       globals.cantosGlobal.forEach((element) => globals.prefs.remove("TRANSP_" + element.id.toString()));
-                      snackBar("Transposições apagadas");
+                      snackBar(Get.overlayContext, "Transposições apagadas");
                     }),
                 Divider(color: Colors.black26, height: 2.0),
                 ListTile(
                     title: Text("Apagar Capotrastes Salvos"),
                     onTap: () {
                       globals.cantosGlobal.forEach((element) => globals.prefs.remove("CAPOT_" + element.id.toString()));
-                      snackBar("Capotrastes apagados");
+                      snackBar(Get.overlayContext, "Capotrastes apagados");
                     }),
                 Divider(color: Colors.black26, height: 2.0),
                 ListTile(
                     title: Text("Apagar Anotações Salvas"),
                     onTap: () {
                       globals.cantosGlobal.forEach((element) => globals.prefs.remove("ANOT_" + element.id.toString()));
-                      snackBar("Anotações apagadas");
+                      snackBar(Get.overlayContext, "Anotações apagadas");
                     }),
                 Divider(color: Colors.black26, height: 2.0),
               ]),

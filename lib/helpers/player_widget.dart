@@ -1,9 +1,9 @@
-import 'dart:async';
+import "dart:async";
 
-import 'package:audioplayers/audioplayers.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:ressuscitou/helpers/global.dart';
+import "package:audioplayers/audioplayers.dart";
+import "package:flutter/foundation.dart";
+import "package:flutter/material.dart";
+import "package:ressuscitou/helpers/global.dart";
 
 enum PlayerState { stopped, playing, paused }
 enum PlayingRouteState { speakers, earpiece }
@@ -41,9 +41,9 @@ class PlayerWidgetState extends State<PlayerWidget> {
 
   get _isPaused => _playerState == PlayerState.paused;
 
-  get _durationText => _duration?.toString()?.split('.')?.first ?? '';
+  get _durationText => _duration?.toString()?.split(".")?.first ?? "";
 
-  get _positionText => _position?.toString()?.split('.')?.first ?? '';
+  get _positionText => _position?.toString()?.split(".")?.first ?? "";
 
   PlayerWidgetState(this.url, this.mode);
 
@@ -74,7 +74,7 @@ class PlayerWidgetState extends State<PlayerWidget> {
           children: [
             if (!_isPlaying)
               IconButton(
-                key: Key('play_button'),
+                key: Key("play_button"),
                 onPressed: _isPlaying ? null : () => _play(),
                 iconSize: 40,
                 icon: Icon(Icons.play_arrow),
@@ -82,7 +82,7 @@ class PlayerWidgetState extends State<PlayerWidget> {
               ),
             if (_isPlaying)
               IconButton(
-                key: Key('pause_button'),
+                key: Key("pause_button"),
                 onPressed: _isPlaying ? () => _pause() : null,
                 iconSize: 40,
                 icon: Icon(Icons.pause),
@@ -118,7 +118,7 @@ class PlayerWidgetState extends State<PlayerWidget> {
                       child: FittedBox(
                           fit: BoxFit.scaleDown,
                           child: Text(
-                            _position != null ? '${_positionText ?? ''}' : '',
+                            _position != null ? "${_positionText ?? ""}" : "",
                             style: TextStyle(fontSize: 12.0),
                           )),
                     ),
@@ -131,7 +131,7 @@ class PlayerWidgetState extends State<PlayerWidget> {
                       child: FittedBox(
                         fit: BoxFit.scaleDown,
                         child: Text(
-                          _duration != null ? _durationText : '',
+                          _duration != null ? _durationText : "",
                           style: TextStyle(fontSize: 12.0),
                         ),
                       ),
@@ -142,7 +142,7 @@ class PlayerWidgetState extends State<PlayerWidget> {
             ),
 
             IconButton(
-              key: Key('stop_button'),
+              key: Key("stop_button"),
               onPressed: _isPlaying || _isPaused ? () => _stop() : null,
               iconSize: 40,
               icon: Icon(Icons.stop),
@@ -167,10 +167,10 @@ class PlayerWidgetState extends State<PlayerWidget> {
 
         // set at least title to see the notification bar on ios.
         _audioPlayer.setNotification(
-            title: 'App Name',
-            artist: 'Artist or blank',
-            albumTitle: 'Name or blank',
-            imageUrl: 'url or blank',
+            title: "App Name",
+            artist: "Artist or blank",
+            albumTitle: "Name or blank",
+            imageUrl: "url or blank",
             forwardSkipInterval: const Duration(seconds: 30),
             // default is 30s
             backwardSkipInterval: const Duration(seconds: 30),

@@ -1,20 +1,20 @@
-import 'dart:async';
+import "dart:async";
 
-import 'package:flutter/material.dart';
-import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:get/get.dart';
-import 'package:intl/intl.dart';
-import 'package:ressuscitou/helpers/global.dart';
-import 'package:ressuscitou/model/canto.dart';
-import 'package:ressuscitou/pages/audios.dart';
-import 'package:ressuscitou/pages/canto.dart';
-import 'package:ressuscitou/pages/imageViewer.dart';
-import 'package:ressuscitou/pages/listas.dart';
-import 'package:ressuscitou/pages/liturgico.dart';
-import 'package:ressuscitou/pages/settings.dart';
-import 'package:url_launcher/url_launcher.dart';
+import "package:flutter/material.dart";
+import "package:flutter_form_builder/flutter_form_builder.dart";
+import "package:get/get.dart";
+import "package:intl/intl.dart";
+import "package:ressuscitou/helpers/global.dart";
+import "package:ressuscitou/model/canto.dart";
+import "package:ressuscitou/pages/audios.dart";
+import "package:ressuscitou/pages/canto.dart";
+import "package:ressuscitou/pages/imageViewer.dart";
+import "package:ressuscitou/pages/listas.dart";
+import "package:ressuscitou/pages/liturgico.dart";
+import "package:ressuscitou/pages/settings.dart";
+import "package:url_launcher/url_launcher.dart";
 
-import 'sobre.dart';
+import "sobre.dart";
 
 class HomePage extends StatefulWidget {
   bool selectable = false;
@@ -30,7 +30,7 @@ class _HomePageState extends State<HomePage> {
   List<Canto> filterListCantos = [];
   int selectedCateg = 0;
   final GlobalKey<FormBuilderState> formKey = GlobalKey<FormBuilderState>();
-  String searchField = '';
+  String searchField = "";
   bool showSearch = false;
 
 //  bool numeracao2015 = false;
@@ -45,7 +45,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
 //    numeracao2015 = globals.prefs.getBool("numeracao2015") ?? false;
     return Scaffold(
-      appBar: AppBar(title: Text('Ressuscitou'), actions: [
+      appBar: AppBar(title: Text("Ressuscitou"), actions: [
         if (!showSearch)
           IconButton(
               icon: Icon(Icons.search, size: 25, color: Colors.white),
@@ -60,7 +60,7 @@ class _HomePageState extends State<HomePage> {
     var termos = globals.prefs.getBool("TermosIniciaisLidos") ?? false;
     if (!termos)
       Get.defaultDialog(
-        title: 'Atenção',
+        title: "Atenção",
         radius: 4,
         content: Column(
           children: <Widget>[
@@ -70,12 +70,12 @@ class _HomePageState extends State<HomePage> {
                 child: Table(
                   children: [
                     TableRow(children: [
-                      Text('Este aplicativo NÃO deve ser utilizado em celebrações.',
+                      Text("Este aplicativo NÃO deve ser utilizado em celebrações.",
                           style: TextStyle(fontSize: 16), textAlign: TextAlign.center)
                     ]),
                     TableRow(children: [SizedBox(height: 15)]),
                     TableRow(children: [
-                      Text('Pode ser utilizado apenas como apoio aos salmistas para ensaios, consultas e preparações.',
+                      Text("Pode ser utilizado apenas como apoio aos salmistas para ensaios, consultas e preparações.",
                           textAlign: TextAlign.center)
                     ]),
                     TableRow(children: [SizedBox(height: 15)]),
@@ -99,7 +99,7 @@ class _HomePageState extends State<HomePage> {
       );
 
     DateTime messageLida = DateTime.parse(globals.prefs.getString("MessageLida") ?? "1800-01-01");
-    if (messageLida.isBefore(DateTime.parse(DateFormat('yyyy-MM-dd').format(DateTime.now())))) {
+    if (messageLida.isBefore(DateTime.parse(DateFormat("yyyy-MM-dd").format(DateTime.now())))) {
       getMessage();
     }
   }
@@ -108,7 +108,7 @@ class _HomePageState extends State<HomePage> {
     String message = await CantoService().getMessage();
     if (message != "")
       Get.defaultDialog(
-          title: 'Mensagem',
+          title: "Mensagem",
           radius: 4,
           content: Column(children: <Widget>[
             Container(
@@ -123,7 +123,7 @@ class _HomePageState extends State<HomePage> {
                   color: globals.darkRed,
                   textColor: Colors.white,
                   onPressed: () {
-                    globals.prefs.setString("MessageLida", DateFormat('yyyy-MM-dd').format(DateTime.now()));
+                    globals.prefs.setString("MessageLida", DateFormat("yyyy-MM-dd").format(DateTime.now()));
                     Navigator.pop(context);
                   }),
             ),
@@ -210,7 +210,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   geticon(Canto canto) {
-    if (canto.url != '') {
+    if (canto.url != "") {
       if (canto.downloaded != null && canto.downloaded)
         return Icon(Icons.music_note, color: globals.darkRed);
       else
@@ -345,7 +345,7 @@ class _HomePageState extends State<HomePage> {
                 leading: Icon(Icons.list, size: 25, color: globals.darkRed),
                 onTap: () => Get.to(ListasPage()).then((value) => setState(() {}))),
             ListTile(
-                title: Text("Audios"),
+                title: Text("Áudios"),
                 leading: Icon(Icons.music_note, size: 25, color: globals.darkRed),
                 onTap: () => Get.to(AudiosPage()).then((value) => setState(() {}))),
             ListTile(
@@ -386,7 +386,7 @@ class _HomePageState extends State<HomePage> {
               child: Column(children: <Widget>[
                 FormBuilderTextField(
                     cursorColor: globals.lightRed,
-                    attribute: 'search',
+                    attribute: "search",
                     textCapitalization: TextCapitalization.none,
                     textInputAction: TextInputAction.go,
                     onChanged: (value) {
@@ -444,10 +444,10 @@ class _HomePageState extends State<HomePage> {
     searchField = searchField.replaceAll("ó", "o");
     searchField = searchField.replaceAll("ú", "u");
     searchField = searchField.replaceAll("ç", "c");
-    searchField = searchField.replaceAll(new RegExp(r'[^\w\s]+'), '');
+    searchField = searchField.replaceAll(new RegExp(r"[^\w\s]+"), "");
     searchField = searchField.replaceAll(" ", "");
 
-    if (searchField != '') {
+    if (searchField != "") {
       filterListCantos = list_tmp.where((p) => (p.conteudo.toLowerCase().contains(searchField.toLowerCase()))).toList();
     }
 
@@ -461,11 +461,11 @@ class _HomePageState extends State<HomePage> {
   }
 
   launchUrl() async {
-    const url = 'http://neo-transposer.com/';
+    const url = "http://neo-transposer.com/";
     if (await canLaunch(url)) {
       await launch(url);
     } else {
-      snackBar('Erro ao abrir navegador');
+      snackBar(Get.overlayContext, "Erro ao abrir navegador");
     }
   }
 }

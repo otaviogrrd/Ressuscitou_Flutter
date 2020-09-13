@@ -1,9 +1,10 @@
-import 'dart:convert';
-import 'dart:io';
-import 'package:connectivity/connectivity.dart';
-import 'package:http/http.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:ressuscitou/helpers/global.dart';
+import "dart:convert";
+import "dart:io";
+
+import "package:connectivity/connectivity.dart";
+import "package:http/http.dart";
+import "package:path_provider/path_provider.dart";
+import "package:ressuscitou/helpers/global.dart";
 
 class Canto {
   int id;
@@ -64,78 +65,78 @@ class Canto {
 
   factory Canto.fromJson(Map<String, dynamic> json) {
     return Canto(
-      id: json['id'],
-      titulo: json['titulo'],
-      html: json['html'],
-      url: json['url'],
-      categoria: json['categoria'],
-      numero: json['numero'],
-      nr2019: json['nr_2019'],
-      adve: json['adve'],
-      laud: json['laud'],
-      entr: json['entr'],
-      nata: json['nata'],
-      quar: json['quar'],
-      pasc: json['pasc'],
-      pent: json['pent'],
-      virg: json['virg'],
-      cria: json['cria'],
-      cpaz: json['cpaz'],
-      fpao: json['fpao'],
-      comu: json['comu'],
-      cfin: json['cfin'],
-      conteudo: json['conteudo'],
-      htmlBase64: json['html_base64'],
-      extBase64: json['ext_base64'],
-      downloaded: json['downloaded'] ?? false,
+      id: json["id"],
+      titulo: json["titulo"],
+      html: json["html"],
+      url: json["url"],
+      categoria: json["categoria"],
+      numero: json["numero"],
+      nr2019: json["nr_2019"],
+      adve: json["adve"],
+      laud: json["laud"],
+      entr: json["entr"],
+      nata: json["nata"],
+      quar: json["quar"],
+      pasc: json["pasc"],
+      pent: json["pent"],
+      virg: json["virg"],
+      cria: json["cria"],
+      cpaz: json["cpaz"],
+      fpao: json["fpao"],
+      comu: json["comu"],
+      cfin: json["cfin"],
+      conteudo: json["conteudo"],
+      htmlBase64: json["html_base64"],
+      extBase64: json["ext_base64"],
+      downloaded: json["downloaded"] ?? false,
       selected: false,
     );
   }
 
   Map<String, dynamic> toJson() => {
-        'id': this.id,
-        'titulo': this.titulo,
-        'html': this.html,
-        'url': this.url,
-        'categoria': this.categoria,
-        'numero': this.numero,
-        'nr_2019': this.nr2019,
-        'adve': this.adve,
-        'laud': this.laud,
-        'entr': this.entr,
-        'nata': this.nata,
-        'quar': this.quar,
-        'pasc': this.pasc,
-        'pent': this.pent,
-        'virg': this.virg,
-        'cria': this.cria,
-        'cpaz': this.cpaz,
-        'fpao': this.fpao,
-        'comu': this.comu,
-        'cfin': this.cfin,
-        'conteudo': this.conteudo,
-        'html_base64': this.htmlBase64,
-        'ext_base64': this.extBase64,
-        'downloaded': this.downloaded,
+        "id": this.id,
+        "titulo": this.titulo,
+        "html": this.html,
+        "url": this.url,
+        "categoria": this.categoria,
+        "numero": this.numero,
+        "nr_2019": this.nr2019,
+        "adve": this.adve,
+        "laud": this.laud,
+        "entr": this.entr,
+        "nata": this.nata,
+        "quar": this.quar,
+        "pasc": this.pasc,
+        "pent": this.pent,
+        "virg": this.virg,
+        "cria": this.cria,
+        "cpaz": this.cpaz,
+        "fpao": this.fpao,
+        "comu": this.comu,
+        "cfin": this.cfin,
+        "conteudo": this.conteudo,
+        "html_base64": this.htmlBase64,
+        "ext_base64": this.extBase64,
+        "downloaded": this.downloaded,
       };
 
   mp3Downloaded() async {
-    if (this.url != 'X') {
+    if (this.url != "X") {
       this.downloaded = false;
       return;
     }
     await getApplicationDocumentsDirectory().then((dir) {
-      final file = File('${dir.path}/' + this.html + '.mp3');
+      final file = File("${dir.path}/" + this.html + ".mp3");
       file.exists().then((value) {
         this.downloaded = value;
-        if (value) this.fileSize = (file.lengthSync() / 1000000).toStringAsFixed(2) + 'mb';
+        if (value) this.fileSize = (file.lengthSync() / 1000000).toStringAsFixed(2) + "mb";
       });
     });
   }
 
   mp3Delete() async {
     await getApplicationDocumentsDirectory().then((dir) {
-      final file = File('${dir.path}/' + this.html + '.mp3');
+      final file = File("${dir.path}/" + this.html + ".mp3");
       file.exists().then((value) {
         file.delete();
       });
@@ -146,6 +147,8 @@ class Canto {
 class CantoService {
   final String urlCantos = "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/cantos.json";
   final String urlMessage = "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/messages2.txt";
+  final String urlCantosVersao =
+      "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/cantos_versao.txt";
 
   Future<String> getMessage() async {
     var connectivityResult = await (Connectivity().checkConnectivity());
@@ -168,22 +171,28 @@ class CantoService {
       return globals.cantosGlobal;
     }
 
-    Response res = await get(urlCantos);
-    if (res.statusCode == 200) {
-      List<dynamic> body = jsonDecode(res.body);
-      List<Canto> list = body.map((dynamic item) => Canto.fromJson(item)).toList();
-      for (var i = 0; i < list.length; i++) {
-        await list[i].mp3Downloaded();
+    Response response = await get(urlCantosVersao);
+    if (response.statusCode == 200) {
+      int cantosVersaoLocal = (globals.prefs.getInt("cantosVersao") ?? 0);
+      int cantosVersao =int.parse(response.body);
+      if (cantosVersaoLocal < cantosVersao) {
+        Response res = await get(urlCantos);
+        if (res.statusCode == 200) {
+          List<dynamic> body = jsonDecode(res.body);
+          List<Canto> list = body.map((dynamic item) => Canto.fromJson(item)).toList();
+          for (var i = 0; i < list.length; i++) {
+            await list[i].mp3Downloaded();
+          }
+          globals.cantosGlobal = list;
+          globals.prefs.setInt("cantosVersao", cantosVersao);
+          globals.prefs.setString("listCantos", jsonEncode(list.map((i) => i.toJson()).toList()).toString());
+          return list;
+        }
       }
-      globals.cantosGlobal = list;
-      globals.prefs.setString('listCantos', jsonEncode(list.map((i) => i.toJson()).toList()).toString());
-      return list;
     }
-    throw 'Não retornou informações';
   }
-
-  Future<List<Canto>> getCantosLocal() async {
-    String str = globals.prefs.getString('listCantos');
+Future<List<Canto>> getCantosLocal() async {
+    String str = globals.prefs.getString("listCantos");
     if (str != null) {
       List<dynamic> body = jsonDecode(str);
       List<Canto> list = body.map((dynamic item) => Canto.fromJson(item)).toList();
@@ -193,6 +202,6 @@ class CantoService {
       globals.cantosGlobal = list;
       return list;
     }
-    throw 'Não retornou informações';
+    throw "Não retornou informações";
   }
 }

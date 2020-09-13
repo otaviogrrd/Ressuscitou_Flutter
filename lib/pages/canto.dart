@@ -1,23 +1,23 @@
-import 'dart:async';
-import 'dart:convert';
-import 'dart:io';
+import "dart:async";
+import "dart:convert";
+import "dart:io";
 
-import 'package:connectivity/connectivity.dart';
-import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:flutter_speed_dial/flutter_speed_dial.dart';
-import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
-import 'package:get/get.dart';
-import 'package:numberpicker/numberpicker.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:percent_indicator/linear_percent_indicator.dart';
-import 'package:ressuscitou/helpers/global.dart';
-import 'package:ressuscitou/helpers/player_widget.dart';
-import 'package:ressuscitou/model/canto.dart';
-import 'package:ressuscitou/pages/listas.dart';
-import 'package:wakelock/wakelock.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+import "package:connectivity/connectivity.dart";
+import "package:dio/dio.dart";
+import "package:flutter/material.dart";
+import "package:flutter_form_builder/flutter_form_builder.dart";
+import "package:flutter_speed_dial/flutter_speed_dial.dart";
+import "package:flutter_webview_plugin/flutter_webview_plugin.dart";
+import "package:get/get.dart";
+import "package:numberpicker/numberpicker.dart";
+import "package:path_provider/path_provider.dart";
+import "package:percent_indicator/linear_percent_indicator.dart";
+import "package:ressuscitou/helpers/global.dart";
+import "package:ressuscitou/helpers/player_widget.dart";
+import "package:ressuscitou/model/canto.dart";
+import "package:ressuscitou/pages/listas.dart";
+import "package:wakelock/wakelock.dart";
+import "package:webview_flutter/webview_flutter.dart";
 
 class CantoPage extends StatefulWidget {
   final Canto canto;
@@ -52,8 +52,8 @@ class _CantoPageState extends State<CantoPage> {
   }
 
   navigateOption(String value) {
-    if (value == '1') Get.to(ListasPage(select: widget.canto.id)).then((value) => setState(() {}));
-    if (value == '2') anotacoes();
+    if (value == "1") Get.to(ListasPage(select: widget.canto.id)).then((value) => setState(() {}));
+    if (value == "2") anotacoes();
   }
 
   @override
@@ -75,8 +75,8 @@ class _CantoPageState extends State<CantoPage> {
               onSelected: (value) => navigateOption(value),
               itemBuilder: (BuildContext context) {
                 return [
-                  PopupMenuItem(value: '1', child: Text('Adicionar à lista')),
-                  PopupMenuItem(value: '2', child: Text('Anotações')),
+                  PopupMenuItem(value: "1", child: Text("Adicionar à lista")),
+                  PopupMenuItem(value: "2", child: Text("Anotações")),
                 ];
               },
             ),
@@ -99,7 +99,7 @@ class _CantoPageState extends State<CantoPage> {
                     width: 40,
                     child: FittedBox(
                         fit: BoxFit.scaleDown,
-                        child: Text('Transp', style: TextStyle(fontSize: 12, color: globals.darkRed))),
+                        child: Text("Transp", style: TextStyle(fontSize: 12, color: globals.darkRed))),
                   )),
                   onTap: () => getTraspDialog(),
                   backgroundColor: Colors.grey[100]),
@@ -111,7 +111,7 @@ class _CantoPageState extends State<CantoPage> {
                     width: 40,
                     child: FittedBox(
                         fit: BoxFit.scaleDown,
-                        child: Text('Capo', style: TextStyle(fontSize: 12, color: globals.darkRed))),
+                        child: Text("Capo", style: TextStyle(fontSize: 12, color: globals.darkRed))),
                   )),
                   onTap: () => getCapoDialog(),
                   backgroundColor: Colors.grey[100]),
@@ -136,14 +136,14 @@ class _CantoPageState extends State<CantoPage> {
                                 width: 40,
                                 child: FittedBox(
                                     fit: BoxFit.scaleDown,
-                                    child: Text(scroll.toString() + 'x', style: TextStyle(color: globals.darkRed))))),
+                                    child: Text(scroll.toString() + "x", style: TextStyle(color: globals.darkRed))))),
                     ],
                   ),
                   onTap: () async {
                     if (await webViewController.canScrollVertically()) setState(() => setTimer());
                   },
                   backgroundColor: Colors.grey[100]),
-              if (widget.canto.url != '')
+              if (widget.canto.url != "")
                 SpeedDialChild(
                     elevation: 2,
                     child: (widget.canto.downloaded)
@@ -186,7 +186,7 @@ class _CantoPageState extends State<CantoPage> {
                   onWebViewCreated: (WebViewController controller) {
                     webViewController = controller;
                   },
-                  initialUrl: Uri.dataFromString(strCanto, mimeType: 'text/html', encoding: Encoding.getByName('utf-8'))
+                  initialUrl: Uri.dataFromString(strCanto, mimeType: "text/html", encoding: Encoding.getByName("utf-8"))
                       .toString(),
                   gestureNavigationEnabled: true,
                 ),
@@ -313,7 +313,7 @@ class _CantoPageState extends State<CantoPage> {
     }
     strCanto = "";
     content.forEach((c) {
-      strCanto = strCanto + c + '\n';
+      strCanto = strCanto + c + "\n";
     });
   }
 
@@ -326,7 +326,7 @@ class _CantoPageState extends State<CantoPage> {
 
   getTraspDialog() {
     return Get.defaultDialog(
-        title: 'Transpor',
+        title: "Transpor",
         radius: 4,
         content: ConstrainedBox(
             constraints: BoxConstraints(minWidth: MediaQuery.of(context).size.width * 0.6),
@@ -378,7 +378,7 @@ class _CantoPageState extends State<CantoPage> {
               transpor();
               scroll = 0;
               webViewController.loadUrl(
-                  Uri.dataFromString(strCanto, mimeType: 'text/html', encoding: Encoding.getByName('utf-8'))
+                  Uri.dataFromString(strCanto, mimeType: "text/html", encoding: Encoding.getByName("utf-8"))
                       .toString());
               setState(() {});
               Navigator.of(context).pop();
@@ -400,7 +400,7 @@ class _CantoPageState extends State<CantoPage> {
               transpor();
               scroll = 0;
               webViewController.loadUrl(
-                  Uri.dataFromString(strCanto, mimeType: 'text/html', encoding: Encoding.getByName('utf-8'))
+                  Uri.dataFromString(strCanto, mimeType: "text/html", encoding: Encoding.getByName("utf-8"))
                       .toString());
               setState(() {});
               Navigator.of(context).pop();
@@ -410,7 +410,7 @@ class _CantoPageState extends State<CantoPage> {
   getCapoDialog() {
     int localSelection = capoSelected;
     return Get.defaultDialog(
-        title: 'Capotraste',
+        title: "Capotraste",
         radius: 4,
         content: ConstrainedBox(
             constraints: BoxConstraints(minWidth: MediaQuery.of(context).size.width * 0.6),
@@ -459,7 +459,7 @@ class _CantoPageState extends State<CantoPage> {
                           transpor();
                           scroll = 0;
                           webViewController.loadUrl(
-                              Uri.dataFromString(strCanto, mimeType: 'text/html', encoding: Encoding.getByName('utf-8'))
+                              Uri.dataFromString(strCanto, mimeType: "text/html", encoding: Encoding.getByName("utf-8"))
                                   .toString());
                           setState(() {});
                           Navigator.of(context).pop();
@@ -472,23 +472,23 @@ class _CantoPageState extends State<CantoPage> {
 
   Future _loadFile() async {
     final dir = await getApplicationDocumentsDirectory();
-    final file = File('${dir.path}/' + widget.canto.html + '.mp3');
+    final file = File("${dir.path}/" + widget.canto.html + ".mp3");
     if (await file.exists()) {
       setState(() {
         localFilePath = file.path;
       });
     }
     if (localFilePath == "") {
-      bool wifiOnly = globals.prefs.getBool('wfOnly') ?? false;
+      bool wifiOnly = globals.prefs.getBool("wfOnly") ?? false;
       if (wifiOnly) {
         var connectivityResult = await (Connectivity().checkConnectivity());
         if (connectivityResult == ConnectivityResult.mobile) {
-          snackBar('Uso de redes móveis não permitido nas configurações!');
+          snackBar(Get.overlayContext, "Uso de redes móveis não permitido nas configurações!");
           return;
         }
       }
 
-      snackBar('Iniciando download');
+      snackBar(Get.overlayContext, "Iniciando download");
       var url = "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/" +
           widget.canto.html +
           ".mp3";
@@ -527,11 +527,11 @@ class _CantoPageState extends State<CantoPage> {
   }
 
   anotacoes() {
-    ctrlAnotacoes.text = globals.prefs.getString("ANOT_" + widget.canto.id.toString()) ?? '';
+    ctrlAnotacoes.text = globals.prefs.getString("ANOT_" + widget.canto.id.toString()) ?? "";
     Get.defaultDialog(
-        title: 'Anotações',
+        title: "Anotações",
         radius: 4,
-        middleText: '',
+        middleText: "",
         content: ConstrainedBox(
             constraints: BoxConstraints(
                 minWidth: MediaQuery.of(context).size.width * 0.6, maxHeight: MediaQuery.of(context).size.height * 0.3),
@@ -543,7 +543,7 @@ class _CantoPageState extends State<CantoPage> {
                       key: _formKey,
                       child: FormBuilderTextField(
                           cursorColor: globals.lightRed,
-                          attribute: 'Anotacoes',
+                          attribute: "Anotacoes",
                           minLines: 10,
                           maxLines: 100,
                           textAlign: TextAlign.center,
@@ -571,7 +571,7 @@ class _CantoPageState extends State<CantoPage> {
                             onPressed: () {
                               globals.prefs.remove("ANOT_" + widget.canto.id.toString());
                               Navigator.of(context).pop();
-                              snackBar('Anotação apagada!');
+                              snackBar(Get.overlayContext, "Anotação apagada!");
                             }),
                       ),
                       Container(
