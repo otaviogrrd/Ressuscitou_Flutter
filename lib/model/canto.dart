@@ -2,6 +2,7 @@ import "dart:convert";
 import "dart:io";
 
 import "package:connectivity/connectivity.dart";
+import 'package:flutter/services.dart';
 import "package:http/http.dart";
 import "package:path_provider/path_provider.dart";
 import "package:ressuscitou/helpers/global.dart";
@@ -179,14 +180,15 @@ class CantoService {
 
   Future<List<Canto>> getCantosLocal() async {
     String str = globals.prefs.getString("listCantos");
-    if (str != null) {
-      List<dynamic> body = jsonDecode(str);
-      List<Canto> list = body.map((dynamic item) => Canto.fromJson(item)).toList();
-      for (var i = 0; i < list.length; i++) {
-        await list[i].mp3Downloaded();
-      }
-      globals.cantosGlobal = list;
-      return list;
+
+    if (str == null) str = await rootBundle.loadString('assets/cantos.json');
+
+    List<dynamic> body = jsonDecode(str);
+    List<Canto> list = body.map((dynamic item) => Canto.fromJson(item)).toList();
+    for (var i = 0; i < list.length; i++) {
+      await list[i].mp3Downloaded();
     }
+    globals.cantosGlobal = list;
+    return list;
   }
 }

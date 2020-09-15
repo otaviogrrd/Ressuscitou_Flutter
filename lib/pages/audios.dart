@@ -84,6 +84,11 @@ class _AudiosPageState extends State<AudiosPage> {
 
   download() async {
     var connectivityResult = await (Connectivity().checkConnectivity());
+    if (connectivityResult == ConnectivityResult.none) {
+      snackBar(Get.overlayContext, "Sem conexão de internet!");
+      return;
+    }
+
     Get.defaultDialog(
       title: "Atenção",
       radius: 4,
@@ -253,7 +258,7 @@ class _AudiosPageState extends State<AudiosPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Padding(
-                        padding: EdgeInsets.fromLTRB(16,8,0,8),
+                        padding: EdgeInsets.fromLTRB(16, 8, 0, 8),
                         child: Icon(Icons.check_box, color: globals.darkRed),
                       ),
                       Expanded(child: FittedBox(fit: BoxFit.scaleDown, child: Text("Selecionar Todos"))),
@@ -267,7 +272,7 @@ class _AudiosPageState extends State<AudiosPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Padding(
-                        padding: EdgeInsets.fromLTRB(16,8,0,8),
+                        padding: EdgeInsets.fromLTRB(16, 8, 0, 8),
                         child: Icon(Icons.check_box_outline_blank, color: globals.darkRed),
                       ),
                       Expanded(child: FittedBox(fit: BoxFit.scaleDown, child: Text("Limpar Seleção"))),

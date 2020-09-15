@@ -167,7 +167,12 @@ class _CantoPageState extends State<CantoPage> {
           color: Colors.white,
           child: Column(
             children: <Widget>[
-              if (exibePlayer) Card(child: PlayerWidget(url: localFilePath,canto: widget.canto,)),
+              if (exibePlayer)
+                Card(
+                    child: PlayerWidget(
+                  url: localFilePath,
+                  canto: widget.canto,
+                )),
               if (percentDownload > 0 && percentDownload < 1)
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 8),
@@ -175,8 +180,8 @@ class _CantoPageState extends State<CantoPage> {
                     lineHeight: 20.0,
                     percent: percentDownload,
                     center: FittedBox(
-                      fit: BoxFit.scaleDown,
-                      child: Text("${(percentDownload * 100).toInt()}%", style: TextStyle(color: Colors.white))),
+                        fit: BoxFit.scaleDown,
+                        child: Text("${(percentDownload * 100).toInt()}%", style: TextStyle(color: Colors.white))),
                     linearStrokeCap: LinearStrokeCap.butt,
                     progressColor: globals.darkRed,
                   ),
@@ -486,6 +491,12 @@ class _CantoPageState extends State<CantoPage> {
           snackBar(Get.overlayContext, "Uso de redes móveis não permitido nas configurações!");
           return;
         }
+      }
+
+      var connectivityResult = await (Connectivity().checkConnectivity());
+      if (connectivityResult == ConnectivityResult.none) {
+        snackBar(Get.overlayContext, "Sem conexão de internet!");
+        return;
       }
 
       snackBar(Get.overlayContext, "Iniciando download");

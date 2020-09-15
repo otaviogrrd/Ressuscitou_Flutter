@@ -12,12 +12,10 @@ dependencies:
     sdk: flutter
 
   # ###################### DEPENDÊNCIA LOCAL, MANTER ATUALIZADA MANUALMENTE ###################### #
-
   #webview_flutter 0.3.22+1 baixado do git https://github.com/flutter/plugins
   # Adicionado funcionalidades de pich zoom e método canScrollVertically
   webview_flutter:
     path: ./plugins/webview_flutter
-
   #flutter_speed_dial: ^1.2.5 -> ajustado o layout desse plugin
   flutter_speed_dial:
       path: ./plugins/flutter_speed_dial
@@ -29,7 +27,7 @@ dependencies:
   get: ^2.5.6
   flutter_webview_plugin: ^0.3.11
   shared_preferences: ^0.5.7+2
-  flutter_form_builder: ^3.9.0
+  flutter_form_builder: ^3.13.5
   audioplayers: ^0.15.1
   uuid: ^2.0.4
   path_provider: ^1.5.1
@@ -39,7 +37,7 @@ dependencies:
   percent_indicator: ^2.1.5
   numberpicker: ^1.2.0
   tree_view: ^0.0.5
-  connectivity: ^0.4.9
+  connectivity: ^0.4.8+2
   photo_view: ^0.9.2
   wakelock: ^0.1.4+2
   share: ^0.6.4+3
@@ -55,5 +53,5 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/
+    - assets/cantos.json
     - assets/img/
