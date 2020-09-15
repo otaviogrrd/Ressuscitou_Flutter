@@ -126,7 +126,7 @@ class _SobrePageState extends State<SobrePage> {
   }
 
   launchEmail() async {
-    const url = "mailto:otavio.grrd@gmail.com?subject=App Ressuscitou";
+    const url = "mailto:otavio.grrd@gmail.com?subject=Ressuscitou";
     if (await canLaunch(url)) {
       await launch(url);
     } else {

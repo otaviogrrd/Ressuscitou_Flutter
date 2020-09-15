@@ -4,15 +4,17 @@ import "package:audioplayers/audioplayers.dart";
 import "package:flutter/foundation.dart";
 import "package:flutter/material.dart";
 import "package:ressuscitou/helpers/global.dart";
+import 'package:ressuscitou/model/canto.dart';
 
 enum PlayerState { stopped, playing, paused }
 enum PlayingRouteState { speakers, earpiece }
 
 class PlayerWidget extends StatefulWidget {
   final String url;
+  final Canto canto;
   final PlayerMode mode;
 
-  PlayerWidget({Key key, @required this.url, this.mode = PlayerMode.MEDIA_PLAYER}) : super(key: key);
+  PlayerWidget({Key key, @required this.url, this.canto, this.mode = PlayerMode.MEDIA_PLAYER}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
@@ -159,25 +161,6 @@ class PlayerWidgetState extends State<PlayerWidget> {
 
     _durationSubscription = _audioPlayer.onDurationChanged.listen((duration) {
       setState(() => _duration = duration);
-
-      // TODO implemented for iOS, waiting for android impl
-      if (Theme.of(context).platform == TargetPlatform.iOS) {
-        // (Optional) listen for notification updates in the background
-        _audioPlayer.startHeadlessService();
-
-        // set at least title to see the notification bar on ios.
-        _audioPlayer.setNotification(
-            title: "App Name",
-            artist: "Artist or blank",
-            albumTitle: "Name or blank",
-            imageUrl: "url or blank",
-            forwardSkipInterval: const Duration(seconds: 30),
-            // default is 30s
-            backwardSkipInterval: const Duration(seconds: 30),
-            // default is 30s
-            duration: duration,
-            elapsedTime: Duration(seconds: 0));
-      }
     });
 
     _positionSubscription = _audioPlayer.onAudioPositionChanged.listen((p) => setState(() {
@@ -224,9 +207,6 @@ class PlayerWidgetState extends State<PlayerWidget> {
     final result = await _audioPlayer.play(url, position: playPosition);
     if (result == 1) setState(() => _playerState = PlayerState.playing);
 
-    // default playback rate is 1.0
-    // this should be called after _audioPlayer.play() or _audioPlayer.resume()
-    // this can also be called everytime the user wants to change playback rate in the UI
     _audioPlayer.setPlaybackRate(playbackRate: 1.0);
 
     return result;

@@ -6,11 +6,13 @@ import "package:get/get.dart";
 import "package:intl/intl.dart";
 import "package:ressuscitou/helpers/global.dart";
 import "package:ressuscitou/model/canto.dart";
+import 'package:ressuscitou/model/mensagem.dart';
 import "package:ressuscitou/pages/audios.dart";
 import "package:ressuscitou/pages/canto.dart";
 import "package:ressuscitou/pages/imageViewer.dart";
 import "package:ressuscitou/pages/listas.dart";
 import "package:ressuscitou/pages/liturgico.dart";
+import 'package:ressuscitou/pages/mensagens.dart';
 import "package:ressuscitou/pages/settings.dart";
 import "package:url_launcher/url_launcher.dart";
 
@@ -100,13 +102,13 @@ class _HomePageState extends State<HomePage> {
 
     DateTime messageLida = DateTime.parse(globals.prefs.getString("MessageLida") ?? "1800-01-01");
     if (messageLida.isBefore(DateTime.parse(DateFormat("yyyy-MM-dd").format(DateTime.now())))) {
-      getMessage();
+      getMessage(apenasHoje: true);
     }
   }
 
-  getMessage() async {
-    String message = await CantoService().getMessage();
-    if (message != "")
+  getMessage({bool apenasHoje = false}) async {
+    List<Mensagem> mensagens = await MensagemService().getMensagens(apenasHoje: apenasHoje);
+    if (mensagens.isNotEmpty)
       Get.defaultDialog(
           title: "Mensagem",
           radius: 4,
@@ -114,7 +116,21 @@ class _HomePageState extends State<HomePage> {
             Container(
               constraints: BoxConstraints(minHeight: 100, maxHeight: MediaQuery.of(context).size.height * 0.3),
               child: SingleChildScrollView(
-                  child: Text(message, style: TextStyle(fontSize: 16), textAlign: TextAlign.center)),
+                  child: Column(
+                children: <Widget>[
+                  for (final item in mensagens)
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Center(
+                          child: Text(item.titulo, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                        ),
+                        Text(item.conteudo, style: TextStyle(fontSize: 15)),
+                        SizedBox(height: 30)
+                      ],
+                    ),
+                ],
+              )),
             ),
             Container(
               width: 100,
@@ -359,7 +375,7 @@ class _HomePageState extends State<HomePage> {
             ListTile(
                 title: Text("Mensagens"),
                 leading: Icon(Icons.message, size: 25, color: globals.darkRed),
-                onTap: () => getMessage()),
+                onTap: () => Get.to(MensagensPage())),
             ListTile(
                 title: Text("Sobre"),
                 leading: Icon(Icons.info_outline, size: 25, color: globals.darkRed),

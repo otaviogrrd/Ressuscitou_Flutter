@@ -146,23 +146,8 @@ class Canto {
 
 class CantoService {
   final String urlCantos = "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/cantos.json";
-  final String urlMessage = "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/messages2.txt";
   final String urlCantosVersao =
       "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/cantos_versao.txt";
-
-  Future<String> getMessage() async {
-    var connectivityResult = await (Connectivity().checkConnectivity());
-    if (connectivityResult == ConnectivityResult.none) {
-      globals.cantosGlobal = await getCantosLocal();
-      return "";
-    }
-
-    Response res = await get(urlMessage);
-    if (res.statusCode == 200) {
-      return res.body;
-    }
-    return "";
-  }
 
   Future<List<Canto>> getCantos() async {
     var connectivityResult = await (Connectivity().checkConnectivity());
@@ -174,7 +159,7 @@ class CantoService {
     Response response = await get(urlCantosVersao);
     if (response.statusCode == 200) {
       int cantosVersaoLocal = (globals.prefs.getInt("cantosVersao") ?? 0);
-      int cantosVersao =int.parse(response.body);
+      int cantosVersao = int.parse(response.body);
       if (cantosVersaoLocal < cantosVersao) {
         Response res = await get(urlCantos);
         if (res.statusCode == 200) {
@@ -191,7 +176,8 @@ class CantoService {
       }
     }
   }
-Future<List<Canto>> getCantosLocal() async {
+
+  Future<List<Canto>> getCantosLocal() async {
     String str = globals.prefs.getString("listCantos");
     if (str != null) {
       List<dynamic> body = jsonDecode(str);
@@ -202,6 +188,5 @@ Future<List<Canto>> getCantosLocal() async {
       globals.cantosGlobal = list;
       return list;
     }
-    throw "Não retornou informações";
   }
 }

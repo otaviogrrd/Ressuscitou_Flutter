@@ -167,7 +167,7 @@ class _CantoPageState extends State<CantoPage> {
           color: Colors.white,
           child: Column(
             children: <Widget>[
-              if (exibePlayer) Card(child: PlayerWidget(url: localFilePath)),
+              if (exibePlayer) Card(child: PlayerWidget(url: localFilePath,canto: widget.canto,)),
               if (percentDownload > 0 && percentDownload < 1)
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 8),
