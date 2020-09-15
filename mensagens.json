@@ -1,5 +1,13 @@
 [
   {
+    "id": "3",
+    "plataforma": "Android",
+    "titulo": "Iniciaos os Testes do Ressuscitou iOS",
+    "conteudo": "Se você tem um iPhone e deseja participar dos testes, entre em contato pelo e-mail: otavio.grrd@gmail.com",
+    "dataIni": "2020-01-01",
+    "dataFim": "2020-09-25"
+  },
+  {
     "id": "1",
     "plataforma": "Android",
     "titulo": "Nova Versão Ressuscitou",
@@ -10,9 +18,9 @@
   {
     "id": "2",
     "plataforma": "iOS",
-    "titulo": "Bem vindo ao Ressuscitou iOS.",
-    "conteudo": "Como orientado pelos responsáveis, nunca utilizar o aplicativo em celebrações, eucaristias, etc.",
+    "titulo": "Bem vindo ao Beta Teste do Ressuscitou iOS.",
+    "conteudo": "O Feedback tem sido bom, qualquer erro ou sugestão entre em contato!Vamos convidar os irmãos para testar também.\\nComo orientado pelos responsáveis do Caminho Neocatecumenal, nunca utilizar o aplicativo em celebrações, eucaristias, etc.",
     "dataIni": "2020-01-01",
-    "dataFim": "2099-01-01"
+    "dataFim": "2020-09-25"
   }
 ]
