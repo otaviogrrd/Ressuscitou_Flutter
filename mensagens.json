@@ -1,5 +1,15 @@
 [
   {
+    "id": "4",
+    "plataforma": "iOS",
+    "titulo": "Nova versão disponível.",
+    "conteudo": "Ajustes importantes foram feitos no layout e funcionalidades. Instale a versão 13 pelo aplicativo TestFlight.",
+    "dataIni": "2020-09-19",
+    "dataFim": "9999-12-31",
+    "buildDe": 0,
+    "buildAte": 12
+  },
+  {
     "id": "3",
     "plataforma": "Android",
     "titulo": "Iniciados os Testes do Ressuscitou iOS",
