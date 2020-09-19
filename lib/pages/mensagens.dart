@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:ressuscitou/helpers/global.dart';
 import 'package:ressuscitou/model/mensagem.dart';
 
 class MensagensPage extends StatefulWidget {
@@ -24,7 +25,10 @@ class _MensagensPageState extends State<MensagensPage> {
                     child: Column(children: <Widget>[
                   for (final item in snapshot.data)
                     Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
-                      Center(child: Text(item.titulo, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold))),
+                      Text(item.titulo, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                      Align(
+                          alignment: Alignment.centerRight,
+                          child: Text(getDateFormatted(item.data_Ini), style: TextStyle(fontSize: 13))),
                       Text(item.conteudo, style: TextStyle(fontSize: 15)),
                       SizedBox(height: 30)
                     ])

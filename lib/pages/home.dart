@@ -34,6 +34,8 @@ class _HomePageState extends State<HomePage> {
   final GlobalKey<FormBuilderState> formKey = GlobalKey<FormBuilderState>();
   String searchField = "";
   bool showSearch = false;
+  bool requestFocus = false;
+  FocusNode searchFocus = FocusNode();
 
 //  bool numeracao2015 = false;
 
@@ -51,7 +53,7 @@ class _HomePageState extends State<HomePage> {
         if (!showSearch)
           IconButton(
               icon: Icon(Icons.search, size: 25, color: Colors.white),
-              onPressed: () => setState(() => showSearch = true))
+              onPressed: () => setState(() => showSearch = requestFocus = true)),
       ]),
       drawer: (widget.selectable != null && widget.selectable) ? null : Drawer(child: getMenuLateral()),
       body: getCantosLocal(),
@@ -393,7 +395,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   searchInput() {
-    return Padding(
+    Widget ret = Padding(
       padding: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
       child: Stack(
         children: <Widget>[
@@ -403,6 +405,7 @@ class _HomePageState extends State<HomePage> {
                 FormBuilderTextField(
                     cursorColor: globals.lightRed,
                     attribute: "search",
+                    focusNode: searchFocus,
                     textCapitalization: TextCapitalization.none,
                     textInputAction: TextInputAction.go,
                     onChanged: (value) {
@@ -411,9 +414,7 @@ class _HomePageState extends State<HomePage> {
                         filtrar();
                       });
                     },
-                    decoration: InputDecoration(
-                      labelText: "Pesquisar",
-                    ))
+                    decoration: InputDecoration(labelText: "Pesquisar"))
               ])),
           Align(
             alignment: Alignment.centerRight,
@@ -439,18 +440,21 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
     );
+    if (requestFocus) FocusScope.of(context).requestFocus(searchFocus);
+    requestFocus = false;
+    return ret;
   }
 
   filtrar() {
-    List<Canto> list_tmp;
+    List<Canto> listTmp;
     filterListCantos = [];
     if (selectedCateg != 0) {
-      list_tmp = listCantos.where((c) => (c.categoria == selectedCateg)).toList();
-      filterListCantos.addAll(list_tmp);
+      listTmp = listCantos.where((c) => (c.categoria == selectedCateg)).toList();
+      filterListCantos.addAll(listTmp);
     } else
       filterListCantos = listCantos;
 
-    list_tmp = filterListCantos;
+    listTmp = filterListCantos;
 
     searchField = searchField.replaceAll("ã", "a");
     searchField = searchField.replaceAll("õ", "o");
@@ -464,7 +468,7 @@ class _HomePageState extends State<HomePage> {
     searchField = searchField.replaceAll(" ", "");
 
     if (searchField != "") {
-      filterListCantos = list_tmp.where((p) => (p.conteudo.toLowerCase().contains(searchField.toLowerCase()))).toList();
+      filterListCantos = listTmp.where((p) => (p.conteudo.toLowerCase().contains(searchField.toLowerCase()))).toList();
     }
 
     if (widget.selectable != null && widget.selectable) {

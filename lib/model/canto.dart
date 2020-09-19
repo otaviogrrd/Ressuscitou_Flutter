@@ -159,7 +159,7 @@ class CantoService {
 
     Response response = await get(urlCantosVersao);
     if (response.statusCode == 200) {
-      int cantosVersaoLocal = (globals.prefs.getInt("cantosVersao") ?? 0);
+      int cantosVersaoLocal = (globals.prefs.getInt("cantosVersao") ?? 48);
       int cantosVersao = int.parse(response.body);
       if (cantosVersaoLocal < cantosVersao) {
         Response res = await get(urlCantos);

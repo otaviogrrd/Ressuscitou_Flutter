@@ -2,7 +2,7 @@ import "package:flutter/material.dart";
 import "package:photo_view/photo_view.dart";
 
 class ImageViwerPage extends StatefulWidget {
-  String img = "";
+  final String img;
 
   ImageViwerPage({Key key, @required this.img}) : super(key: key);
 

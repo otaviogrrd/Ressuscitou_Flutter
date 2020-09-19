@@ -15,6 +15,8 @@ class Mensagem {
   String conteudo;
   String dataIni;
   String dataFim;
+  int buildDe;
+  int buildAte;
   DateTime data_Ini;
   DateTime data_Fim;
 
@@ -25,6 +27,8 @@ class Mensagem {
     this.conteudo,
     this.dataIni,
     this.dataFim,
+    this.buildDe,
+    this.buildAte,
   });
 
   factory Mensagem.fromJson(Map<String, dynamic> json) {
@@ -35,6 +39,8 @@ class Mensagem {
       conteudo: json["conteudo"],
       dataIni: json["dataIni"],
       dataFim: json["dataFim"],
+      buildDe: json["buildDe"],
+      buildAte: json["buildAte"],
     );
   }
 }
@@ -71,6 +77,9 @@ class MensagemService {
       });
 
       if (apenasHoje) {
+        list.removeWhere((element) => element.buildDe > int.parse(globals.packInfo.buildNumber));
+        list.removeWhere((element) => element.buildAte < int.parse(globals.packInfo.buildNumber));
+
         list.removeWhere((element) => element.data_Fim.isBefore(DateTime.now()));
         list.removeWhere((element) => element.data_Ini.isAfter(DateTime.now()));
       }

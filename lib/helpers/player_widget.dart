@@ -27,12 +27,10 @@ class PlayerWidgetState extends State<PlayerWidget> {
   PlayerMode mode;
 
   AudioPlayer _audioPlayer;
-  AudioPlayerState _audioPlayerState;
   Duration _duration;
   Duration _position;
 
   PlayerState _playerState = PlayerState.stopped;
-  PlayingRouteState _playingRouteState = PlayingRouteState.speakers;
   StreamSubscription _durationSubscription;
   StreamSubscription _positionSubscription;
   StreamSubscription _playerCompleteSubscription;
@@ -99,8 +97,8 @@ class PlayerWidgetState extends State<PlayerWidget> {
                     inactiveColor: Colors.grey,
                     onChanged: (v) {
                       if (v < 1) {
-                        final Position = v * _duration.inMilliseconds;
-                        _audioPlayer.seek(Duration(milliseconds: Position.round()));
+                        final position = v * _duration.inMilliseconds;
+                        _audioPlayer.seek(Duration(milliseconds: position.round()));
                       }
 //                      else
 //                        _audioPlayer.seek(Duration(milliseconds: _duration.inMilliseconds));
@@ -185,16 +183,13 @@ class PlayerWidgetState extends State<PlayerWidget> {
     _audioPlayer.onPlayerStateChanged.listen((state) {
       if (!mounted) return;
       setState(() {
-        _audioPlayerState = state;
       });
     });
 
     _audioPlayer.onNotificationPlayerStateChanged.listen((state) {
       if (!mounted) return;
-      setState(() => _audioPlayerState = state);
     });
 
-    _playingRouteState = PlayingRouteState.speakers;
   }
 
   Future<int> _play() async {

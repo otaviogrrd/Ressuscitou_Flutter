@@ -1,7 +1,7 @@
 name: ressuscitou
 description: Ressuscitou
 
-version: 3.0.7+10
+version: 3.0.8+11
 ## Comando para gerar o apk: flutter build apk --split-per-abi
 
 environment:

@@ -78,6 +78,7 @@ class _AudiosPageState extends State<AudiosPage> {
     }
 
     if (value == "Download") {
+      action("UnMarkAll");
       download();
     }
   }

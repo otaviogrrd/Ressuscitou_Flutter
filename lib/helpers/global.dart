@@ -2,9 +2,10 @@ library globals;
 
 import "package:flushbar/flushbar.dart";
 import "package:flutter/material.dart";
-import "package:get/get.dart";
+import 'package:package_info/package_info.dart';
 import "package:ressuscitou/model/canto.dart";
 import "package:shared_preferences/shared_preferences.dart";
+import "package:intl/intl.dart";
 
 var globals = new Globals();
 
@@ -24,13 +25,20 @@ class Globals {
   List<String> escalaMenor = ["Cm", "C#m", "Dm", "Ebm", "Em", "Fm", "F#m", "Gm", "G#m", "Am", "Bbm", "Bm"];
 
   SharedPreferences prefs;
+  PackageInfo packInfo;
   void inicial() {
     SharedPreferences.getInstance().then((value) => this.prefs = value);
+    PackageInfo.fromPlatform().then((value) => this.packInfo = value);
   }
 }
 
 Color hexToColor(String code) {
   return new Color(int.parse(code.substring(1, 7), radix: 16) + 0xFF000000);
+}
+
+String getDateFormatted(DateTime date) {
+  var formatter = DateFormat("dd/MM/yyyy");
+  return formatter.format(date);
 }
 
 

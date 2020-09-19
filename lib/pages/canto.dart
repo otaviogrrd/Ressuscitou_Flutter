@@ -247,6 +247,13 @@ class _CantoPageState extends State<CantoPage> {
     int dif = 0;
 
     for (var c = 0; c < content.length; c++) {
+
+      if (Platform.isIOS && content[c].contains("font-size:12px")) {
+        content[c] = content[c].replaceAll("12px", "20px");
+      }
+      if (content[c].contains("<H1>")) {
+        continue;
+      }
       if (!content[c].contains("FF0000")) {
         if (content[c].contains("@transp@")) {
           if (transSalv != 0 || numero > 0) {
@@ -270,9 +277,6 @@ class _CantoPageState extends State<CantoPage> {
         } else {
           continue;
         }
-      }
-      if (content[c].contains("<H2>")) {
-        continue;
       }
       content[c] =
           content[c].replaceAll("Do#", escalaTmp[2]).replaceAll("Fa#", escalaTmp[7]).replaceAll("Sol#", escalaTmp[9]);

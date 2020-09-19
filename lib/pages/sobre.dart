@@ -2,7 +2,6 @@ import "dart:io";
 
 import "package:flutter/material.dart";
 import "package:get/get.dart";
-import "package:package_info/package_info.dart";
 import "package:ressuscitou/helpers/global.dart";
 import "package:url_launcher/url_launcher.dart";
 
@@ -14,6 +13,7 @@ class SobrePage extends StatefulWidget {
 class _SobrePageState extends State<SobrePage> {
   @override
   Widget build(BuildContext context) {
+    int cantosVersaoLocal = (globals.prefs.getInt("cantosVersao") ?? 0);
     return Scaffold(
         appBar: AppBar(title: Text("Ressuscitou")),
         body: Container(
@@ -22,20 +22,7 @@ class _SobrePageState extends State<SobrePage> {
             child: Column(children: <Widget>[
               Image.asset("assets/img/logo.png", width: MediaQuery.of(context).size.width * 0.6),
               SizedBox(height: 10),
-              FutureBuilder(
-                  future: PackageInfo.fromPlatform(),
-                  builder: (BuildContext cont, AsyncSnapshot<PackageInfo> snapshot) {
-                    switch (snapshot.connectionState) {
-                      case ConnectionState.waiting:
-                        return CircularProgressIndicator();
-                      case ConnectionState.done:
-                        return Text(
-                          "Versão: ${snapshot.data.version}+${snapshot.data.buildNumber}",
-                        );
-                      default:
-                        return Container();
-                    }
-                  }),
+              Text("Versão: ${globals.packInfo.version}+${globals.packInfo.buildNumber} [$cantosVersaoLocal]"),
               SizedBox(height: 30),
               Text("Este aplicativo NÃO deve ser utilizado em celebrações.",
                   style: TextStyle(fontSize: 16), textAlign: TextAlign.center),
