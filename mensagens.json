@@ -5,15 +5,9 @@
     "titulo": "Iniciados os Testes do Ressuscitou iOS",
     "conteudo": "Se você tem um iPhone e deseja participar dos testes, entre em contato pelo e-mail: otavio.grrd@gmail.com",
     "dataIni": "2020-01-01",
-    "dataFim": "2020-09-25"
-  },
-  {
-    "id": "1",
-    "plataforma": "Android",
-    "titulo": "Nova Versão Ressuscitou",
-    "conteudo": "Bem vindo ao novo Ressuscitou.\\nAs mesmas funcionalidades, mas totalmente repaginado!\\nInfelizmente não é possível recuperar os dados salvos da versão anterior.\\nÉ recomendado realizar a limpeza(ou reinstalação) para reduzir o tamanho do aplicativo em seu celular.",
-    "dataIni": "2020-01-01",
-    "dataFim": "2020-09-13"
+    "dataFim": "2020-09-25",
+    "buildDe": 0,
+    "buildAte": 999
   },
   {
     "id": "2",
@@ -21,6 +15,18 @@
     "titulo": "Bem vindo ao Beta Teste do Ressuscitou iOS.",
     "conteudo": "O Feedback tem sido bom, qualquer erro ou sugestão entre em contato!Vamos convidar os irmãos para testar também.\\nComo orientado pelos responsáveis do Caminho Neocatecumenal, nunca utilizar o aplicativo em celebrações, eucaristias, etc.",
     "dataIni": "2020-01-01",
-    "dataFim": "2020-09-25"
+    "dataFim": "2020-09-25",
+    "buildDe": 0,
+    "buildAte": 999
+  },
+  {
+    "id": "1",
+    "plataforma": "Android",
+    "titulo": "Nova Versão Ressuscitou",
+    "conteudo": "Bem vindo ao novo Ressuscitou.\\nAs mesmas funcionalidades, mas totalmente repaginado!\\nInfelizmente não é possível recuperar os dados salvos da versão anterior.\\nÉ recomendado realizar a limpeza(ou reinstalação) para reduzir o tamanho do aplicativo em seu celular.",
+    "dataIni": "2020-01-01",
+    "dataFim": "2020-09-13",
+    "buildDe": 0,
+    "buildAte": 999
   }
 ]
