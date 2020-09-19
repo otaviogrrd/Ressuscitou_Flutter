@@ -78,7 +78,6 @@ class _AudiosPageState extends State<AudiosPage> {
     }
 
     if (value == "Download") {
-      action("UnMarkAll");
       download();
     }
   }
@@ -117,6 +116,7 @@ class _AudiosPageState extends State<AudiosPage> {
             color: globals.darkRed,
             textColor: Colors.white,
             onPressed: () {
+              action("UnMarkAll");
               downloading = true;
               startDownloader();
               Navigator.pop(context);

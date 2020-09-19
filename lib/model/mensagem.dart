@@ -2,6 +2,7 @@ import "dart:async";
 import 'dart:convert';
 
 import 'package:connectivity/connectivity.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart';
@@ -65,10 +66,19 @@ class MensagemService {
       List<dynamic> body = jsonDecode(str);
       List<Mensagem> list = body.map((dynamic item) => Mensagem.fromJson(item)).toList();
 
-      if (Theme.of(Get.overlayContext).platform == TargetPlatform.iOS)
+      String build = globals.packInfo.buildNumber;
+
+      if (Theme.of(Get.overlayContext).platform == TargetPlatform.iOS) {
         list.removeWhere((element) => element.plataforma == "Android");
-      else
+      }
+      if (Theme.of(Get.overlayContext).platform == TargetPlatform.android) {
         list.removeWhere((element) => element.plataforma == "iOS");
+        if (kReleaseMode) {
+          build = build.substring(1, 4); //em release temos as build 1???, 2???, e 4???: para cada tipo de android
+        }
+      }
+      list.removeWhere((element) => element.buildDe > int.parse(build));
+      list.removeWhere((element) => element.buildAte < int.parse(build));
 
       list.forEach((element) {
         element.data_Ini = DateFormat("yyyy-MM-dd").parse(element.dataIni);
@@ -77,9 +87,6 @@ class MensagemService {
       });
 
       if (apenasHoje) {
-        list.removeWhere((element) => element.buildDe > int.parse(globals.packInfo.buildNumber));
-        list.removeWhere((element) => element.buildAte < int.parse(globals.packInfo.buildNumber));
-
         list.removeWhere((element) => element.data_Fim.isBefore(DateTime.now()));
         list.removeWhere((element) => element.data_Ini.isAfter(DateTime.now()));
       }
