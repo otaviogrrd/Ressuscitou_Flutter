@@ -308,9 +308,9 @@ class _AudiosPageState extends State<AudiosPage> {
         ],
       );
     }
-    return Padding(
-      padding: EdgeInsets.all(8.0),
-      child: Text("Não há áudios baixados", textAlign: TextAlign.center),
+    return  Center(
+      child: Text("Não há áudios baixados"
+      ),
     );
   }
 
