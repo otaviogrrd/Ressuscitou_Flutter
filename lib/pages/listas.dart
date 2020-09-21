@@ -79,8 +79,6 @@ class _ListasPageState extends State<ListasPage> {
         ),
       );
     }
-    return Center(
-      child: Text("Não há Listas salvas.", textAlign: TextAlign.center),
-    );
+    return Center(child: Text("Não há Listas salvas."));
   }
 }
