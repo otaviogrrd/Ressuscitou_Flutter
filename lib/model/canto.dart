@@ -158,26 +158,26 @@ class CantoService {
     }
 
     try {
-		Response response = await get(urlCantosVersao);
-		if (response.statusCode == 200) {
-		  int cantosVersaoLocal = (globals.prefs.getInt("cantosVersao") ?? 49);
-		  int cantosVersao = int.parse(response.body);
-		  if (cantosVersaoLocal < cantosVersao) {
-			Response res = await get(urlCantos);
-			if (res.statusCode == 200) {
-			  List<dynamic> body = jsonDecode(res.body);
-			  List<Canto> list = body.map((dynamic item) => Canto.fromJson(item)).toList();
-			  for (var i = 0; i < list.length; i++) {
-				await list[i].mp3Downloaded();
-			  }
-			  globals.cantosGlobal = list;
-			  globals.prefs.setInt("cantosVersao", cantosVersao);
-			  globals.prefs.setString("listCantos", jsonEncode(list.map((i) => i.toJson()).toList()).toString());
-			  return list;
-			}
-		  }
-		}
-	} catch (Exception) {
+      Response response = await get(urlCantosVersao);
+      if (response.statusCode == 200) {
+        int cantosVersaoLocal = (globals.prefs.getInt("cantosVersao") ?? 49);
+        int cantosVersao = int.parse(response.body);
+        if (cantosVersaoLocal < cantosVersao) {
+          Response res = await get(urlCantos);
+          if (res.statusCode == 200) {
+            List<dynamic> body = jsonDecode(res.body);
+            List<Canto> list = body.map((dynamic item) => Canto.fromJson(item)).toList();
+            for (var i = 0; i < list.length; i++) {
+              await list[i].mp3Downloaded();
+            }
+            globals.cantosGlobal = list;
+            globals.prefs.setInt("cantosVersao", cantosVersao);
+            globals.prefs.setString("listCantos", jsonEncode(list.map((i) => i.toJson()).toList()).toString());
+            return list;
+          }
+        }
+      }
+    } catch (Exception) {
       globals.cantosGlobal = await getCantosLocal();
       return globals.cantosGlobal;
     }
