@@ -1,5 +1,15 @@
 [
   {
+    "id": "6",
+    "plataforma": "iOS",
+    "titulo": "Nova versão disponível.",
+    "conteudo": "Instale a versão 15 pelo aplicativo TestFlight.\nAgora você pode testar também em tablets!",
+    "dataIni": "2020-09-21",
+    "dataFim": "9999-12-31",
+    "buildDe": 13,
+    "buildAte": 14
+  },
+  {
     "id": "5",
     "plataforma": "Android",
     "titulo": "Nova versão disponível.",
