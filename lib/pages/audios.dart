@@ -235,9 +235,7 @@ class _AudiosPageState extends State<AudiosPage> {
                           center: FittedBox(
                             fit: BoxFit.scaleDown,
                             child: SizedBox(
-                              child: Text(
-                                "${(listCantos2[index].percentDownload * 100).toInt()}%",
-                              ),
+                              child: Text("${(listCantos2[index].percentDownload * 100).toInt()}%"),
                             ),
                           ),
                           progressColor: globals.darkRed,
@@ -266,7 +264,6 @@ class _AudiosPageState extends State<AudiosPage> {
                     ],
                   ),
                 ),
-
                 InkWell(
                   onTap: () => action("UnMarkAll"),
                   child: Row(
@@ -280,11 +277,6 @@ class _AudiosPageState extends State<AudiosPage> {
                     ],
                   ),
                 ),
-//                FlatButton.icon(
-//                  icon: Icon(Icons.check_box_outline_blank, color: globals.darkRed),
-//                  label: Text("Limpar Seleção"),
-//                  onPressed: () => action("UnMarkAll"),
-//                ),
               ],
             ),
           ]),
@@ -318,7 +310,7 @@ class _AudiosPageState extends State<AudiosPage> {
     }
     return Padding(
       padding: EdgeInsets.all(8.0),
-      child: Text("Não há arquivos baixados", textAlign: TextAlign.center),
+      child: Text("Não há áudios baixados", textAlign: TextAlign.center),
     );
   }
 

@@ -176,6 +176,7 @@ class CantoService {
         }
       }
     }
+    return [];
   }
 
   Future<List<Canto>> getCantosLocal() async {

@@ -4,13 +4,17 @@ import "dart:io";
 
 import "package:connectivity/connectivity.dart";
 import "package:dio/dio.dart";
+import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import "package:flutter/material.dart";
 import "package:flutter_form_builder/flutter_form_builder.dart";
 import "package:flutter_speed_dial/flutter_speed_dial.dart";
 import "package:flutter_webview_plugin/flutter_webview_plugin.dart";
 import "package:get/get.dart";
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import "package:numberpicker/numberpicker.dart";
 import "package:path_provider/path_provider.dart";
+import 'package:percent_indicator/circular_percent_indicator.dart';
 import "package:percent_indicator/linear_percent_indicator.dart";
 import "package:ressuscitou/helpers/global.dart";
 import "package:ressuscitou/helpers/player_widget.dart";
@@ -43,6 +47,7 @@ class _CantoPageState extends State<CantoPage> {
   int capoSelected = 0;
   double percentDownload = 0;
   bool estendido = false;
+  bool downloading = false;
 
   @override
   void initState() {
@@ -58,6 +63,10 @@ class _CantoPageState extends State<CantoPage> {
 
   @override
   Widget build(BuildContext context) {
+    Color back = Colors.white;
+    if (widget.canto.categoria == 2) back = hexToColor("#c7d7e8");
+    if (widget.canto.categoria == 3) back = hexToColor("#d6ffba");
+    if (widget.canto.categoria == 4) back = hexToColor("#FFCC99");
     transpor();
     return WillPopScope(
       onWillPop: () {
@@ -67,139 +76,300 @@ class _CantoPageState extends State<CantoPage> {
         return Future.value(false);
       },
       child: Scaffold(
-        appBar: AppBar(elevation: 0, actions: [
-          Padding(
-            padding: EdgeInsets.only(right: 8),
-            child: PopupMenuButton<String>(
-              child: Icon(Icons.more_vert),
-              onSelected: (value) => navigateOption(value),
-              itemBuilder: (BuildContext context) {
-                return [
-                  PopupMenuItem(value: "1", child: Text("Adicionar à lista")),
-                  PopupMenuItem(value: "2", child: Text("Anotações")),
-                ];
-              },
-            ),
-          ),
-        ]),
-        floatingActionButton: SpeedDial(
-            closeManually: true,
-            animatedIcon: AnimatedIcons.menu_close,
-            foregroundColor: globals.darkRed,
-            backgroundColor: Colors.grey[100],
-            elevation: 1,
-            curve: Curves.easeIn,
-            overlayOpacity: 0,
-            children: [
-              SpeedDialChild(
-                  elevation: 2,
-                  child: Center(
-                      child: Container(
-                    height: 40,
-                    width: 40,
-                    child: FittedBox(
-                        fit: BoxFit.scaleDown,
-                        child: Text("Transp", style: TextStyle(fontSize: 12, color: globals.darkRed))),
-                  )),
-                  onTap: () => getTraspDialog(),
-                  backgroundColor: Colors.grey[100]),
-              SpeedDialChild(
-                  elevation: 2,
-                  child: Center(
-                      child: Container(
-                    height: 40,
-                    width: 40,
-                    child: FittedBox(
-                        fit: BoxFit.scaleDown,
-                        child: Text("Capo", style: TextStyle(fontSize: 12, color: globals.darkRed))),
-                  )),
-                  onTap: () => getCapoDialog(),
-                  backgroundColor: Colors.grey[100]),
-              SpeedDialChild(
-                  elevation: 2,
-                  child: Stack(
-                    children: <Widget>[
+          backgroundColor: back,
+          appBar: AppBar(
+              elevation: 0,
+              actions: (globals.tablet)
+                  ? []
+                  : [
                       Padding(
-                          padding: EdgeInsets.only(top: 10),
-                          child: Center(child: Icon(Icons.keyboard_arrow_down, color: globals.darkRed))),
-                      Padding(
-                          padding: EdgeInsets.only(bottom: 2),
-                          child: Center(child: Icon(Icons.keyboard_arrow_down, color: globals.darkRed))),
-                      Padding(
-                          padding: EdgeInsets.only(bottom: 14),
-                          child: Center(child: Icon(Icons.keyboard_arrow_down, color: globals.darkRed))),
-                      if (scroll > 0)
-                        Align(
-                            alignment: Alignment.bottomCenter,
-                            child: Container(
-                                height: 15,
-                                width: 40,
-                                child: FittedBox(
-                                    fit: BoxFit.scaleDown,
-                                    child: Text(scroll.toString() + "x", style: TextStyle(color: globals.darkRed))))),
-                    ],
-                  ),
-                  onTap: () async {
-                    if (await webViewController.canScrollVertically()) setState(() => setTimer());
-                  },
-                  backgroundColor: Colors.grey[100]),
-              if (widget.canto.url != "")
-                SpeedDialChild(
-                    elevation: 2,
-                    child: (widget.canto.downloaded)
-                        ? Icon(Icons.music_note, color: globals.darkRed)
-                        : Stack(children: <Widget>[
-                            Center(
-                                child: Padding(
-                              padding: EdgeInsets.only(bottom: 5, right: 10),
-                              child: Icon(Icons.music_note, color: Colors.grey),
-                            )),
-                            Center(
-                                child: Padding(
-                              padding: EdgeInsets.only(left: 10, top: 5),
-                              child: Icon(Icons.file_download, size: 20, color: globals.darkRed),
-                            )),
-                          ]),
-                    onTap: () => _loadFile(),
-                    backgroundColor: Colors.grey[100]),
-            ]),
-        body: Container(
-          color: Colors.white,
-          child: Column(
+                        padding: EdgeInsets.only(right: 8),
+                        child: PopupMenuButton<String>(
+                          child: Icon(Icons.more_vert),
+                          onSelected: (value) => navigateOption(value),
+                          itemBuilder: (BuildContext context) {
+                            return [
+                              PopupMenuItem(value: "1", child: Text("Adicionar à lista")),
+                              PopupMenuItem(value: "2", child: Text("Anotações")),
+                            ];
+                          },
+                        ),
+                      ),
+                    ]),
+          floatingActionButton: (globals.tablet)
+              ? null
+              : SpeedDial(
+                  closeManually: true,
+                  animatedIcon: AnimatedIcons.menu_close,
+                  foregroundColor: globals.darkRed,
+                  backgroundColor: Colors.grey[100],
+                  elevation: 1,
+                  curve: Curves.easeIn,
+                  overlayOpacity: 0,
+                  children: [
+                      SpeedDialChild(
+                          elevation: 2,
+                          child: Center(
+                              child: Container(
+                            height: 40,
+                            width: 40,
+                            child: FittedBox(
+                                fit: BoxFit.scaleDown,
+                                child: Text("Transp", style: TextStyle(fontSize: 12, color: globals.darkRed))),
+                          )),
+                          onTap: () => getTraspDialog(),
+                          backgroundColor: Colors.grey[100]),
+                      SpeedDialChild(
+                          elevation: 2,
+                          child: Center(
+                              child: Container(
+                            height: 40,
+                            width: 40,
+                            child: FittedBox(
+                                fit: BoxFit.scaleDown,
+                                child: Text("Capo", style: TextStyle(fontSize: 12, color: globals.darkRed))),
+                          )),
+                          onTap: () => getCapoDialog(),
+                          backgroundColor: Colors.grey[100]),
+                      SpeedDialChild(
+                          elevation: 2,
+                          child: Stack(
+                            children: <Widget>[
+                              Padding(
+                                  padding: EdgeInsets.only(top: 10),
+                                  child: Center(child: Icon(Icons.keyboard_arrow_down, color: globals.darkRed))),
+                              Padding(
+                                  padding: EdgeInsets.only(bottom: 2),
+                                  child: Center(child: Icon(Icons.keyboard_arrow_down, color: globals.darkRed))),
+                              Padding(
+                                  padding: EdgeInsets.only(bottom: 14),
+                                  child: Center(child: Icon(Icons.keyboard_arrow_down, color: globals.darkRed))),
+                              if (scroll > 0)
+                                Align(
+                                    alignment: Alignment.bottomCenter,
+                                    child: Container(
+                                        height: 15,
+                                        width: 40,
+                                        child: FittedBox(
+                                            fit: BoxFit.scaleDown,
+                                            child: Text(scroll.toString() + "x",
+                                                style: TextStyle(color: globals.darkRed))))),
+                            ],
+                          ),
+                          onTap: () async {
+                            if (await webViewController.canScrollVertically()) setState(() => setTimer());
+                          },
+                          backgroundColor: Colors.grey[100]),
+                      if (widget.canto.url != "")
+                        SpeedDialChild(
+                            elevation: 2,
+                            child: (widget.canto.downloaded)
+                                ? Icon(Icons.music_note, color: globals.darkRed)
+                                : Stack(children: <Widget>[
+                                    Center(
+                                        child: Padding(
+                                      padding: EdgeInsets.only(bottom: 5, right: 10),
+                                      child: Icon(Icons.music_note, color: Colors.grey),
+                                    )),
+                                    Center(
+                                        child: Padding(
+                                      padding: EdgeInsets.only(left: 10, top: 5),
+                                      child: Icon(Icons.file_download, size: 20, color: globals.darkRed),
+                                    )),
+                                  ]),
+                            onTap: () => _loadFile(),
+                            backgroundColor: Colors.grey[100]),
+                    ]),
+          body: getBody()),
+    );
+  }
+
+  getBody() {
+    return Column(
+      children: <Widget>[
+        Expanded(
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              if (exibePlayer)
-                Card(
-                    child: PlayerWidget(
-                  url: localFilePath,
-                  canto: widget.canto,
-                )),
-              if (percentDownload > 0 && percentDownload < 1)
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 8),
-                  child: LinearPercentIndicator(
-                    lineHeight: 20.0,
-                    percent: percentDownload,
-                    center: FittedBox(
-                        fit: BoxFit.scaleDown,
-                        child: Text("${(percentDownload * 100).toInt()}%", style: TextStyle(color: Colors.white))),
-                    linearStrokeCap: LinearStrokeCap.butt,
-                    progressColor: globals.darkRed,
-                  ),
-                ),
               Expanded(
-                child: WebView(
-                  onWebViewCreated: (WebViewController controller) {
-                    webViewController = controller;
-                  },
-                  initialUrl: Uri.dataFromString(strCanto, mimeType: "text/html", encoding: Encoding.getByName("utf-8"))
-                      .toString(),
-                  gestureNavigationEnabled: true,
+                  child: Container(
+                margin: EdgeInsets.all(5),
+                child: Column(
+                  children: <Widget>[
+                    if (exibePlayer)
+                      Card(
+                          child: PlayerWidget(
+                        url: localFilePath,
+                        canto: widget.canto,
+                      )),
+                    if (percentDownload > 0 && percentDownload < 1 && !globals.tablet)
+                      Padding(
+                        padding: EdgeInsets.symmetric(vertical: 8),
+                        child: LinearPercentIndicator(
+                          lineHeight: 20.0,
+                          percent: percentDownload,
+                          center: FittedBox(
+                              fit: BoxFit.scaleDown,
+                              child:
+                                  Text("${(percentDownload * 100).toInt()}%", style: TextStyle(color: Colors.white))),
+                          linearStrokeCap: LinearStrokeCap.butt,
+                          progressColor: globals.darkRed,
+                        ),
+                      ),
+                    Expanded(
+                      child: WebView(
+                        onWebViewCreated: (WebViewController controller) {
+                          webViewController = controller;
+                        },
+                        gestureRecognizers: <Factory<OneSequenceGestureRecognizer>>[
+                          new Factory<OneSequenceGestureRecognizer>(
+                            () => new EagerGestureRecognizer(),
+                          ),
+                        ].toSet(),
+                        initialUrl:
+                            Uri.dataFromString(strCanto, mimeType: "text/html", encoding: Encoding.getByName("utf-8"))
+                                .toString(),
+                        gestureNavigationEnabled: true,
+                      ),
+                    ),
+                  ],
                 ),
-              ),
+              )),
+              if (globals.tablet)
+                Container(
+                  width: 100,
+                  decoration: BoxDecoration(border: Border(left: BorderSide(width: 1, color: Colors.black26))),
+                  child: getMenuLateral(),
+                ),
             ],
           ),
         ),
-      ),
+      ],
+    );
+  }
+
+  Widget divider() {
+    return Padding(
+      padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+      child: Divider(color: Colors.black26, height: 2),
+    );
+  }
+
+  getMenuLateral() {
+    return ListView(
+      children: <Widget>[
+        InkWell(
+          child: Container(
+            height: 60,
+            child: Icon(Icons.playlist_add, size: 25, color: globals.darkRed),
+          ),
+          onTap: () => navigateOption("1"),
+        ),
+        divider(),
+        InkWell(
+          child: Container(
+            height: 60,
+            child: Icon(MdiIcons.commentEditOutline, size: 25, color: globals.darkRed),
+          ),
+          onTap: () => navigateOption("2"),
+        ),
+        divider(),
+        InkWell(
+          child: Container(
+            height: 60,
+            child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text("Transposição", style: TextStyle(fontSize: 12, color: globals.darkRed))),
+          ),
+          onTap: () => getTraspDialog(),
+        ),
+        divider(),
+        InkWell(
+          child: Container(
+            height: 60,
+            child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text("Capotraste", style: TextStyle(fontSize: 12, color: globals.darkRed))),
+          ),
+          onTap: () => getCapoDialog(),
+        ),
+        divider(),
+        InkWell(
+          child: Container(
+            height: 60,
+            child: Stack(
+              children: <Widget>[
+                Padding(
+                    padding: EdgeInsets.only(bottom: 12),
+                    child: Center(child: Icon(Icons.keyboard_arrow_down, color: globals.darkRed))),
+                Padding(
+                    padding: EdgeInsets.all(0),
+                    child: Center(child: Icon(Icons.keyboard_arrow_down, color: globals.darkRed))),
+                Padding(
+                    padding: EdgeInsets.only(top: 12),
+                    child: Center(child: Icon(Icons.keyboard_arrow_down, color: globals.darkRed))),
+                if (scroll > 0)
+                  Padding(
+                    padding: EdgeInsets.only(top: 24, left: 45),
+                    child: Container(
+                        height: 25,
+                        width: 50,
+                        child: FittedBox(
+                            fit: BoxFit.scaleDown,
+                            child: Text(scroll.toString() + "x", style: TextStyle(color: globals.darkRed)))),
+                  ),
+              ],
+            ),
+          ),
+          onTap: () async {
+            if (await webViewController.canScrollVertically()) setState(() => setTimer());
+          },
+        ),
+        divider(),
+        if (widget.canto.url != "")
+          InkWell(
+            onTap: () => _loadFile(),
+            child: Container(
+              height: 60,
+              width: 60,
+              child: (widget.canto.downloaded)
+                  ? Icon(Icons.music_note, color: globals.darkRed)
+                  : (percentDownload > 0 && percentDownload < 1)
+                      ? Container(
+                          height: 60,
+                          width: 60,
+                          child: CircularPercentIndicator(
+                            radius: 30.0,
+                            lineWidth: 2,
+                            percent: percentDownload,
+                            center: FittedBox(
+                              fit: BoxFit.scaleDown,
+                              child: SizedBox(
+                                child: Text(
+                                  "${(percentDownload * 100).toInt()}%",
+                                ),
+                              ),
+                            ),
+                            progressColor: globals.darkRed,
+                          ),
+                        )
+                      : Stack(children: <Widget>[
+                          Center(
+                              child: Padding(
+                            padding: EdgeInsets.only(bottom: 5, right: 10),
+                            child: Icon(Icons.music_note, color: Colors.grey),
+                          )),
+                          Center(
+                              child: Padding(
+                            padding: EdgeInsets.only(left: 10, top: 5),
+                            child: Icon(Icons.file_download, size: 20, color: globals.darkRed),
+                          )),
+                        ]),
+            ),
+          ),
+        if (widget.canto.url != "") divider(),
+      ],
     );
   }
 
@@ -247,9 +417,10 @@ class _CantoPageState extends State<CantoPage> {
     int dif = 0;
 
     for (var c = 0; c < content.length; c++) {
-
-      if (Platform.isIOS && content[c].contains("font-size:12px")) {
-        content[c] = content[c].replaceAll("12px", "20px");
+      if (content[c].contains("font-size:12px")) {
+        int fonte = (globals.prefs.getInt("tamanhoFonte") ?? 15);
+        if (Platform.isIOS) fonte = fonte + 8;
+        content[c] = content[c].replaceAll("12px", " ${fonte}px !important");
       }
       if (content[c].contains("<H1>")) {
         continue;
@@ -480,6 +651,12 @@ class _CantoPageState extends State<CantoPage> {
   }
 
   Future _loadFile() async {
+    if (exibePlayer) {
+      exibePlayer = false;
+      setState(() {});
+      return;
+    }
+
     final dir = await getApplicationDocumentsDirectory();
     final file = File("${dir.path}/" + widget.canto.html + ".mp3");
     if (await file.exists()) {
@@ -487,22 +664,28 @@ class _CantoPageState extends State<CantoPage> {
         localFilePath = file.path;
       });
     }
-    if (localFilePath == "") {
-      bool wifiOnly = globals.prefs.getBool("wfOnly") ?? false;
-      if (wifiOnly) {
-        var connectivityResult = await (Connectivity().checkConnectivity());
-        if (connectivityResult == ConnectivityResult.mobile) {
-          snackBar(Get.overlayContext, "Uso de redes móveis não permitido nas configurações!");
-          return;
-        }
-      }
+    if (localFilePath != "") {
+      exibePlayer = true;
+      setState(() {});
+      return;
+    }
 
+    bool wifiOnly = globals.prefs.getBool("wfOnly") ?? false;
+    if (wifiOnly) {
       var connectivityResult = await (Connectivity().checkConnectivity());
-      if (connectivityResult == ConnectivityResult.none) {
-        snackBar(Get.overlayContext, "Sem conexão de internet!");
+      if (connectivityResult == ConnectivityResult.mobile) {
+        snackBar(Get.overlayContext, "Uso de redes móveis não permitido nas configurações!");
         return;
       }
+    }
 
+    var connectivityResult = await (Connectivity().checkConnectivity());
+    if (connectivityResult == ConnectivityResult.none) {
+      snackBar(Get.overlayContext, "Sem conexão de internet!");
+      return;
+    }
+    if (!downloading) {
+      downloading = true;
       snackBar(Get.overlayContext, "Iniciando download");
       var url = "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/" +
           widget.canto.html +
@@ -535,9 +718,6 @@ class _CantoPageState extends State<CantoPage> {
           percentDownload = p / 100;
         });
       }
-    } else {
-      exibePlayer = true;
-      setState(() {});
     }
   }
 

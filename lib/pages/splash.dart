@@ -36,7 +36,7 @@ class _SplashState extends State<Splash> {
 
   getCantos() async {
     await CantoService().getCantos().then((List<Canto> cantos) {
-      Timer(Duration(seconds: 1), () => Get.off(HomePage()));
+      Timer(Duration(seconds: 1), () => Get.off(HomePage(selectable: false,)));
     });
   }
 }

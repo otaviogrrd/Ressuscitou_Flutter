@@ -110,6 +110,7 @@ class PlayerWidgetState extends State<PlayerWidget> {
                         ? _position.inMilliseconds / _duration.inMilliseconds
                         : 0.0,
                   ),
+                  if (_position != null)
                   Positioned(
                     top: 0,
                     left: 15,
@@ -123,6 +124,7 @@ class PlayerWidgetState extends State<PlayerWidget> {
                           )),
                     ),
                   ),
+                  if (_duration != null)
                   Positioned(
                     bottom: 0,
                     right: 15,

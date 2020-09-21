@@ -4,11 +4,12 @@ import "package:flutter/material.dart";
 import "package:flutter_form_builder/flutter_form_builder.dart";
 import "package:get/get.dart";
 import "package:intl/intl.dart";
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import "package:ressuscitou/helpers/global.dart";
 import "package:ressuscitou/model/canto.dart";
 import 'package:ressuscitou/model/mensagem.dart';
 import "package:ressuscitou/pages/audios.dart";
-import "package:ressuscitou/pages/canto.dart";
+import 'package:ressuscitou/pages/canto.dart';
 import "package:ressuscitou/pages/imageViewer.dart";
 import "package:ressuscitou/pages/listas.dart";
 import "package:ressuscitou/pages/liturgico.dart";
@@ -19,9 +20,9 @@ import "package:url_launcher/url_launcher.dart";
 import "sobre.dart";
 
 class HomePage extends StatefulWidget {
-  bool selectable = false;
+  final bool selectable;
 
-  HomePage({Key key, this.selectable}) : super(key: key);
+  HomePage({Key key, @required this.selectable}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -37,8 +38,6 @@ class _HomePageState extends State<HomePage> {
   bool requestFocus = false;
   FocusNode searchFocus = FocusNode();
 
-//  bool numeracao2015 = false;
-
   @override
   void initState() {
     super.initState();
@@ -47,15 +46,17 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-//    numeracao2015 = globals.prefs.getBool("numeracao2015") ?? false;
+    globals.tablet = isTablet(MediaQueryData.fromWindow(WidgetsBinding.instance.window));
     return Scaffold(
-      appBar: AppBar(title: Text("Ressuscitou"), actions: [
+      appBar: AppBar(title: Image.asset("assets/img/logo.png", color: Colors.white, height: 30), actions: [
         if (!showSearch)
           IconButton(
               icon: Icon(Icons.search, size: 25, color: Colors.white),
               onPressed: () => setState(() => showSearch = requestFocus = true)),
       ]),
-      drawer: (widget.selectable != null && widget.selectable) ? null : Drawer(child: getMenuLateral()),
+      drawer: (globals.tablet)
+          ? null
+          : (widget.selectable != null && widget.selectable) ? null : Drawer(child: getMenuLateral()),
       body: getCantosLocal(),
     );
   }
@@ -149,82 +150,100 @@ class _HomePageState extends State<HomePage> {
   }
 
   listaCantos() {
-    if (listCantos != null) {
-      filtrar();
-      return Column(
-        children: <Widget>[
-          if (showSearch) searchInput(),
-          Expanded(
-            child: ListView.builder(
-                itemCount: filterListCantos.length,
-                itemBuilder: (context, index) {
-                  return InkWell(
-                    onTap: () => Get.to(CantoPage(canto: filterListCantos[index])).then((value) => {setState(() {})}),
-                    child: (widget.selectable != null && widget.selectable)
-                        ? CheckboxListTile(
-                            dense: true,
-                            controlAffinity: ListTileControlAffinity.leading,
-                            onChanged: (value) => setState(() {
-                              filterListCantos[index].selected = value;
-                              (value)
-                                  ? globals.listaGlobal.add(filterListCantos[index])
-                                  : globals.listaGlobal.removeWhere((e) => e.id == filterListCantos[index].id);
-                            }),
-                            value: filterListCantos[index].selected,
-                            title: Row(
-                              children: <Widget>[
-                                ClipOval(
-                                    child: Material(
-                                        color: getColorCateg(filterListCantos[index].categoria), // button color
-                                        child: Container(
-                                            height: 40,
-                                            width: 40,
-                                            child: FittedBox(
-                                                fit: BoxFit.scaleDown,
-                                                child: Padding(
-                                                  padding: EdgeInsets.all(8),
-                                                  child: Text(filterListCantos[index].nr2019),
-                                                ))))),
-                                Expanded(
-                                  child: Padding(
-                                    padding: EdgeInsets.only(left: 8),
-                                    child: Text(
+    filtrar();
+    return Column(
+      children: <Widget>[
+        Expanded(
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              if (!widget.selectable)
+                if (globals.tablet)
+                  Container(
+                    width: 275,
+                    decoration: BoxDecoration(border: Border(right: BorderSide(width: 1, color: Colors.black26))),
+                    child: getMenuLateral(),
+                  ),
+              Expanded(
+                  child: Column(
+                children: <Widget>[
+                  if (showSearch) searchInput(),
+                  Expanded(
+                    child: ListView.builder(
+                        itemCount: filterListCantos.length,
+                        itemBuilder: (context, index) {
+                          return InkWell(
+                            onTap: () =>
+                                Get.to(CantoPage(canto: filterListCantos[index])).then((value) => {setState(() {})}),
+                            child: (widget.selectable)
+                                ? CheckboxListTile(
+                                    dense: true,
+                                    controlAffinity: ListTileControlAffinity.leading,
+                                    onChanged: (value) => setState(() {
+                                      filterListCantos[index].selected = value;
+                                      (value)
+                                          ? globals.listaGlobal.add(filterListCantos[index])
+                                          : globals.listaGlobal.removeWhere((e) => e.id == filterListCantos[index].id);
+                                    }),
+                                    value: filterListCantos[index].selected,
+                                    title: Row(
+                                      children: <Widget>[
+                                        ClipOval(
+                                            child: Material(
+                                                color: getColorCateg(filterListCantos[index].categoria), // button color
+                                                child: Container(
+                                                    height: 40,
+                                                    width: 40,
+                                                    child: FittedBox(
+                                                        fit: BoxFit.scaleDown,
+                                                        child: Padding(
+                                                          padding: EdgeInsets.all(8),
+                                                          child: Text(filterListCantos[index].nr2019),
+                                                        ))))),
+                                        Expanded(
+                                          child: Padding(
+                                            padding: EdgeInsets.only(left: 8),
+                                            child: Text(
+                                              filterListCantos[index].titulo,
+                                              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  )
+                                : ListTile(
+                                    dense: true,
+                                    contentPadding: EdgeInsets.only(left: 16, right: 10),
+                                    leading: ClipOval(
+                                        child: Material(
+                                            color: getColorCateg(filterListCantos[index].categoria), // button color
+                                            child: Container(
+                                                height: 40,
+                                                width: 40,
+                                                child: FittedBox(
+                                                    fit: BoxFit.scaleDown,
+                                                    child: Padding(
+                                                      padding: EdgeInsets.all(8),
+                                                      child: Text(filterListCantos[index].nr2019),
+                                                    ))))),
+                                    title: Text(
                                       filterListCantos[index].titulo,
                                       style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
                                     ),
+                                    trailing: geticon(filterListCantos[index]),
                                   ),
-                                ),
-                              ],
-                            ),
-                          )
-                        : ListTile(
-                            dense: true,
-                            contentPadding: EdgeInsets.only(left: 16, right: 10),
-                            leading: ClipOval(
-                                child: Material(
-                                    color: getColorCateg(filterListCantos[index].categoria), // button color
-                                    child: Container(
-                                        height: 40,
-                                        width: 40,
-                                        child: FittedBox(
-                                            fit: BoxFit.scaleDown,
-                                            child: Padding(
-                                              padding: EdgeInsets.all(8),
-                                              child: Text(filterListCantos[index].nr2019),
-                                            ))))),
-                            title: Text(
-                              filterListCantos[index].titulo,
-                              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
-                            ),
-                            trailing: geticon(filterListCantos[index]),
-                          ),
-                  );
-                }),
+                          );
+                        }),
+                  ),
+                ],
+              )),
+            ],
           ),
-        ],
-      );
-    }
-    return Container();
+        ),
+      ],
+    );
   }
 
   geticon(Canto canto) {
@@ -264,7 +283,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget divider() {
     return Padding(
-      padding: EdgeInsets.all(5),
+      padding: EdgeInsets.fromLTRB(5, 2, 0, 2),
       child: Divider(color: Colors.black26, height: 2.0),
     );
   }
@@ -275,32 +294,36 @@ class _HomePageState extends State<HomePage> {
       children: <Widget>[
         ListView(
           children: <Widget>[
-//            Row(children: <Widget>[
-//              Padding(
-//                padding: EdgeInsets.all(20),
-//                child: Image.asset("assets/img/logocat.png", height: 80),
-//              ),
-//              Image.asset("assets/img/logo.png", height: 30),
-//            ]),
-            Center(
-                child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 20),
-              child: Image.asset("assets/img/logo.png", height: 30),
-            )),
-            divider(),
+            if (!globals.tablet)
+              Center(
+                  child: Padding(
+                padding: EdgeInsets.symmetric(vertical: 20),
+                child: Image.asset("assets/img/logo.png", height: 30),
+              )),
+            if (!globals.tablet) divider(),
+            Padding(
+              padding: EdgeInsets.only(top: 8),
+              child: Center(child: Text("Todos Cantos", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 11))),
+            ),
             ListTile(
-                title: Padding(
-                  padding: EdgeInsets.only(left: 40),
-                  child: Text("Ordem Alfabética", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-                ),
+                title: Text("Ordem Alfabética"),
+                leading: Icon(MdiIcons.sortAlphabeticalAscending, size: 25, color: globals.darkRed),
                 onTap: () => setState(() => selectCateg(0))),
+//            ListTile(
+//                title: Padding(
+//                  padding: EdgeInsets.only(left: 40),
+//                  child: Text("Ordem Alfabética", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+//                ),
+//                onTap: () => setState(() => selectCateg(0))),
             ListTile(
-                title: Padding(
-                  padding: EdgeInsets.only(left: 40),
-                  child: Text("Índice Litúrgico", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-                ),
+                title: Text("Índice Litúrgico"),
+                leading: Icon(MdiIcons.fileTree, size: 25, color: globals.darkRed),
+//                title: Padding(
+//                  padding: EdgeInsets.only(left: 40),
+//                  child: Text("Índice Litúrgico", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+//                ),
                 onTap: () {
-                  Navigator.of(context).pop();
+                  if (!globals.tablet) Navigator.of(context).pop();
                   Get.to(LiturgicoPage()).then((value) => setState(() {}));
                 }),
             divider(),
@@ -345,6 +368,10 @@ class _HomePageState extends State<HomePage> {
                 ),
                 onTap: () => setState(() => selectCateg(3))),
             divider(),
+            Padding(
+              padding: EdgeInsets.only(top: 8),
+              child: Center(child: Text("Imagens", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 11))),
+            ),
             ListTile(
                 leading: Icon(Icons.line_style, size: 25, color: globals.darkRed),
                 title: Text("Acordes"),
@@ -367,31 +394,35 @@ class _HomePageState extends State<HomePage> {
                 leading: Icon(Icons.music_note, size: 25, color: globals.darkRed),
                 onTap: () => Get.to(AudiosPage()).then((value) => setState(() {}))),
             ListTile(
-                title: Text("Opções"),
-                leading: Icon(Icons.settings, size: 25, color: globals.darkRed),
-                onTap: () => Get.to(SettingsPage()).then((value) => setState(() {}))),
+                title: Text("Mensagens"),
+                leading: Icon(MdiIcons.messageTextOutline, size: 25, color: globals.darkRed),
+                onTap: () => Get.to(MensagensPage())),
+            divider(),
             ListTile(
                 title: Text("Descubra seu Tom"),
                 leading: Icon(Icons.call_made, size: 25, color: globals.darkRed),
                 onTap: () => launchUrl()),
+            divider(),
             ListTile(
-                title: Text("Mensagens"),
-                leading: Icon(Icons.message, size: 25, color: globals.darkRed),
-                onTap: () => Get.to(MensagensPage())),
+                title: Text("Opções"),
+                leading: Icon(Icons.settings, size: 25, color: globals.darkRed),
+                onTap: () => Get.to(SettingsPage()).then((value) => setState(() {}))),
             ListTile(
                 title: Text("Sobre"),
                 leading: Icon(Icons.info_outline, size: 25, color: globals.darkRed),
                 onTap: () => Get.to(SobrePage()))
           ],
         ),
-        Container(height: statusBarHeight, decoration: BoxDecoration(color: globals.darkRedShadow)),
+        (globals.tablet)
+            ? Container()
+            : Container(height: statusBarHeight, decoration: BoxDecoration(color: globals.darkRedShadow)),
       ],
     );
   }
 
   selectCateg(int i) {
     selectedCateg = i;
-    Navigator.of(context).pop();
+    if (!globals.tablet) Navigator.of(context).pop();
   }
 
   searchInput() {
@@ -471,7 +502,7 @@ class _HomePageState extends State<HomePage> {
       filterListCantos = listTmp.where((p) => (p.conteudo.toLowerCase().contains(searchField.toLowerCase()))).toList();
     }
 
-    if (widget.selectable != null && widget.selectable) {
+    if (widget.selectable) {
       for (var c = 0; c < filterListCantos.length; c++) {
         globals.listaGlobal.forEach((element) {
           if (element.id == filterListCantos[c].id) filterListCantos[c].selected = element.selected;

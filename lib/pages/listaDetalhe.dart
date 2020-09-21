@@ -4,8 +4,8 @@ import "package:flutter_form_builder/flutter_form_builder.dart";
 import "package:get/get.dart";
 import "package:ressuscitou/helpers/global.dart";
 import "package:ressuscitou/model/cantoList.dart";
-import "package:ressuscitou/pages/home.dart";
 import "package:ressuscitou/pages/canto.dart";
+import "package:ressuscitou/pages/home.dart";
 import "package:share/share.dart";
 
 class ListaDetalhePage extends StatefulWidget {
@@ -41,28 +41,54 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
     super.initState();
   }
 
+  navigateOption(String value) {
+    if (value == "1") setState(() => editMode = !editMode);
+    if (value == "2") setState(() => salvarLista());
+    if (value == "3") deleteList();
+    if (value == "4") {
+      String share = "";
+      globals.listaGlobal.forEach((element) {
+        share = share + element.nr2019.padLeft(3, "0") + " - " + element.titulo + "\n";
+      });
+      Share.share("Confira a lista *${listaNew.titulo}*, que criei no App *Ressucitou*:\n\n$share");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    String share = "";
-    globals.listaGlobal.forEach((element) {
-      share = share + element.nr2019.padLeft(3,"0") + " - " + element.titulo + "\n";
-    });
     return Scaffold(
         appBar: AppBar(elevation: 0.0, centerTitle: true, title: Text("Lista"), actions: [
-          if (listaOld != "") IconButton(icon: Icon(Icons.delete), onPressed: () => deleteList()),
-          (editMode)
-              ? IconButton(
-                  icon: Icon(Icons.save),
-                  onPressed: () => setState(() {
-                        salvarLista();
-                      }))
-              : IconButton(icon: Icon(Icons.edit), onPressed: () => setState(() => editMode = !editMode)),
+          Padding(
+            padding: EdgeInsets.only(right: 8),
+            child: PopupMenuButton<String>(
+              child: Icon(Icons.more_vert),
+              onSelected: (value) => navigateOption(value),
+              itemBuilder: (BuildContext context) {
+                return [
+                  if (!editMode) PopupMenuItem(value: "1", child: Text("Editar")),
+                  if (editMode) PopupMenuItem(value: "2", child: Text("Salvar")),
+                  PopupMenuItem(value: "3", child: Text("Excluir")),
+                  PopupMenuItem(value: "4", child: Text("Compartilhar")),
+                ];
+              },
+            ),
+          ),
+//          if (listaOld != "") IconButton(icon: Icon(Icons.delete), onPressed: () => deleteList()),
+//          (editMode)
+//              ? IconButton(
+//                  icon: Icon(Icons.save),
+//                  onPressed: () => setState(() {
+//                        salvarLista();
+//                      }))
+//              : IconButton(icon: Icon(Icons.edit), onPressed: () => setState(() => editMode = !editMode)),
         ]),
         floatingActionButton: FloatingActionButton(
-            child: Icon(Icons.share),
+            child: Icon(Icons.help),
+            mini: true,
             elevation: 1,
             onPressed: () {
-              Share.share("Confira a lista *${listaNew.titulo}*, que criei no App *Ressucitou*:\n\n$share");
+              getHelp();
+//              Share.share("Confira a lista *${listaNew.titulo}*, que criei no App *Ressucitou*:\n\n$share");
             }),
         body: Container(
             margin: EdgeInsets.symmetric(horizontal: 11),
@@ -133,7 +159,6 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
   }
 
   getCantos() {
-//    bool numeracao2015 = globals.prefs.getBool("numeracao2015") ?? false;
     if (globals.listaGlobal != null && globals.listaGlobal.length > 0)
       return Padding(
         padding: EdgeInsets.only(bottom: 8.0),
@@ -153,9 +178,7 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
                                         width: 40,
                                         child: FittedBox(
                                             fit: BoxFit.scaleDown,
-                                            child: Padding(
-                                                padding: EdgeInsets.all(8),
-                                                child: Text(item.nr2019)))))),
+                                            child: Padding(padding: EdgeInsets.all(8), child: Text(item.nr2019)))))),
                             title: Text(item.titulo),
                           ),
                           Divider(color: Colors.black26, height: 1)
@@ -199,6 +222,7 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
       return InkWell(
           onTap: () => Get.to(HomePage(selectable: true)).then((result) => setState(() {
                 editMode = true;
+                if (globals.listaGlobal.isNotEmpty && (globals.prefs.getBool("mostraDicaLista") ?? true)) getHelp();
               })),
           child: Center(child: Padding(padding: EdgeInsets.all(10), child: Text("Adicionar Cantos"))));
   }
@@ -223,6 +247,7 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
         listaNew.cantos.add(element.id);
       });
       CantoListService().saveList(listaOld: listaOld, listaNew: listaNew);
+      Get.back();
       snackBar(Get.overlayContext, "Lista Salva");
       listaOld = listaNew.titulo;
     }
@@ -272,5 +297,37 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
                 ],
               ),
             )));
+  }
+
+  getHelp() async {
+    globals.prefs.setBool("mostraDicaLista", false);
+    Get.defaultDialog(
+        title: "Dica",
+        radius: 4,
+        content: Column(children: <Widget>[
+          Container(
+            constraints: BoxConstraints(minHeight: 100, maxHeight: MediaQuery.of(context).size.height * 0.5),
+            child: SingleChildScrollView(
+                child: Column(
+              children: <Widget>[
+                Text("No modo de edição:"),
+                SizedBox(height: 15),
+                Text("Você pode remover um canto da lista arrastando-o para o lado.\n"
+                    "E também reordenar a lista segurando e movendo para cima ou para baixo."),
+                SizedBox(height: 20),
+              ],
+            )),
+          ),
+          Container(
+            width: 100,
+            child: FlatButton(
+                child: FittedBox(fit: BoxFit.scaleDown, child: Text("Fechar")),
+                color: globals.darkRed,
+                textColor: Colors.white,
+                onPressed: () {
+                  Navigator.pop(context);
+                }),
+          ),
+        ]));
   }
 }
