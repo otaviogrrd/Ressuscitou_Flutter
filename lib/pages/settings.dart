@@ -25,7 +25,7 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("Ressuscitou")),
+        appBar: AppBar(title: Text("Opções"), centerTitle: false),
         body: Container(
             margin: EdgeInsets.symmetric(horizontal: 16),
             child: SingleChildScrollView(

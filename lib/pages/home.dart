@@ -376,13 +376,13 @@ class _HomePageState extends State<HomePage> {
                 leading: Icon(Icons.line_style, size: 25, color: globals.darkRed),
                 title: Text("Acordes"),
                 onTap: () {
-                  Get.to(ImageViwerPage(img: "assets/img/acordes.jpg")).then((value) => setState(() {}));
+                  Get.to(ImageViwerPage(img: "assets/img/acordes.jpg",title: "Acordes")).then((value) => setState(() {}));
                 }),
             ListTile(
                 title: Text("Arpejos"),
                 leading: Icon(Icons.timeline, size: 25, color: globals.darkRed),
                 onTap: () {
-                  Get.to(ImageViwerPage(img: "assets/img/arpejos.jpg")).then((value) => setState(() {}));
+                  Get.to(ImageViwerPage(img: "assets/img/arpejos.jpg",title: "Arpejos")).then((value) => setState(() {}));
                 }),
             divider(),
             ListTile(
@@ -393,7 +393,7 @@ class _HomePageState extends State<HomePage> {
                 title: Text("Áudios"),
                 leading: Icon(Icons.music_note, size: 25, color: globals.darkRed),
                 onTap: () => Get.to(AudiosPage()).then((value) => setState(() {}))),
-            ListTile(
+             ListTile(
                 title: Text("Mensagens"),
                 leading: Icon(MdiIcons.messageTextOutline, size: 25, color: globals.darkRed),
                 onTap: () => Get.to(MensagensPage())),

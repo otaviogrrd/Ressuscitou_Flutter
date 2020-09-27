@@ -16,7 +16,7 @@ class _LiturgicoPageState extends State<LiturgicoPage> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Índice Litúrgico")),
+      appBar: AppBar(title: Text("Índice Litúrgico"), centerTitle: false),
       body: FutureBuilder(
           future: CantoService().getCantosLocal(),
           builder: (BuildContext cont, AsyncSnapshot<List<Canto>> snapshot) {

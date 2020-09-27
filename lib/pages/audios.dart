@@ -9,6 +9,7 @@ import "package:path_provider/path_provider.dart";
 import "package:percent_indicator/circular_percent_indicator.dart";
 import "package:ressuscitou/helpers/global.dart";
 import "package:ressuscitou/model/canto.dart";
+import 'package:ressuscitou/pages/player.dart';
 
 class AudiosPage extends StatefulWidget {
   @override
@@ -30,6 +31,12 @@ class _AudiosPageState extends State<AudiosPage> {
   }
 
   @override
+  void initState() {
+    globals.listaGlobal = [];
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return WillPopScope(
         onWillPop: () {
@@ -38,8 +45,13 @@ class _AudiosPageState extends State<AudiosPage> {
           return Future.value(false);
         },
         child: Scaffold(
-          appBar: AppBar(title: Text("Ressuscitou"), centerTitle: false, actions: [
-            if (listCantos.where((c) => (c.selected != null && c.selected)).toList().isNotEmpty)
+          appBar: AppBar(title: Text("Áudios"), centerTitle: false, actions: [
+            if (globals.listaGlobal.isNotEmpty && !downloading)
+              IconButton(
+                icon: Icon(Icons.play_arrow, color: Colors.white),
+                onPressed: () => action("Reproduzir"),
+              ),
+            if (listCantos.where((c) => (c.selected != null && c.selected)).toList().isNotEmpty && !downloading)
               IconButton(
                 icon: Icon(Icons.delete, color: Colors.white),
                 onPressed: () => action("Apagar"),
@@ -56,29 +68,84 @@ class _AudiosPageState extends State<AudiosPage> {
 
   action(String value) async {
     if (value == "Apagar") {
-      for (var i = 0; i < listCantos.length; i++) {
-        if (listCantos[i].selected != null && listCantos[i].selected) {
-          await listCantos[i].mp3Delete();
-        }
-      }
-      cantosLoaded = false;
-      setState(() {});
+      Get.defaultDialog(
+          title: "Apagar áudios",
+          radius: 4,
+          content: ConstrainedBox(
+              constraints: BoxConstraints(minWidth: MediaQuery.of(context).size.width * 0.6),
+              child: Padding(
+                padding: EdgeInsets.all(4),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text("Tem certeza que deseja apagar os áudios selecionados?", textAlign: TextAlign.center),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: <Widget>[
+                        Container(
+                            margin: EdgeInsets.only(top: 8),
+                            width: 100,
+                            child: FlatButton(
+                              child: FittedBox(fit: BoxFit.scaleDown, child: Text("Cancelar")),
+                              color: Colors.grey[200],
+                              textColor: Colors.black,
+                              onPressed: () async {
+                                Navigator.of(context).pop();
+                              },
+                            )),
+                        Container(
+                            margin: EdgeInsets.only(top: 8),
+                            width: 100,
+                            child: FlatButton(
+                              child: FittedBox(fit: BoxFit.scaleDown, child: Text("Apagar")),
+                              color: globals.darkRed,
+                              textColor: Colors.white,
+                              onPressed: () async {
+                                var count = 0;
+                                for (var i = 0; i < listCantos.length; i++) {
+                                  if (listCantos[i].selected != null && listCantos[i].selected) {
+                                    count++;
+                                    await listCantos[i].mp3Delete();
+                                  }
+                                }
+                                globals.listaGlobal = [];
+                                cantosLoaded = false;
+                                setState(() {});
+                                Navigator.of(context).pop();
+                                if (count == 1)
+                                  snackBar(Get.overlayContext, "$count Canto apagado!");
+                                else
+                                  snackBar(Get.overlayContext, "$count Cantos apagados!");
+                              },
+                            )),
+                      ],
+                    ),
+                  ],
+                ),
+              )));
     }
     if (value == "UnMarkAll") {
       for (var i = 0; i < listCantos.length; i++) {
         listCantos[i].selected = false;
+        globals.listaGlobal = [];
       }
       setState(() {});
     }
     if (value == "MarkAll") {
       for (var i = 0; i < listCantos.length; i++) {
         listCantos[i].selected = true;
+        if (globals.listaGlobal.where((c) => (c.id == listCantos[i].id)).toList().isEmpty)
+          globals.listaGlobal.add(globals.cantosGlobal.where((c) => (c.id == listCantos[i].id)).toList().first);
       }
       setState(() {});
     }
 
     if (value == "Download") {
       download();
+    }
+
+    if (value == "Reproduzir") {
+      Get.to(PlayerPage());
     }
   }
 
@@ -289,6 +356,11 @@ class _AudiosPageState extends State<AudiosPage> {
                     controlAffinity: ListTileControlAffinity.leading,
                     onChanged: (value) => setState(() {
                       listCantos[index].selected = !listCantos[index].selected;
+                      if (listCantos[index].selected)
+                        globals.listaGlobal
+                            .add(globals.cantosGlobal.where((c) => (c.id == listCantos[index].id)).toList().first);
+                      else
+                        globals.listaGlobal.removeWhere((c) => c.id == listCantos[index].id);
                     }),
                     title: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -308,9 +380,8 @@ class _AudiosPageState extends State<AudiosPage> {
         ],
       );
     }
-    return  Center(
-      child: Text("Não há áudios baixados"
-      ),
+    return Center(
+      child: Text("Não há áudios baixados"),
     );
   }
 

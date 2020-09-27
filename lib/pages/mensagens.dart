@@ -11,7 +11,7 @@ class _MensagensPageState extends State<MensagensPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Ressuscitou")),
+      appBar: AppBar(title: Text("Mensagens"),centerTitle:  false),
       body: Container(
         margin: EdgeInsets.all(16),
         child: FutureBuilder(

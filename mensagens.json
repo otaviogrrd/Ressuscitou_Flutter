@@ -1,5 +1,25 @@
 [
   {
+    "id": "8",
+    "plataforma": "Android",
+    "titulo": "Nova versão disponível.",
+    "conteudo": "Atualize pela Play Store! Agora é possível reproduzir os áudios como playlist, na página de áudios baixados!",
+    "dataIni": "2020-09-27",
+    "dataFim": "9999-12-31",
+    "buildDe": 0,
+    "buildAte": 15
+  },
+  {
+    "id": "7",
+    "plataforma": "iOS",
+    "titulo": "Nova versão disponível.",
+    "conteudo": "Instale a versão 16 pelo aplicativo TestFlight.\nTeste a funcionalidade de playlist de áudios, na página de áudios baixados!",
+    "dataIni": "2020-09-27",
+    "dataFim": "9999-12-31",
+    "buildDe": 14,
+    "buildAte": 15
+  },
+  {
     "id": "6",
     "plataforma": "iOS",
     "titulo": "Nova versão disponível.",

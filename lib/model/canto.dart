@@ -34,7 +34,9 @@ class Canto {
   bool downloaded = false;
   bool selected = false;
   String fileSize;
+  String filePath;
   double percentDownload = 0;
+  bool playing;
 
   Canto({
     this.id,
@@ -129,6 +131,7 @@ class Canto {
     await getApplicationDocumentsDirectory().then((dir) {
       final file = File("${dir.path}/" + this.html + ".mp3");
       file.exists().then((value) {
+        this.filePath = file.path;
         this.downloaded = value;
         if (value) this.fileSize = (file.lengthSync() / 1000000).toStringAsFixed(2) + "mb";
       });
@@ -136,11 +139,9 @@ class Canto {
   }
 
   mp3Delete() async {
-    await getApplicationDocumentsDirectory().then((dir) {
-      final file = File("${dir.path}/" + this.html + ".mp3");
-      file.exists().then((value) {
-        file.delete();
-      });
+    final file = File(this.filePath);
+    file.exists().then((value) {
+      file.delete();
     });
   }
 }

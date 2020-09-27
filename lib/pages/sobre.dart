@@ -15,7 +15,7 @@ class _SobrePageState extends State<SobrePage> {
   Widget build(BuildContext context) {
     int cantosVersaoLocal = (globals.prefs.getInt("cantosVersao") ?? 0);
     return Scaffold(
-        appBar: AppBar(title: Text("Ressuscitou")),
+        appBar: AppBar(title: Text("Sobre"), centerTitle: false),
         body: Container(
           margin: EdgeInsets.all(16),
           child: SingleChildScrollView(

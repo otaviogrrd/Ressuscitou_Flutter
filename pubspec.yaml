@@ -1,7 +1,7 @@
 name: ressuscitou
 description: Ressuscitou
 
-version: 3.0.9+14
+version: 3.0.10+16
 ## Comando para gerar o apk: flutter build apk --split-per-abi
 
 environment:
@@ -28,7 +28,7 @@ dependencies:
   flutter_webview_plugin: ^0.3.11
   shared_preferences: ^0.5.7+2
   flutter_form_builder: ^3.13.5
-  audioplayers: ^0.15.1
+  audioplayers: ^0.16.1
   uuid: ^2.0.4
   path_provider: ^1.5.1
   package_info: ^0.4.1
@@ -43,6 +43,7 @@ dependencies:
   share: ^0.6.4+3
   flushbar: ^1.10.4
   material_design_icons_flutter: 4.0.5655
+  scrollable_positioned_list: ^0.1.7
 
 dev_dependencies:
   flutter_test:

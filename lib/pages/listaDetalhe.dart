@@ -57,7 +57,7 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(elevation: 0.0, centerTitle: true, title: Text("Lista"), actions: [
+        appBar: AppBar(elevation: 0.0, centerTitle: false, title: Text("Lista"), actions: [
           Padding(
             padding: EdgeInsets.only(right: 8),
             child: PopupMenuButton<String>(

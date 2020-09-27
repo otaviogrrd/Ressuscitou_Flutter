@@ -111,34 +111,34 @@ class PlayerWidgetState extends State<PlayerWidget> {
                         : 0.0,
                   ),
                   if (_position != null)
-                  Positioned(
-                    top: 0,
-                    left: 15,
-                    child: Container(
-                      height: 15,
-                      child: FittedBox(
+                    Positioned(
+                      top: 0,
+                      left: 15,
+                      child: Container(
+                        height: 15,
+                        child: FittedBox(
+                            fit: BoxFit.scaleDown,
+                            child: Text(
+                              _position != null ? "${_positionText ?? ""}" : "",
+                              style: TextStyle(fontSize: 12.0),
+                            )),
+                      ),
+                    ),
+                  if (_duration != null)
+                    Positioned(
+                      bottom: 0,
+                      right: 15,
+                      child: Container(
+                        height: 15,
+                        child: FittedBox(
                           fit: BoxFit.scaleDown,
                           child: Text(
-                            _position != null ? "${_positionText ?? ""}" : "",
+                            _duration != null ? _durationText : "",
                             style: TextStyle(fontSize: 12.0),
-                          )),
-                    ),
-                  ),
-                  if (_duration != null)
-                  Positioned(
-                    bottom: 0,
-                    right: 15,
-                    child: Container(
-                      height: 15,
-                      child: FittedBox(
-                        fit: BoxFit.scaleDown,
-                        child: Text(
-                          _duration != null ? _durationText : "",
-                          style: TextStyle(fontSize: 12.0),
+                          ),
                         ),
                       ),
                     ),
-                  ),
                 ],
               ),
             ),
@@ -184,14 +184,12 @@ class PlayerWidgetState extends State<PlayerWidget> {
 
     _audioPlayer.onPlayerStateChanged.listen((state) {
       if (!mounted) return;
-      setState(() {
-      });
+      setState(() {});
     });
 
     _audioPlayer.onNotificationPlayerStateChanged.listen((state) {
       if (!mounted) return;
     });
-
   }
 
   Future<int> _play() async {
