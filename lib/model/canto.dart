@@ -176,6 +176,8 @@ class CantoService {
             globals.prefs.setString("listCantos", jsonEncode(list.map((i) => i.toJson()).toList()).toString());
             return list;
           }
+        }else{
+          globals.prefs.setInt("cantosVersao", cantosVersaoLocal);
         }
       }
     } catch (Exception) {

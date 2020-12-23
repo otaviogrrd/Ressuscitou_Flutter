@@ -332,7 +332,7 @@ class _HomePageState extends State<HomePage> {
               child: Center(child: Text("Filtrar Etapa", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 11))),
             ),
             ListTile(
-                title: Text("Pré-Catecumentato"),
+                title: Text("Pré-Catecumenato"),
                 leading: ClipOval(
                   child: Material(
                     color: getColorCateg(1), // button color

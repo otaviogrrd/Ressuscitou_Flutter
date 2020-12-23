@@ -1,7 +1,9 @@
 import "dart:io";
 
 import "package:flutter/material.dart";
+import 'package:flutter/services.dart';
 import "package:get/get.dart";
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import "package:ressuscitou/helpers/global.dart";
 import "package:url_launcher/url_launcher.dart";
 
@@ -11,6 +13,8 @@ class SobrePage extends StatefulWidget {
 }
 
 class _SobrePageState extends State<SobrePage> {
+  bool emailFail = false;
+
   @override
   Widget build(BuildContext context) {
     int cantosVersaoLocal = (globals.prefs.getInt("cantosVersao") ?? 0);
@@ -49,39 +53,89 @@ class _SobrePageState extends State<SobrePage> {
                 ),
               SizedBox(height: 50),
               Text("Desenvolvido por:", style: TextStyle(fontSize: 10), textAlign: TextAlign.center),
-              InkWell(
-                onTap: () => launchEmail(),
-                child: Container(
-                  height: 45,
-                  width: 250,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 10),
-                        child: Table(
-                          columnWidths: {
-                            0: IntrinsicColumnWidth(flex: 0.2),
-                            1: IntrinsicColumnWidth(flex: 0.8),
-                          },
-                          defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-                          children: [
-                            TableRow(children: [
-                              Center(child: Icon(Icons.mail_outline)),
-                              FittedBox(
-                                  fit: BoxFit.scaleDown,
-                                  child: Text("  Otávio Garrido Moraes",
-                                      style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500))),
-                            ])
+              if (!emailFail)
+                InkWell(
+                  onTap: () => launchEmail(),
+                  child: Container(
+                    height: 45,
+                    width: 250,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          child: Table(
+                            columnWidths: {
+                              0: IntrinsicColumnWidth(flex: 0.2),
+                              1: IntrinsicColumnWidth(flex: 0.8),
+                            },
+                            defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                            children: [
+                              TableRow(children: [
+                                Center(child: Icon(Icons.mail_outline)),
+                                FittedBox(
+                                    fit: BoxFit.scaleDown,
+                                    child: Text("  Otávio Garrido Moraes",
+                                        style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500))),
+                              ])
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    decoration:
+                        BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(4)), color: Colors.grey[200]),
+                  ),
+                ),
+              if (emailFail)
+                Column(
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        Clipboard.setData(ClipboardData(text: "otavio.grrd@gmail.com"));
+                        snackBar(Get.overlayContext, "E-mail copiado");
+                      },
+                      child: Container(
+                        height: 45,
+                        width: 250,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 10),
+                              child: Table(
+                                columnWidths: {
+                                  0: IntrinsicColumnWidth(flex: 0.8),
+                                  1: IntrinsicColumnWidth(flex: 0.2),
+                                },
+                                defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                                children: [
+                                  TableRow(children: [
+                                    Column(
+                                      children: [
+                                        FittedBox(
+                                            fit: BoxFit.scaleDown,
+                                            child: Text("Otávio Garrido Moraes",
+                                                style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500))),
+                                        FittedBox(
+                                            fit: BoxFit.scaleDown,
+                                            child:
+                                                Text("otavio.grrd@gmail.com", style: TextStyle(color: Colors.black))),
+                                      ],
+                                    ),
+                                    Center(child: Icon(MdiIcons.contentCopy)),
+                                  ])
+                                ],
+                              ),
+                            ),
                           ],
                         ),
+                        decoration:
+                            BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(4)), color: Colors.grey[200]),
                       ),
-                    ],
-                  ),
-                  decoration:
-                      BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(4)), color: Colors.grey[200]),
+                    )
+                  ],
                 ),
-              ),
               SizedBox(height: 50),
               InkWell(
                 onTap: () => Get.to(LicensePage(
@@ -117,7 +171,9 @@ class _SobrePageState extends State<SobrePage> {
     if (await canLaunch(url)) {
       await launch(url);
     } else {
-      snackBar(Get.overlayContext, "Erro ao iniciar e-mail");
+      snackBar(Get.overlayContext, "Erro ao iniciar aplicativo de e-mail");
+      emailFail = true;
+      setState(() {});
     }
   }
 }
