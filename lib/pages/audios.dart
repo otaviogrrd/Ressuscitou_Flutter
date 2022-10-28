@@ -98,7 +98,7 @@ class _AudiosPageState extends State<AudiosPage> {
                             width: 100,
                             child: FlatButton(
                               child: FittedBox(fit: BoxFit.scaleDown, child: Text("Apagar")),
-                              color: globals.darkRed,
+                              color: Theme.of(context).colorScheme.primary,
                               textColor: Colors.white,
                               onPressed: () async {
                                 var count = 0;
@@ -180,7 +180,7 @@ class _AudiosPageState extends State<AudiosPage> {
         width: 100,
         child: FlatButton(
             child: FittedBox(fit: BoxFit.scaleDown, child: Text("Continuar")),
-            color: globals.darkRed,
+            color: Theme.of(context).colorScheme.primary,
             textColor: Colors.white,
             onPressed: () {
               action("UnMarkAll");
@@ -240,7 +240,7 @@ class _AudiosPageState extends State<AudiosPage> {
           validateStatus: (status) {
             return status < 500;
           }),
-    ).then((Response response) async {
+    ).then((response) async {
       file.writeAsBytes(response.data).then((value) {
         listCantos2[index].downloaded = true;
         setState(() {});
@@ -305,7 +305,7 @@ class _AudiosPageState extends State<AudiosPage> {
                               child: Text("${(listCantos2[index].percentDownload * 100).toInt()}%"),
                             ),
                           ),
-                          progressColor: globals.darkRed,
+                          progressColor: Theme.of(context).colorScheme.primary,
                         ),
                       )
                     : Container(height: 45, width: 45, child: Icon(Icons.check)),
@@ -325,7 +325,7 @@ class _AudiosPageState extends State<AudiosPage> {
                     children: <Widget>[
                       Padding(
                         padding: EdgeInsets.fromLTRB(16, 8, 0, 8),
-                        child: Icon(Icons.check_box, color: globals.darkRed),
+                        child: Icon(Icons.check_box, color: Theme.of(context).colorScheme.primary),
                       ),
                       Expanded(child: FittedBox(fit: BoxFit.scaleDown, child: Text("Selecionar Todos"))),
                     ],
@@ -338,7 +338,7 @@ class _AudiosPageState extends State<AudiosPage> {
                     children: <Widget>[
                       Padding(
                         padding: EdgeInsets.fromLTRB(16, 8, 0, 8),
-                        child: Icon(Icons.check_box_outline_blank, color: globals.darkRed),
+                        child: Icon(Icons.check_box_outline_blank, color: Theme.of(context).colorScheme.primary),
                       ),
                       Expanded(child: FittedBox(fit: BoxFit.scaleDown, child: Text("Limpar Seleção"))),
                     ],

@@ -9,7 +9,6 @@ import 'package:flutter/gestures.dart';
 import "package:flutter/material.dart";
 import "package:flutter_form_builder/flutter_form_builder.dart";
 import "package:flutter_speed_dial/flutter_speed_dial.dart";
-import "package:flutter_webview_plugin/flutter_webview_plugin.dart";
 import "package:get/get.dart";
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import "package:numberpicker/numberpicker.dart";
@@ -35,7 +34,6 @@ class CantoPage extends StatefulWidget {
 class _CantoPageState extends State<CantoPage> {
   final GlobalKey<FormBuilderState> _formKey = GlobalKey<FormBuilderState>();
   final ctrlAnotacoes = TextEditingController();
-  final flutterWebviewPlugin = new FlutterWebviewPlugin();
   WebViewController webViewController;
   bool exibePlayer = false;
   String localFilePath = "";
@@ -101,7 +99,7 @@ class _CantoPageState extends State<CantoPage> {
               : SpeedDial(
                   closeManually: true,
                   animatedIcon: AnimatedIcons.menu_close,
-                  foregroundColor: globals.darkRed,
+                  foregroundColor: Theme.of(context).colorScheme.primary,
                   backgroundColor: Colors.grey[100],
                   elevation: 1,
                   curve: Curves.easeIn,
@@ -115,7 +113,7 @@ class _CantoPageState extends State<CantoPage> {
                             width: 40,
                             child: FittedBox(
                                 fit: BoxFit.scaleDown,
-                                child: Text("Transp", style: TextStyle(fontSize: 12, color: globals.darkRed))),
+                                child: Text("Transp", style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.primary))),
                           )),
                           onTap: () => getTraspDialog(),
                           backgroundColor: Colors.grey[100]),
@@ -127,7 +125,7 @@ class _CantoPageState extends State<CantoPage> {
                             width: 40,
                             child: FittedBox(
                                 fit: BoxFit.scaleDown,
-                                child: Text("Capo", style: TextStyle(fontSize: 12, color: globals.darkRed))),
+                                child: Text("Capo", style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.primary))),
                           )),
                           onTap: () => getCapoDialog(),
                           backgroundColor: Colors.grey[100]),
@@ -137,13 +135,13 @@ class _CantoPageState extends State<CantoPage> {
                             children: <Widget>[
                               Padding(
                                   padding: EdgeInsets.only(top: 10),
-                                  child: Center(child: Icon(Icons.keyboard_arrow_down, color: globals.darkRed))),
+                                  child: Center(child: Icon(Icons.keyboard_arrow_down, color: Theme.of(context).colorScheme.primary))),
                               Padding(
                                   padding: EdgeInsets.only(bottom: 2),
-                                  child: Center(child: Icon(Icons.keyboard_arrow_down, color: globals.darkRed))),
+                                  child: Center(child: Icon(Icons.keyboard_arrow_down, color: Theme.of(context).colorScheme.primary))),
                               Padding(
                                   padding: EdgeInsets.only(bottom: 14),
-                                  child: Center(child: Icon(Icons.keyboard_arrow_down, color: globals.darkRed))),
+                                  child: Center(child: Icon(Icons.keyboard_arrow_down, color: Theme.of(context).colorScheme.primary))),
                               if (scroll > 0)
                                 Align(
                                     alignment: Alignment.bottomCenter,
@@ -153,7 +151,7 @@ class _CantoPageState extends State<CantoPage> {
                                         child: FittedBox(
                                             fit: BoxFit.scaleDown,
                                             child: Text(scroll.toString() + "x",
-                                                style: TextStyle(color: globals.darkRed))))),
+                                                style: TextStyle(color: Theme.of(context).colorScheme.primary))))),
                             ],
                           ),
                           onTap: () async {
@@ -164,7 +162,7 @@ class _CantoPageState extends State<CantoPage> {
                         SpeedDialChild(
                             elevation: 2,
                             child: (widget.canto.downloaded)
-                                ? Icon(Icons.music_note, color: globals.darkRed)
+                                ? Icon(Icons.music_note, color: Theme.of(context).colorScheme.primary)
                                 : Stack(children: <Widget>[
                                     Center(
                                         child: Padding(
@@ -174,7 +172,7 @@ class _CantoPageState extends State<CantoPage> {
                                     Center(
                                         child: Padding(
                                       padding: EdgeInsets.only(left: 10, top: 5),
-                                      child: Icon(Icons.file_download, size: 20, color: globals.darkRed),
+                                      child: Icon(Icons.file_download, size: 20, color: Theme.of(context).colorScheme.primary),
                                     )),
                                   ]),
                             onTap: () => _loadFile(),
@@ -214,7 +212,7 @@ class _CantoPageState extends State<CantoPage> {
                               child:
                                   Text("${(percentDownload * 100).toInt()}%", style: TextStyle(color: Colors.white))),
                           linearStrokeCap: LinearStrokeCap.butt,
-                          progressColor: globals.darkRed,
+                          progressColor: Theme.of(context).colorScheme.primary,
                         ),
                       ),
                     Expanded(
@@ -262,7 +260,7 @@ class _CantoPageState extends State<CantoPage> {
         InkWell(
           child: Container(
             height: 60,
-            child: Icon(Icons.playlist_add, size: 25, color: globals.darkRed),
+            child: Icon(Icons.playlist_add, size: 25, color: Theme.of(context).colorScheme.primary),
           ),
           onTap: () => navigateOption("1"),
         ),
@@ -270,7 +268,7 @@ class _CantoPageState extends State<CantoPage> {
         InkWell(
           child: Container(
             height: 60,
-            child: Icon(MdiIcons.commentEditOutline, size: 25, color: globals.darkRed),
+            child: Icon(MdiIcons.commentEditOutline, size: 25, color: Theme.of(context).colorScheme.primary),
           ),
           onTap: () => navigateOption("2"),
         ),
@@ -280,7 +278,7 @@ class _CantoPageState extends State<CantoPage> {
             height: 60,
             child: FittedBox(
                 fit: BoxFit.scaleDown,
-                child: Text("Transposição", style: TextStyle(fontSize: 12, color: globals.darkRed))),
+                child: Text("Transposição", style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.primary))),
           ),
           onTap: () => getTraspDialog(),
         ),
@@ -290,7 +288,7 @@ class _CantoPageState extends State<CantoPage> {
             height: 60,
             child: FittedBox(
                 fit: BoxFit.scaleDown,
-                child: Text("Capotraste", style: TextStyle(fontSize: 12, color: globals.darkRed))),
+                child: Text("Capotraste", style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.primary))),
           ),
           onTap: () => getCapoDialog(),
         ),
@@ -302,13 +300,13 @@ class _CantoPageState extends State<CantoPage> {
               children: <Widget>[
                 Padding(
                     padding: EdgeInsets.only(bottom: 12),
-                    child: Center(child: Icon(Icons.keyboard_arrow_down, color: globals.darkRed))),
+                    child: Center(child: Icon(Icons.keyboard_arrow_down, color: Theme.of(context).colorScheme.primary))),
                 Padding(
                     padding: EdgeInsets.all(0),
-                    child: Center(child: Icon(Icons.keyboard_arrow_down, color: globals.darkRed))),
+                    child: Center(child: Icon(Icons.keyboard_arrow_down, color: Theme.of(context).colorScheme.primary))),
                 Padding(
                     padding: EdgeInsets.only(top: 12),
-                    child: Center(child: Icon(Icons.keyboard_arrow_down, color: globals.darkRed))),
+                    child: Center(child: Icon(Icons.keyboard_arrow_down, color: Theme.of(context).colorScheme.primary))),
                 if (scroll > 0)
                   Padding(
                     padding: EdgeInsets.only(top: 24, left: 45),
@@ -317,7 +315,7 @@ class _CantoPageState extends State<CantoPage> {
                         width: 50,
                         child: FittedBox(
                             fit: BoxFit.scaleDown,
-                            child: Text(scroll.toString() + "x", style: TextStyle(color: globals.darkRed)))),
+                            child: Text(scroll.toString() + "x", style: TextStyle(color: Theme.of(context).colorScheme.primary)))),
                   ),
               ],
             ),
@@ -334,7 +332,7 @@ class _CantoPageState extends State<CantoPage> {
               height: 60,
               width: 60,
               child: (widget.canto.downloaded)
-                  ? Icon(Icons.music_note, color: globals.darkRed)
+                  ? Icon(Icons.music_note, color: Theme.of(context).colorScheme.primary)
                   : (percentDownload > 0 && percentDownload < 1)
                       ? Container(
                           height: 60,
@@ -351,7 +349,7 @@ class _CantoPageState extends State<CantoPage> {
                                 ),
                               ),
                             ),
-                            progressColor: globals.darkRed,
+                            progressColor: Theme.of(context).colorScheme.primary,
                           ),
                         )
                       : Stack(children: <Widget>[
@@ -363,7 +361,7 @@ class _CantoPageState extends State<CantoPage> {
                           Center(
                               child: Padding(
                             padding: EdgeInsets.only(left: 10, top: 5),
-                            child: Icon(Icons.file_download, size: 20, color: globals.darkRed),
+                            child: Icon(Icons.file_download, size: 20, color: Theme.of(context).colorScheme.primary),
                           )),
                         ]),
             ),
@@ -570,7 +568,7 @@ class _CantoPageState extends State<CantoPage> {
         margin: EdgeInsets.only(left: 8, right: 8, top: 20),
         width: 120,
         child: FlatButton(
-            child: Icon((salvar > 0) ? Icons.save : Icons.delete, color: globals.darkRed),
+            child: Icon((salvar > 0) ? Icons.save : Icons.delete, color: Theme.of(context).colorScheme.primary),
             color: Colors.grey[200],
             onPressed: () async {
               (salvar > 0)
@@ -621,7 +619,7 @@ class _CantoPageState extends State<CantoPage> {
                             height: 20,
                             width: 20,
                             decoration: BoxDecoration(
-                              border: Border.all(color: globals.darkRed),
+                              border: Border.all(color: Theme.of(context).colorScheme.primary),
                             ),
                           )),
                     ],
@@ -704,7 +702,7 @@ class _CantoPageState extends State<CantoPage> {
             validateStatus: (status) {
               return status < 500;
             }),
-      ).then((Response response) async {
+      ).then((response) async {
         file.writeAsBytes(response.data).then((value) {
           widget.canto.downloaded = true;
           localFilePath = file.path;
@@ -738,13 +736,13 @@ class _CantoPageState extends State<CantoPage> {
                       key: _formKey,
                       child: FormBuilderTextField(
                           cursorColor: globals.lightRed,
-                          attribute: "Anotacoes",
+                          name: "Anotacoes",
                           minLines: 10,
                           maxLines: 100,
                           textAlign: TextAlign.center,
                           textCapitalization: TextCapitalization.sentences,
                           controller: ctrlAnotacoes,
-                          onFieldSubmitted: (val) {
+                          onSubmitted: (val) {
                             globals.prefs.setString("ANOT_" + widget.canto.id.toString(), ctrlAnotacoes.text);
                             Navigator.of(context).pop();
                           },
@@ -774,7 +772,7 @@ class _CantoPageState extends State<CantoPage> {
                         width: 100,
                         child: FlatButton(
                             child: Icon(Icons.check, color: Colors.white),
-                            color: globals.darkRed,
+                            color: Theme.of(context).colorScheme.primary,
                             textColor: Colors.black,
                             onPressed: () {
                               globals.prefs.setString("ANOT_" + widget.canto.id.toString(), ctrlAnotacoes.text);

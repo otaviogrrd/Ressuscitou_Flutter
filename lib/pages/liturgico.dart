@@ -63,7 +63,7 @@ class _LiturgicoPageState extends State<LiturgicoPage> {
           leading: expanded[index]
               ? Icon(Icons.keyboard_arrow_down, color: Colors.black)
               : Icon(Icons.keyboard_arrow_up, color: Colors.black),
-          title: Text(text, style: TextStyle(fontSize: 16, color: globals.darkRed, fontWeight: FontWeight.bold))),
+          title: Text(text, style: TextStyle(fontSize: 16, color: Theme.of(context).colorScheme.primary, fontWeight: FontWeight.bold))),
       callback: (isSelected) => setState(() => expanded[index] = !isSelected),
       childList: ChildList(
         children: filtrar(index),
@@ -125,7 +125,7 @@ class _LiturgicoPageState extends State<LiturgicoPage> {
   geticon(Canto canto) {
     if (canto.url != "") {
       if (canto.downloaded != null && canto.downloaded)
-        return Icon(Icons.music_note, color: globals.darkRed);
+        return Icon(Icons.music_note, color: Theme.of(context).colorScheme.primary);
       else
         return Icon(Icons.music_note, color: Colors.grey);
     } else

@@ -78,7 +78,7 @@ class PlayerWidgetState extends State<PlayerWidget> {
                 onPressed: _isPlaying ? null : () => _play(),
                 iconSize: 40,
                 icon: Icon(Icons.play_arrow),
-                color: globals.darkRed,
+                color: Theme.of(context).colorScheme.primary,
               ),
             if (_isPlaying)
               IconButton(
@@ -86,14 +86,14 @@ class PlayerWidgetState extends State<PlayerWidget> {
                 onPressed: _isPlaying ? () => _pause() : null,
                 iconSize: 40,
                 icon: Icon(Icons.pause),
-                color: globals.darkRed,
+                color: Theme.of(context).colorScheme.primary,
               ),
             //if (_isPlaying || _isPaused)
             Expanded(
               child: Stack(
                 children: <Widget>[
                   Slider(
-                    activeColor: globals.darkRed,
+                    activeColor: Theme.of(context).colorScheme.primary,
                     inactiveColor: Colors.grey,
                     onChanged: (v) {
                       if (v < 1) {
@@ -148,7 +148,7 @@ class PlayerWidgetState extends State<PlayerWidget> {
               onPressed: _isPlaying || _isPaused ? () => _stop() : null,
               iconSize: 40,
               icon: Icon(Icons.stop),
-              color: globals.darkRed,
+              color: Theme.of(context).colorScheme.primary,
             ),
           ],
         ),

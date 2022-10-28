@@ -48,7 +48,7 @@ class _SobrePageState extends State<SobrePage> {
                               style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
                         )),
                     decoration:
-                        BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(4)), color: globals.darkRed),
+                        BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(4)), color: Theme.of(context).colorScheme.primary),
                   ),
                 ),
               SizedBox(height: 50),

@@ -55,7 +55,7 @@ class MensagemService {
 
     var connectivityResult = await (Connectivity().checkConnectivity());
     if (connectivityResult != ConnectivityResult.none) {
-      Response res = await get(urlMensagem);
+      var res = await get(urlMensagem);
       if (res.statusCode == 200) {
         str = res.body;
         globals.prefs.setString("Mensagens", str);

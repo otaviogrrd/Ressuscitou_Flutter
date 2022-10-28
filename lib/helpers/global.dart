@@ -16,7 +16,9 @@ class Globals {
   List<Canto> cantosGlobal = [];
   List<Canto> listaGlobal = [];
   Color lightRed = hexToColor("#af282f");
+  Color lightRedDarkTheme = hexToColor("#af494f");
   Color darkRed = hexToColor("#650000");
+  Color grey = hexToColor("#88868B");
   Color darkRedShadow = hexToColor("#2d0000");
   double fontSizeBig = 20.0;
   double fontSizeNormal = 17.0;

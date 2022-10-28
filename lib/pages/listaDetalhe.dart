@@ -98,11 +98,11 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
                 padding: EdgeInsets.symmetric(horizontal: 5),
                 child: FormBuilder(
                     key: formKey,
-                    readOnly: !editMode,
+                    enabled: editMode,
                     child: Column(children: <Widget>[
                       FormBuilderTextField(
                           cursorColor: globals.lightRed,
-                          attribute: "Título",
+                          name: "Título",
                           initialValue: listaOld,
                           textCapitalization: TextCapitalization.sentences,
                           minLines: 1,
@@ -111,7 +111,7 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
                           onChanged: (value) {
                             listaNew.titulo = value;
                           },
-                          validators: [FormBuilderValidators.required(errorText: "Informe um título para lista!")],
+                          validator: FormBuilderValidators.required(context, errorText: "Informe um título para lista!"),
                           decoration: InputDecoration(
                             labelText: "Título",
                           ))
@@ -203,8 +203,8 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
                         background: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            Text("Remover Canto", style: TextStyle(color: globals.darkRed)),
-                            Padding(padding: EdgeInsets.all(8.0), child: Icon(Icons.delete, color: globals.darkRed)),
+                            Text("Remover Canto", style: TextStyle(color: Theme.of(context).colorScheme.primary)),
+                            Padding(padding: EdgeInsets.all(8.0), child: Icon(Icons.delete, color: Theme.of(context).colorScheme.primary)),
                           ],
                         ),
                         onDismissed: (direction) => setState(() {
@@ -284,7 +284,7 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
                           width: 100,
                           child: FlatButton(
                             child: FittedBox(fit: BoxFit.scaleDown, child: Text("Apagar")),
-                            color: globals.darkRed,
+                            color: Theme.of(context).colorScheme.primary,
                             textColor: Colors.white,
                             onPressed: () async {
                               CantoListService().saveList(listaOld: listaOld);
@@ -322,7 +322,7 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
             width: 100,
             child: FlatButton(
                 child: FittedBox(fit: BoxFit.scaleDown, child: Text("Fechar")),
-                color: globals.darkRed,
+                color: Theme.of(context).colorScheme.primary,
                 textColor: Colors.white,
                 onPressed: () {
                   Navigator.pop(context);

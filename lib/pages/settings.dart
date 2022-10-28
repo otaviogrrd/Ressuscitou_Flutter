@@ -78,7 +78,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     min: 2,
                     divisions: 10,
                     inactiveColor: Colors.grey,
-                    activeColor: globals.darkRed,
+                    activeColor: Theme.of(context).colorScheme.primary,
                     value: (double.parse((globals.prefs.getInt("tamanhoFonte") ?? 15).toString())),
 //                    label: globals.prefs.getInt("tamanhoFonte").toString(),
                     onChanged: (value) {
@@ -122,7 +122,7 @@ class _SettingsPageState extends State<SettingsPage> {
                           width: 100,
                           child: FlatButton(
                             child: FittedBox(fit: BoxFit.scaleDown, child: Text("Apagar")),
-                            color: globals.darkRed,
+                            color: Theme.of(context).colorScheme.primary,
                             textColor: Colors.white,
                             onPressed: () async {
                               globals.cantosGlobal

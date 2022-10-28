@@ -56,7 +56,9 @@ class _HomePageState extends State<HomePage> {
       ]),
       drawer: (globals.tablet)
           ? null
-          : (widget.selectable != null && widget.selectable) ? null : Drawer(child: getMenuLateral()),
+          : (widget.selectable != null && widget.selectable)
+              ? null
+              : Drawer(child: getMenuLateral()),
       body: getCantosLocal(),
     );
   }
@@ -92,7 +94,7 @@ class _HomePageState extends State<HomePage> {
               width: 100,
               child: FlatButton(
                   child: FittedBox(fit: BoxFit.scaleDown, child: Text("Entendi")),
-                  color: globals.darkRed,
+                  color: Theme.of(context).colorScheme.primary,
                   textColor: Colors.white,
                   onPressed: () {
                     globals.prefs.setBool("TermosIniciaisLidos", true);
@@ -139,7 +141,7 @@ class _HomePageState extends State<HomePage> {
               width: 100,
               child: FlatButton(
                   child: FittedBox(fit: BoxFit.scaleDown, child: Text("Fechar")),
-                  color: globals.darkRed,
+                  color: Theme.of(context).colorScheme.primary,
                   textColor: Colors.white,
                   onPressed: () {
                     globals.prefs.setString("MessageLida", DateFormat("yyyy-MM-dd").format(DateTime.now()));
@@ -174,8 +176,7 @@ class _HomePageState extends State<HomePage> {
                         itemCount: filterListCantos.length,
                         itemBuilder: (context, index) {
                           return InkWell(
-                            onTap: () =>
-                                Get.to(CantoPage(canto: filterListCantos[index])).then((value) => {setState(() {})}),
+                            onTap: () => Get.to(CantoPage(canto: filterListCantos[index])).then((value) => {setState(() {})}),
                             child: (widget.selectable)
                                 ? CheckboxListTile(
                                     dense: true,
@@ -199,7 +200,10 @@ class _HomePageState extends State<HomePage> {
                                                         fit: BoxFit.scaleDown,
                                                         child: Padding(
                                                           padding: EdgeInsets.all(8),
-                                                          child: Text(filterListCantos[index].nr2019),
+                                                          child: Text(
+                                                            filterListCantos[index].nr2019,
+                                                            style: TextStyle(color: Colors.black),
+                                                          ),
                                                         ))))),
                                         Expanded(
                                           child: Padding(
@@ -226,7 +230,10 @@ class _HomePageState extends State<HomePage> {
                                                     fit: BoxFit.scaleDown,
                                                     child: Padding(
                                                       padding: EdgeInsets.all(8),
-                                                      child: Text(filterListCantos[index].nr2019),
+                                                      child: Text(
+                                                        filterListCantos[index].nr2019,
+                                                        style: TextStyle(color: Colors.black),
+                                                      ),
                                                     ))))),
                                     title: Text(
                                       filterListCantos[index].titulo,
@@ -249,7 +256,7 @@ class _HomePageState extends State<HomePage> {
   geticon(Canto canto) {
     if (canto.url != "") {
       if (canto.downloaded != null && canto.downloaded)
-        return Icon(Icons.music_note, color: globals.darkRed);
+        return Icon(Icons.music_note, color: Theme.of(context).colorScheme.primary);
       else
         return Icon(Icons.music_note, color: Colors.grey);
     } else
@@ -284,7 +291,7 @@ class _HomePageState extends State<HomePage> {
   Widget divider() {
     return Padding(
       padding: EdgeInsets.fromLTRB(5, 2, 0, 2),
-      child: Divider(color: Colors.black26, height: 2.0),
+      child: Divider(color: Theme.of(context).colorScheme.onBackground, height: 2.0),
     );
   }
 
@@ -307,7 +314,7 @@ class _HomePageState extends State<HomePage> {
             ),
             ListTile(
                 title: Text("Ordem Alfabética"),
-                leading: Icon(MdiIcons.sortAlphabeticalAscending, size: 25, color: globals.darkRed),
+                leading: Icon(MdiIcons.sortAlphabeticalAscending, size: 25, color: Theme.of(context).colorScheme.primary),
                 onTap: () => setState(() => selectCateg(0))),
 //            ListTile(
 //                title: Padding(
@@ -317,7 +324,7 @@ class _HomePageState extends State<HomePage> {
 //                onTap: () => setState(() => selectCateg(0))),
             ListTile(
                 title: Text("Índice Litúrgico"),
-                leading: Icon(MdiIcons.fileTree, size: 25, color: globals.darkRed),
+                leading: Icon(MdiIcons.fileTree, size: 25, color: Theme.of(context).colorScheme.primary),
 //                title: Padding(
 //                  padding: EdgeInsets.only(left: 40),
 //                  child: Text("Índice Litúrgico", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
@@ -373,43 +380,43 @@ class _HomePageState extends State<HomePage> {
               child: Center(child: Text("Imagens", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 11))),
             ),
             ListTile(
-                leading: Icon(Icons.line_style, size: 25, color: globals.darkRed),
+                leading: Icon(Icons.line_style, size: 25, color: Theme.of(context).colorScheme.primary),
                 title: Text("Acordes"),
                 onTap: () {
-                  Get.to(ImageViwerPage(img: "assets/img/acordes.jpg",title: "Acordes")).then((value) => setState(() {}));
+                  Get.to(ImageViwerPage(img: "assets/img/acordes.jpg", title: "Acordes")).then((value) => setState(() {}));
                 }),
             ListTile(
                 title: Text("Arpejos"),
-                leading: Icon(Icons.timeline, size: 25, color: globals.darkRed),
+                leading: Icon(Icons.timeline, size: 25, color: Theme.of(context).colorScheme.primary),
                 onTap: () {
-                  Get.to(ImageViwerPage(img: "assets/img/arpejos.jpg",title: "Arpejos")).then((value) => setState(() {}));
+                  Get.to(ImageViwerPage(img: "assets/img/arpejos.jpg", title: "Arpejos")).then((value) => setState(() {}));
                 }),
             divider(),
             ListTile(
                 title: Text("Listas"),
-                leading: Icon(Icons.list, size: 25, color: globals.darkRed),
+                leading: Icon(Icons.list, size: 25, color: Theme.of(context).colorScheme.primary),
                 onTap: () => Get.to(ListasPage()).then((value) => setState(() {}))),
             ListTile(
                 title: Text("Áudios"),
-                leading: Icon(Icons.music_note, size: 25, color: globals.darkRed),
+                leading: Icon(Icons.music_note, size: 25, color: Theme.of(context).colorScheme.primary),
                 onTap: () => Get.to(AudiosPage()).then((value) => setState(() {}))),
-             ListTile(
+            ListTile(
                 title: Text("Mensagens"),
-                leading: Icon(MdiIcons.messageTextOutline, size: 25, color: globals.darkRed),
+                leading: Icon(MdiIcons.messageTextOutline, size: 25, color: Theme.of(context).colorScheme.primary),
                 onTap: () => Get.to(MensagensPage())),
             divider(),
             ListTile(
                 title: Text("Descubra seu Tom"),
-                leading: Icon(Icons.call_made, size: 25, color: globals.darkRed),
+                leading: Icon(Icons.call_made, size: 25, color: Theme.of(context).colorScheme.primary),
                 onTap: () => launchUrl()),
             divider(),
             ListTile(
                 title: Text("Opções"),
-                leading: Icon(Icons.settings, size: 25, color: globals.darkRed),
+                leading: Icon(Icons.settings, size: 25, color: Theme.of(context).colorScheme.primary),
                 onTap: () => Get.to(SettingsPage()).then((value) => setState(() {}))),
             ListTile(
                 title: Text("Sobre"),
-                leading: Icon(Icons.info_outline, size: 25, color: globals.darkRed),
+                leading: Icon(Icons.info_outline, size: 25, color: Theme.of(context).colorScheme.primary),
                 onTap: () => Get.to(SobrePage()))
           ],
         ),
@@ -435,7 +442,7 @@ class _HomePageState extends State<HomePage> {
               child: Column(children: <Widget>[
                 FormBuilderTextField(
                     cursorColor: globals.lightRed,
-                    attribute: "search",
+                    name: "search",
                     focusNode: searchFocus,
                     textCapitalization: TextCapitalization.none,
                     textInputAction: TextInputAction.go,
@@ -464,7 +471,7 @@ class _HomePageState extends State<HomePage> {
                       child: Icon(
                         Icons.close,
                         size: 18,
-                        color: globals.darkRed,
+                        color: Theme.of(context).colorScheme.primary,
                       ))),
             ),
           ),

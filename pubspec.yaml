@@ -1,7 +1,8 @@
 name: ressuscitou
 description: Ressuscitou
-
+publish_to: 'none'
 version: 3.0.11+17
+
 ## Comando para gerar o apk: flutter build apk --split-per-abi
 
 environment:
@@ -9,6 +10,8 @@ environment:
 
 dependencies:
   flutter:
+    sdk: flutter
+  flutter_localizations:
     sdk: flutter
 
   # ###################### DEPENDÊNCIA LOCAL, MANTER ATUALIZADA MANUALMENTE ###################### #
@@ -24,10 +27,9 @@ dependencies:
   http: ^0.12.0+2
   cupertino_icons: ^0.1.2
   flutter_keyboard_size: ^0.1.2+2
-  get: ^2.5.6
-  flutter_webview_plugin: ^0.3.11
+  get: ^3.26.0
   shared_preferences: ^0.5.7+2
-  flutter_form_builder: ^3.13.5
+  flutter_form_builder: ^4.2.0
   audioplayers: ^0.16.1
   uuid: ^2.0.4
   path_provider: ^1.5.1
@@ -45,12 +47,15 @@ dependencies:
   material_design_icons_flutter: 4.0.5655
   scrollable_positioned_list: ^0.1.7
 
+dependency_overrides:
+  intl: ^0.17.0
+  date_range_picker:
+    git:
+      url: https://github.com/LempereurBenjamin/date_range_picker
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_localizations:
-    sdk: flutter
-
 
 flutter:
   uses-material-design: true

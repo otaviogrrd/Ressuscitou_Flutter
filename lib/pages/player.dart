@@ -104,7 +104,7 @@ class _PlayerPageState extends State<PlayerPage> {
                         },
                   iconSize: 40,
                   icon: Icon(Icons.skip_previous),
-                  color: globals.darkRed,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
                 if (!_isPlaying)
                   ClipOval(
@@ -115,7 +115,7 @@ class _PlayerPageState extends State<PlayerPage> {
                       onPressed: _isPlaying ? null : () => _play(),
                       iconSize: 100,
                       icon: Icon(Icons.play_arrow),
-                      color: globals.darkRed,
+                      color: Theme.of(context).colorScheme.primary,
                     ),
                   )),
                 if (_isPlaying)
@@ -127,7 +127,7 @@ class _PlayerPageState extends State<PlayerPage> {
                       onPressed: _isPlaying ? () => _pause() : null,
                       iconSize: 100,
                       icon: Icon(Icons.pause),
-                      color: globals.darkRed,
+                      color: Theme.of(context).colorScheme.primary,
                     ),
                   )),
                 IconButton(
@@ -144,7 +144,7 @@ class _PlayerPageState extends State<PlayerPage> {
                         },
                   iconSize: 40,
                   icon: Icon(Icons.skip_next),
-                  color: globals.darkRed,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
               ],
             ),
@@ -153,7 +153,7 @@ class _PlayerPageState extends State<PlayerPage> {
               child: Stack(
                 children: <Widget>[
                   Slider(
-                    activeColor: globals.darkRed,
+                    activeColor: Theme.of(context).colorScheme.primary,
                     inactiveColor: Colors.grey,
                     onChanged: (v) {
                       if (v < 1) {
@@ -230,7 +230,7 @@ class _PlayerPageState extends State<PlayerPage> {
                         itemScrollController.jumpTo(index: globals.listaGlobal.indexWhere((e) => e.playing));
                       },
                 icon: (shuffle) ? Icon(MdiIcons.shuffleVariant, size: 20) : Icon(MdiIcons.shuffleDisabled, size: 25),
-                color: (shuffle) ? globals.darkRed : Colors.black,
+                color: (shuffle) ? Theme.of(context).colorScheme.primary : Colors.black,
               ),
               AnimatedOpacity(
                 opacity: shuffleNotifi ? 1.0 : 0.0,
@@ -256,7 +256,7 @@ class _PlayerPageState extends State<PlayerPage> {
                   }
                 },
                 icon: (repeat) ? Icon(MdiIcons.repeat) : Icon(MdiIcons.repeatOff),
-                color: (repeat) ? globals.darkRed : Colors.black,
+                color: (repeat) ? Theme.of(context).colorScheme.primary : Colors.black,
               ),
             ]),
             Expanded(
@@ -285,7 +285,7 @@ class _PlayerPageState extends State<PlayerPage> {
                             child: Text(
                               _songTitle,
                               style: (songTitle == _songTitle)
-                                  ? TextStyle(fontWeight: FontWeight.bold, color: globals.darkRed)
+                                  ? TextStyle(fontWeight: FontWeight.bold, color: Theme.of(context).colorScheme.primary)
                                   : null,
                             )),
                       );
