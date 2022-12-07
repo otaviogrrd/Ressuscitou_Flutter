@@ -22,25 +22,49 @@ class MainPage extends StatelessWidget {
           scaffoldBackgroundColor: Colors.grey.shade900,
           colorScheme: ColorScheme.dark(
             primary: globals.lightRedDarkTheme,
-            secondary: Colors.grey,
+            primaryVariant: Colors.grey.shade900,
+            secondary: Colors.grey[700],
             onPrimary: Colors.black,
             onSecondary: Colors.white,
+            onBackground: Colors.white54,
           ),
           inputDecorationTheme: InputDecorationTheme(
               filled: true,
-              disabledBorder: OutlineInputBorder(borderSide: BorderSide(color: globals.grey), gapPadding: 10),
-              focusedErrorBorder: OutlineInputBorder(borderSide: BorderSide(color: globals.lightRedDarkTheme), gapPadding: 10),
-              focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: globals.lightRedDarkTheme), gapPadding: 10),
-              errorBorder: OutlineInputBorder(borderSide: BorderSide(color: Theme.of(context).colorScheme.primary), gapPadding: 10),
-              enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: globals.lightRedDarkTheme), gapPadding: 10))),
+              disabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.transparent),
+                gapPadding: 10,
+                borderRadius: BorderRadius.circular(2),
+              ),
+              focusedErrorBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: globals.lightRedDarkTheme),
+                gapPadding: 10,
+                borderRadius: BorderRadius.circular(2),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: globals.lightRedDarkTheme),
+                gapPadding: 10,
+                borderRadius: BorderRadius.circular(2),
+              ),
+              errorBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Theme.of(context).colorScheme.primary),
+                gapPadding: 10,
+                borderRadius: BorderRadius.circular(2),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: globals.lightRedDarkTheme),
+                gapPadding: 10,
+                borderRadius: BorderRadius.circular(2),
+              ))),
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
         primaryColor: globals.darkRed,
         colorScheme: ColorScheme.light(
           primary: globals.darkRed,
-          secondary: Colors.grey,
+          primaryVariant: globals.darkRedShadow,
+          secondary: Colors.grey[200],
           onPrimary: Colors.white,
           onSecondary: Colors.black,
+          onBackground: Colors.black26,
         ),
         inputDecorationTheme: InputDecorationTheme(
           filled: true,

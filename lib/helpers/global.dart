@@ -1,6 +1,7 @@
 library globals;
 
 import 'dart:async';
+import 'dart:convert';
 import 'dart:math';
 
 import "package:flushbar/flushbar.dart";
@@ -16,27 +17,13 @@ class Globals {
   List<Canto> cantosGlobal = [];
   List<Canto> listaGlobal = [];
   Color lightRed = hexToColor("#af282f");
-  Color lightRedDarkTheme = hexToColor("#af494f");
+  Color lightRedDarkTheme = hexToColor("#ff6666");
   Color darkRed = hexToColor("#650000");
   Color grey = hexToColor("#88868B");
   Color darkRedShadow = hexToColor("#2d0000");
   double fontSizeBig = 20.0;
   double fontSizeNormal = 17.0;
-  List<String> escalaTmp = [
-    "zerofiller",
-    "@01",
-    "@02",
-    "@03",
-    "@04",
-    "@05",
-    "@06",
-    "@07",
-    "@08",
-    "@09",
-    "@10",
-    "@11",
-    "@12"
-  ];
+  List<String> escalaTmp = ["zerofiller", "@01", "@02", "@03", "@04", "@05", "@06", "@07", "@08", "@09", "@10", "@11", "@12"];
   List<String> escalaEuropeia = [
     "zerofiller",
     "Do",
@@ -138,7 +125,7 @@ snackBar(BuildContext cont, String str, {String title}) {
     backgroundGradient: LinearGradient(
       begin: FractionalOffset.bottomCenter,
       end: FractionalOffset.topCenter,
-      colors: [Colors.white, globals.lightRed],
+      colors: [Theme.of(cont).colorScheme.secondary, globals.lightRed],
       stops: [0.9, 0.9],
     ),
     boxShadows: [
@@ -153,4 +140,26 @@ snackBar(BuildContext cont, String str, {String title}) {
     flushbarPosition: FlushbarPosition.TOP,
   )..show(cont);
   Timer(Duration(seconds: 3), () => globals.nrPopups--);
+}
+
+bool checkDarkMode(BuildContext context) {
+  return Theme.of(context).colorScheme.primary == globals.lightRedDarkTheme;
+}
+
+getColorCateg(int categoria) {
+  switch (categoria) {
+    case 2:
+      return Colors.blue[200];
+    case 3:
+      return Colors.green[200];
+    case 4:
+      return Colors.orange[100];
+    default:
+      return Colors.grey[200];
+  }
+}
+
+String getPrettyJSONString(jsonObject) {
+  var encoder = new JsonEncoder.withIndent("     ");
+  return encoder.convert(jsonObject);
 }

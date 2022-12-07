@@ -23,7 +23,7 @@ class _SplashState extends State<Splash> {
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.background,
         child: Center(
           child: Padding(
             padding: EdgeInsets.all(30),

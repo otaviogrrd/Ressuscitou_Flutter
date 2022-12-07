@@ -68,7 +68,7 @@ class PlayerWidgetState extends State<PlayerWidget> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: <Widget>[
+      children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -91,10 +91,10 @@ class PlayerWidgetState extends State<PlayerWidget> {
             //if (_isPlaying || _isPaused)
             Expanded(
               child: Stack(
-                children: <Widget>[
+                children: [
                   Slider(
                     activeColor: Theme.of(context).colorScheme.primary,
-                    inactiveColor: Colors.grey,
+                    inactiveColor: Theme.of(context).colorScheme.secondary,
                     onChanged: (v) {
                       if (v < 1) {
                         final position = v * _duration.inMilliseconds;

@@ -48,18 +48,21 @@ class _AudiosPageState extends State<AudiosPage> {
           appBar: AppBar(title: Text("Áudios"), centerTitle: false, actions: [
             if (globals.listaGlobal.isNotEmpty && !downloading)
               IconButton(
-                icon: Icon(Icons.play_arrow, color: Colors.white),
+                icon: Icon(Icons.play_arrow),
                 onPressed: () => action("Reproduzir"),
+                tooltip: "Reproduzir selecionados",
               ),
             if (listCantos.where((c) => (c.selected != null && c.selected)).toList().isNotEmpty && !downloading)
               IconButton(
-                icon: Icon(Icons.delete, color: Colors.white),
+                icon: Icon(Icons.delete),
                 onPressed: () => action("Apagar"),
+                tooltip: "Apagar selecionados",
               ),
             if (listCantos2.isNotEmpty && !downloading)
               IconButton(
-                icon: Icon(Icons.file_download, color: Colors.white),
+                icon: Icon(Icons.file_download),
                 onPressed: () => action("Download"),
+                tooltip: "Baixar todos áudios",
               ),
           ]),
           body: getBody(),
@@ -69,60 +72,53 @@ class _AudiosPageState extends State<AudiosPage> {
   action(String value) async {
     if (value == "Apagar") {
       Get.defaultDialog(
-          title: "Apagar áudios",
-          radius: 4,
-          content: ConstrainedBox(
-              constraints: BoxConstraints(minWidth: MediaQuery.of(context).size.width * 0.6),
-              child: Padding(
-                padding: EdgeInsets.all(4),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text("Tem certeza que deseja apagar os áudios selecionados?", textAlign: TextAlign.center),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: <Widget>[
-                        Container(
-                            margin: EdgeInsets.only(top: 8),
-                            width: 100,
-                            child: FlatButton(
-                              child: FittedBox(fit: BoxFit.scaleDown, child: Text("Cancelar")),
-                              color: Colors.grey[200],
-                              textColor: Colors.black,
-                              onPressed: () async {
-                                Navigator.of(context).pop();
-                              },
-                            )),
-                        Container(
-                            margin: EdgeInsets.only(top: 8),
-                            width: 100,
-                            child: FlatButton(
-                              child: FittedBox(fit: BoxFit.scaleDown, child: Text("Apagar")),
-                              color: Theme.of(context).colorScheme.primary,
-                              textColor: Colors.white,
-                              onPressed: () async {
-                                var count = 0;
-                                for (var i = 0; i < listCantos.length; i++) {
-                                  if (listCantos[i].selected != null && listCantos[i].selected) {
-                                    count++;
-                                    await listCantos[i].mp3Delete();
-                                  }
-                                }
-                                globals.listaGlobal = [];
-                                cantosLoaded = false;
-                                setState(() {});
-                                Navigator.of(context).pop();
-                                if (count == 1)
-                                  snackBar(Get.overlayContext, "$count Canto apagado!");
-                                else
-                                  snackBar(Get.overlayContext, "$count Cantos apagados!");
-                              },
-                            )),
-                      ],
-                    ),
-                  ],
-                ),
-              )));
+        title: "Apagar áudios",
+        radius: 4,
+        content: ConstrainedBox(
+            constraints: BoxConstraints(minWidth: MediaQuery.of(context).size.width * 0.6),
+            child: Padding(
+              padding: EdgeInsets.all(4),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Tem certeza que deseja apagar os áudios selecionados?", textAlign: TextAlign.center),
+                ],
+              ),
+            )),
+        confirm: Container(
+          width: 100,
+          child: FlatButton(
+            child: FittedBox(fit: BoxFit.scaleDown, child: Text("Apagar")),
+            color: Theme.of(context).colorScheme.primary,
+            textColor: Theme.of(context).colorScheme.onPrimary,
+            onPressed: () async {
+              var count = 0;
+              for (var i = 0; i < listCantos.length; i++) {
+                if (listCantos[i].selected != null && listCantos[i].selected) {
+                  count++;
+                  await listCantos[i].mp3Delete();
+                }
+              }
+              globals.listaGlobal = [];
+              cantosLoaded = false;
+              setState(() {});
+              Navigator.of(context).pop();
+              if (count == 1)
+                snackBar(Get.overlayContext, "$count Canto apagado!");
+              else
+                snackBar(Get.overlayContext, "$count Cantos apagados!");
+            },
+          ),
+        ),
+        cancel: Container(
+          width: 100,
+          child: FlatButton(
+              child: FittedBox(fit: BoxFit.scaleDown, child: Text("Cancelar")),
+              color: Theme.of(context).colorScheme.secondary,
+              textColor: Theme.of(context).colorScheme.onSecondary,
+              onPressed: () => Navigator.pop(context)),
+        ),
+      );
     }
     if (value == "UnMarkAll") {
       for (var i = 0; i < listCantos.length; i++) {
@@ -145,7 +141,7 @@ class _AudiosPageState extends State<AudiosPage> {
     }
 
     if (value == "Reproduzir") {
-      Get.to(PlayerPage());
+      Get.to(() => PlayerPage());
     }
   }
 
@@ -161,7 +157,7 @@ class _AudiosPageState extends State<AudiosPage> {
       radius: 4,
       content: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
+        children: [
           Text("Download de todos áudios disponíveis."),
           Padding(
             padding: EdgeInsets.only(top: 10),
@@ -181,7 +177,7 @@ class _AudiosPageState extends State<AudiosPage> {
         child: FlatButton(
             child: FittedBox(fit: BoxFit.scaleDown, child: Text("Continuar")),
             color: Theme.of(context).colorScheme.primary,
-            textColor: Colors.white,
+            textColor: Theme.of(context).colorScheme.onPrimary,
             onPressed: () {
               action("UnMarkAll");
               downloading = true;
@@ -193,8 +189,8 @@ class _AudiosPageState extends State<AudiosPage> {
         width: 100,
         child: FlatButton(
             child: FittedBox(fit: BoxFit.scaleDown, child: Text("Cancelar")),
-            color: Colors.black12,
-            textColor: Colors.black,
+            color: Theme.of(context).colorScheme.secondary,
+            textColor: Theme.of(context).colorScheme.onSecondary,
             onPressed: () => Navigator.pop(context)),
       ),
     );
@@ -225,9 +221,7 @@ class _AudiosPageState extends State<AudiosPage> {
     Dio dio = new Dio();
     final dir = await getApplicationDocumentsDirectory();
     final file = File("${dir.path}/" + listCantos2[index].html + ".mp3");
-    var url = "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/" +
-        listCantos2[index].html +
-        ".mp3";
+    var url = "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/" + listCantos2[index].html + ".mp3";
 
     dio.get(
       url,
@@ -268,9 +262,7 @@ class _AudiosPageState extends State<AudiosPage> {
           builder: (BuildContext cont, AsyncSnapshot<List<Canto>> snapshot) {
             if (snapshot.hasData) {
               listCantos = snapshot.data.where((c) => (c.downloaded != null && c.downloaded)).toList();
-              listCantos2 = snapshot.data
-                  .where((c) => (c.url != null && c.url == "X" && c.downloaded != null && !c.downloaded))
-                  .toList();
+              listCantos2 = snapshot.data.where((c) => (c.url != null && c.url == "X" && c.downloaded != null && !c.downloaded)).toList();
               cantosLoaded = true;
               delaySetState();
               return listaCantos();
@@ -285,7 +277,7 @@ class _AudiosPageState extends State<AudiosPage> {
         return ListView.builder(
             itemCount: listCantos2.length,
             itemBuilder: (context, index) {
-              return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: <Widget>[
+              return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
                 Expanded(
                     child: Padding(
                   padding: EdgeInsets.only(left: 16, right: 16),
@@ -314,18 +306,21 @@ class _AudiosPageState extends State<AudiosPage> {
     }
     if (listCantos != null && listCantos.isNotEmpty) {
       return Column(
-        children: <Widget>[
+        children: [
           Table(children: [
             TableRow(
-              children: <Widget>[
+              children: [
                 InkWell(
                   onTap: () => action("MarkAll"),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
+                    children: [
                       Padding(
                         padding: EdgeInsets.fromLTRB(16, 8, 0, 8),
-                        child: Icon(Icons.check_box, color: Theme.of(context).colorScheme.primary),
+                        child: Icon(
+                          Icons.check_box,
+                          color: checkDarkMode(context) ? null : Theme.of(context).colorScheme.primary,
+                        ),
                       ),
                       Expanded(child: FittedBox(fit: BoxFit.scaleDown, child: Text("Selecionar Todos"))),
                     ],
@@ -335,10 +330,15 @@ class _AudiosPageState extends State<AudiosPage> {
                   onTap: () => action("UnMarkAll"),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
+                    children: [
                       Padding(
                         padding: EdgeInsets.fromLTRB(16, 8, 0, 8),
-                        child: Icon(Icons.check_box_outline_blank, color: Theme.of(context).colorScheme.primary),
+                        child: Icon(
+                          Icons.check_box_outline_blank,
+                          // color: Theme.of(context).colorScheme.primary,
+
+                          color: checkDarkMode(context) ? null : Theme.of(context).colorScheme.primary,
+                        ),
                       ),
                       Expanded(child: FittedBox(fit: BoxFit.scaleDown, child: Text("Limpar Seleção"))),
                     ],
@@ -357,19 +357,19 @@ class _AudiosPageState extends State<AudiosPage> {
                     onChanged: (value) => setState(() {
                       listCantos[index].selected = !listCantos[index].selected;
                       if (listCantos[index].selected)
-                        globals.listaGlobal
-                            .add(globals.cantosGlobal.where((c) => (c.id == listCantos[index].id)).toList().first);
+                        globals.listaGlobal.add(globals.cantosGlobal.where((c) => (c.id == listCantos[index].id)).toList().first);
                       else
                         globals.listaGlobal.removeWhere((c) => c.id == listCantos[index].id);
                     }),
+                    checkColor: checkDarkMode(context) ? Theme.of(context).colorScheme.primary : null,
+                    activeColor: checkDarkMode(context) ? Theme.of(context).colorScheme.onSecondary : Theme.of(context).colorScheme.primary,
                     title: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
+                      children: [
                         Expanded(
                             child: Padding(
                           padding: EdgeInsets.only(right: 8),
-                          child: Text(listCantos[index].titulo,
-                              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
+                          child: Text(listCantos[index].titulo, style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
                         )),
                         Text(listCantos[index].fileSize, style: TextStyle(fontSize: 13))
                       ],

@@ -23,13 +23,12 @@ class _SobrePageState extends State<SobrePage> {
         body: Container(
           margin: EdgeInsets.all(16),
           child: SingleChildScrollView(
-            child: Column(children: <Widget>[
+            child: Column(children: [
               Image.asset("assets/img/logo.png", width: MediaQuery.of(context).size.width * 0.6),
               SizedBox(height: 10),
               Text("Versão: ${globals.packInfo.version}+${globals.packInfo.buildNumber} [$cantosVersaoLocal]"),
               SizedBox(height: 30),
-              Text("Este aplicativo NÃO deve ser utilizado em celebrações.",
-                  style: TextStyle(fontSize: 16), textAlign: TextAlign.center),
+              Text("Este aplicativo NÃO deve ser utilizado em celebrações.", style: TextStyle(fontSize: 16), textAlign: TextAlign.center),
               SizedBox(height: 10),
               Text("Pode ser utilizado apenas como apoio aos salmistas para ensaios, consultas e preparações.",
                   style: TextStyle(fontSize: 16), textAlign: TextAlign.center),
@@ -45,10 +44,9 @@ class _SobrePageState extends State<SobrePage> {
                         child: Padding(
                           padding: EdgeInsets.symmetric(horizontal: 10),
                           child: Text("Deixe sua avaliação e cometário!",
-                              style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                              style: TextStyle(color: Theme.of(context).colorScheme.onPrimary, fontWeight: FontWeight.bold)),
                         )),
-                    decoration:
-                        BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(4)), color: Theme.of(context).colorScheme.primary),
+                    decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(4)), color: Theme.of(context).colorScheme.primary),
                   ),
                 ),
               SizedBox(height: 50),
@@ -61,7 +59,7 @@ class _SobrePageState extends State<SobrePage> {
                     width: 250,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
+                      children: [
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 10),
                           child: Table(
@@ -74,17 +72,14 @@ class _SobrePageState extends State<SobrePage> {
                               TableRow(children: [
                                 Center(child: Icon(Icons.mail_outline)),
                                 FittedBox(
-                                    fit: BoxFit.scaleDown,
-                                    child: Text("  Otávio Garrido Moraes",
-                                        style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500))),
+                                    fit: BoxFit.scaleDown, child: Text("  Otávio Garrido Moraes", style: TextStyle(fontWeight: FontWeight.w500))),
                               ])
                             ],
                           ),
                         ),
                       ],
                     ),
-                    decoration:
-                        BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(4)), color: Colors.grey[200]),
+                    decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(4)), color: Theme.of(context).colorScheme.secondary),
                   ),
                 ),
               if (emailFail)
@@ -100,7 +95,7 @@ class _SobrePageState extends State<SobrePage> {
                         width: 250,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
+                          children: [
                             Padding(
                               padding: EdgeInsets.symmetric(horizontal: 10),
                               child: Table(
@@ -115,12 +110,11 @@ class _SobrePageState extends State<SobrePage> {
                                       children: [
                                         FittedBox(
                                             fit: BoxFit.scaleDown,
-                                            child: Text("Otávio Garrido Moraes",
-                                                style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500))),
-                                        FittedBox(
-                                            fit: BoxFit.scaleDown,
-                                            child:
-                                                Text("otavio.grrd@gmail.com", style: TextStyle(color: Colors.black))),
+                                            child: Text(
+                                              "Otávio Garrido Moraes",
+                                              style: TextStyle(fontWeight: FontWeight.w500),
+                                            )),
+                                        FittedBox(fit: BoxFit.scaleDown, child: Text("otavio.grrd@gmail.com")),
                                       ],
                                     ),
                                     Center(child: Icon(MdiIcons.contentCopy)),
@@ -130,26 +124,23 @@ class _SobrePageState extends State<SobrePage> {
                             ),
                           ],
                         ),
-                        decoration:
-                            BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(4)), color: Colors.grey[200]),
+                        decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(4)), color: Theme.of(context).colorScheme.secondary),
                       ),
                     )
                   ],
                 ),
               SizedBox(height: 50),
               InkWell(
-                onTap: () => Get.to(LicensePage(
-                  applicationLegalese: "Os Cantos do Livro Ressuscitou, de Francisco José Gómez de Argüello Wirtz,"
-                      "distribuídos em português(BR) pelo Centro Neocatecumenal do Brasil (neocatechumenaleiter.org),"
-                      "estão livres de restrições de direitos autorais e de direitos conexos conhecidos.",
-                )),
+                onTap: () => Get.to(() => LicensePage(
+                      applicationLegalese: "Os Cantos do Livro Ressuscitou, de Francisco José Gómez de Argüello Wirtz,"
+                          "distribuídos em português(BR) pelo Centro Neocatecumenal do Brasil (neocatechumenaleiter.org),"
+                          "estão livres de restrições de direitos autorais e de direitos conexos conhecidos.",
+                    )),
                 child: Container(
                   height: 45,
                   width: 150,
-                  child: FittedBox(
-                      fit: BoxFit.scaleDown,
-                      child: Text("Licenças", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
-                  decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(4)), color: Colors.black45),
+                  child: FittedBox(fit: BoxFit.scaleDown, child: Text("Licenças", style: TextStyle(fontWeight: FontWeight.bold))),
+                  decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(4)), color: Theme.of(context).colorScheme.secondary),
                 ),
               ),
             ]),

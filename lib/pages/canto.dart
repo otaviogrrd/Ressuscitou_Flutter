@@ -46,6 +46,11 @@ class _CantoPageState extends State<CantoPage> {
   double percentDownload = 0;
   bool estendido = false;
   bool downloading = false;
+  bool darktheme = false;
+  int brightnessStage = 0;
+  bool brightnessAuto = true;
+  bool brightnessChange = false;
+  Color back;
 
   @override
   void initState() {
@@ -55,17 +60,43 @@ class _CantoPageState extends State<CantoPage> {
   }
 
   navigateOption(String value) {
-    if (value == "1") Get.to(ListasPage(select: widget.canto.id)).then((value) => setState(() {}));
+    if (value == "1") Get.to(() => ListasPage(select: widget.canto.id)).then((value) => setState(() {}));
     if (value == "2") anotacoes();
   }
 
   @override
   Widget build(BuildContext context) {
-    Color back = Colors.white;
-    if (widget.canto.categoria == 2) back = hexToColor("#c7d7e8");
-    if (widget.canto.categoria == 3) back = hexToColor("#d6ffba");
-    if (widget.canto.categoria == 4) back = hexToColor("#FFCC99");
+    if (brightnessAuto) {
+      if (darktheme != checkDarkMode(context)) {
+          if (webViewController != null)
+            Timer(Duration(milliseconds: 10), () {
+              transpor();
+              webViewController.loadUrl(Uri.dataFromString(strCanto, mimeType: "text/html", encoding: Encoding.getByName("utf-8")).toString());
+              brightnessChange = false;
+              setState(() {});
+            });
+      }
+      darktheme = checkDarkMode(context);
+    } else {
+      if (webViewController != null) {
+        if (brightnessChange) {
+          Timer(Duration(milliseconds: 10), () {
+            transpor();
+            webViewController.loadUrl(Uri.dataFromString(strCanto, mimeType: "text/html", encoding: Encoding.getByName("utf-8")).toString());
+            brightnessChange = false;
+            setState(() {});
+          });
+        }
+      }
+    }
+
+    if (widget.canto.categoria == 1) back = darktheme ? hexToColor("#333333") : hexToColor("#ffffff");
+    if (widget.canto.categoria == 2) back = darktheme ? hexToColor("#282b2e") : hexToColor("#c7d7e8");
+    if (widget.canto.categoria == 3) back = darktheme ? hexToColor("#2b3325") : hexToColor("#d6ffba");
+    if (widget.canto.categoria == 4) back = darktheme ? hexToColor("#33291f") : hexToColor("#FFCC99");
+
     transpor();
+
     return WillPopScope(
       onWillPop: () {
         Wakelock.disable();
@@ -76,7 +107,7 @@ class _CantoPageState extends State<CantoPage> {
       child: Scaffold(
           backgroundColor: back,
           appBar: AppBar(
-              elevation: 0,
+              // elevation: 0,
               actions: (globals.tablet)
                   ? []
                   : [
@@ -99,9 +130,9 @@ class _CantoPageState extends State<CantoPage> {
               : SpeedDial(
                   closeManually: true,
                   animatedIcon: AnimatedIcons.menu_close,
-                  foregroundColor: Theme.of(context).colorScheme.primary,
-                  backgroundColor: Colors.grey[100],
-                  elevation: 1,
+                  foregroundColor: Theme.of(context).colorScheme.onSecondary,
+                  backgroundColor: Theme.of(context).colorScheme.secondary,
+                  elevation: 2,
                   curve: Curves.easeIn,
                   overlayOpacity: 0,
                   children: [
@@ -113,35 +144,36 @@ class _CantoPageState extends State<CantoPage> {
                             width: 40,
                             child: FittedBox(
                                 fit: BoxFit.scaleDown,
-                                child: Text("Transp", style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.primary))),
+                                child: Text("Transp", style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSecondary))),
                           )),
                           onTap: () => getTraspDialog(),
-                          backgroundColor: Colors.grey[100]),
+                          backgroundColor: Theme.of(context).colorScheme.secondary),
                       SpeedDialChild(
-                          elevation: 2,
-                          child: Center(
-                              child: Container(
-                            height: 40,
-                            width: 40,
-                            child: FittedBox(
-                                fit: BoxFit.scaleDown,
-                                child: Text("Capo", style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.primary))),
-                          )),
-                          onTap: () => getCapoDialog(),
-                          backgroundColor: Colors.grey[100]),
+                        elevation: 2,
+                        child: Center(
+                            child: Container(
+                          height: 40,
+                          width: 40,
+                          child: FittedBox(
+                              fit: BoxFit.scaleDown,
+                              child: Text("Capo", style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSecondary))),
+                        )),
+                        onTap: () => getCapoDialog(),
+                        backgroundColor: Theme.of(context).colorScheme.secondary,
+                      ),
                       SpeedDialChild(
                           elevation: 2,
                           child: Stack(
-                            children: <Widget>[
+                            children: [
                               Padding(
                                   padding: EdgeInsets.only(top: 10),
-                                  child: Center(child: Icon(Icons.keyboard_arrow_down, color: Theme.of(context).colorScheme.primary))),
+                                  child: Center(child: Icon(Icons.keyboard_arrow_down, color: Theme.of(context).colorScheme.onSecondary))),
                               Padding(
                                   padding: EdgeInsets.only(bottom: 2),
-                                  child: Center(child: Icon(Icons.keyboard_arrow_down, color: Theme.of(context).colorScheme.primary))),
+                                  child: Center(child: Icon(Icons.keyboard_arrow_down, color: Theme.of(context).colorScheme.onSecondary))),
                               Padding(
                                   padding: EdgeInsets.only(bottom: 14),
-                                  child: Center(child: Icon(Icons.keyboard_arrow_down, color: Theme.of(context).colorScheme.primary))),
+                                  child: Center(child: Icon(Icons.keyboard_arrow_down, color: Theme.of(context).colorScheme.onSecondary))),
                               if (scroll > 0)
                                 Align(
                                     alignment: Alignment.bottomCenter,
@@ -150,33 +182,66 @@ class _CantoPageState extends State<CantoPage> {
                                         width: 40,
                                         child: FittedBox(
                                             fit: BoxFit.scaleDown,
-                                            child: Text(scroll.toString() + "x",
-                                                style: TextStyle(color: Theme.of(context).colorScheme.primary))))),
+                                            child:
+                                                Text(scroll.toString() + "x", style: TextStyle(color: Theme.of(context).colorScheme.onSecondary))))),
                             ],
                           ),
                           onTap: () async {
                             if (await webViewController.canScrollVertically()) setState(() => setTimer());
                           },
-                          backgroundColor: Colors.grey[100]),
+                          backgroundColor: Theme.of(context).colorScheme.secondary),
                       if (widget.canto.url != "")
                         SpeedDialChild(
                             elevation: 2,
                             child: (widget.canto.downloaded)
-                                ? Icon(Icons.music_note, color: Theme.of(context).colorScheme.primary)
-                                : Stack(children: <Widget>[
+                                ? Icon(Icons.music_note, color: Theme.of(context).colorScheme.onSecondary)
+                                : Stack(children: [
                                     Center(
                                         child: Padding(
                                       padding: EdgeInsets.only(bottom: 5, right: 10),
-                                      child: Icon(Icons.music_note, color: Colors.grey),
+                                      child: Icon(Icons.music_note, color: Theme.of(context).colorScheme.onSecondary),
                                     )),
                                     Center(
                                         child: Padding(
                                       padding: EdgeInsets.only(left: 10, top: 5),
-                                      child: Icon(Icons.file_download, size: 20, color: Theme.of(context).colorScheme.primary),
+                                      child: Icon(Icons.file_download, size: 20, color: Theme.of(context).colorScheme.onSecondary),
                                     )),
                                   ]),
                             onTap: () => _loadFile(),
-                            backgroundColor: Colors.grey[100]),
+                            backgroundColor: Theme.of(context).colorScheme.secondary),
+                      SpeedDialChild(
+                          elevation: 2,
+                          child: brightnessAuto
+                              ? Stack(children: [
+                                  Center(
+                                      child: Padding(
+                                    padding: EdgeInsets.only(bottom: 10),
+                                    child: Icon(MdiIcons.themeLightDark, size: 18, color: Theme.of(context).colorScheme.onSecondary),
+                                  )),
+                                  Center(
+                                      child: Padding(
+                                    padding: EdgeInsets.only(top: 17),
+                                    child: Text("Auto", style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSecondary)),
+                                  )),
+                                ])
+                              : Icon((darktheme ? MdiIcons.brightness4 : MdiIcons.brightness5), color: Theme.of(context).colorScheme.onSecondary),
+                          onTap: () {
+                            if (brightnessStage == 2) {
+                              brightnessAuto = true;
+                              brightnessStage = 0;
+                            } else {
+                              if (brightnessStage == 0 || brightnessStage == 1) {
+                                brightnessAuto = false;
+                                brightnessStage++;
+                              }
+                            }
+                            if (!brightnessAuto) {
+                              darktheme = !darktheme;
+                            }
+                            brightnessChange = true;
+                            setState(() {});
+                          },
+                          backgroundColor: Theme.of(context).colorScheme.secondary),
                     ]),
           body: getBody()),
     );
@@ -184,17 +249,17 @@ class _CantoPageState extends State<CantoPage> {
 
   getBody() {
     return Column(
-      children: <Widget>[
+      children: [
         Expanded(
           child: Row(
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
+            children: [
               Expanded(
                   child: Container(
                 margin: EdgeInsets.all(5),
                 child: Column(
-                  children: <Widget>[
+                  children: [
                     if (exibePlayer)
                       Card(
                           child: PlayerWidget(
@@ -207,10 +272,7 @@ class _CantoPageState extends State<CantoPage> {
                         child: LinearPercentIndicator(
                           lineHeight: 20.0,
                           percent: percentDownload,
-                          center: FittedBox(
-                              fit: BoxFit.scaleDown,
-                              child:
-                                  Text("${(percentDownload * 100).toInt()}%", style: TextStyle(color: Colors.white))),
+                          center: FittedBox(fit: BoxFit.scaleDown, child: Text("${(percentDownload * 100).toInt()}%")),
                           linearStrokeCap: LinearStrokeCap.butt,
                           progressColor: Theme.of(context).colorScheme.primary,
                         ),
@@ -225,9 +287,7 @@ class _CantoPageState extends State<CantoPage> {
                             () => new EagerGestureRecognizer(),
                           ),
                         ].toSet(),
-                        initialUrl:
-                            Uri.dataFromString(strCanto, mimeType: "text/html", encoding: Encoding.getByName("utf-8"))
-                                .toString(),
+                        initialUrl: Uri.dataFromString(strCanto, mimeType: "text/html", encoding: Encoding.getByName("utf-8")).toString(),
                         gestureNavigationEnabled: true,
                       ),
                     ),
@@ -237,7 +297,9 @@ class _CantoPageState extends State<CantoPage> {
               if (globals.tablet)
                 Container(
                   width: 100,
-                  decoration: BoxDecoration(border: Border(left: BorderSide(width: 1, color: Colors.black26))),
+                  decoration: BoxDecoration(
+                      color: Theme.of(context).colorScheme.background,
+                      border: Border(left: BorderSide(width: 1, color: Theme.of(context).colorScheme.onBackground))),
                   child: getMenuLateral(),
                 ),
             ],
@@ -250,17 +312,17 @@ class _CantoPageState extends State<CantoPage> {
   Widget divider() {
     return Padding(
       padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
-      child: Divider(color: Colors.black26, height: 2),
+      child: Divider(color: Theme.of(context).colorScheme.onBackground, height: 2),
     );
   }
 
   getMenuLateral() {
     return ListView(
-      children: <Widget>[
+      children: [
         InkWell(
           child: Container(
             height: 60,
-            child: Icon(Icons.playlist_add, size: 25, color: Theme.of(context).colorScheme.primary),
+            child: Icon(Icons.playlist_add, size: 25, color: Theme.of(context).colorScheme.onSecondary),
           ),
           onTap: () => navigateOption("1"),
         ),
@@ -268,7 +330,7 @@ class _CantoPageState extends State<CantoPage> {
         InkWell(
           child: Container(
             height: 60,
-            child: Icon(MdiIcons.commentEditOutline, size: 25, color: Theme.of(context).colorScheme.primary),
+            child: Icon(MdiIcons.commentEditOutline, size: 25, color: Theme.of(context).colorScheme.onSecondary),
           ),
           onTap: () => navigateOption("2"),
         ),
@@ -277,8 +339,7 @@ class _CantoPageState extends State<CantoPage> {
           child: Container(
             height: 60,
             child: FittedBox(
-                fit: BoxFit.scaleDown,
-                child: Text("Transposição", style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.primary))),
+                fit: BoxFit.scaleDown, child: Text("Transposição", style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSecondary))),
           ),
           onTap: () => getTraspDialog(),
         ),
@@ -287,8 +348,7 @@ class _CantoPageState extends State<CantoPage> {
           child: Container(
             height: 60,
             child: FittedBox(
-                fit: BoxFit.scaleDown,
-                child: Text("Capotraste", style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.primary))),
+                fit: BoxFit.scaleDown, child: Text("Capotraste", style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSecondary))),
           ),
           onTap: () => getCapoDialog(),
         ),
@@ -297,16 +357,16 @@ class _CantoPageState extends State<CantoPage> {
           child: Container(
             height: 60,
             child: Stack(
-              children: <Widget>[
+              children: [
                 Padding(
                     padding: EdgeInsets.only(bottom: 12),
-                    child: Center(child: Icon(Icons.keyboard_arrow_down, color: Theme.of(context).colorScheme.primary))),
+                    child: Center(child: Icon(Icons.keyboard_arrow_down, color: Theme.of(context).colorScheme.onSecondary))),
                 Padding(
                     padding: EdgeInsets.all(0),
-                    child: Center(child: Icon(Icons.keyboard_arrow_down, color: Theme.of(context).colorScheme.primary))),
+                    child: Center(child: Icon(Icons.keyboard_arrow_down, color: Theme.of(context).colorScheme.onSecondary))),
                 Padding(
                     padding: EdgeInsets.only(top: 12),
-                    child: Center(child: Icon(Icons.keyboard_arrow_down, color: Theme.of(context).colorScheme.primary))),
+                    child: Center(child: Icon(Icons.keyboard_arrow_down, color: Theme.of(context).colorScheme.onSecondary))),
                 if (scroll > 0)
                   Padding(
                     padding: EdgeInsets.only(top: 24, left: 45),
@@ -315,7 +375,7 @@ class _CantoPageState extends State<CantoPage> {
                         width: 50,
                         child: FittedBox(
                             fit: BoxFit.scaleDown,
-                            child: Text(scroll.toString() + "x", style: TextStyle(color: Theme.of(context).colorScheme.primary)))),
+                            child: Text(scroll.toString() + "x", style: TextStyle(color: Theme.of(context).colorScheme.onSecondary)))),
                   ),
               ],
             ),
@@ -324,7 +384,7 @@ class _CantoPageState extends State<CantoPage> {
             if (await webViewController.canScrollVertically()) setState(() => setTimer());
           },
         ),
-        divider(),
+        if (widget.canto.url != "") divider(),
         if (widget.canto.url != "")
           InkWell(
             onTap: () => _loadFile(),
@@ -332,7 +392,7 @@ class _CantoPageState extends State<CantoPage> {
               height: 60,
               width: 60,
               child: (widget.canto.downloaded)
-                  ? Icon(Icons.music_note, color: Theme.of(context).colorScheme.primary)
+                  ? Icon(Icons.music_note, color: Theme.of(context).colorScheme.onSecondary)
                   : (percentDownload > 0 && percentDownload < 1)
                       ? Container(
                           height: 60,
@@ -352,21 +412,58 @@ class _CantoPageState extends State<CantoPage> {
                             progressColor: Theme.of(context).colorScheme.primary,
                           ),
                         )
-                      : Stack(children: <Widget>[
+                      : Stack(children: [
                           Center(
                               child: Padding(
                             padding: EdgeInsets.only(bottom: 5, right: 10),
-                            child: Icon(Icons.music_note, color: Colors.grey),
+                            child: Icon(Icons.music_note, color: Theme.of(context).colorScheme.onSecondary),
                           )),
                           Center(
                               child: Padding(
                             padding: EdgeInsets.only(left: 10, top: 5),
-                            child: Icon(Icons.file_download, size: 20, color: Theme.of(context).colorScheme.primary),
+                            child: Icon(Icons.file_download, size: 20, color: Theme.of(context).colorScheme.onSecondary),
                           )),
                         ]),
             ),
           ),
-        if (widget.canto.url != "") divider(),
+        divider(),
+        InkWell(
+          onTap: () {
+            if (brightnessStage == 2) {
+              brightnessAuto = true;
+              brightnessStage = 0;
+            } else {
+              if (brightnessStage == 0 || brightnessStage == 1) {
+                brightnessAuto = false;
+                brightnessStage++;
+              }
+            }
+            if (!brightnessAuto) {
+              darktheme = !darktheme;
+            }
+            brightnessChange = true;
+            setState(() {});
+          },
+          child: Container(
+            height: 60,
+            width: 60,
+            child: brightnessAuto
+                ? Stack(children: [
+                    Center(
+                        child: Padding(
+                      padding: EdgeInsets.only(bottom: 10),
+                      child: Icon(MdiIcons.themeLightDark, size: 18, color: Theme.of(context).colorScheme.onSecondary),
+                    )),
+                    Center(
+                        child: Padding(
+                      padding: EdgeInsets.only(top: 17),
+                      child: Text("Auto", style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSecondary)),
+                    )),
+                  ])
+                : Icon((darktheme ? MdiIcons.brightness4 : MdiIcons.brightness5), color: Theme.of(context).colorScheme.onSecondary),
+          ),
+        ),
+        divider(),
       ],
     );
   }
@@ -420,17 +517,34 @@ class _CantoPageState extends State<CantoPage> {
         if (Platform.isIOS) fonte = fonte + 8;
         content[c] = content[c].replaceAll("12px", " ${fonte}px !important");
       }
+
+      if (darktheme) if (content[c].contains("background-color:")) {
+        content[c] = content[c].replaceAll("background-color: #FFFFFF", " background-color: #333333");
+        content[c] = content[c].replaceAll("background-color: #c7d7e8", " background-color: #282b2e");
+        content[c] = content[c].replaceAll("background-color: #d6ffba", " background-color: #2b3325");
+        content[c] = content[c].replaceAll("background-color: #FFCC99", " background-color: #33291f");
+      }
+
       if (content[c].contains("<H1>")) {
+        if (darktheme) if (content[c].contains("#FF0000")) {
+          content[c] = content[c].replaceAll("#FF0000", "#ff6666");
+        }
         continue;
+      }
+
+      if (darktheme) if (content[c].contains("#000000")) {
+        content[c] = content[c].replaceAll("#000000", "#e6e6e6");
       }
       if (!content[c].contains("FF0000")) {
         if (content[c].contains("@transp@")) {
           if (transSalv != 0 || numero > 0) {
-            if (transSalv != 0)
-              content[c] = "<FONT COLOR=\"#8a00e0\">Salvo Transposição: " + escalaTmp[transSalv] + "  </FONT>";
-
-            if (numero > 0 && numero != transSalv)
-              content[c] += "<FONT COLOR=\"#002de0\">Transposição: " + escalaTmp[numero] + "  </FONT>";
+            if (darktheme) {
+              if (transSalv != 0) content[c] = "<FONT COLOR=\"#e8ccf9\">Salvo Transposição: " + escalaTmp[transSalv] + "  </FONT>";
+              if (numero > 0 && numero != transSalv) content[c] += "<FONT COLOR=\"#ccd5f9\">Transposição: " + escalaTmp[numero] + "  </FONT>";
+            } else {
+              if (transSalv != 0) content[c] = "<FONT COLOR=\"#8a00e0\">Salvo Transposição: " + escalaTmp[transSalv] + "  </FONT>";
+              if (numero > 0 && numero != transSalv) content[c] += "<FONT COLOR=\"#002de0\">Transposição: " + escalaTmp[numero] + "  </FONT>";
+            }
 
             pri = 98;
           } else {
@@ -438,7 +552,11 @@ class _CantoPageState extends State<CantoPage> {
           }
         } else if (content[c].contains("@capot@")) {
           if (capotSalv != 0) {
-            content[c] = "<FONT COLOR=\"#8a00e0\">Salvo Capotraste: " + capotSalv.toString() + "ª</FONT>";
+            if (darktheme) {
+              content[c] = "<FONT COLOR=\"#e8ccf9\">Salvo Capotraste: " + capotSalv.toString() + "ª</FONT>";
+            } else {
+              content[c] = "<FONT COLOR=\"#8a00e0\">Salvo Capotraste: " + capotSalv.toString() + "ª</FONT>";
+            }
             pri = 98;
           } else {
             continue;
@@ -447,8 +565,12 @@ class _CantoPageState extends State<CantoPage> {
           continue;
         }
       }
-      content[c] =
-          content[c].replaceAll("Do#", escalaTmp[2]).replaceAll("Fa#", escalaTmp[7]).replaceAll("Sol#", escalaTmp[9]);
+
+      if (darktheme) if (content[c].contains("#FF0000")) {
+        content[c] = content[c].replaceAll("#FF0000", "#ff6666");
+      }
+
+      content[c] = content[c].replaceAll("Do#", escalaTmp[2]).replaceAll("Fa#", escalaTmp[7]).replaceAll("Sol#", escalaTmp[9]);
       for (int i = 0; i < escalaTmp.length; i++) {
         content[c] = content[c].replaceAll(escalaEuropeia[i], escalaTmp[i]);
       }
@@ -549,15 +671,13 @@ class _CantoPageState extends State<CantoPage> {
         width: 100,
         child: FlatButton(
             child: FittedBox(fit: BoxFit.scaleDown, child: Text(nota)),
-            color: Colors.grey[200],
-            textColor: Colors.black,
+            color: Theme.of(context).colorScheme.secondary,
+            textColor: Theme.of(context).colorScheme.onSecondary,
             onPressed: () async {
               hasTransp = numero;
               transpor();
-              scroll = 0;
-              webViewController.loadUrl(
-                  Uri.dataFromString(strCanto, mimeType: "text/html", encoding: Encoding.getByName("utf-8"))
-                      .toString());
+              //scroll = 0;
+              webViewController.loadUrl(Uri.dataFromString(strCanto, mimeType: "text/html", encoding: Encoding.getByName("utf-8")).toString());
               setState(() {});
               Navigator.of(context).pop();
             }));
@@ -569,17 +689,15 @@ class _CantoPageState extends State<CantoPage> {
         width: 120,
         child: FlatButton(
             child: Icon((salvar > 0) ? Icons.save : Icons.delete, color: Theme.of(context).colorScheme.primary),
-            color: Colors.grey[200],
+            color: Theme.of(context).colorScheme.secondary,
             onPressed: () async {
               (salvar > 0)
                   ? globals.prefs.setInt("TRANSP_" + widget.canto.id.toString(), salvar)
                   : globals.prefs.remove("TRANSP_" + widget.canto.id.toString());
               hasTransp = 0;
               transpor();
-              scroll = 0;
-              webViewController.loadUrl(
-                  Uri.dataFromString(strCanto, mimeType: "text/html", encoding: Encoding.getByName("utf-8"))
-                      .toString());
+              //scroll = 0;
+              webViewController.loadUrl(Uri.dataFromString(strCanto, mimeType: "text/html", encoding: Encoding.getByName("utf-8")).toString());
               setState(() {});
               Navigator.of(context).pop();
             }));
@@ -595,9 +713,9 @@ class _CantoPageState extends State<CantoPage> {
             child: Padding(
               padding: EdgeInsets.all(4),
               child: Column(
-                children: <Widget>[
+                children: [
                   Stack(
-                    children: <Widget>[
+                    children: [
                       Align(
                           alignment: Alignment.center,
                           child: NumberPicker.integer(
@@ -629,16 +747,15 @@ class _CantoPageState extends State<CantoPage> {
                       width: 100,
                       child: FlatButton(
                         child: FittedBox(fit: BoxFit.scaleDown, child: Text("Salvar")),
-                        color: Colors.grey[200],
-                        textColor: Colors.black,
+                        color: Theme.of(context).colorScheme.secondary,
+                        textColor: Theme.of(context).colorScheme.onSecondary,
                         onPressed: () async {
                           await globals.prefs.setInt("CAPOT_" + widget.canto.id.toString(), localSelection);
                           capoSelected = localSelection;
                           transpor();
-                          scroll = 0;
-                          webViewController.loadUrl(
-                              Uri.dataFromString(strCanto, mimeType: "text/html", encoding: Encoding.getByName("utf-8"))
-                                  .toString());
+                          //scroll = 0;
+                          webViewController
+                              .loadUrl(Uri.dataFromString(strCanto, mimeType: "text/html", encoding: Encoding.getByName("utf-8")).toString());
                           setState(() {});
                           Navigator.of(context).pop();
                         },
@@ -685,9 +802,7 @@ class _CantoPageState extends State<CantoPage> {
     if (!downloading) {
       downloading = true;
       snackBar(Get.overlayContext, "Iniciando download");
-      var url = "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/" +
-          widget.canto.html +
-          ".mp3";
+      var url = "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/" + widget.canto.html + ".mp3";
 
       StreamController<int> progressStreamController = new StreamController();
       Dio dio = new Dio();
@@ -722,65 +837,60 @@ class _CantoPageState extends State<CantoPage> {
   anotacoes() {
     ctrlAnotacoes.text = globals.prefs.getString("ANOT_" + widget.canto.id.toString()) ?? "";
     Get.defaultDialog(
-        title: "Anotações",
-        radius: 4,
-        middleText: "",
-        content: ConstrainedBox(
-            constraints: BoxConstraints(
-                minWidth: MediaQuery.of(context).size.width * 0.6, maxHeight: MediaQuery.of(context).size.height * 0.3),
-            child: Padding(
-                padding: EdgeInsets.all(4),
-                child: Column(children: [
-                  Expanded(
-                    child: FormBuilder(
-                      key: _formKey,
-                      child: FormBuilderTextField(
-                          cursorColor: globals.lightRed,
-                          name: "Anotacoes",
-                          minLines: 10,
-                          maxLines: 100,
-                          textAlign: TextAlign.center,
-                          textCapitalization: TextCapitalization.sentences,
-                          controller: ctrlAnotacoes,
-                          onSubmitted: (val) {
-                            globals.prefs.setString("ANOT_" + widget.canto.id.toString(), ctrlAnotacoes.text);
-                            Navigator.of(context).pop();
-                          },
-                          onChanged: (val) {
-                            globals.prefs.setString("ANOT_" + widget.canto.id.toString(), ctrlAnotacoes.text);
-                          }),
-                    ),
+      title: "Anotações",
+      radius: 4,
+      middleText: "",
+      content: ConstrainedBox(
+          constraints: BoxConstraints(minWidth: MediaQuery.of(context).size.width * 0.6, maxHeight: MediaQuery.of(context).size.height * 0.3),
+          child: Padding(
+              padding: EdgeInsets.all(4),
+              child: Column(children: [
+                Expanded(
+                  child: FormBuilder(
+                    key: _formKey,
+                    child: FormBuilderTextField(
+                        cursorColor: Theme.of(context).colorScheme.primary,
+                        name: "Anotacoes",
+                        minLines: 10,
+                        maxLines: 100,
+                        textAlign: TextAlign.center,
+                        textCapitalization: TextCapitalization.sentences,
+                        controller: ctrlAnotacoes,
+                        onSubmitted: (val) {
+                          globals.prefs.setString("ANOT_" + widget.canto.id.toString(), ctrlAnotacoes.text);
+                          Navigator.of(context).pop();
+                        },
+                        onChanged: (val) {
+                          globals.prefs.setString("ANOT_" + widget.canto.id.toString(), ctrlAnotacoes.text);
+                        }),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: <Widget>[
-                      Container(
-                        margin: EdgeInsets.only(top: 15),
-                        width: 100,
-                        child: FlatButton(
-                            child: Icon(Icons.delete, color: Colors.black87),
-                            color: Colors.grey[400],
-                            textColor: Colors.black,
-                            onPressed: () {
-                              globals.prefs.remove("ANOT_" + widget.canto.id.toString());
-                              Navigator.of(context).pop();
-                              snackBar(Get.overlayContext, "Anotação apagada!");
-                            }),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(top: 15),
-                        width: 100,
-                        child: FlatButton(
-                            child: Icon(Icons.check, color: Colors.white),
-                            color: Theme.of(context).colorScheme.primary,
-                            textColor: Colors.black,
-                            onPressed: () {
-                              globals.prefs.setString("ANOT_" + widget.canto.id.toString(), ctrlAnotacoes.text);
-                              Navigator.of(context).pop();
-                            }),
-                      ),
-                    ],
-                  ),
-                ]))));
+                ),
+              ]))),
+      confirm: Container(
+        margin: EdgeInsets.only(top: 15),
+        width: 100,
+        child: FlatButton(
+            child: Icon(Icons.check, color: Theme.of(context).colorScheme.onPrimary),
+            color: Theme.of(context).colorScheme.primary,
+            textColor: Theme.of(context).colorScheme.onPrimary,
+            onPressed: () {
+              globals.prefs.setString("ANOT_" + widget.canto.id.toString(), ctrlAnotacoes.text);
+              Navigator.of(context).pop();
+            }),
+      ),
+      cancel: Container(
+        margin: EdgeInsets.only(top: 15),
+        width: 100,
+        child: FlatButton(
+            child: Icon(Icons.delete, color: Theme.of(context).colorScheme.onSecondary),
+            color: Theme.of(context).colorScheme.secondary,
+            textColor: Theme.of(context).colorScheme.onSecondary,
+            onPressed: () {
+              globals.prefs.remove("ANOT_" + widget.canto.id.toString());
+              Navigator.of(context).pop();
+              snackBar(Get.overlayContext, "Anotação apagada!");
+            }),
+      ),
+    );
   }
 }

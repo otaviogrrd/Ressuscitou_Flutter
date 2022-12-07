@@ -78,7 +78,7 @@ class _PlayerPageState extends State<PlayerPage> {
       body: Container(
         margin: EdgeInsets.symmetric(horizontal: 16),
         child: Column(
-          children: <Widget>[
+          children: [
 //          Padding(
 //            padding: EdgeInsets.all(8.0),
 //            child: Text(
@@ -109,7 +109,7 @@ class _PlayerPageState extends State<PlayerPage> {
                 if (!_isPlaying)
                   ClipOval(
                       child: Material(
-                    color: Colors.grey[200], // button color
+                    color: Theme.of(context).colorScheme.secondary, // button color
                     child: IconButton(
                       key: Key("play_button"),
                       onPressed: _isPlaying ? null : () => _play(),
@@ -121,7 +121,7 @@ class _PlayerPageState extends State<PlayerPage> {
                 if (_isPlaying)
                   ClipOval(
                       child: Material(
-                    color: Colors.grey[200], // button color
+                    color: Theme.of(context).colorScheme.secondary, // button color
                     child: IconButton(
                       key: Key("pause_button"),
                       onPressed: _isPlaying ? () => _pause() : null,
@@ -151,7 +151,7 @@ class _PlayerPageState extends State<PlayerPage> {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 8),
               child: Stack(
-                children: <Widget>[
+                children: [
                   Slider(
                     activeColor: Theme.of(context).colorScheme.primary,
                     inactiveColor: Colors.grey,
@@ -230,7 +230,7 @@ class _PlayerPageState extends State<PlayerPage> {
                         itemScrollController.jumpTo(index: globals.listaGlobal.indexWhere((e) => e.playing));
                       },
                 icon: (shuffle) ? Icon(MdiIcons.shuffleVariant, size: 20) : Icon(MdiIcons.shuffleDisabled, size: 25),
-                color: (shuffle) ? Theme.of(context).colorScheme.primary : Colors.black,
+                color: (shuffle) ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.onBackground,
               ),
               AnimatedOpacity(
                 opacity: shuffleNotifi ? 1.0 : 0.0,
@@ -256,7 +256,7 @@ class _PlayerPageState extends State<PlayerPage> {
                   }
                 },
                 icon: (repeat) ? Icon(MdiIcons.repeat) : Icon(MdiIcons.repeatOff),
-                color: (repeat) ? Theme.of(context).colorScheme.primary : Colors.black,
+                color: (repeat) ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.onBackground,
               ),
             ]),
             Expanded(
@@ -264,7 +264,7 @@ class _PlayerPageState extends State<PlayerPage> {
                 child: ScrollablePositionedList.separated(
                     itemScrollController: itemScrollController,
                     separatorBuilder: (context, index) => Divider(
-                          color: Colors.black26,
+                          color: Theme.of(context).colorScheme.onBackground,
                         ),
                     itemCount: globals.listaGlobal.length,
                     itemBuilder: (context, index) {

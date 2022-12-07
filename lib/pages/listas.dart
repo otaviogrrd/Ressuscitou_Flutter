@@ -21,9 +21,9 @@ class _ListasPageState extends State<ListasPage> {
     return Scaffold(
       appBar: AppBar(title: Text("Listas"), centerTitle: false),
       floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.add),
+          child: Icon(Icons.add,color: Theme.of(context).colorScheme.onSecondary,),
           elevation: 1,
-          onPressed: () => Get.to(ListaDetalhePage(
+          onPressed: () => Get.to(() => ListaDetalhePage(
                 lista: CantoList(titulo: "", cantos: (widget.select != null) ? [widget.select] : []),
               )).then((value) => setState(() => listasLoaded = false))),
       body: getBody(),
@@ -51,7 +51,7 @@ class _ListasPageState extends State<ListasPage> {
       return Container(
         margin: EdgeInsets.all(16),
         child: Column(
-          children: <Widget>[
+          children: [
             Expanded(
               child: ListView.builder(
                   itemCount: listCantos.length,
@@ -65,7 +65,7 @@ class _ListasPageState extends State<ListasPage> {
                           Get.back();
                           snackBar(Get.overlayContext, "Canto adicionado à lista");
                         } else {
-                          Get.to(ListaDetalhePage(lista: listCantos[index]))
+                          Get.to(() => ListaDetalhePage(lista: listCantos[index]))
                               .then((value) => setState(() => listasLoaded = false));
                         }
                       },

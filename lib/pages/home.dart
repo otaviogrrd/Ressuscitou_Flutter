@@ -37,6 +37,7 @@ class _HomePageState extends State<HomePage> {
   bool showSearch = false;
   bool requestFocus = false;
   FocusNode searchFocus = FocusNode();
+  final searchController = TextEditingController();
 
   @override
   void initState() {
@@ -49,10 +50,7 @@ class _HomePageState extends State<HomePage> {
     globals.tablet = isTablet(MediaQueryData.fromWindow(WidgetsBinding.instance.window));
     return Scaffold(
       appBar: AppBar(title: Image.asset("assets/img/logo.png", color: Colors.white, height: 30), actions: [
-        if (!showSearch)
-          IconButton(
-              icon: Icon(Icons.search, size: 25, color: Colors.white),
-              onPressed: () => setState(() => showSearch = requestFocus = true)),
+        if (!showSearch) IconButton(icon: Icon(Icons.search, size: 25), onPressed: () => setState(() => showSearch = requestFocus = true)),
       ]),
       drawer: (globals.tablet)
           ? null
@@ -70,20 +68,18 @@ class _HomePageState extends State<HomePage> {
         title: "Atenção",
         radius: 4,
         content: Column(
-          children: <Widget>[
+          children: [
             Container(
               constraints: BoxConstraints(minHeight: 100, maxHeight: MediaQuery.of(context).size.height * 0.3),
               child: SingleChildScrollView(
                 child: Table(
                   children: [
                     TableRow(children: [
-                      Text("Este aplicativo NÃO deve ser utilizado em celebrações.",
-                          style: TextStyle(fontSize: 16), textAlign: TextAlign.center)
+                      Text("Este aplicativo NÃO deve ser utilizado em celebrações.", style: TextStyle(fontSize: 16), textAlign: TextAlign.center)
                     ]),
                     TableRow(children: [SizedBox(height: 15)]),
                     TableRow(children: [
-                      Text("Pode ser utilizado apenas como apoio aos salmistas para ensaios, consultas e preparações.",
-                          textAlign: TextAlign.center)
+                      Text("Pode ser utilizado apenas como apoio aos salmistas para ensaios, consultas e preparações.", textAlign: TextAlign.center)
                     ]),
                     TableRow(children: [SizedBox(height: 15)]),
                   ],
@@ -95,7 +91,7 @@ class _HomePageState extends State<HomePage> {
               child: FlatButton(
                   child: FittedBox(fit: BoxFit.scaleDown, child: Text("Entendi")),
                   color: Theme.of(context).colorScheme.primary,
-                  textColor: Colors.white,
+                  textColor: Theme.of(context).colorScheme.onPrimary,
                   onPressed: () {
                     globals.prefs.setBool("TermosIniciaisLidos", true);
                     Navigator.pop(context);
@@ -117,16 +113,16 @@ class _HomePageState extends State<HomePage> {
       Get.defaultDialog(
           title: "Mensagem",
           radius: 4,
-          content: Column(children: <Widget>[
+          content: Column(children: [
             Container(
               constraints: BoxConstraints(minHeight: 100, maxHeight: MediaQuery.of(context).size.height * 0.3),
               child: SingleChildScrollView(
                   child: Column(
-                children: <Widget>[
+                children: [
                   for (final item in mensagens)
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
+                      children: [
                         Center(
                           child: Text(item.titulo, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
                         ),
@@ -142,7 +138,7 @@ class _HomePageState extends State<HomePage> {
               child: FlatButton(
                   child: FittedBox(fit: BoxFit.scaleDown, child: Text("Fechar")),
                   color: Theme.of(context).colorScheme.primary,
-                  textColor: Colors.white,
+                  textColor: Theme.of(context).colorScheme.onPrimary,
                   onPressed: () {
                     globals.prefs.setString("MessageLida", DateFormat("yyyy-MM-dd").format(DateTime.now()));
                     Navigator.pop(context);
@@ -154,29 +150,29 @@ class _HomePageState extends State<HomePage> {
   listaCantos() {
     filtrar();
     return Column(
-      children: <Widget>[
+      children: [
         Expanded(
           child: Row(
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
+            children: [
               if (!widget.selectable)
                 if (globals.tablet)
                   Container(
                     width: 275,
-                    decoration: BoxDecoration(border: Border(right: BorderSide(width: 1, color: Colors.black26))),
+                    decoration: BoxDecoration(border: Border(right: BorderSide(width: 1, color: Theme.of(context).colorScheme.onBackground))),
                     child: getMenuLateral(),
                   ),
               Expanded(
                   child: Column(
-                children: <Widget>[
+                children: [
                   if (showSearch) searchInput(),
                   Expanded(
                     child: ListView.builder(
                         itemCount: filterListCantos.length,
                         itemBuilder: (context, index) {
                           return InkWell(
-                            onTap: () => Get.to(CantoPage(canto: filterListCantos[index])).then((value) => {setState(() {})}),
+                            onTap: () => Get.to(() => CantoPage(canto: filterListCantos[index])).then((value) => {setState(() {})}),
                             child: (widget.selectable)
                                 ? CheckboxListTile(
                                     dense: true,
@@ -187,9 +183,12 @@ class _HomePageState extends State<HomePage> {
                                           ? globals.listaGlobal.add(filterListCantos[index])
                                           : globals.listaGlobal.removeWhere((e) => e.id == filterListCantos[index].id);
                                     }),
+                                    checkColor: checkDarkMode(context) ? Theme.of(context).colorScheme.primary : null,
+                                    activeColor:
+                                        checkDarkMode(context) ? Theme.of(context).colorScheme.onSecondary : Theme.of(context).colorScheme.primary,
                                     value: filterListCantos[index].selected,
                                     title: Row(
-                                      children: <Widget>[
+                                      children: [
                                         ClipOval(
                                             child: Material(
                                                 color: getColorCateg(filterListCantos[index].categoria), // button color
@@ -275,19 +274,6 @@ class _HomePageState extends State<HomePage> {
         });
   }
 
-  getColorCateg(int categoria) {
-    switch (categoria) {
-      case 2:
-        return Colors.blue[200];
-      case 3:
-        return Colors.green[200];
-      case 4:
-        return Colors.orange[100];
-      default:
-        return Colors.grey[200];
-    }
-  }
-
   Widget divider() {
     return Padding(
       padding: EdgeInsets.fromLTRB(5, 2, 0, 2),
@@ -298,9 +284,9 @@ class _HomePageState extends State<HomePage> {
   getMenuLateral() {
     double statusBarHeight = MediaQuery.of(context).padding.top;
     return Stack(
-      children: <Widget>[
+      children: [
         ListView(
-          children: <Widget>[
+          children: [
             if (!globals.tablet)
               Center(
                   child: Padding(
@@ -331,7 +317,7 @@ class _HomePageState extends State<HomePage> {
 //                ),
                 onTap: () {
                   if (!globals.tablet) Navigator.of(context).pop();
-                  Get.to(LiturgicoPage()).then((value) => setState(() {}));
+                  Get.to(() => LiturgicoPage()).then((value) => setState(() {}));
                 }),
             divider(),
             Padding(
@@ -383,27 +369,27 @@ class _HomePageState extends State<HomePage> {
                 leading: Icon(Icons.line_style, size: 25, color: Theme.of(context).colorScheme.primary),
                 title: Text("Acordes"),
                 onTap: () {
-                  Get.to(ImageViwerPage(img: "assets/img/acordes.jpg", title: "Acordes")).then((value) => setState(() {}));
+                  Get.to(() => ImageViwerPage(img: "assets/img/acordes.jpg", title: "Acordes")).then((value) => setState(() {}));
                 }),
             ListTile(
                 title: Text("Arpejos"),
                 leading: Icon(Icons.timeline, size: 25, color: Theme.of(context).colorScheme.primary),
                 onTap: () {
-                  Get.to(ImageViwerPage(img: "assets/img/arpejos.jpg", title: "Arpejos")).then((value) => setState(() {}));
+                  Get.to(() => ImageViwerPage(img: "assets/img/arpejos.jpg", title: "Arpejos")).then((value) => setState(() {}));
                 }),
             divider(),
             ListTile(
                 title: Text("Listas"),
                 leading: Icon(Icons.list, size: 25, color: Theme.of(context).colorScheme.primary),
-                onTap: () => Get.to(ListasPage()).then((value) => setState(() {}))),
+                onTap: () => Get.to(() => ListasPage()).then((value) => setState(() {}))),
             ListTile(
                 title: Text("Áudios"),
                 leading: Icon(Icons.music_note, size: 25, color: Theme.of(context).colorScheme.primary),
-                onTap: () => Get.to(AudiosPage()).then((value) => setState(() {}))),
+                onTap: () => Get.to(() => AudiosPage()).then((value) => setState(() {}))),
             ListTile(
                 title: Text("Mensagens"),
                 leading: Icon(MdiIcons.messageTextOutline, size: 25, color: Theme.of(context).colorScheme.primary),
-                onTap: () => Get.to(MensagensPage())),
+                onTap: () => Get.to(() => MensagensPage())),
             divider(),
             ListTile(
                 title: Text("Descubra seu Tom"),
@@ -413,16 +399,16 @@ class _HomePageState extends State<HomePage> {
             ListTile(
                 title: Text("Opções"),
                 leading: Icon(Icons.settings, size: 25, color: Theme.of(context).colorScheme.primary),
-                onTap: () => Get.to(SettingsPage()).then((value) => setState(() {}))),
+                onTap: () => Get.to(() => SettingsPage()).then((value) => setState(() {}))),
             ListTile(
                 title: Text("Sobre"),
                 leading: Icon(Icons.info_outline, size: 25, color: Theme.of(context).colorScheme.primary),
-                onTap: () => Get.to(SobrePage()))
+                onTap: () => Get.to(() => SobrePage()))
           ],
         ),
         (globals.tablet)
             ? Container()
-            : Container(height: statusBarHeight, decoration: BoxDecoration(color: globals.darkRedShadow)),
+            : Container(height: statusBarHeight, decoration: BoxDecoration(color: Theme.of(context).colorScheme.primaryVariant)),
       ],
     );
   }
@@ -436,16 +422,17 @@ class _HomePageState extends State<HomePage> {
     Widget ret = Padding(
       padding: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
       child: Stack(
-        children: <Widget>[
+        children: [
           FormBuilder(
               key: formKey,
-              child: Column(children: <Widget>[
+              child: Column(children: [
                 FormBuilderTextField(
-                    cursorColor: globals.lightRed,
+                    cursorColor: Theme.of(context).colorScheme.primary,
                     name: "search",
                     focusNode: searchFocus,
                     textCapitalization: TextCapitalization.none,
                     textInputAction: TextInputAction.go,
+                    controller: searchController,
                     onChanged: (value) {
                       searchField = value;
                       setState(() {
@@ -458,8 +445,11 @@ class _HomePageState extends State<HomePage> {
             alignment: Alignment.centerRight,
             child: InkWell(
               onTap: () {
-                searchField = "";
-                showSearch = false;
+                if (searchField != "") {
+                  searchField = "";
+                  searchController.text = "";
+                } else
+                  showSearch = false;
                 setState(() {
                   filtrar();
                 });

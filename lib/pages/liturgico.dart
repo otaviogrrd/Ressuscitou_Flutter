@@ -32,7 +32,7 @@ class _LiturgicoPageState extends State<LiturgicoPage> {
   listaCantos() {
     if (listCantos != null) {
       return Container(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.background,
         child: TreeView(
           hasScrollBar: true,
           parentList: [
@@ -61,8 +61,8 @@ class _LiturgicoPageState extends State<LiturgicoPage> {
       parent: ListTile(
           dense: true,
           leading: expanded[index]
-              ? Icon(Icons.keyboard_arrow_down, color: Colors.black)
-              : Icon(Icons.keyboard_arrow_up, color: Colors.black),
+              ? Icon(Icons.keyboard_arrow_down, color: Theme.of(context).colorScheme.onBackground)
+              : Icon(Icons.keyboard_arrow_up, color: Theme.of(context).colorScheme.onBackground),
           title: Text(text, style: TextStyle(fontSize: 16, color: Theme.of(context).colorScheme.primary, fontWeight: FontWeight.bold))),
       callback: (isSelected) => setState(() => expanded[index] = !isSelected),
       childList: ChildList(
@@ -71,8 +71,8 @@ class _LiturgicoPageState extends State<LiturgicoPage> {
     );
   }
 
-  List<Widget> filtrar(int index) {
-    List<Widget> widgets = [];
+  List filtrar(int index) {
+    List widgets = [];
 
     List<Canto> filterListCantos = [];
 
@@ -91,7 +91,7 @@ class _LiturgicoPageState extends State<LiturgicoPage> {
     if (index == 12) filterListCantos = listCantos.where((c) => (c.cfin)).toList();
     filterListCantos.forEach((element) {
       widgets.add(InkWell(
-        onTap: () => Get.to(CantoPage(canto: element)).then((value) => {setState(() {})}),
+        onTap: () => Get.to(() => CantoPage(canto: element)).then((value) => {setState(() {})}),
         child: Padding(
           padding: EdgeInsets.only(left: 16),
           child: ListTile(
@@ -106,7 +106,7 @@ class _LiturgicoPageState extends State<LiturgicoPage> {
                 child: Center(
                     child: Text(
                   element.nr2019,
-                  style: TextStyle(fontSize: 12),
+                  style: TextStyle(fontSize: 12, color: Colors.black),
                 )),
               ),
             )),
@@ -132,16 +132,4 @@ class _LiturgicoPageState extends State<LiturgicoPage> {
       return Icon(Icons.music_note, color: Colors.transparent);
   }
 
-  getColorCateg(int categoria) {
-    switch (categoria) {
-      case 2:
-        return Colors.blue[200];
-      case 3:
-        return Colors.green[200];
-      case 4:
-        return Colors.orange[100];
-      default:
-        return Colors.grey[200];
-    }
-  }
 }

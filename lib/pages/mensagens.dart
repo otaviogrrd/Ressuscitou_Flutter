@@ -22,9 +22,9 @@ class _MensagensPageState extends State<MensagensPage> {
                 return Center(child: Text("Não há mensagens."));
               else
                 return SingleChildScrollView(
-                    child: Column(children: <Widget>[
+                    child: Column(children: [
                   for (final item in snapshot.data)
-                    Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
+                    Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                       Text(item.titulo, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
                       Align(
                           alignment: Alignment.centerRight,
