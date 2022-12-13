@@ -5,18 +5,18 @@ import "package:flutter_form_builder/flutter_form_builder.dart";
 import "package:get/get.dart";
 import "package:intl/intl.dart";
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import "package:ressuscitou/helpers/global.dart";
-import "package:ressuscitou/model/canto.dart";
-import 'package:ressuscitou/model/mensagem.dart';
-import "package:ressuscitou/pages/audios.dart";
-import 'package:ressuscitou/pages/canto.dart';
-import "package:ressuscitou/pages/imageViewer.dart";
-import "package:ressuscitou/pages/listas.dart";
-import "package:ressuscitou/pages/liturgico.dart";
-import 'package:ressuscitou/pages/mensagens.dart';
-import "package:ressuscitou/pages/settings.dart";
 import "package:url_launcher/url_launcher.dart";
 
+import "../helpers/global.dart";
+import "../model/canto.dart";
+import '../model/mensagem.dart';
+import "../pages/audios.dart";
+import '../pages/canto.dart';
+import "../pages/imageViewer.dart";
+import "../pages/listas.dart";
+import "../pages/liturgico.dart";
+import '../pages/mensagens.dart';
+import "../pages/settings.dart";
 import "sobre.dart";
 
 class HomePage extends StatefulWidget {
@@ -510,10 +510,20 @@ class _HomePageState extends State<HomePage> {
 
   launchUrl() async {
     const url = "http://neo-transposer.com/";
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      snackBar(Get.overlayContext, "Erro ao abrir navegador");
-    }
+    launch(url).then(
+      (bool isLaunch) {
+        if (isLaunch) {
+        } else {
+          snackBar(Get.overlayContext, "Erro ao abrir navegador");
+        }
+      },
+      onError: (e) {
+        snackBar(Get.overlayContext, "Erro ao abrir navegador");
+      },
+    ).catchError(
+      (ex) {
+        snackBar(Get.overlayContext, "Erro ao abrir navegador");
+      },
+    );
   }
 }

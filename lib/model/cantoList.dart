@@ -1,5 +1,5 @@
 import "dart:convert";
-import "package:ressuscitou/helpers/global.dart";
+import "../helpers/global.dart";
 
 class CantoList {
   String titulo;

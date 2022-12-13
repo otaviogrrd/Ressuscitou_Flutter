@@ -4,8 +4,9 @@ import "package:flutter/material.dart";
 import 'package:flutter/services.dart';
 import "package:get/get.dart";
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import "package:ressuscitou/helpers/global.dart";
 import "package:url_launcher/url_launcher.dart";
+
+import "../helpers/global.dart";
 
 class SobrePage extends StatefulWidget {
   @override
@@ -150,21 +151,45 @@ class _SobrePageState extends State<SobrePage> {
 
   launchUrl() async {
     const url = "https://play.google.com/store/apps/details?id=br.org.cn.ressuscitou&hl=pt_BR";
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      snackBar(Get.overlayContext, "Erro ao abrir navegador");
-    }
+    launch(url).then(
+      (bool isLaunch) {
+        if (!isLaunch) {
+          snackBar(Get.overlayContext, "Erro ao abrir navegador");
+        }
+      },
+      onError: (e) {
+        snackBar(Get.overlayContext, "Erro ao abrir navegador");
+      },
+    ).catchError(
+      (ex) {
+        snackBar(Get.overlayContext, "Erro ao abrir navegador");
+      },
+    );
   }
 
   launchEmail() async {
     const url = "mailto:otavio.grrd@gmail.com?subject=Ressuscitou";
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      snackBar(Get.overlayContext, "Erro ao iniciar aplicativo de e-mail");
-      emailFail = true;
-      setState(() {});
-    }
+    launch(url).then(
+      (bool isLaunch) {
+        if (isLaunch) {
+          emailFail = false;
+        } else {
+          snackBar(Get.overlayContext, "Erro ao iniciar aplicativo de e-mail");
+          emailFail = true;
+          setState(() {});
+        }
+      },
+      onError: (e) {
+        snackBar(Get.overlayContext, "Erro ao iniciar aplicativo de e-mail");
+        emailFail = true;
+        setState(() {});
+      },
+    ).catchError(
+      (ex) {
+        snackBar(Get.overlayContext, "Erro ao iniciar aplicativo de e-mail");
+        emailFail = true;
+        setState(() {});
+      },
+    );
   }
 }

@@ -1,9 +1,10 @@
 import "package:flutter/material.dart";
+import 'package:flutter_simple_treeview/flutter_simple_treeview.dart';
 import "package:get/get.dart";
-import "package:ressuscitou/helpers/global.dart";
-import "package:ressuscitou/model/canto.dart";
-import "package:ressuscitou/pages/canto.dart";
-import "package:tree_view/tree_view.dart";
+
+import "../helpers/global.dart";
+import "../model/canto.dart";
+import "../pages/canto.dart";
 
 class LiturgicoPage extends StatefulWidget {
   @override
@@ -31,11 +32,9 @@ class _LiturgicoPageState extends State<LiturgicoPage> {
 
   listaCantos() {
     if (listCantos != null) {
-      return Container(
-        color: Theme.of(context).colorScheme.background,
+      return SingleChildScrollView(
         child: TreeView(
-          hasScrollBar: true,
-          parentList: [
+          nodes: [
             getparent(0, "ADVENTO"),
             getparent(1, "LAUDES - VÉSPERAS"),
             getparent(2, "CANTOS DE ENTRADA"),
@@ -57,22 +56,24 @@ class _LiturgicoPageState extends State<LiturgicoPage> {
   }
 
   getparent(int index, String text) {
-    return Parent(
-      parent: ListTile(
-          dense: true,
-          leading: expanded[index]
-              ? Icon(Icons.keyboard_arrow_down, color: Theme.of(context).colorScheme.onBackground)
-              : Icon(Icons.keyboard_arrow_up, color: Theme.of(context).colorScheme.onBackground),
-          title: Text(text, style: TextStyle(fontSize: 16, color: Theme.of(context).colorScheme.primary, fontWeight: FontWeight.bold))),
-      callback: (isSelected) => setState(() => expanded[index] = !isSelected),
-      childList: ChildList(
-        children: filtrar(index),
+    return TreeNode(
+
+      content: Container(
+        width: MediaQuery.of(context).size.width * 0.8,
+        child: ListTile(
+            dense: true,
+            onTap: () => setState(() => expanded[index] = !expanded[index]),
+            //leading: expanded[index]
+            //    ? Icon(Icons.keyboard_arrow_down, color: Theme.of(context).colorScheme.onBackground)
+            //    : Icon(Icons.keyboard_arrow_up, color: Theme.of(context).colorScheme.onBackground),
+            title: Text(text, style: TextStyle(fontSize: 16, color: Theme.of(context).colorScheme.primary, fontWeight: FontWeight.bold))),
       ),
+      children: expanded[index] ? filtrar(index) : null,
     );
   }
 
-  List filtrar(int index) {
-    List widgets = [];
+  List<TreeNode> filtrar(int index) {
+    List<TreeNode> widgets = [];
 
     List<Canto> filterListCantos = [];
 
@@ -90,34 +91,38 @@ class _LiturgicoPageState extends State<LiturgicoPage> {
     if (index == 11) filterListCantos = listCantos.where((c) => (c.comu)).toList();
     if (index == 12) filterListCantos = listCantos.where((c) => (c.cfin)).toList();
     filterListCantos.forEach((element) {
-      widgets.add(InkWell(
-        onTap: () => Get.to(() => CantoPage(canto: element)).then((value) => {setState(() {})}),
-        child: Padding(
-          padding: EdgeInsets.only(left: 16),
-          child: ListTile(
-            dense: true,
-            contentPadding: EdgeInsets.only(left: 16, right: 10),
-            leading: ClipOval(
-                child: Material(
-              color: getColorCateg(element.categoria), // button color
-              child: SizedBox(
-                width: 35,
-                height: 35,
-                child: Center(
-                    child: Text(
-                  element.nr2019,
-                  style: TextStyle(fontSize: 12, color: Colors.black),
+      widgets.add(
+        TreeNode(
+          content: InkWell(
+            onTap: () => Get.to(() => CantoPage(canto: element)).then((value) => {setState(() {})}),
+            child: Container(
+              width: MediaQuery.of(context).size.width * 0.7,
+              child: ListTile(
+                dense: true,
+                //contentPadding: EdgeInsets.only(left: 16, right: 10),
+                leading: ClipOval(
+                    child: Material(
+                  color: getColorCateg(element.categoria), // button color
+                  child: SizedBox(
+                    width: 35,
+                    height: 35,
+                    child: Center(
+                        child: Text(
+                      element.nr2019,
+                      style: TextStyle(fontSize: 12, color: Colors.black),
+                    )),
+                  ),
                 )),
+                title: Text(
+                  element.titulo,
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                ),
+                trailing: geticon(element),
               ),
-            )),
-            title: Text(
-              element.titulo,
-              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
             ),
-            trailing: geticon(element),
           ),
         ),
-      ));
+      );
     });
     return widgets;
   }
@@ -131,5 +136,4 @@ class _LiturgicoPageState extends State<LiturgicoPage> {
     } else
       return Icon(Icons.music_note, color: Colors.transparent);
   }
-
 }

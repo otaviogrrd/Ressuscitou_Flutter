@@ -8,7 +8,7 @@ import "package:flushbar/flushbar.dart";
 import "package:flutter/material.dart";
 import "package:intl/intl.dart";
 import 'package:package_info/package_info.dart';
-import "package:ressuscitou/model/canto.dart";
+import "../model/canto.dart";
 import "package:shared_preferences/shared_preferences.dart";
 
 var globals = new Globals();

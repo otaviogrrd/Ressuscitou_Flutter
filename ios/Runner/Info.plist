@@ -15,21 +15,13 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>$(MARKETING_VERSION)</string>
+	<string>$(FLUTTER_BUILD_NAME)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSCameraUsageDescription</key>
-	<string>Autorizar acesso à câmera para enviar sua foto.</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Autorizar acesso à Localização.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Autorizar acesso à Localização.</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Autorizar acesso à galeria para enviar sua foto.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -49,7 +41,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>io.flutter.embedded_views_preview</key>
-	<string>YES</string>
 </dict>
 </plist>

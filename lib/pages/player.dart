@@ -4,8 +4,8 @@ import "package:audioplayers/audioplayers.dart";
 import "package:flutter/foundation.dart";
 import "package:flutter/material.dart";
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import "package:ressuscitou/helpers/global.dart";
-import 'package:ressuscitou/model/canto.dart';
+import "../helpers/global.dart";
+import '../model/canto.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 enum PlayerState { stopped, playing, paused }

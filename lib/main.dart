@@ -2,8 +2,8 @@ import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter_localizations/flutter_localizations.dart";
 import "package:get/get.dart";
-import "package:ressuscitou/helpers/global.dart";
-import "package:ressuscitou/pages/splash.dart";
+import "../helpers/global.dart";
+import "../pages/splash.dart";
 
 void main() => runApp(MainPage());
 

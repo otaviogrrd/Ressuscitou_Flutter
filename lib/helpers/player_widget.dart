@@ -3,8 +3,8 @@ import "dart:async";
 import "package:audioplayers/audioplayers.dart";
 import "package:flutter/foundation.dart";
 import "package:flutter/material.dart";
-import "package:ressuscitou/helpers/global.dart";
-import 'package:ressuscitou/model/canto.dart';
+import "../helpers/global.dart";
+import '../model/canto.dart';
 
 enum PlayerState { stopped, playing, paused }
 enum PlayingRouteState { speakers, earpiece }

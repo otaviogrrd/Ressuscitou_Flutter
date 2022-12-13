@@ -1,13 +1,13 @@
 import "dart:async";
 import 'dart:convert';
 
-import 'package:connectivity/connectivity.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart';
 import "package:intl/intl.dart";
-import 'package:ressuscitou/helpers/global.dart';
+import '../helpers/global.dart';
 
 class Mensagem {
   String id;

@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
-import 'package:ressuscitou/helpers/global.dart';
-import 'package:ressuscitou/model/mensagem.dart';
+import '../helpers/global.dart';
+import '../model/mensagem.dart';
 
 class MensagensPage extends StatefulWidget {
   @override

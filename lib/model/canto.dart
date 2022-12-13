@@ -1,11 +1,11 @@
 import "dart:convert";
 import "dart:io";
 
-import "package:connectivity/connectivity.dart";
+import "package:connectivity_plus/connectivity_plus.dart";
 import 'package:flutter/services.dart';
 import "package:http/http.dart";
 import "package:path_provider/path_provider.dart";
-import "package:ressuscitou/helpers/global.dart";
+import "../helpers/global.dart";
 
 class Canto {
   int id;

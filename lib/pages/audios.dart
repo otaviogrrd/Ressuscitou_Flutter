@@ -1,15 +1,15 @@
 import "dart:async";
 import "dart:io";
 
-import "package:connectivity/connectivity.dart";
+import "package:connectivity_plus/connectivity_plus.dart";
 import "package:dio/dio.dart";
 import "package:flutter/material.dart";
 import "package:get/get.dart";
 import "package:path_provider/path_provider.dart";
 import "package:percent_indicator/circular_percent_indicator.dart";
-import "package:ressuscitou/helpers/global.dart";
-import "package:ressuscitou/model/canto.dart";
-import 'package:ressuscitou/pages/player.dart';
+import "../helpers/global.dart";
+import "../model/canto.dart";
+import '../pages/player.dart';
 
 class AudiosPage extends StatefulWidget {
   @override

@@ -2,7 +2,7 @@ import "dart:async";
 import "dart:convert";
 import "dart:io";
 
-import "package:connectivity/connectivity.dart";
+import "package:connectivity_plus/connectivity_plus.dart";
 import "package:dio/dio.dart";
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
@@ -15,10 +15,10 @@ import "package:numberpicker/numberpicker.dart";
 import "package:path_provider/path_provider.dart";
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import "package:percent_indicator/linear_percent_indicator.dart";
-import "package:ressuscitou/helpers/global.dart";
-import "package:ressuscitou/helpers/player_widget.dart";
-import "package:ressuscitou/model/canto.dart";
-import "package:ressuscitou/pages/listas.dart";
+import "../helpers/global.dart";
+import "../helpers/player_widget.dart";
+import "../model/canto.dart";
+import "../pages/listas.dart";
 import "package:wakelock/wakelock.dart";
 import "package:webview_flutter/webview_flutter.dart";
 

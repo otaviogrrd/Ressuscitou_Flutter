@@ -1,8 +1,8 @@
 import "package:flutter/material.dart";
 import "package:get/get.dart";
-import "package:ressuscitou/helpers/global.dart";
-import "package:ressuscitou/model/cantoList.dart";
-import "package:ressuscitou/pages/listaDetalhe.dart";
+import "../helpers/global.dart";
+import "../model/cantoList.dart";
+import "../pages/listaDetalhe.dart";
 
 class ListasPage extends StatefulWidget {
   int select;

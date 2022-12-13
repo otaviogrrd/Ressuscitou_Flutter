@@ -2,8 +2,8 @@ import "dart:async";
 
 import "package:flutter/material.dart";
 import "package:get/get.dart";
-import "package:ressuscitou/model/canto.dart";
-import "package:ressuscitou/pages/home.dart";
+import "../model/canto.dart";
+import "../pages/home.dart";
 
 class Splash extends StatefulWidget {
   @override

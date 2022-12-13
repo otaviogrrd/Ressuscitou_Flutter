@@ -2,10 +2,10 @@ import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter_form_builder/flutter_form_builder.dart";
 import "package:get/get.dart";
-import "package:ressuscitou/helpers/global.dart";
-import "package:ressuscitou/model/cantoList.dart";
-import "package:ressuscitou/pages/canto.dart";
-import "package:ressuscitou/pages/home.dart";
+import "../helpers/global.dart";
+import "../model/cantoList.dart";
+import "../pages/canto.dart";
+import "../pages/home.dart";
 import "package:share/share.dart";
 
 class ListaDetalhePage extends StatefulWidget {
@@ -50,7 +50,7 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
       globals.listaGlobal.forEach((element) {
         share = share + element.nr2019.padLeft(3, "0") + " - " + element.titulo + "\n";
       });
-      Share.share("Confira a lista *${listaNew.titulo}*, que criei no App *Ressucitou*:\n\n$share");
+      Share.share("Confira a lista *${listaNew.titulo}*, que criei no App *ressuscitou*:\n\n$share");
     }
   }
 
@@ -88,7 +88,7 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
             elevation: 1,
             onPressed: () {
               getHelp();
-//              Share.share("Confira a lista *${listaNew.titulo}*, que criei no App *Ressucitou*:\n\n$share");
+//              Share.share("Confira a lista *${listaNew.titulo}*, que criei no App *ressuscitou*:\n\n$share");
             }),
         body: Container(
             margin: EdgeInsets.symmetric(horizontal: 11),
