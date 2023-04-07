@@ -1,0 +1,52 @@
+[
+  {
+    "id": "5",
+    "plataforma": "",
+    "titulo": "Novos Audios Adicionados",
+    "conteudo": "Coma alegria informo que adicionamos audios de 50 cantos, e substituímos 10: Só a só\nSe vós ressuscitastes com Cristo\nÉ paciente\nJesus percorria todas as cidades \nCântico de Ana\nSenhor, ajuda-me a não duvidar de ti\nQuando o Senhor\nO Messias, Leão para vencer \nQuero andar\nQuem é esta que sobe do deserto\n .",
+    "dataIni": "2023-04-06",
+    "dataFim": "2023-04-10",
+    "buildDe": 0,
+    "buildAte": 99999
+  },
+  {
+    "id": "4",
+    "plataforma": "Android",
+    "titulo": "Nova versão disponível.",
+    "conteudo": "Atualize pela Play Store! Agora é possível reproduzir os áudios como playlist, na página de áudios baixados!",
+    "dataIni": "2020-09-27",
+    "dataFim": "9999-12-31",
+    "buildDe": 0,
+    "buildAte": 15
+  },
+  {
+    "id": "3",
+    "plataforma": "Android",
+    "titulo": "Nova versão disponível.",
+    "conteudo": "Ajustes importantes foram feitos no layout e funcionalidades. Atualize pela Play Store!",
+    "dataIni": "2020-09-19",
+    "dataFim": "9999-12-31",
+    "buildDe": 0,
+    "buildAte": 12
+  },
+  {
+    "id": "2",
+    "plataforma": "iOS",
+    "titulo": "Bem vindo(a) ao Ressuscitou iOS.",
+    "conteudo": "Como orientado pelos responsáveis do Caminho Neocatecumenal, nunca utilizar o aplicativo em celebrações, eucaristias, etc.",
+    "dataIni": "2021-01-01",
+    "dataFim": "2021-01-31",
+    "buildDe": 0,
+    "buildAte": 999
+  },
+  {
+    "id": "1",
+    "plataforma": "Android",
+    "titulo": "Nova Versão Ressuscitou",
+    "conteudo": "Bem vindo ao novo Ressuscitou.\\nAs mesmas funcionalidades, mas totalmente repaginado!\\nInfelizmente não é possível recuperar os dados salvos da versão anterior.\\nÉ recomendado realizar a limpeza(ou reinstalação) para reduzir o tamanho do aplicativo em seu celular.",
+    "dataIni": "2020-07-12",
+    "dataFim": "2020-09-13",
+    "buildDe": 0,
+    "buildAte": 999
+  }
+]
