@@ -101,6 +101,45 @@ class _HomePageState extends State<HomePage> {
         ),
       );
 
+    var msgTablet = globals.prefs.getBool("msgTabletLida") ?? false;
+    var screenDiagonal = globals.prefs.getBool("screenDiagonal") ?? false;
+    if (!msgTablet && screenDiagonal)
+      Get.defaultDialog(
+        title: "Modo tablet",
+        radius: 4,
+        content: Column(
+          children: [
+            Container(
+              constraints: BoxConstraints(minHeight: 100, maxHeight: MediaQuery.of(context).size.height * 0.3),
+              child: SingleChildScrollView(
+                child: Table(
+                  children: [
+                    TableRow(children: [
+                      Text("Identificamos que este aparelho é um Tablet.", style: TextStyle(fontSize: 16), textAlign: TextAlign.center)
+                    ]),
+                    TableRow(children: [
+                      Text("Você pode desabilitar este modo de visualização no menu Opções.", textAlign: TextAlign.center)
+                    ]),
+                    TableRow(children: [SizedBox(height: 15)]),
+                  ],
+                ),
+              ),
+            ),
+            Container(
+              width: 100,
+              child: FlatButton(
+                  child: FittedBox(fit: BoxFit.scaleDown, child: Text("Entendi")),
+                  color: Theme.of(context).colorScheme.primary,
+                  textColor: Theme.of(context).colorScheme.onPrimary,
+                  onPressed: () {
+                    globals.prefs.setBool("msgTabletLida", true);
+                    Navigator.pop(context);
+                  }),
+            ),
+          ],
+        ),
+      );
+
     DateTime messageLida = DateTime.parse(globals.prefs.getString("MessageLida") ?? "1800-01-01");
     if (messageLida.isBefore(DateTime.parse(DateFormat("yyyy-MM-dd").format(DateTime.now())))) {
       getMessage(apenasHoje: true);
@@ -343,7 +382,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 onTap: () => setState(() => selectCateg(4))),
             ListTile(
-                title: Text("Catecumentato"),
+                title: Text("Catecumenato"),
                 leading: ClipOval(
                   child: Material(
                     color: getColorCateg(2), // button color

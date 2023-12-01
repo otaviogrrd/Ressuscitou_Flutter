@@ -1,7 +1,7 @@
 name: ressuscitou
 description: Ressuscitou
 publish_to: 'none'
-version: 3.0.11+21
+version: 3.1.0+28
 
 ## Comando para gerar o apk: flutter build apk --split-per-abi
 
@@ -46,6 +46,7 @@ dependencies:
   material_design_icons_flutter: 4.0.5655
   scrollable_positioned_list: ^0.1.7
   flutter_simple_treeview: ^3.0.2
+  file_picker: ^2.1.7
 
 dependency_overrides:
   intl: ^0.17.0

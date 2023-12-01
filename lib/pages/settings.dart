@@ -1,7 +1,17 @@
+import 'dart:convert';
+import "dart:io";
+
+import 'package:file_picker/file_picker.dart';
 import "package:flutter/material.dart";
+import 'package:flutter/services.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:get/get.dart';
+import "package:intl/intl.dart";
+import 'package:path_provider/path_provider.dart';
+
 import "../helpers/global.dart";
+import '../model/cantoList.dart';
+import '../model/configuracoes.dart';
 
 class SettingsPage extends StatefulWidget {
   @override
@@ -13,12 +23,14 @@ class _SettingsPageState extends State<SettingsPage> {
   bool wfOnly = false;
   bool estendido = false;
   bool escalaAmericana = false;
+  bool tablet = false;
 
   @override
   void initState() {
     wfOnly = globals.prefs.getBool("wfOnly") ?? false;
     estendido = globals.prefs.getBool("estendido") ?? true;
     escalaAmericana = globals.prefs.getBool("escalaAmericana") ?? false;
+    tablet = globals.prefs.getBool("tablet") ?? true;
     super.initState();
   }
 
@@ -87,6 +99,20 @@ class _SettingsPageState extends State<SettingsPage> {
                     },
                   ),
                 ),
+                Divider(color: Theme.of(context).colorScheme.onBackground, height: 2.0),
+                SwitchListTile(
+                    activeColor: Theme.of(context).colorScheme.primary,
+                    title: Text("Modo Tablet"),
+                    value: tablet,
+                    onChanged: (value) {
+                      globals.prefs.setBool("tablet", value);
+                      setState(() => tablet = value);
+                    }),
+                Divider(color: Theme.of(context).colorScheme.onBackground, height: 2.0),
+                ListTile(title: Text("Exportar Dados Salvos"), onTap: () => exportarDados()),
+                Divider(color: Theme.of(context).colorScheme.onBackground, height: 2.0),
+                ListTile(title: Text("Importar Dados"), onTap: () => importarDados()),
+                Divider(color: Theme.of(context).colorScheme.onBackground, height: 2.0),
               ]),
             )));
   }
@@ -133,4 +159,79 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 
+  exportarDados() async {
+    int trans = 0;
+    int capot = 0;
+    String anota = "";
+    List<CantoList> listas = [];
+
+    Configuracoes configuracoes = new Configuracoes(cantos: [], listas: []);
+    configuracoes.listas = await CantoListService().getCantosList();
+
+    for (var i = 0; i < globals.cantosGlobal.length; i++) {
+      trans = globals.prefs.getInt("TRANSP_" + globals.cantosGlobal[i].id.toString()) ?? 0;
+      capot = globals.prefs.getInt("CAPOT_" + globals.cantosGlobal[i].id.toString()) ?? 0;
+      anota = globals.prefs.getString("ANOT_" + globals.cantosGlobal[i].id.toString()) ?? "";
+      if (trans > 0 || capot > 0 || anota != "") {
+        CantosConfig item = new CantosConfig(cantoId: globals.cantosGlobal[i].id, trans: trans, capot: capot, anota: anota);
+        configuracoes.cantos.add(item);
+      }
+    }
+    if (configuracoes.listas.isEmpty && configuracoes.cantos.isEmpty) {
+      snackBar(Get.overlayContext, "Nada para exportar.");
+      return;
+    }
+
+    var datetime = DateFormat("yyyyMMdd-HHmmss").format(DateTime.now()).toString();
+    String filename = "Ressuscitou_Dados_$datetime.json";
+
+    try {
+      String dir = "";
+      if (Platform.isAndroid) {
+        dir = "/storage/emulated/0/Download/";
+      } else if (Platform.isIOS) {
+        dir = (await getDownloadsDirectory()).path;
+      }
+      final String path = "$dir/" + filename;
+      final File file = File(path);
+      file.writeAsStringSync(getPrettyJSONString(configuracoes));
+      snackBar(Get.overlayContext, "Arquivo salvo em:\n$dir");
+    } on Exception catch (e) {
+      snackBar(Get.overlayContext, e.toString());
+    }
+  }
+
+  importarDados() async {
+    try {
+      var _paths = (await FilePicker.platform.pickFiles(
+        type: FileType.custom,
+        allowMultiple: false,
+        allowedExtensions: ['json'],
+      ))
+          ?.files;
+      if (_paths != null) if (_paths.isNotEmpty) {
+        var myFile = File(_paths.first.path);
+
+        List<String> content = myFile.readAsLinesSync();
+        String str = content.join("");
+        Configuracoes configuracoes = new Configuracoes.fromJson(jsonDecode(str));
+
+        configuracoes.cantos.forEach((element) {
+          if (element.trans > 0) globals.prefs.setInt("TRANSP_" + element.cantoId.toString(), element.trans);
+          if (element.capot > 0) globals.prefs.setInt("CAPOT_" + element.cantoId.toString(), element.capot);
+          if (element.anota != "") globals.prefs.setString("ANOT_" + element.cantoId.toString(), element.anota);
+        });
+
+        configuracoes.listas.forEach((element) {
+          CantoListService().saveList(listaOld: element.titulo, listaNew: element);
+        });
+
+        snackBar(Get.overlayContext, "Dados importados com sucesso.");
+      }
+    } on PlatformException catch (e) {
+      snackBar(Get.overlayContext, 'Erro: ' + e.toString());
+    } catch (e) {
+      snackBar(Get.overlayContext, e.toString());
+    }
+  }
 }

@@ -104,6 +104,12 @@ bool isTablet(MediaQueryData query) {
   var size = query.size;
   var diagonal = sqrt((size.width * size.width) + (size.height * size.height));
   var isTablet = diagonal > 1100.0;
+  globals.prefs.setBool("screenDiagonal", isTablet);
+  if ( globals.prefs.getBool("tablet") == null ) {
+    globals.prefs.setBool("tablet", isTablet);
+  }else{
+    return globals.prefs.getBool("tablet");
+  }
   return isTablet;
 }
 
