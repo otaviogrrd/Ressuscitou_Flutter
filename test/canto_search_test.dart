@@ -4,10 +4,10 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:ressuscitou/helpers/canto_search.dart';
 import 'package:ressuscitou/model/canto.dart';
 
-String encodedLyrics(String body) => base64Encode(utf8.encode('''
+String encodedLyrics(String body, {bool black = true}) => base64Encode(utf8.encode('''
 <html><head><style>.html_canto{white-space:pre;font-family:monospace}</style></head>
 <body><div class="html_canto"><H1>Título</H1><div class="inv">@transp@ @capot@</div>
-$body</div></body></html>'''));
+${black ? '<FONT COLOR="#000000">$body</FONT>' : body}</div></body></html>'''));
 
 void main() {
   test('normalization handles accents, case, punctuation and spaces', () {
@@ -17,7 +17,7 @@ void main() {
   test('exact, title fragment and lyric matches precede approximate titles', () {
     final songs = [
       Canto(id: 4, titulo: 'Ressucitou'),
-      Canto(id: 3, titulo: 'Outro canto', conteudo: 'ressuscitou'),
+      Canto(id: 3, titulo: 'Outro canto', htmlBase64: encodedLyrics('ressuscitou')),
       Canto(id: 2, titulo: 'Ressuscitou Aleluia'),
       Canto(id: 1, titulo: 'Ressuscitou'),
     ];
@@ -30,10 +30,10 @@ void main() {
     expect(CantoSearchIndex([canto]).search('ressucitou'), [canto]);
   });
 
-  test('titles and old compact lyric indexes ignore accents and spaces', () {
+  test('titles and black lyrics ignore accents and punctuation', () {
     final songs = [
       Canto(id: 1, titulo: 'É o Senhor'),
-      Canto(id: 2, titulo: 'Outro', conteudo: 'gloriaaosenhor'),
+      Canto(id: 2, titulo: 'Outro', conteudo: 'indiceantigo', htmlBase64: encodedLyrics('Glória ao Senhor')),
     ];
     final index = CantoSearchIndex(songs);
     expect(index.search('e o senhor').first.id, 1);
@@ -103,7 +103,7 @@ void main() {
     expect(result.canto, same(canto));
   });
 
-  test('compact legacy indexes show the original accented lyric phrase', () {
+  test('black HTML shows the original accented lyric phrase', () {
     final encoded = encodedLyrics('<FONT COLOR="#FF0000">Do Sol Re</FONT>\n'
         '<FONT COLOR="#000000">Uma manhã de paz &amp; alegria.</FONT>');
     final canto = Canto(titulo: 'Outro canto', conteudo: 'umamanhadepazealegria', htmlBase64: encoded);
@@ -115,10 +115,10 @@ void main() {
     expect(canto.htmlBase64, encoded);
   });
 
-  test('snippets handle HTML boundaries and plain content fallback', () {
+  test('snippets handle HTML boundaries and damaged normal variants', () {
     final index = CantoSearchIndex([
       Canto(id: 1, titulo: 'Primeiro', htmlBase64: encodedLyrics('<p>Uma manhã</p><p>de paz</p>')),
-      Canto(id: 2, titulo: 'Segundo', htmlBase64: 'invalid!', conteudo: 'Uma manhã de paz'),
+      Canto(id: 2, titulo: 'Segundo', htmlBase64: 'invalid!', extBase64: encodedLyrics('Uma manhã de paz')),
     ]);
     final results = index.searchResults('manhã de paz');
     expect(results.map((result) => result.canto.id), [1, 2]);
@@ -127,7 +127,7 @@ void main() {
   });
 
   test('snippets use the actual occurrence in long lyrics', () {
-    final canto = Canto(titulo: 'Outro', conteudo: '${'início ' * 30}Uma manhã de paz ${'final ' * 30}');
+    final canto = Canto(titulo: 'Outro', htmlBase64: encodedLyrics('${'início ' * 30}Uma manhã de paz ${'final ' * 30}'));
     final result = CantoSearchIndex([canto]).searchResults('manha de paz').single;
     expect(result.snippet, contains('Uma manhã de paz'));
     expect(result.snippet!.startsWith('…'), isTrue);
@@ -143,7 +143,7 @@ void main() {
     expect(normalizeCantoSearch(decomposed), normalizeCantoSearch(composed));
     final index = CantoSearchIndex([
       Canto(id: 1, titulo: 'Canção da manhã'),
-      Canto(id: 2, titulo: 'Outro', conteudo: 'cancao da manha'),
+      Canto(id: 2, titulo: 'Outro', htmlBase64: encodedLyrics('canção da manhã')),
     ]);
     for (final query in ['CANÇÃO DA MANHÃ', 'cancao da manha', 'canc\u0327a\u0303o da manha\u0303']) {
       expect(index.search(query).map((canto) => canto.id), [1, 2]);
@@ -170,6 +170,79 @@ void main() {
     final result = CantoSearchIndex([canto]).searchResults('manhã de paz').single;
     expect(result.snippet, phrase);
     expect(result.subtitle, 'Trecho: $phrase');
+  });
+
+
+  test('approximate lyrics show the actual corrected phrase from black HTML', () {
+    final canto = Canto(titulo: 'Título diferente', categoria: 2,
+        htmlBase64: encodedLyrics('Uma manhã de paz e alegria.'));
+    final index = CantoSearchIndex([canto]);
+    final result = index.searchResults('manah de paz', category: 2).single;
+    expect(result.approximate, isTrue);
+    expect(result.titleMatch, isFalse);
+    expect(result.subtitle, 'Trecho semelhante: Uma manhã de paz e alegria.');
+    expect(index.searchResults('manah de paz', category: 1), isEmpty);
+    expect(index.searchResults('manhã de paz').single.approximate, isFalse);
+  });
+
+  test('only black HTML is searched, never the legacy index or other colors', () {
+    final canto = Canto(titulo: 'Exemplo', conteudo: 'indiceremovido palavraantiga', htmlBase64: encodedLyrics(
+        '<FONT COLOR="#FF0000">cifras vermelhas</FONT>'
+        '<FONT COLOR="#008000">anotação verde</FONT>'
+        '<span>texto sem cor explícita</span>'
+        '<FONT COLOR="#000000">Frase preta <b>com ênfase</b>'
+        '<FONT COLOR="#FF0000">outra cifra</FONT>'
+        '<span class="inv">segredo oculto</span></FONT>', black: false));
+    final index = CantoSearchIndex([canto]);
+    for (final query in ['indice removido', 'indiceremovido', 'palavraantiga', 'cifras vermelhas',
+                         'anotação verde', 'texto sem cor', 'outra cifra', 'segredo oculto']) {
+      expect(index.search(query), isEmpty, reason: query);
+    }
+    final result = index.searchResults('frase preta com enfase').single;
+    expect(result.snippet, 'Frase preta com ênfase');
+    expect(result.approximate, isFalse);
+  });
+
+  test('black font and inline CSS variants preserve inherited colors', () {
+    final index = CantoSearchIndex([
+      Canto(id: 1, titulo: 'Primeiro', htmlBase64: encodedLyrics('<font color="BLACK">Luz da manhã</font>', black: false)),
+      Canto(id: 2, titulo: 'Segundo', htmlBase64: encodedLyrics('<span style="color: rgb(0, 0, 0)">Luz da <b>manhã</b></span>', black: false)),
+      Canto(id: 3, titulo: 'Terceiro', htmlBase64: encodedLyrics('<font color="#000"><span style="color:red">fora da busca</span>Luz da manhã</font>', black: false)),
+    ]);
+    expect(index.search('luz da manha').map((canto) => canto.id), [1, 2, 3]);
+    expect(index.search('fora da busca'), isEmpty);
+  });
+
+  test('HTML without black lyrics does not fall back to compact content', () {
+    final index = CantoSearchIndex([
+      Canto(titulo: 'Exemplo', conteudo: 'conteudolegadosemespacos', htmlBase64: 'broken!'),
+      Canto(titulo: 'Outro', conteudo: 'conteúdo legado sem espaços', htmlBase64: encodedLyrics('texto sem tag preta', black: false)),
+    ]);
+    expect(index.search('conteudo legado'), isEmpty);
+    expect(index.search('conteudolegadosemespacos'), isEmpty);
+    expect(index.search('texto sem tag preta'), isEmpty);
+  });
+
+  test('exact lyric hits precede approximate phrases and unrelated phrases are rejected', () {
+    final index = CantoSearchIndex([
+      Canto(id: 2, titulo: 'Segundo', htmlBase64: encodedLyrics('A manhã traz luz e alegria.')),
+      Canto(id: 1, titulo: 'Primeiro', htmlBase64: encodedLyrics('A manha traz lus e alegria.')),
+      Canto(id: 3, titulo: 'Terceiro', htmlBase64: encodedLyrics('A noite traz silêncio e descanso.')),
+    ]);
+    final results = index.searchResults('manha traz lus');
+    expect(results.map((result) => result.canto.id), [1, 2]);
+    expect(results.first.approximate, isFalse);
+    expect(results.last.approximate, isTrue);
+    expect(results.last.snippet, contains('manhã traz luz'));
+    expect(index.search('a manhã traz tristeza'), isEmpty);
+    expect(index.search('alegria luz manhã'), isEmpty);
+    expect(index.search('manh'), hasLength(2)); // partial exact matches, no short fuzzy matching
+  });
+
+  test('a title hit shows its black lyric occurrence when available', () {
+    final canto = Canto(titulo: 'Luz da manhã', htmlBase64: encodedLyrics('Chegou a luz da manhã com alegria.'));
+    expect(CantoSearchIndex([canto]).searchResults('luz da manha').single.subtitle,
+        'Trecho: Chegou a luz da manhã com alegria.');
   });
 
 }

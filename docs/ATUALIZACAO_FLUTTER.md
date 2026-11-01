@@ -61,28 +61,38 @@ A busca usa fuzzywuzzy 1.2.0 e diacritic 0.1.6. Números exatos têm
 prioridade sobre números parciais, com suporte a zeros à esquerda e à
 numeração antiga. Números não recebem comparação aproximada.
 
-Para texto, a ordem é título exato, trecho do título, trecho do índice de
-conteúdo e, por último, títulos semelhantes. A normalização ignora acentos,
-maiúsculas, espaços repetidos e pontuação, sem alterar o texto salvo. O
-índice compacto legado do campo conteudo continua pesquisável.
+Para texto, a ordem é título exato, trecho do título, trecho exato da letra,
+frases semelhantes da letra e, por último, títulos semelhantes. A fonte da
+letra é exclusivamente o texto preto do HTML (`FONT COLOR="#000000"` e
+variantes equivalentes), incluindo descendentes que herdam essa cor. Cifras,
+cores de anotação, comandos ocultos, cabeçalhos e texto sem cor preta explícita
+não entram no índice da letra. O campo legado `conteudo` não é consultado.
+O HTML normal é usado primeiro; a variante estendida é tentada se ele não
+contiver texto preto utilizável. O catálogo e seus HTMLs não são regravados.
 
-A aproximação compara frases contíguas dos títulos com ratio, somente a
+A normalização ignora acentos compostos e marcas combinantes, maiúsculas,
+pontuação e espaços repetidos, preservando a separação das palavras na letra.
+A aproximação compara janelas de palavras contíguas com `ratio`, somente a
 partir de cinco caracteres. Exige no máximo uma edição para pesquisas de
 5–9 caracteres, duas para 10–19 e três para 20 ou mais, além de similaridade
-mínima de 88/100 (80 para pesquisas de 5–7 caracteres). Isso evita que
-palavras comuns isoladas aproximem títulos pouco relacionados. O filtro de
-categoria e a ordem original dos empates são preservados.
+mínima de 88/100 (80 para pesquisas de 5–7 caracteres). Uma troca de letras
+adjacentes também conta como uma edição. A ordem das palavras importa;
+apenas compartilhar palavras comuns não basta para aproximar duas frases.
+O filtro de categoria e a ordem original dos empates são preservados.
 
-A lista mostra abaixo do canto o trecho encontrado na letra ou o título
-semelhante. Os trechos conservam acentos e espaços recuperados de uma cópia
-do HTML, removendo cifras, estilos e comandos ocultos. O HTML de exibição
-não é alterado. A normalização e a extração são feitas uma vez por carga;
-digitar não recarrega o catálogo do disco.
+A lista mostra abaixo do canto o trecho original com acentos e espaços:
+`Trecho` para correspondências exatas e `Trecho semelhante` para aproximações.
+Se a correspondência for só pelo título, indica `Título` ou `Título semelhante`.
+Quando o título e a letra contêm a pesquisa, o trecho da letra é exibido.
+A extração e a normalização são feitas uma vez por carga; digitar não recarrega
+o catálogo do disco. A distância limitada permite interromper cedo a
+comparação de frases sem relação.
 
-O teste canto_search_test.dart cobre a prioridade dos resultados,
-acentuação, erros de digitação, rejeição de títulos pouco relacionados,
-números, categorias, trechos e preservação dos objetos e HTML originais. O limite de similaridade deve ser avaliado com buscas
-reais depois da validação do app.
+Os testes cobrem acentos, digitação e exclusão gradual, relevância das frases,
+exclusão de texto não preto e do índice legado, recuperação da variante
+estendida, trechos originais, categorias, números e preservação dos HTMLs.
+O roteiro de validação em iPhone e a configuração Codemagic estão em
+`docs/CODEMAGIC_IOS.md`.
 
 ## Aplicar e validar
 

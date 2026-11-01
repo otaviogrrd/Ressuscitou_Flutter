@@ -2,13 +2,15 @@ import 'dart:convert';
 
 import 'package:diacritic/diacritic.dart';
 import 'package:fuzzywuzzy/fuzzywuzzy.dart';
-import 'package:html/parser.dart' as html;
 import 'package:html/dom.dart' as dom;
+import 'package:html/parser.dart' as html;
 
 import '../model/canto.dart';
 
+final _combiningMarks = RegExp(r'[\u0300-\u036f]');
+
 String normalizeCantoSearch(String text) => removeDiacritics(text.toLowerCase())
-    .replaceAll(RegExp(r'[\u0300-\u036f]'), '')
+    .replaceAll(_combiningMarks, '')
     .replaceAll(RegExp(r'[^a-z0-9\s]'), ' ')
     .replaceAll(RegExp(r'\s+'), ' ')
     .trim();
@@ -20,71 +22,130 @@ String? _numberKey(String text) {
   return result.isEmpty ? '0' : result;
 }
 
-String _lyrics(Canto canto) {
-  // The legacy content index has no spaces. Read a copy of the display HTML
-  // to recover the original phrase; never rewrite the HTML used by the WebView.
+String _blackLyrics(Canto canto) {
+  // Parse a copy. Only explicitly black text (including descendants inheriting
+  // black) is searchable. The legacy compact index and other colors are ignored.
   for (final encoded in [canto.htmlBase64, canto.extBase64]) {
     if (encoded.isEmpty) continue;
     try {
       final document = html.parse(utf8.decode(base64Decode(encoded)));
-      for (final element in document.querySelectorAll('head, script, style, h1, .inv')) {
-        element.remove();
-      }
-      for (final element in document.querySelectorAll('font[color]')) {
-        if (element.attributes['color']?.toLowerCase() == '#ff0000') {
-          element.remove();
+      final buffer = StringBuffer();
+      void visit(dom.Node node, bool black) {
+        if (node is dom.Text) {
+          if (black) buffer.write(node.data);
+          return;
         }
+        if (node is! dom.Element) return;
+        if (['head', 'script', 'style', 'h1'].contains(node.localName) ||
+            node.classes.contains('inv') || node.attributes.containsKey('hidden') ||
+            RegExp(r'display\s*:\s*none', caseSensitive: false).hasMatch(node.attributes['style'] ?? '')) {
+          buffer.write(' ');
+          return;
+        }
+        final style = node.attributes['style'] ?? '';
+        final cssColor = RegExp(r'(?:^|;)\s*color\s*:\s*([^;!]+)', caseSensitive: false).firstMatch(style)?.group(1);
+        final color = (cssColor ?? node.attributes['color'])?.toLowerCase().replaceAll(RegExp(r'\s'), '');
+        if (color != null) {
+          black = ['#000000', '#000', 'black', 'rgb(0,0,0)', 'rgba(0,0,0,1)'].contains(color);
+          buffer.write(' ');
+        }
+        final block = ['br', 'p', 'div', 'li'].contains(node.localName);
+        if (block) buffer.write(' ');
+        for (final child in node.nodes) { visit(child, black); }
+        if (block || color != null) buffer.write(' ');
       }
-      for (final element in document.querySelectorAll('br')) {
-        element.replaceWith(dom.Text(' '));
-      }
-      // Block boundaries can also separate words without a literal newline.
-      for (final element in document.querySelectorAll('div, p, li')) {
-        element.nodes.add(dom.Text(' '));
-      }
-      final text = (document.body?.text ?? '').replaceAll(RegExp(r'\s+'), ' ').trim();
+      final body = document.body;
+      if (body != null) visit(body, false);
+      final text = buffer.toString().replaceAll(RegExp(r'\s+'), ' ').trim();
       if (text.isNotEmpty) return text;
     } on FormatException {
-      // A damaged downloaded variant must not prevent searching the catalog.
+      // Try the extended variant, but never silently use the obsolete index.
       continue;
     }
   }
-  return canto.conteudo.contains(RegExp(r'\s')) ? canto.conteudo : '';
+  return '';
+}
+
+class _PhraseMatch {
+  final int score;
+  final String snippet;
+  const _PhraseMatch(this.score, this.snippet);
 }
 
 class _SearchPhrase {
   final String text;
   late final String normalized;
   late final String compact;
+  late final List<RegExpMatch> _words;
   final List<int> _starts = [];
   final List<int> _ends = [];
 
   _SearchPhrase(this.text) {
-    final buffer = StringBuffer();
+    final chars = <String>[];
     for (var index = 0; index < text.length; index++) {
+      if (_combiningMarks.hasMatch(text[index])) continue;
       final char = normalizeCantoSearch(text[index]);
-      if (char.isEmpty) continue;
-      buffer.write(char);
-      for (var offset = 0; offset < char.length; offset++) {
+      if (char.isEmpty) {
+        if (chars.isEmpty || chars.last == ' ') continue;
+        chars.add(' ');
         _starts.add(index);
         _ends.add(index + 1);
+      } else {
+        for (var offset = 0; offset < char.length; offset++) {
+          chars.add(char[offset]);
+          _starts.add(index);
+          _ends.add(index + 1);
+        }
       }
     }
-    normalized = normalizeCantoSearch(text);
-    compact = buffer.toString();
+    if (chars.isNotEmpty && chars.last == ' ') {
+      chars.removeLast();
+      _starts.removeLast();
+      _ends.removeLast();
+    }
+    normalized = chars.join();
+    compact = normalized.replaceAll(' ', '');
+    _words = RegExp(r'[a-z0-9]+').allMatches(normalized).toList();
   }
 
-  String? excerpt(String query) {
-    final key = query.replaceAll(' ', '');
-    final position = compact.indexOf(key);
-    if (key.isEmpty || position < 0) return null;
-    final matchStart = _starts[position];
-    final matchEnd = _ends[position + key.length - 1];
+  String _excerpt(int from, int to) {
+    final matchStart = _starts[from];
+    final matchEnd = _ends[to - 1];
     var start = matchStart > 45 ? matchStart - 45 : 0;
     var end = matchEnd + 65 < text.length ? matchEnd + 65 : text.length;
     while (start > 0 && text[start - 1] != ' ') { start--; }
     while (end < text.length && text[end] != ' ') { end++; }
     return '${start > 0 ? '…' : ''}${text.substring(start, end).trim()}${end < text.length ? '…' : ''}';
+  }
+
+  _PhraseMatch? exact(String query) {
+    final start = normalized.indexOf(query);
+    if (query.isEmpty || start < 0) return null;
+    return _PhraseMatch(100, _excerpt(start, start + query.length));
+  }
+
+  _PhraseMatch? approximate(String query) {
+    if (query.replaceAll(' ', '').length < 5) return null;
+    final count = query.split(' ').length;
+    final budget = _editBudget(query);
+    var best = 0;
+    var bestStart = 0;
+    var bestEnd = 0;
+    for (var start = 0; start < _words.length; start++) {
+      for (var size = count - 1; size <= count + 1; size++) {
+        if (size < 1 || start + size > _words.length) continue;
+        final from = _words[start].start;
+        final to = _words[start + size - 1].end;
+        if ((to - from - query.length).abs() > budget) continue;
+        final score = _typoScore(query, normalized.substring(from, to));
+        if (score > best) {
+          best = score;
+          bestStart = from;
+          bestEnd = to;
+        }
+      }
+    }
+    return best == 0 ? null : _PhraseMatch(best, _excerpt(bestStart, bestEnd));
   }
 }
 
@@ -93,15 +154,11 @@ class _SearchEntry {
   final int order;
   late final _SearchPhrase title;
   late final _SearchPhrase lyrics;
-  late final String content;
-  late final String compactContent;
   late final List<String> numbers;
 
   _SearchEntry(this.canto, this.order) {
     title = _SearchPhrase(canto.titulo);
-    lyrics = _SearchPhrase(_lyrics(canto));
-    content = normalizeCantoSearch(canto.conteudo);
-    compactContent = content.replaceAll(' ', '');
+    lyrics = _SearchPhrase(_blackLyrics(canto));
     numbers = [canto.nr2019, canto.numero].map(_numberKey).whereType<String>().toList();
   }
 }
@@ -115,7 +172,7 @@ class CantoSearchResult {
   const CantoSearchResult(this.canto, {this.snippet, this.approximate = false, this.titleMatch = false});
 
   String? get subtitle => snippet == null ? null :
-      '${approximate ? 'Título semelhante' : titleMatch ? 'Título' : 'Trecho'}: $snippet';
+      '${titleMatch ? (approximate ? 'Título semelhante' : 'Título') : (approximate ? 'Trecho semelhante' : 'Trecho')}: $snippet';
 }
 
 class _SearchMatch {
@@ -123,28 +180,47 @@ class _SearchMatch {
   final int tier;
   final int score;
   final String? snippet;
-  const _SearchMatch(this.entry, this.tier, {this.score = 100, this.snippet});
+  final bool titleMatch;
+  const _SearchMatch(this.entry, this.tier, {this.score = 100, this.snippet, this.titleMatch = false});
 
   CantoSearchResult get result => CantoSearchResult(entry.canto,
-      snippet: snippet, approximate: tier == 3, titleMatch: tier == 3 || tier < 2);
+      snippet: snippet, approximate: tier >= 3, titleMatch: titleMatch);
 }
 
-/// Require a small edit budget as well as whole-phrase similarity. Weighted and
-/// token-set ratios can accept unrelated titles sharing just one common word.
+int _editBudget(String query) {
+  final length = query.replaceAll(' ', '').length;
+  return length < 10 ? 1 : length < 20 ? 2 : 3;
+}
+
+/// Compare ordered contiguous phrases, with a small edit budget. Banded edit
+/// distance exits early on unrelated text; it also permits adjacent transposes.
 int _typoScore(String query, String candidate) {
   final length = query.replaceAll(' ', '').length;
   if (length < 5) return 0;
-  final budget = length < 10 ? 1 : length < 20 ? 2 : 3;
+  final budget = _editBudget(query);
   if ((query.length - candidate.length).abs() > budget) return 0;
   var previous = List<int>.generate(candidate.length + 1, (index) => index);
+  List<int>? older;
   for (var row = 1; row <= query.length; row++) {
-    final current = <int>[row];
-    for (var column = 1; column <= candidate.length; column++) {
-      final insertion = current[column - 1] + 1;
-      final deletion = previous[column] + 1;
-      final substitution = previous[column - 1] + (query[row - 1] == candidate[column - 1] ? 0 : 1);
-      current.add([insertion, deletion, substitution].reduce((a, b) => a < b ? a : b));
+    final current = List<int>.filled(candidate.length + 1, budget + 1);
+    current[0] = row;
+    final first = row - budget > 1 ? row - budget : 1;
+    final last = row + budget < candidate.length ? row + budget : candidate.length;
+    var minimum = budget + 1;
+    for (var column = first; column <= last; column++) {
+      var value = previous[column - 1] + (query[row - 1] == candidate[column - 1] ? 0 : 1);
+      if (current[column - 1] + 1 < value) value = current[column - 1] + 1;
+      if (previous[column] + 1 < value) value = previous[column] + 1;
+      if (older != null && row > 1 && column > 1 &&
+          query[row - 1] == candidate[column - 2] && query[row - 2] == candidate[column - 1] &&
+          older[column - 2] + 1 < value) {
+        value = older[column - 2] + 1;
+      }
+      current[column] = value;
+      if (value < minimum) minimum = value;
     }
+    if (minimum > budget) return 0;
+    older = previous;
     previous = current;
   }
   if (previous.last > budget) return 0;
@@ -152,22 +228,7 @@ int _typoScore(String query, String candidate) {
   return score >= (length < 8 ? 80 : 88) ? score : 0;
 }
 
-int _titleScore(String query, String title) {
-  final words = title.split(' ');
-  final queryWords = query.split(' ').length;
-  var best = 0;
-  for (var start = 0; start < words.length; start++) {
-    // Include a neighboring word only to tolerate an accidentally added space.
-    for (var size = queryWords - 1; size <= queryWords + 1; size++) {
-      if (size < 1 || start + size > words.length) continue;
-      final score = _typoScore(query, words.sublist(start, start + size).join(' '));
-      if (score > best) best = score;
-    }
-  }
-  return best;
-}
-
-/// Normalizes the catalog once, without changing its order or stored text.
+/// Normalizes the catalog and extracts black HTML text once per catalog load.
 class CantoSearchIndex {
   final List<_SearchEntry> _entries;
   CantoSearchIndex(List<Canto> cantos)
@@ -184,26 +245,30 @@ class CantoSearchIndex {
     final number = _numberKey(query);
     final matches = <_SearchMatch>[];
     for (final entry in candidates) {
+      final lyric = entry.lyrics.exact(query);
       if (number != null) {
         if (entry.numbers.contains(number)) {
           matches.add(_SearchMatch(entry, 0));
         } else if (entry.numbers.any((value) => value.contains(number))) {
           matches.add(_SearchMatch(entry, 1));
-        } else if (entry.title.normalized.contains(query) || entry.content.contains(query)) {
-          matches.add(_SearchMatch(entry, 2, snippet: entry.lyrics.excerpt(query)));
+        } else if (lyric != null) {
+          matches.add(_SearchMatch(entry, 2, snippet: lyric.snippet));
         }
         continue;
       }
-      if (entry.title.normalized == query) {
-        matches.add(_SearchMatch(entry, 0, snippet: entry.canto.titulo));
-      } else if (entry.title.normalized.contains(query) || entry.title.compact.contains(compactQuery)) {
-        matches.add(_SearchMatch(entry, 1, snippet: entry.title.excerpt(query)));
-      } else if (entry.content.contains(query) || entry.compactContent.contains(compactQuery) ||
-          entry.lyrics.compact.contains(compactQuery)) {
-        matches.add(_SearchMatch(entry, 2, snippet: entry.lyrics.excerpt(query)));
+      if (entry.title.normalized == query || entry.title.normalized.contains(query) || entry.title.compact.contains(compactQuery)) {
+        matches.add(_SearchMatch(entry, entry.title.normalized == query ? 0 : 1,
+            snippet: lyric?.snippet ?? entry.canto.titulo, titleMatch: lyric == null));
+      } else if (lyric != null) {
+        matches.add(_SearchMatch(entry, 2, snippet: lyric.snippet));
       } else {
-        final score = _titleScore(query, entry.title.normalized);
-        if (score > 0) matches.add(_SearchMatch(entry, 3, score: score, snippet: entry.canto.titulo));
+        final similarLyric = entry.lyrics.approximate(query);
+        if (similarLyric != null) {
+          matches.add(_SearchMatch(entry, 3, score: similarLyric.score, snippet: similarLyric.snippet));
+        } else {
+          final title = entry.title.approximate(query);
+          if (title != null) matches.add(_SearchMatch(entry, 4, score: title.score, snippet: title.snippet, titleMatch: true));
+        }
       }
     }
     matches.sort((a, b) {
