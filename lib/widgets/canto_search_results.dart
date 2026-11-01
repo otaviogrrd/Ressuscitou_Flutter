@@ -12,11 +12,8 @@ class CantoSearchSnippet extends StatelessWidget {
   Widget build(BuildContext context) {
     final snippet = result.snippet;
     if (snippet == null) return const SizedBox.shrink();
-    final subtitle = result.subtitle!;
-    final prefix = subtitle.substring(0, subtitle.length - snippet.length);
     return Text.rich(
       TextSpan(children: [
-        TextSpan(text: prefix),
         for (final part in result.snippetParts(query))
           TextSpan(text: part.text, style: part.highlighted ? const TextStyle(fontWeight: FontWeight.bold) : null),
       ]),

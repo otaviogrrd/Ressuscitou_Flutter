@@ -31,7 +31,7 @@ void main() {
         body: ListTile(title: const Text('Canto'), subtitle: CantoSearchSnippet(result: result, query: 'manha')),
       )));
       final text = tester.widget<Text>(find.byType(Text).last);
-      expect(text.textSpan!.toPlainText(), 'Trecho: Uma manhã de paz.');
+      expect(text.textSpan!.toPlainText(), 'Uma manhã de paz.');
       final spans = (text.textSpan! as TextSpan).children!.cast<TextSpan>();
       expect(spans.where((span) => span.style?.fontWeight == FontWeight.bold).map((span) => span.text), ['manhã']);
       expect(tester.takeException(), isNull);
@@ -61,4 +61,11 @@ void main() {
       expect(find.text('Resultados semelhantes:'), approximate ? findsOneWidget : findsNothing);
     }
   });
+
+  test('short approximate phrases highlight the actual replaced word', () {
+    final result = CantoSearchResult(Canto(), approximate: true,
+        snippet: 'LEVANDO SEMPRE EM NOSSO CORPO O MORRER DE JESUS.');
+    expect(boldParts(result, 'poder de Jesus'), ['MORRER', 'DE', 'JESUS']);
+  });
+
 }

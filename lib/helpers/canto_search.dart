@@ -151,7 +151,26 @@ class _SearchPhrase {
       }
     }
     if (best > 0) return _PhraseMatch(best, _excerpt(bestStart, bestEnd));
-    return allowGaps ? _rememberedPhrase(query) : null;
+    if (!allowGaps) return null;
+    return _similarShortPhrase(query) ?? _rememberedPhrase(query);
+  }
+
+  _PhraseMatch? _similarShortPhrase(String query) {
+    final wanted = query.split(' ');
+    if (wanted.length < 3 || wanted.length > 5) return null;
+    var best = 0;
+    var bestStart = 0;
+    var bestEnd = 0;
+    for (var start = 0; start + wanted.length <= _words.length; start++) {
+      final window = _words.sublist(start, start + wanted.length);
+      final score = _shortPhraseScore(wanted, window.map((word) => word.group(0)!).toList());
+      if (score > best) {
+        best = score;
+        bestStart = window.first.start;
+        bestEnd = window.last.end;
+      }
+    }
+    return best == 0 ? null : _PhraseMatch(best, _excerpt(bestStart, bestEnd));
   }
 
   _PhraseMatch? _rememberedPhrase(String query) {
@@ -250,12 +269,25 @@ class CantoSearchResult {
     if (text == null || text.isEmpty) return const [];
     final words = normalizeCantoSearch(query).split(' ').where((word) => word.isNotEmpty).toSet();
     final parts = <CantoSearchTextPart>[];
+    final tokens = RegExp(r'[A-Za-zÀ-ÖØ-öø-ÿ0-9\u0300-\u036f]+').allMatches(text).toList();
+    final shortPhraseMatches = <int>{};
+    if (approximate) {
+      final wanted = normalizeCantoSearch(query).split(' ');
+      if (wanted.length >= 3 && wanted.length <= 5) {
+        for (var start = 0; start + wanted.length <= tokens.length; start++) {
+          final window = tokens.sublist(start, start + wanted.length);
+          if (_shortPhraseScore(wanted, window.map((token) => normalizeCantoSearch(token.group(0)!)).toList()) > 0) {
+            shortPhraseMatches.addAll(window.map((token) => token.start));
+          }
+        }
+      }
+    }
     var cursor = 0;
     // Offsets refer to the original excerpt, preserving accents and combining
     // marks rather than slicing the normalized text shown to the user.
-    for (final match in RegExp(r'[A-Za-zÀ-ÖØ-öø-ÿ0-9\u0300-\u036f]+').allMatches(text)) {
+    for (final match in tokens) {
       final word = normalizeCantoSearch(match.group(0)!);
-      final highlighted = words.contains(word) ||
+      final highlighted = shortPhraseMatches.contains(match.start) || words.contains(word) ||
           (approximate && words.any((queryWord) => _typoScore(queryWord, word) > 0));
       if (!highlighted) continue;
       if (cursor < match.start) parts.add(CantoSearchTextPart(text.substring(cursor, match.start)));
@@ -280,6 +312,26 @@ class _SearchMatch {
 
   CantoSearchResult get result => CantoSearchResult(entry.canto,
       snippet: snippet, approximate: tier >= 3, titleMatch: titleMatch);
+}
+
+// Short remembered phrases may replace one longer word while keeping the
+// surrounding words in the same positions (e.g. poder/morrer de Jesus).
+int _shortPhraseScore(List<String> wanted, List<String> candidate) {
+  if (wanted.length < 3 || wanted.length > 5 || wanted.length != candidate.length) return 0;
+  var changed = -1;
+  var anchor = false;
+  for (var index = 0; index < wanted.length; index++) {
+    if (wanted[index] == candidate[index]) {
+      if (wanted[index].length >= 4 && !_linkingWords.contains(wanted[index])) anchor = true;
+    } else {
+      if (changed >= 0) return 0;
+      changed = index;
+    }
+  }
+  if (changed < 0 || !anchor || wanted[changed].length < 5 || candidate[changed].length < 5 ||
+      ratio(wanted[changed], candidate[changed]) < 50) return 0;
+  final score = ratio(wanted.join(' '), candidate.join(' '));
+  return score >= 80 ? score : 0;
 }
 
 int _editBudget(String query) {

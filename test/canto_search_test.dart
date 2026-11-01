@@ -279,4 +279,29 @@ void main() {
     expect(index.search('levando sempre o poder de Jesus').map((song) => song.id), [1, 2, 3]);
   });
 
+
+  test('poder de Jesus finds morrer de Jesus even without the longer query', () {
+    final canto = Canto(titulo: 'O mesmo Deus', categoria: 2,
+        htmlBase64: encodedLyrics('LEVANDO SEMPRE EM NOSSO CORPO O MORRER DE JESUS.'));
+    final index = CantoSearchIndex([canto]);
+    for (final query in ['poder de Jesus', 'PODER DE JESUS', 'poder de Jésus']) {
+      final result = index.searchResults(query, category: 2).single;
+      expect(result.canto, same(canto));
+      expect(result.approximate, isTrue);
+      expect(result.snippet, contains('MORRER DE JESUS'));
+    }
+    expect(index.search('poder de Jesus', category: 1), isEmpty);
+  });
+
+  test('short phrase substitutions keep their context and exact hits come first', () {
+    final index = CantoSearchIndex([
+      Canto(id: 2, titulo: 'Segundo', htmlBase64: encodedLyrics('O morrer de Jesus.')),
+      Canto(id: 1, titulo: 'Primeiro', htmlBase64: encodedLyrics('O poder de Jesus.')),
+      Canto(id: 3, titulo: 'Outro', htmlBase64: encodedLyrics('O nome de Jesus. A vida de Jesus. O morrer para todos.')),
+    ]);
+    expect(index.search('poder de Jesus').map((song) => song.id), [1, 2]);
+    expect(index.search('poder Jesus de'), isEmpty);
+    expect(index.search('poder de outro'), isEmpty);
+  });
+
 }
