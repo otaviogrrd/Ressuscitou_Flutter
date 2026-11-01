@@ -7,6 +7,7 @@ import "package:url_launcher/url_launcher.dart" as launcher;
 
 import "../helpers/global.dart";
 import "../helpers/canto_search.dart";
+import "../helpers/canto_hybrid_search.dart";
 import "../widgets/canto_search_results.dart";
 import "../model/canto.dart";
 import '../model/mensagem.dart';
@@ -31,7 +32,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   List<Canto> listCantos = [];
   late Future<List<Canto>> _cantosFuture;
-  CantoSearchIndex _searchIndex = CantoSearchIndex([]);
+  late CantoHybridSearch _hybridSearch;
   List<Canto> filterListCantos = [];
   Map<Canto, CantoSearchResult> _searchResults = {};
   int selectedCateg = 0;
@@ -45,6 +46,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
+    _hybridSearch = CantoHybridSearch([], onChanged: () { if (mounted) setState(() {}); });
     _cantosFuture = CantoService().getCantosLocal();
     Timer.run(() { if (mounted) getTermo(); });
   }
@@ -58,6 +60,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void dispose() {
+    _hybridSearch.dispose();
     searchFocus.dispose();
     searchController.dispose();
     super.dispose();
@@ -335,7 +338,8 @@ class _HomePageState extends State<HomePage> {
           if (snapshot.hasData) {
             if (!identical(listCantos, snapshot.data)) {
               listCantos = snapshot.data!;
-              _searchIndex = CantoSearchIndex(listCantos);
+              _hybridSearch.dispose();
+              _hybridSearch = CantoHybridSearch(listCantos, onChanged: () { if (mounted) setState(() {}); });
             }
             return listaCantos();
           } else
@@ -543,7 +547,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   void filtrar() {
-    final results = _searchIndex.searchResults(searchField, category: selectedCateg);
+    final results = _hybridSearch.search(searchField, category: selectedCateg);
     _searchResults = {for (final result in results) result.canto: result};
     filterListCantos = results.map((result) => result.canto).toList();
     if (widget.selectable) {

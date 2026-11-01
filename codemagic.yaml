@@ -9,6 +9,8 @@ workflows:
       flutter: 3.47.7
       xcode: latest
       cocoapods: default
+      vars:
+        SEARCH_API_URL: ""
     scripts:
       - &dependencies
         name: Resolver dependências
@@ -24,7 +26,7 @@ workflows:
         name: Testar busca com acentos e compatibilidade dos dados
         script: flutter test --reporter expanded
       - name: Compilar para simulador iOS
-        script: flutter build ios --simulator --debug
+        script: flutter build ios --simulator --debug --dart-define=SEARCH_API_URL="$SEARCH_API_URL"
       - name: Empacotar aplicativo de simulador
         script: ditto -c -k --sequesterRsrc --keepParent build/ios/iphonesimulator/Runner.app build/ios/ressuscitou-simulator.zip
     artifacts:
@@ -39,6 +41,8 @@ workflows:
       flutter: 3.47.7
       xcode: latest
       cocoapods: default
+      vars:
+        SEARCH_API_URL: ""
       ios_signing:
         distribution_type: app_store
         bundle_identifier: br.cn.ressuscitou
@@ -55,6 +59,7 @@ workflows:
       - name: Compilar IPA assinado
         script: |
           flutter build ipa --release \
+            --dart-define=SEARCH_API_URL="$SEARCH_API_URL" \
             --build-number="$BUILD_NUMBER" \
             --export-options-plist="$HOME/export_options.plist"
     artifacts:

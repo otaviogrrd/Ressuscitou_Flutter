@@ -392,6 +392,9 @@ class CantoSearchIndex {
   CantoSearchIndex(List<Canto> cantos)
       : _entries = [for (var index = 0; index < cantos.length; index++) _SearchEntry(cantos[index], index)];
 
+  bool containsLyricSnippet(Canto canto, String snippet) => _entries.any(
+      (entry) => identical(entry.canto, canto) && entry.lyrics.text.contains(snippet));
+
   List<Canto> search(String text, {int category = 0}) =>
       searchResults(text, category: category).map((result) => result.canto).toList();
 

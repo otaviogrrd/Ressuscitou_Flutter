@@ -1,0 +1,39 @@
+name: Hybrid Portuguese search service
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [master]
+    paths:
+      - "backend/**"
+      - ".github/workflows/search-service.yml"
+permissions:
+  contents: read
+concurrency:
+  group: search-service-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  service:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      PYTHONPATH: backend
+      OMP_NUM_THREADS: "2"
+      HF_HUB_DISABLE_XET: "1"
+      TOKENIZERS_PARALLELISM: "false"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Test lexical index, fusion and HTTP contract
+        run: |
+          pip install -r backend/requirements-test.txt
+          python -m unittest discover -s backend/tests -p 'test_*.py'
+      - name: Install CPU embeddings
+        run: |
+          pip install --index-url https://download.pytorch.org/whl/cpu 'torch>=2.7,<3'
+          pip install -r backend/requirements.txt
+      - name: Smoke test actual model and catalog
+        run: python backend/tests/smoke_model.py
+      - name: Build deployable container
+        run: docker build --build-arg PREFETCH_MODEL=0 -f backend/Dockerfile -t ressuscitou-search .
