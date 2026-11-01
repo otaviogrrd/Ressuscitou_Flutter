@@ -163,6 +163,8 @@ class _SearchPhrase {
     var bestStart = 0;
     var bestEnd = 0;
     for (var start = 0; start < _mainWords.length; start++) {
+      final firstWord = _mainWords[start].group(0);
+      if (firstWord != wanted.first && (wanted.length < 4 || firstWord != wanted[1])) continue;
       final limit = start + wanted.length + 3 < _mainWords.length
           ? start + wanted.length + 3 : _mainWords.length;
       var cursor = start;
