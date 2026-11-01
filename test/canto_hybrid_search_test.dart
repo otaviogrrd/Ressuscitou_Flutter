@@ -13,6 +13,8 @@ Canto sample(String key, String text, {int category = 1}) => Canto(html: key,
         '<html><body><font color="#000000">$text</font></body></html>')));
 Map<String, Object> hit(Canto song, String snippet) => {'html': song.html,
     'source_hash': sha256.convert(utf8.encode('${song.htmlBase64}\n${song.extBase64}')).toString(), 'snippet': snippet};
+http.Response jsonResponse(Object payload) => http.Response.bytes(utf8.encode(jsonEncode(payload)), 200,
+    headers: {'content-type': 'application/json; charset=utf-8'});
 Future<void> settle() => Future<void>.delayed(const Duration(milliseconds: 20));
 
 void main() {
@@ -23,7 +25,7 @@ void main() {
         endpoint: 'https://search.example/search', debounce: Duration.zero,
         client: MockClient((request) async {
           expect(jsonDecode(request.body)['query'], 'confiança no amanhã');
-          return http.Response(jsonEncode({'results': [hit(song, 'Tenho esperança no futuro.')]}), 200);
+          return jsonResponse({'results': [hit(song, 'Tenho esperança no futuro.')]});
         }));
     expect(engine.search('confiança no amanhã'), isEmpty);
     await settle();
@@ -38,10 +40,10 @@ void main() {
     final song = sample('PRIMEIRO', 'Tenho esperança no futuro.');
     final engine = CantoHybridSearch([song], onChanged: () {},
         endpoint: 'https://search.example/search', debounce: Duration.zero,
-        client: MockClient((_) async => http.Response(jsonEncode({'results': [
+        client: MockClient((_) async => jsonResponse({'results': [
           hit(song, 'Texto que não existe no canto.'),
           {...hit(song, 'Tenho esperança no futuro.'), 'source_hash': 'outdated'},
-        ]}), 200)));
+        ]})));
     engine.search('confiança no amanhã');
     await settle();
     expect(engine.search('confiança no amanhã'), isEmpty);
@@ -75,7 +77,7 @@ void main() {
     engine.search('confiança no amanhã');
     await settle();
     engine.search('');
-    delayed.complete(http.Response(jsonEncode({'results': [hit(song, 'Tenho esperança no futuro.')]}), 200));
+    delayed.complete(jsonResponse({'results': [hit(song, 'Tenho esperança no futuro.')]}));
     await settle();
     expect(changes, 0);
     expect(engine.search('').single.approximate, isFalse);
@@ -87,9 +89,9 @@ void main() {
     final second = sample('SEGUNDO', 'Outra manhã de paz.', category: 2);
     final engine = CantoHybridSearch([first, second], onChanged: () {},
         endpoint: 'https://search.example/search', debounce: Duration.zero,
-        client: MockClient((_) async => http.Response(jsonEncode({'results': [
+        client: MockClient((_) async => jsonResponse({'results': [
           hit(first, 'Uma manhã de paz.'), hit(second, 'Outra manhã de paz.'), hit(first, 'Uma manhã de paz.'),
-        ]}), 200)));
+        ]})));
     engine.search('manhã de paz', category: 1);
     await settle();
     final results = engine.search('manhã de paz', category: 1);
