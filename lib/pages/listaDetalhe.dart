@@ -107,7 +107,7 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
                           maxLines: 2,
                           textInputAction: TextInputAction.go,
                           onChanged: (value) {
-                            listaNew.titulo = value ?? "";
+                            listaNew.titulo = value;
                           },
                           validator: (value) => value == null || value.trim().isEmpty ? "Informe um título para lista!" : null,
                           decoration: InputDecoration(

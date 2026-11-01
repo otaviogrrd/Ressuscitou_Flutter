@@ -492,7 +492,7 @@ class _CantoPageState extends State<CantoPage> {
       _scrollTickRunning = true;
       try {
         if (await _canScrollVertically()) {
-          if (mounted) await webViewController.scrollBy(x: 0, y: scroll);
+          if (mounted) await webViewController.scrollBy(0, scroll);
         } else {
           _scrollTimer?.cancel();
           _scrollTimer = null;

@@ -1,6 +1,4 @@
 import 'dart:convert';
-import 'dart:typed_data';
-import "dart:io";
 
 import 'package:file_picker/file_picker.dart';
 import "package:flutter/material.dart";
@@ -181,11 +179,10 @@ class _SettingsPageState extends State<SettingsPage> {
     String filename = "Ressuscitou_Dados_$datetime.json";
 
     try {
-      final destination = await FilePicker.platform.saveFile(
+      final destination = await FilePicker.saveFile(
         dialogTitle: 'Exportar dados do Ressuscitou',
         fileName: filename,
-        type: FileType.custom,
-        allowedExtensions: ['json'],
+        mimeType: 'application/json',
         bytes: Uint8List.fromList(utf8.encode(getPrettyJSONString(configuracoes))),
       );
       if (destination != null && mounted) snackBar(context, 'Dados exportados.');
@@ -194,39 +191,26 @@ class _SettingsPageState extends State<SettingsPage> {
     }
   }
 
-  importarDados() async {
+  Future<void> importarDados() async {
     try {
-      var _paths = (await FilePicker.platform.pickFiles(
+      final picked = await FilePicker.pickFile(
         type: FileType.custom,
-        allowMultiple: false,
         allowedExtensions: ['json'],
-      ))
-          ?.files;
-      if (_paths != null) if (_paths.isNotEmpty) {
-        final path = _paths.first.path;
-        if (path == null) return;
-        var myFile = File(path);
-
-        List<String> content = myFile.readAsLinesSync();
-        String str = content.join("");
-        Configuracoes configuracoes = new Configuracoes.fromJson(jsonDecode(str));
-
-        for (final element in configuracoes.cantos) {
-          if (element.trans > 0) await globals.prefs.setInt("TRANSP_" + element.cantoId.toString(), element.trans);
-          if (element.capot > 0) await globals.prefs.setInt("CAPOT_" + element.cantoId.toString(), element.capot);
-          if (element.anota != "") await globals.prefs.setString("ANOT_" + element.cantoId.toString(), element.anota);
-        }
-
-        for (final element in configuracoes.listas) {
-          await CantoListService().saveList(listaOld: element.titulo, listaNew: element);
-        }
-
-        snackBar(Get.overlayContext, "Dados importados com sucesso.");
+      );
+      if (picked == null) return;
+      final bytes = await picked.readAsBytes();
+      final configuracoes = Configuracoes.fromJson(jsonDecode(utf8.decode(bytes)));
+      for (final element in configuracoes.cantos) {
+        if (element.trans > 0) await globals.prefs.setInt("TRANSP_${element.cantoId}", element.trans);
+        if (element.capot > 0) await globals.prefs.setInt("CAPOT_${element.cantoId}", element.capot);
+        if (element.anota.isNotEmpty) await globals.prefs.setString("ANOT_${element.cantoId}", element.anota);
       }
-    } on PlatformException catch (e) {
-      snackBar(Get.overlayContext, 'Erro: ' + e.toString());
-    } catch (e) {
-      snackBar(Get.overlayContext, e.toString());
+      for (final element in configuracoes.listas) {
+        await CantoListService().saveList(listaOld: element.titulo, listaNew: element);
+      }
+      if (mounted) snackBar(context, "Dados importados com sucesso.");
+    } catch (error) {
+      if (mounted) snackBar(context, 'Erro ao importar dados: $error');
     }
   }
 }
