@@ -44,6 +44,7 @@ class Page(HTMLParser):
         self.stack = []
         self.links = []
         self.images = []
+        self.content_images = []
         self.anchor = None
 
     def handle_starttag(self, tag, attrs):
@@ -55,9 +56,13 @@ class Page(HTMLParser):
             for key in ('src', 'data-src', 'data-lazy-src'):
                 if attrs.get(key):
                     self.images.append(attrs[key])
+                    if inside:
+                        self.content_images.append(attrs[key])
             for candidate in (attrs.get('srcset') or '').split(','):
                 if candidate.strip():
                     self.images.append(candidate.strip().split()[0])
+                    if inside:
+                        self.content_images.append(candidate.strip().split()[0])
         if tag not in VOID:
             self.stack.append((tag, (attrs.get('class') or '').split()))
 
@@ -134,7 +139,11 @@ def sheet_urls(page):
     for value in urls:
         url = urljoin(ROOT, value)
         parsed = urlsplit(url)
-        if parsed.scheme == 'https' and parsed.hostname == IMAGE_HOST and parsed.path.startswith('/fichas/') and parsed.path.lower().endswith('.png'):
+        official_cdn = parsed.hostname == IMAGE_HOST and parsed.path.startswith('/fichas/')
+        portal_upload = (parsed.hostname in {'cn.org.br', 'www.cn.org.br'}
+                         and parsed.path.startswith('/portal/wp-content/uploads/')
+                         and value in page.content_images)
+        if parsed.scheme == 'https' and (official_cdn or portal_upload) and parsed.path.lower().endswith(('.png', '.jpg', '.jpeg')):
             if url not in result:
                 result.append(url)
     return result
@@ -269,9 +278,13 @@ def process(record, catalog, output, write_drafts):
             work = output / 'sheets' / key
             work.mkdir(parents=True, exist_ok=True)
             data = fetch(url)
-            if not data.startswith(b'\x89PNG\r\n\x1a\n'):
-                raise ValueError('The official image response is not PNG')
-            image_path = work / 'source.png'
+            if data.startswith(b'\x89PNG\r\n\x1a\n'):
+                extension = 'png'
+            elif data.startswith(b'\xff\xd8\xff'):
+                extension = 'jpg'
+            else:
+                raise ValueError('The official image response is not PNG or JPEG')
+            image_path = work / f'source.{extension}'
             image_path.write_bytes(data)
             words = ocr_planes(image_path, work)
             rows, cell, overlaps = lines_from_words(words)

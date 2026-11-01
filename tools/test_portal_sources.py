@@ -16,6 +16,15 @@ class SourceTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             checked_url('https://example.org/fichas/other.png')
 
+    def test_portal_uploads_include_jpeg_but_exclude_theme_images(self):
+        page = Page()
+        prefix = 'https://cn.org.br/portal/wp-content/uploads/'
+        page.feed(f'<img src="{prefix}logo.png"><div class="entry-content">'
+                  f'<img src="{prefix}2024/03/sheet.jpg">'
+                  f'<img src="{prefix}2023/10/sheet.png"></div>')
+        self.assertEqual(sheet_urls(page), [prefix + '2024/03/sheet.jpg',
+                                            prefix + '2023/10/sheet.png'])
+
     def test_normalization_is_only_for_identity_lookup(self):
         self.assertEqual(normalize('É o Senhor!'), normalize('E O SENHOR'))
 
