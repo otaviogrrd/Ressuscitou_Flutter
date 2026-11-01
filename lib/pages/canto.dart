@@ -9,7 +9,6 @@ import 'package:flutter/gestures.dart';
 import "package:flutter/material.dart";
 import "package:flutter_speed_dial/flutter_speed_dial.dart";
 import "package:get/get.dart";
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import "package:numberpicker/numberpicker.dart";
 import "package:path_provider/path_provider.dart";
 import 'package:percent_indicator/circular_percent_indicator.dart';
@@ -234,7 +233,7 @@ class _CantoPageState extends State<CantoPage> {
                                   Center(
                                       child: Padding(
                                     padding: EdgeInsets.only(bottom: 10),
-                                    child: Icon(MdiIcons.themeLightDark, size: 18, color: Theme.of(context).colorScheme.onSecondary),
+                                    child: Icon(Icons.brightness_6, size: 18, color: Theme.of(context).colorScheme.onSecondary),
                                   )),
                                   Center(
                                       child: Padding(
@@ -242,7 +241,7 @@ class _CantoPageState extends State<CantoPage> {
                                     child: Text("Auto", style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSecondary)),
                                   )),
                                 ])
-                              : Icon((darktheme ? MdiIcons.brightness4 : MdiIcons.brightness5), color: Theme.of(context).colorScheme.onSecondary),
+                              : Icon((darktheme ? Icons.brightness_4 : Icons.brightness_5), color: Theme.of(context).colorScheme.onSecondary),
                           onTap: () {
                             if (brightnessStage == 2) {
                               brightnessAuto = true;
@@ -342,7 +341,7 @@ class _CantoPageState extends State<CantoPage> {
         InkWell(
           child: Container(
             height: 60,
-            child: Icon(MdiIcons.commentEditOutline, size: 25, color: Theme.of(context).colorScheme.onSecondary),
+            child: Icon(Icons.edit_note, size: 25, color: Theme.of(context).colorScheme.onSecondary),
           ),
           onTap: () => navigateOption("2"),
         ),
@@ -464,7 +463,7 @@ class _CantoPageState extends State<CantoPage> {
                     Center(
                         child: Padding(
                       padding: EdgeInsets.only(bottom: 10),
-                      child: Icon(MdiIcons.themeLightDark, size: 18, color: Theme.of(context).colorScheme.onSecondary),
+                      child: Icon(Icons.brightness_6, size: 18, color: Theme.of(context).colorScheme.onSecondary),
                     )),
                     Center(
                         child: Padding(
@@ -472,7 +471,7 @@ class _CantoPageState extends State<CantoPage> {
                       child: Text("Auto", style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSecondary)),
                     )),
                   ])
-                : Icon((darktheme ? MdiIcons.brightness4 : MdiIcons.brightness5), color: Theme.of(context).colorScheme.onSecondary),
+                : Icon((darktheme ? Icons.brightness_4 : Icons.brightness_5), color: Theme.of(context).colorScheme.onSecondary),
           ),
         ),
         divider(),

@@ -3,7 +3,6 @@ import "dart:io";
 import "package:flutter/material.dart";
 import 'package:flutter/services.dart';
 import "package:get/get.dart";
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import "package:url_launcher/url_launcher.dart" as launcher;
 
 import "../helpers/global.dart";
@@ -118,7 +117,7 @@ class _SobrePageState extends State<SobrePage> {
                                         FittedBox(fit: BoxFit.scaleDown, child: Text("otavio.grrd@gmail.com")),
                                       ],
                                     ),
-                                    Center(child: Icon(MdiIcons.contentCopy)),
+                                    Center(child: Icon(Icons.content_copy)),
                                   ])
                                 ],
                               ),

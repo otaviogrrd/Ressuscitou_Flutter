@@ -3,7 +3,6 @@ import "dart:async";
 import "package:flutter/material.dart";
 import "package:get/get.dart";
 import "package:intl/intl.dart";
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import "package:url_launcher/url_launcher.dart" as launcher;
 
 import "../helpers/global.dart";
@@ -361,7 +360,7 @@ class _HomePageState extends State<HomePage> {
             ),
             ListTile(
                 title: Text("Ordem Alfabética"),
-                leading: Icon(MdiIcons.sortAlphabeticalAscending, size: 25, color: Theme.of(context).colorScheme.primary),
+                leading: Icon(Icons.sort_by_alpha, size: 25, color: Theme.of(context).colorScheme.primary),
                 onTap: () => setState(() => selectCateg(0))),
 //            ListTile(
 //                title: Padding(
@@ -371,7 +370,7 @@ class _HomePageState extends State<HomePage> {
 //                onTap: () => setState(() => selectCateg(0))),
             ListTile(
                 title: Text("Índice Litúrgico"),
-                leading: Icon(MdiIcons.fileTree, size: 25, color: Theme.of(context).colorScheme.primary),
+                leading: Icon(Icons.account_tree, size: 25, color: Theme.of(context).colorScheme.primary),
 //                title: Padding(
 //                  padding: EdgeInsets.only(left: 40),
 //                  child: Text("Índice Litúrgico", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
@@ -449,7 +448,7 @@ class _HomePageState extends State<HomePage> {
                 onTap: () => Get.to(() => AudiosPage())?.then((value) => _refreshCantos())),
             ListTile(
                 title: Text("Mensagens"),
-                leading: Icon(MdiIcons.messageTextOutline, size: 25, color: Theme.of(context).colorScheme.primary),
+                leading: Icon(Icons.message_outlined, size: 25, color: Theme.of(context).colorScheme.primary),
                 onTap: () => Get.to(() => MensagensPage())),
             divider(),
             ListTile(
