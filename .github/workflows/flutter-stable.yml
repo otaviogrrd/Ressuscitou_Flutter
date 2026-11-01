@@ -33,7 +33,7 @@ jobs:
             build: flutter build apk --debug
           - platform: ios
             os: macos-latest
-            build: flutter build ios --debug --no-codesign
+            build: flutter build ios --simulator --debug
     runs-on: ${{ matrix.os }}
     timeout-minutes: 40
     defaults:

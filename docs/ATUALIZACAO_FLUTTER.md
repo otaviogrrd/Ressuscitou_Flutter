@@ -4,7 +4,7 @@
 
 O código foi migrado para null safety e APIs atuais, com alvo Flutter 3.47.7
 fixado em `.fvmrc` e no workflow. O projeto aceita Dart >=3.13.0 <4.0.0.
-O Dart estável consultado foi 3.13.7; em um app Flutter deve-se usar o Dart
+O Flutter 3.47.7 validado pelo CI inclui Dart 3.13.5; em um app Flutter deve-se usar o Dart
 distribuído junto com o Flutter, sem trocar o SDK Dart interno manualmente.
 
 **A migração ainda precisa passar por pub get, análise, testes, builds e
@@ -47,7 +47,7 @@ da integração na master.
   stable consultado. As flags de compatibilidade de DSL/Kotlin estão no
   gradle.properties. A assinatura release continua exigindo a chave
   original e android/key.properties.
-- iOS tem deployment target 13.0 no Podfile, Xcode e AppFrameworkInfo.plist.
+- iOS tem deployment target 15.0 no Podfile, Xcode e AppFrameworkInfo.plist.
   O Podfile.lock antigo foi removido para resolver os plugins atualizados.
 - O override antigo de intl foi removido; flutter_localizations determina
   a versão. Dependências sem uso foram retiradas do pubspec.
@@ -103,7 +103,7 @@ flutter build apk --debug
 ```
 
 Também executar pub get e analyze dentro de plugins/flutter_speed_dial.
-No macOS, executar `flutter build ios --debug --no-codesign`.
+No macOS, executar `flutter build ios --simulator --debug`.
 Versionar pubspec.lock e ios/Podfile.lock depois de resolver e validar as
 dependências. Não foi criado um lockfile artificial nesta entrega.
 
@@ -118,7 +118,7 @@ Validar instalação sobre a versão anterior, cantos offline, transposição,
 capotraste, notas, listas, importação/exportação, downloads, reprodução,
 aleatório, repetição, zoom, rolagem, temas e modo tablet.
 
-O suporte mínimo passa a Android 7 / API 24 e iOS 13. Testar em aparelhos
+O suporte mínimo passa a Android 7 / API 24 e iOS 15. Testar em aparelhos
 reais, especialmente pinch zoom e HTML no WebView, os diálogos de arquivos
 e compartilhamento no iPad. A UI do player e das notificações internas
 foi adaptada às APIs mantidas e precisa de revisão visual.
