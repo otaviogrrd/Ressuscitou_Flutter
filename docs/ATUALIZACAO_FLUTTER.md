@@ -66,14 +66,22 @@ conteúdo e, por último, títulos semelhantes. A normalização ignora acentos,
 maiúsculas, espaços repetidos e pontuação, sem alterar o texto salvo. O
 índice compacto legado do campo conteudo continua pesquisável.
 
-A aproximação compara títulos com weightedRatio, limite inicial de 80/100,
-somente a partir de quatro caracteres. O filtro de categoria continua
-valendo e os empates mantêm a ordem original do catálogo. Os textos são
-normalizados uma vez por carga; digitar não recarrega o catálogo do disco.
+A aproximação compara frases contíguas dos títulos com ratio, somente a
+partir de cinco caracteres. Exige no máximo uma edição para pesquisas de
+5–9 caracteres, duas para 10–19 e três para 20 ou mais, além de similaridade
+mínima de 88/100 (80 para pesquisas de 5–7 caracteres). Isso evita que
+palavras comuns isoladas aproximem títulos pouco relacionados. O filtro de
+categoria e a ordem original dos empates são preservados.
+
+A lista mostra abaixo do canto o trecho encontrado na letra ou o título
+semelhante. Os trechos conservam acentos e espaços recuperados de uma cópia
+do HTML, removendo cifras, estilos e comandos ocultos. O HTML de exibição
+não é alterado. A normalização e a extração são feitas uma vez por carga;
+digitar não recarrega o catálogo do disco.
 
 O teste canto_search_test.dart cobre a prioridade dos resultados,
-acentuação, erros de digitação, números, categorias e preservação dos
-objetos originais. O limite de similaridade deve ser avaliado com buscas
+acentuação, erros de digitação, rejeição de títulos pouco relacionados,
+números, categorias, trechos e preservação dos objetos e HTML originais. O limite de similaridade deve ser avaliado com buscas
 reais depois da validação do app.
 
 ## Aplicar e validar
