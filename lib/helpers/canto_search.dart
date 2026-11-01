@@ -8,6 +8,9 @@ import 'package:html/parser.dart' as html;
 import '../model/canto.dart';
 
 final _combiningMarks = RegExp(r'[\u0300-\u036f]');
+final _linkingWords = {'a', 'as', 'o', 'os', 'ao', 'aos', 'de', 'da', 'das',
+  'do', 'dos', 'e', 'em', 'na', 'nas', 'no', 'nos', 'um', 'uma', 'uns',
+  'umas', 'para', 'por', 'com', 'que'};
 
 String normalizeCantoSearch(String text) => removeDiacritics(text.toLowerCase())
     .replaceAll(_combiningMarks, '')
@@ -77,6 +80,7 @@ class _SearchPhrase {
   late final String normalized;
   late final String compact;
   late final List<RegExpMatch> _words;
+  late final List<RegExpMatch> _mainWords;
   final List<int> _starts = [];
   final List<int> _ends = [];
 
@@ -106,6 +110,7 @@ class _SearchPhrase {
     normalized = chars.join();
     compact = normalized.replaceAll(' ', '');
     _words = RegExp(r'[a-z0-9]+').allMatches(normalized).toList();
+    _mainWords = _words.where((word) => !_linkingWords.contains(word.group(0))).toList();
   }
 
   String _excerpt(int from, int to) {
@@ -124,7 +129,7 @@ class _SearchPhrase {
     return _PhraseMatch(100, _excerpt(start, start + query.length));
   }
 
-  _PhraseMatch? approximate(String query) {
+  _PhraseMatch? approximate(String query, {bool allowGaps = false}) {
     if (query.replaceAll(' ', '').length < 5) return null;
     final count = query.split(' ').length;
     final budget = _editBudget(query);
@@ -143,6 +148,67 @@ class _SearchPhrase {
           bestStart = from;
           bestEnd = to;
         }
+      }
+    }
+    if (best > 0) return _PhraseMatch(best, _excerpt(bestStart, bestEnd));
+    return allowGaps ? _rememberedPhrase(query) : null;
+  }
+
+  _PhraseMatch? _rememberedPhrase(String query) {
+    final wanted = query.split(' ').where((word) => !_linkingWords.contains(word)).toList();
+    // A remembered phrase needs at least three distinct informative anchors.
+    // Short queries continue to use exact text or the strict typo comparison.
+    if (wanted.toSet().length < 3) return null;
+    var best = 0;
+    var bestStart = 0;
+    var bestEnd = 0;
+    for (var start = 0; start < _mainWords.length; start++) {
+      final limit = start + wanted.length + 3 < _mainWords.length
+          ? start + wanted.length + 3 : _mainWords.length;
+      var cursor = start;
+      var matched = 0;
+      var missing = 0;
+      var first = -1;
+      var last = -1;
+      var previousQuery = -2;
+      var adjacentPair = false;
+      final anchors = <String>{};
+      for (var queryIndex = 0; queryIndex < wanted.length; queryIndex++) {
+        var found = -1;
+        for (var index = cursor; index < limit; index++) {
+          if (_mainWords[index].group(0) == wanted[queryIndex]) {
+            found = index;
+            break;
+          }
+        }
+        if (found < 0) {
+          missing++;
+          if (missing > 1) break;
+          continue;
+        }
+        if (first < 0) first = found;
+        if (last == found - 1 && previousQuery == queryIndex - 1) adjacentPair = true;
+        last = found;
+        previousQuery = queryIndex;
+        cursor = found + 1;
+        matched++;
+        anchors.add(wanted[queryIndex]);
+      }
+      if (missing > 1 || first != start || matched < 3 || anchors.length < 3 ||
+          matched / wanted.length < 0.75 || !adjacentPair) continue;
+      final skipped = last - first + 1 - matched;
+      // Bound both informative-word gaps and the full phrase span. Words from
+      // distant verses must never be combined into a misleading result.
+      if (skipped > 3 || last < 0) continue;
+      final from = _mainWords[first].start;
+      final to = _mainWords[last].end;
+      if (normalized.substring(from, to).split(' ').length > wanted.length * 3 + 4) continue;
+      var score = (90 * matched / wanted.length - 2 * skipped).round();
+      if (score > 86) score = 86;
+      if (score > best) {
+        best = score;
+        bestStart = from;
+        bestEnd = to;
       }
     }
     return best == 0 ? null : _PhraseMatch(best, _excerpt(bestStart, bestEnd));
@@ -262,7 +328,7 @@ class CantoSearchIndex {
       } else if (lyric != null) {
         matches.add(_SearchMatch(entry, 2, snippet: lyric.snippet));
       } else {
-        final similarLyric = entry.lyrics.approximate(query);
+        final similarLyric = entry.lyrics.approximate(query, allowGaps: true);
         if (similarLyric != null) {
           matches.add(_SearchMatch(entry, 3, score: similarLyric.score, snippet: similarLyric.snippet));
         } else {

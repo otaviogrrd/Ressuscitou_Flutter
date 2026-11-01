@@ -76,8 +76,14 @@ A aproximação compara janelas de palavras contíguas com `ratio`, somente a
 partir de cinco caracteres. Exige no máximo uma edição para pesquisas de
 5–9 caracteres, duas para 10–19 e três para 20 ou mais, além de similaridade
 mínima de 88/100 (80 para pesquisas de 5–7 caracteres). Uma troca de letras
-adjacentes também conta como uma edição. A ordem das palavras importa;
-apenas compartilhar palavras comuns não basta para aproximar duas frases.
+adjacentes também conta como uma edição. Além dos erros de digitação, frases lembradas de forma incompleta podem
+omitir ou trocar uma palavra principal e pular até três palavras principais
+da letra. Esse caminho exige pelo menos três palavras distintas na mesma
+ordem, cobertura mínima de 75% das palavras principais pesquisadas e um par
+consecutivo. Artigos e preposições não contam como âncoras. O trecho completo
+também tem tamanho limitado, para não combinar versos distantes. Esses
+resultados ficam abaixo dos acertos exatos e das pequenas correções de grafia.
+Não é uma busca semântica nem afirma que palavras trocadas sejam sinônimos.
 O filtro de categoria e a ordem original dos empates são preservados.
 
 A lista mostra abaixo do canto o trecho original com acentos e espaços:

@@ -245,4 +245,38 @@ void main() {
         'Trecho: Chegou a luz da manhã com alegria.');
   });
 
+
+  test('the remembered phrase supplied by the user finds the actual black lyrics', () {
+    const phrase = 'LEVANDO SEMPRE EM NOSSO CORPO O MORRER DE JESUS, '
+        'PARA QUE SE MANIFESTE EM NOSSO CORPO QUE ESTÁ RESSUSCITADO.';
+    final canto = Canto(titulo: 'Exemplo do usuário', htmlBase64: encodedLyrics(phrase));
+    final result = CantoSearchIndex([canto]).searchResults('levando sempre o poder de Jesus').single;
+    expect(result.canto, same(canto));
+    expect(result.approximate, isTrue);
+    expect(result.subtitle, startsWith('Trecho semelhante: LEVANDO SEMPRE'));
+    expect(result.snippet, contains('O MORRER DE JESUS'));
+    expect(result.snippet, isNot(contains('poder')));
+  });
+
+  test('remembered phrases need enough ordered nearby anchors', () {
+    final index = CantoSearchIndex([
+      Canto(titulo: 'Exemplo', htmlBase64: encodedLyrics('Levando sempre em nosso corpo o morrer de Jesus.')),
+      Canto(titulo: 'Outro', htmlBase64: encodedLyrics('Levando sempre no longo caminho entre vales e montanhas distantes a palavra de Jesus.')),
+    ]);
+    expect(index.search('levando sempre o poder de Jesus').map((song) => song.titulo), ['Exemplo']);
+    expect(index.search('levando sempre Jesus').map((song) => song.titulo), ['Exemplo']);
+    expect(index.search('Jesus sempre levando poder'), isEmpty);
+    expect(index.search('levando sempre poder vida'), isEmpty);
+    expect(index.search('sempre poder Jesus'), isEmpty);
+  });
+
+  test('remembered matches rank after exact and minor typo phrases', () {
+    final index = CantoSearchIndex([
+      Canto(id: 3, titulo: 'Terceiro', htmlBase64: encodedLyrics('Levando sempre em nosso corpo o morrer de Jesus.')),
+      Canto(id: 2, titulo: 'Segundo', htmlBase64: encodedLyrics('Levando sempre o podre de Jesus.')),
+      Canto(id: 1, titulo: 'Primeiro', htmlBase64: encodedLyrics('Levando sempre o poder de Jesus.')),
+    ]);
+    expect(index.search('levando sempre o poder de Jesus').map((song) => song.id), [1, 2, 3]);
+  });
+
 }
