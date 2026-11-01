@@ -32,6 +32,7 @@ class _HomePageState extends State<HomePage> {
   late Future<List<Canto>> _cantosFuture;
   CantoSearchIndex _searchIndex = CantoSearchIndex([]);
   List<Canto> filterListCantos = [];
+  Map<Canto, CantoSearchResult> _searchResults = {};
   int selectedCateg = 0;
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   String searchField = "";
@@ -227,6 +228,7 @@ class _HomePageState extends State<HomePage> {
                             onTap: () => Get.to(() => CantoPage(canto: filterListCantos[index]))?.then((value) => _refreshCantos()),
                             child: (widget.selectable)
                                 ? CheckboxListTile(
+                                    subtitle: _searchSubtitle(filterListCantos[index]),
                                     dense: true,
                                     controlAffinity: ListTileControlAffinity.leading,
                                     onChanged: (value) => setState(() {
@@ -274,6 +276,7 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                   )
                                 : ListTile(
+                                    subtitle: _searchSubtitle(filterListCantos[index]),
                                     dense: true,
                                     contentPadding: EdgeInsets.only(left: 16, right: 10),
                                     leading: ClipOval(
@@ -528,8 +531,15 @@ class _HomePageState extends State<HomePage> {
     return ret;
   }
 
+  Widget? _searchSubtitle(Canto canto) {
+    final subtitle = _searchResults[canto]?.subtitle;
+    return subtitle == null ? null : Text(subtitle, maxLines: 2, overflow: TextOverflow.ellipsis);
+  }
+
   void filtrar() {
-    filterListCantos = _searchIndex.search(searchField, category: selectedCateg);
+    final results = _searchIndex.searchResults(searchField, category: selectedCateg);
+    _searchResults = {for (final result in results) result.canto: result};
+    filterListCantos = results.map((result) => result.canto).toList();
     if (widget.selectable) {
       final selectedIds = globals.listaGlobal.map((canto) => canto.id).toSet();
       for (final canto in filterListCantos) {

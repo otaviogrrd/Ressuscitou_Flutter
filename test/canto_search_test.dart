@@ -1,6 +1,13 @@
+import 'dart:convert';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ressuscitou/helpers/canto_search.dart';
 import 'package:ressuscitou/model/canto.dart';
+
+String encodedLyrics(String body) => base64Encode(utf8.encode('''
+<html><head><style>.html_canto{white-space:pre;font-family:monospace}</style></head>
+<body><div class="html_canto"><H1>Título</H1><div class="inv">@transp@ @capot@</div>
+$body</div></body></html>'''));
 
 void main() {
   test('normalization handles accents, case, punctuation and spaces', () {
@@ -74,4 +81,58 @@ void main() {
     expect(index.search('zz'), isEmpty);
     expect(index.search('xyzabc'), isEmpty);
   });
+
+  test('shared common words do not qualify unrelated approximate titles', () {
+    final index = CantoSearchIndex([
+      Canto(id: 1, titulo: 'Senhor dos caminhos'),
+      Canto(id: 2, titulo: 'Senhor da manhã'),
+      Canto(id: 3, titulo: 'Caminhos da esperança'),
+    ]);
+    expect(index.search('senhor dos campos'), isEmpty);
+    expect(index.search('senhor da noite'), isEmpty);
+    expect(index.search('senh'), isEmpty); // short queries do not use approximation
+    expect(index.search('senhor dos caminho').single.id, 1);
+    expect(index.search('senhor dos caminhs').single.id, 1);
+  });
+
+  test('approximate title results explain the actual matching title', () {
+    final canto = Canto(titulo: 'Ressuscitou');
+    final result = CantoSearchIndex([canto]).searchResults('ressucitou').single;
+    expect(result.approximate, isTrue);
+    expect(result.subtitle, 'Título semelhante: Ressuscitou');
+    expect(result.canto, same(canto));
+  });
+
+  test('compact legacy indexes show the original accented lyric phrase', () {
+    final encoded = encodedLyrics('<FONT COLOR="#FF0000">Do Sol Re</FONT>\n'
+        '<FONT COLOR="#000000">Uma manhã de paz &amp; alegria.</FONT>');
+    final canto = Canto(titulo: 'Outro canto', conteudo: 'umamanhadepazealegria', htmlBase64: encoded);
+    final result = CantoSearchIndex([canto]).searchResults('manha de paz').single;
+    expect(result.subtitle, 'Trecho: Uma manhã de paz & alegria.');
+    expect(result.approximate, isFalse);
+    expect(result.snippet, isNot(contains('Do Sol')));
+    expect(result.snippet, isNot(contains('@transp@')));
+    expect(canto.htmlBase64, encoded);
+  });
+
+  test('snippets handle HTML boundaries and plain content fallback', () {
+    final index = CantoSearchIndex([
+      Canto(id: 1, titulo: 'Primeiro', htmlBase64: encodedLyrics('<p>Uma manhã</p><p>de paz</p>')),
+      Canto(id: 2, titulo: 'Segundo', htmlBase64: 'invalid!', conteudo: 'Uma manhã de paz'),
+    ]);
+    final results = index.searchResults('manhã de paz');
+    expect(results.map((result) => result.canto.id), [1, 2]);
+    expect(results.every((result) => result.subtitle == 'Trecho: Uma manhã de paz'), isTrue);
+    expect(index.searchResults('').every((result) => result.subtitle == null), isTrue);
+  });
+
+  test('snippets use the actual occurrence in long lyrics', () {
+    final canto = Canto(titulo: 'Outro', conteudo: '${'início ' * 30}Uma manhã de paz ${'final ' * 30}');
+    final result = CantoSearchIndex([canto]).searchResults('manha de paz').single;
+    expect(result.snippet, contains('Uma manhã de paz'));
+    expect(result.snippet!.startsWith('…'), isTrue);
+    expect(result.snippet!.endsWith('…'), isTrue);
+    expect(result.snippet!.length, lessThan(150));
+  });
+
 }
