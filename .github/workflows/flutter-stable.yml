@@ -74,8 +74,7 @@ jobs:
           set -euo pipefail
           flutter analyze --no-fatal-infos lib test 2>&1 | tee migration-logs/analyze.log
           (cd plugins/flutter_speed_dial && flutter analyze --no-fatal-infos) 2>&1 | tee migration-logs/plugin-analyze.log
-      - name: Test migration and data compatibility
-        if: matrix.platform == 'android'
+      - name: Test migration, search and data compatibility
         run: |
           set -euo pipefail
           flutter test 2>&1 | tee migration-logs/test.log

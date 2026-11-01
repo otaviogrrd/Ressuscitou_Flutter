@@ -8,6 +8,7 @@ import 'package:html/dom.dart' as dom;
 import '../model/canto.dart';
 
 String normalizeCantoSearch(String text) => removeDiacritics(text.toLowerCase())
+    .replaceAll(RegExp(r'[\u0300-\u036f]'), '')
     .replaceAll(RegExp(r'[^a-z0-9\s]'), ' ')
     .replaceAll(RegExp(r'\s+'), ' ')
     .trim();

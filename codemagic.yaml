@@ -1,0 +1,63 @@
+# Run manually after connecting the repository in Codemagic.
+# Signing setup and iPhone test checklist: docs/CODEMAGIC_IOS.md
+workflows:
+  ios-simulator:
+    name: iOS - simulador e testes
+    instance_type: mac_mini_m2
+    max_build_duration: 60
+    environment:
+      flutter: 3.47.7
+      xcode: latest
+      cocoapods: default
+    scripts:
+      - &dependencies
+        name: Resolver dependências
+        script: |
+          set -euo pipefail
+          flutter --version
+          flutter pub get
+          (cd plugins/flutter_speed_dial && flutter pub get)
+      - &analyze
+        name: Analisar aplicativo
+        script: flutter analyze --no-fatal-infos lib test
+      - &tests
+        name: Testar busca com acentos e compatibilidade dos dados
+        script: flutter test --reporter expanded
+      - name: Compilar para simulador iOS
+        script: flutter build ios --simulator --debug
+      - name: Empacotar aplicativo de simulador
+        script: ditto -c -k --sequesterRsrc --keepParent build/ios/iphonesimulator/Runner.app build/ios/ressuscitou-simulator.zip
+    artifacts:
+      - build/ios/ressuscitou-simulator.zip
+      - /tmp/xcodebuild_logs/*.log
+
+  ios-ipa:
+    name: iOS - IPA para TestFlight
+    instance_type: mac_mini_m2
+    max_build_duration: 60
+    environment:
+      flutter: 3.47.7
+      xcode: latest
+      cocoapods: default
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: br.cn.ressuscitou
+    scripts:
+      - *dependencies
+      - *analyze
+      - *tests
+      - name: Instalar dependências nativas
+        script: |
+          cd ios
+          pod install
+      - name: Aplicar certificados e perfis cadastrados no Codemagic
+        script: xcode-project use-profiles
+      - name: Compilar IPA assinado
+        script: |
+          flutter build ipa --release \
+            --build-number="$BUILD_NUMBER" \
+            --export-options-plist="$HOME/export_options.plist"
+    artifacts:
+      - build/ios/ipa/*.ipa
+      - build/ios/archive/*.xcarchive/dSYMs/*.dSYM
+      - /tmp/xcodebuild_logs/*.log

@@ -135,4 +135,41 @@ void main() {
     expect(result.snippet!.length, lessThan(150));
   });
 
+
+  test('Portuguese composed and decomposed accents normalize identically', () {
+    const composed = 'Á É Í Ó Ú Â Ê Ô Ã Õ Ç à';
+    const decomposed = 'A\u0301 E\u0301 I\u0301 O\u0301 U\u0301 A\u0302 E\u0302 O\u0302 A\u0303 O\u0303 C\u0327 a\u0300';
+    expect(normalizeCantoSearch(composed), 'a e i o u a e o a o c a');
+    expect(normalizeCantoSearch(decomposed), normalizeCantoSearch(composed));
+    final index = CantoSearchIndex([
+      Canto(id: 1, titulo: 'Canção da manhã'),
+      Canto(id: 2, titulo: 'Outro', conteudo: 'cancao da manha'),
+    ]);
+    for (final query in ['CANÇÃO DA MANHÃ', 'cancao da manha', 'canc\u0327a\u0303o da manha\u0303']) {
+      expect(index.search(query).map((canto) => canto.id), [1, 2]);
+    }
+  });
+
+  test('typing accents, deleting them and using smart punctuation stays safe', () {
+    final canto = Canto(titulo: 'Coração e esperança', htmlBase64: encodedLyrics('A manhã traz paz e esperança.'));
+    final index = CantoSearchIndex([canto]);
+    for (final input in ['coração', 'corac\u0327a\u0303o', 'manhã', 'manha\u0303', '“esperança”', 'esperança 🕊️']) {
+      for (var length = 0; length <= input.length; length++) {
+        expect(() => index.searchResults(input.substring(0, length)), returnsNormally);
+      }
+      expect(index.search(input), contains(canto));
+    }
+    for (final input in ['\u0301', 'ã', 'ç', '´', '😀', '', 'não existe aqui']) {
+      expect(() => index.searchResults(input), returnsNormally);
+    }
+  });
+
+  test('decomposed accents in original lyrics preserve the matching excerpt', () {
+    const phrase = 'Uma manha\u0303 de paz e esperanc\u0327a.';
+    final canto = Canto(titulo: 'Outro', htmlBase64: encodedLyrics(phrase));
+    final result = CantoSearchIndex([canto]).searchResults('manhã de paz').single;
+    expect(result.snippet, phrase);
+    expect(result.subtitle, 'Trecho: $phrase');
+  });
+
 }
