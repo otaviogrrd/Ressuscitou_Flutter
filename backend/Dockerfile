@@ -8,7 +8,7 @@ ARG PREFETCH_MODEL=1
 RUN if [ "$PREFETCH_MODEL" = 1 ]; then python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2', device='cpu', trust_remote_code=False)"; fi
 COPY backend/search_service ./search_service
 COPY assets/cantos.json assets/portal_metadata.json ./assets/
-RUN useradd --uid 10001 --create-home appuser && chown -R appuser /app /opt/models
+RUN mkdir -p /opt/models && useradd --uid 10001 --create-home appuser && chown -R appuser /app /opt/models
 USER appuser
 EXPOSE 8080
 HEALTHCHECK --start-period=600s --interval=30s CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:8080/healthz', timeout=5)" || exit 1
