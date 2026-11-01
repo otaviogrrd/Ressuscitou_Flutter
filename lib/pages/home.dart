@@ -7,6 +7,7 @@ import "package:url_launcher/url_launcher.dart" as launcher;
 
 import "../helpers/global.dart";
 import "../helpers/canto_search.dart";
+import "../widgets/canto_search_results.dart";
 import "../model/canto.dart";
 import '../model/mensagem.dart';
 import "../pages/audios.dart";
@@ -224,7 +225,7 @@ class _HomePageState extends State<HomePage> {
                     child: ListView.builder(
                         itemCount: filterListCantos.length,
                         itemBuilder: (context, index) {
-                          return InkWell(
+                          final row = InkWell(
                             onTap: () => Get.to(() => CantoPage(canto: filterListCantos[index]))?.then((value) => _refreshCantos()),
                             child: (widget.selectable)
                                 ? CheckboxListTile(
@@ -300,6 +301,11 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                     trailing: geticon(filterListCantos[index]),
                                   ),
+                          );
+                          return CantoSearchResultGroup(
+                            result: _searchResults[filterListCantos[index]],
+                            previousResult: index == 0 ? null : _searchResults[filterListCantos[index - 1]],
+                            child: row,
                           );
                         }),
                   ),
@@ -532,8 +538,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget? _searchSubtitle(Canto canto) {
-    final subtitle = _searchResults[canto]?.subtitle;
-    return subtitle == null ? null : Text(subtitle, maxLines: 2, overflow: TextOverflow.ellipsis);
+    final result = _searchResults[canto];
+    return result?.snippet == null ? null : CantoSearchSnippet(result: result!, query: searchField);
   }
 
   void filtrar() {

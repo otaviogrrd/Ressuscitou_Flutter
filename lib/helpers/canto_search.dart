@@ -231,6 +231,12 @@ class _SearchEntry {
   }
 }
 
+class CantoSearchTextPart {
+  final String text;
+  final bool highlighted;
+  const CantoSearchTextPart(this.text, {this.highlighted = false});
+}
+
 class CantoSearchResult {
   final Canto canto;
   final String? snippet;
@@ -238,6 +244,27 @@ class CantoSearchResult {
   final bool titleMatch;
 
   const CantoSearchResult(this.canto, {this.snippet, this.approximate = false, this.titleMatch = false});
+
+  List<CantoSearchTextPart> snippetParts(String query) {
+    final text = snippet;
+    if (text == null || text.isEmpty) return const [];
+    final words = normalizeCantoSearch(query).split(' ').where((word) => word.isNotEmpty).toSet();
+    final parts = <CantoSearchTextPart>[];
+    var cursor = 0;
+    // Offsets refer to the original excerpt, preserving accents and combining
+    // marks rather than slicing the normalized text shown to the user.
+    for (final match in RegExp(r'[A-Za-zÀ-ÖØ-öø-ÿ0-9\u0300-\u036f]+').allMatches(text)) {
+      final word = normalizeCantoSearch(match.group(0)!);
+      final highlighted = words.contains(word) ||
+          (approximate && words.any((queryWord) => _typoScore(queryWord, word) > 0));
+      if (!highlighted) continue;
+      if (cursor < match.start) parts.add(CantoSearchTextPart(text.substring(cursor, match.start)));
+      parts.add(CantoSearchTextPart(match.group(0)!, highlighted: true));
+      cursor = match.end;
+    }
+    if (cursor < text.length) parts.add(CantoSearchTextPart(text.substring(cursor)));
+    return parts;
+  }
 
   String? get subtitle => snippet == null ? null :
       '${titleMatch ? (approximate ? 'Título semelhante' : 'Título') : (approximate ? 'Trecho semelhante' : 'Trecho')}: $snippet';
