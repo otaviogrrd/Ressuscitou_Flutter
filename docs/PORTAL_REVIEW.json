@@ -1,0 +1,336 @@
+{
+  "source": "https://cn.org.br/portal/ressuscitou/",
+  "checkedAt": "2026-11-01",
+  "scope": "Metadata only. Existing HTML and extended HTML are retained byte for byte. Portal song sheets are PNG images, not editable HTML.",
+  "catalogCount": 229,
+  "portalIndexCount": 250,
+  "matchedByNormalizedTitle": 221,
+  "categoryChanges": [
+    {
+      "legacyHtml": "A CORDEIRA DE DEUS",
+      "id": 4,
+      "category": 1,
+      "title": "A cordeira de Deus"
+    },
+    {
+      "legacyHtml": "A VOZ DO MEU AMADO",
+      "id": 13,
+      "category": 1,
+      "title": "A voz do meu amado"
+    },
+    {
+      "legacyHtml": "ABBA PAI",
+      "id": 14,
+      "category": 1,
+      "title": "Abba, Pai"
+    },
+    {
+      "legacyHtml": "AMEM AMEM AMEM",
+      "id": 24,
+      "category": 4,
+      "title": "Amém, amém, amém"
+    },
+    {
+      "legacyHtml": "AS ARMAS DA LUZ",
+      "id": 29,
+      "category": 1,
+      "title": "As armas da luz"
+    },
+    {
+      "legacyHtml": "ASSIM FALA O AMEM",
+      "id": 30,
+      "category": 1,
+      "title": "Assim fala o amém"
+    },
+    {
+      "legacyHtml": "BENDITO SEJA DEUS",
+      "id": 40,
+      "category": 1,
+      "title": "Bendito seja Deus"
+    },
+    {
+      "legacyHtml": "COMO CONDENADOS A MORTE",
+      "id": 52,
+      "category": 1,
+      "title": "Como condenados a morte"
+    },
+    {
+      "legacyHtml": "COMO OVELHA QUE VE",
+      "id": 57,
+      "category": 1,
+      "title": "Como ovelha que vê"
+    },
+    {
+      "legacyHtml": "CONSOLAI O MEU POVO",
+      "id": 60,
+      "category": 1,
+      "title": "Consolai o meu povo"
+    },
+    {
+      "legacyHtml": "EIS O MEU SERVO",
+      "id": 71,
+      "category": 1,
+      "title": "Eis o meu servo"
+    },
+    {
+      "legacyHtml": "ESCUTAI ILHAS DE LONGE",
+      "id": 79,
+      "category": 1,
+      "title": "Escutai ilhas de longe"
+    },
+    {
+      "legacyHtml": "ESTENDO MINHAS MAOS",
+      "id": 84,
+      "category": 1,
+      "title": "Estendo minhas mãos"
+    },
+    {
+      "legacyHtml": "HINO A CARIDADE",
+      "id": 98,
+      "category": 1,
+      "title": "Hino à caridade"
+    },
+    {
+      "legacyHtml": "JESUS PERCORRIA TODAS AS CIDADES",
+      "id": 112,
+      "category": 1,
+      "title": "Jesus percorria todas as cidades"
+    },
+    {
+      "legacyHtml": "NAO RESISTAIS AO MAL",
+      "id": 132,
+      "category": 2,
+      "title": "Não resistais ao mal"
+    },
+    {
+      "legacyHtml": "NOLI ME TANGERE",
+      "id": 135,
+      "category": 1,
+      "title": "Noli me tangere"
+    },
+    {
+      "legacyHtml": "O COMBATE ESCATOLOGICO",
+      "id": 137,
+      "category": 1,
+      "title": "O combate escatológico"
+    },
+    {
+      "legacyHtml": "O ESPIRITO DO SENHOR ESTA SOBRE MIM",
+      "id": 140,
+      "category": 1,
+      "title": "O Espírito do Senhor está sobre mim"
+    },
+    {
+      "legacyHtml": "O LAGAREIRO",
+      "id": 142,
+      "category": 1,
+      "title": "O lagareiro"
+    },
+    {
+      "legacyHtml": "O MESSIAS LEAO PARA VENCER",
+      "id": 144,
+      "category": 1,
+      "title": "O Messias, leão para vencer"
+    },
+    {
+      "legacyHtml": "O SENHOR ME DEU",
+      "id": 152,
+      "category": 1,
+      "title": "O Senhor me deu"
+    },
+    {
+      "legacyHtml": "SERMAO DA MONTANHA",
+      "id": 200,
+      "category": 1,
+      "title": "Sermão da montanha"
+    },
+    {
+      "legacyHtml": "TU COBRISTE DE VERGONHA A MORTE",
+      "id": 208,
+      "category": 1,
+      "title": "Tu cobriste de vergonha a morte"
+    },
+    {
+      "legacyHtml": "TU ES A MINHA ESPERANCA SENHOR",
+      "id": 209,
+      "category": 2,
+      "title": "Tu és a minha esperança, Senhor"
+    },
+    {
+      "legacyHtml": "TU ES DIGNO DE RECEBER O LIVRO",
+      "id": 210,
+      "category": 1,
+      "title": "Tu és digno de receber o livro"
+    }
+  ],
+  "unmatchedExisting": [
+    {
+      "id": 11,
+      "legacyHtml": "A TI SENHOR SE DEVE LOUVOR EM SIAO",
+      "title": "A TI, SENHOR, SE DEVE LOUVOR EM SIÃO"
+    },
+    {
+      "id": 19,
+      "legacyHtml": "ALELUIA INTERLECCIONAL",
+      "title": "ALELUIA INTERLECCIONAL"
+    },
+    {
+      "id": 50,
+      "legacyHtml": "CHEGUE A TUA PRESENCA O MEU CLAMOR",
+      "title": "CHEGUE À TUA PRESENÇA O MEU CLAMOR"
+    },
+    {
+      "id": 74,
+      "legacyHtml": "ELI ELI LAMA SABATANI",
+      "title": "ELÍ, ELÍ, LAMÁ SABATANI"
+    },
+    {
+      "id": 117,
+      "legacyHtml": "LEVANTO MEUS OLHOS PARA OS MONTES",
+      "title": "LEVANTO MEUS OLHOS PARA OS MONTES"
+    },
+    {
+      "id": 145,
+      "legacyHtml": "O MORTE ONDE ESTA TUA VITORIA",
+      "title": "Ó MORTE, ONDE ESTÁ TUA VITÓRIA"
+    },
+    {
+      "id": 180,
+      "legacyHtml": "ROUBASTE MEU CORACAO",
+      "title": "ROUBASTE MEU CORAÇÃO"
+    },
+    {
+      "id": 197,
+      "legacyHtml": "SENHOR NAO ME CORRIJAS NA SUA COLERA",
+      "title": "SENHOR, NÃO ME CORRIJAS NA SUA CÓLERA"
+    }
+  ],
+  "newOrDifferentlyNamedPortalEntries": [
+    {
+      "title": "Como lírio entre espinhos",
+      "category": 3
+    },
+    {
+      "title": "Onde Te Escondeste, Amado",
+      "category": 3
+    },
+    {
+      "title": "Roubaste o meu coração",
+      "category": 3
+    },
+    {
+      "title": "Suba O Esposo Ao Lenho Do Seu Tálamo",
+      "category": 3
+    },
+    {
+      "title": "Aclamação Ao Evangelho I",
+      "category": 4
+    },
+    {
+      "title": "Aclamação Ao Evangelho Ii",
+      "category": 4
+    },
+    {
+      "title": "Aclamações Às Orações Dos Fiéis",
+      "category": 4
+    },
+    {
+      "title": "Aleluia Interlecional",
+      "category": 4
+    },
+    {
+      "title": "Arpejos",
+      "category": 4
+    },
+    {
+      "title": "Celebração Penitencial",
+      "category": 4
+    },
+    {
+      "title": "Prefácio Para O Advento E Natal",
+      "category": 4
+    },
+    {
+      "title": "Prefácio Para O Tempo Pascal",
+      "category": 4
+    },
+    {
+      "title": "Prontuário De Acordes",
+      "category": 4
+    },
+    {
+      "title": "Salmodia Para O Evangelho",
+      "category": 4
+    },
+    {
+      "title": "Salmodia Para O Rosário",
+      "category": 4
+    },
+    {
+      "title": "Salmodia Vi",
+      "category": 4
+    },
+    {
+      "title": "Salmodias Para As Laudes",
+      "category": 4
+    },
+    {
+      "title": "Tabela Para Transportar",
+      "category": 4
+    },
+    {
+      "title": "A Ti, Senhor, se deve o louvor em Sião",
+      "category": 1
+    },
+    {
+      "title": "Alegria, Nasceu O Salvador",
+      "category": 1
+    },
+    {
+      "title": "Cantai A Deus",
+      "category": 1
+    },
+    {
+      "title": "Carmen 63",
+      "category": 1
+    },
+    {
+      "title": "Chegue à tua presença meu clamor",
+      "category": 1
+    },
+    {
+      "title": "Cristo É A Luz",
+      "category": 1
+    },
+    {
+      "title": "Eli, Eli, lamá sabactani",
+      "category": 1
+    },
+    {
+      "title": "Levanto os meus olhos para os montes",
+      "category": 1
+    },
+    {
+      "title": "Ó morte, onde está a tua vitória?",
+      "category": 1
+    },
+    {
+      "title": "Senhor, não me corrijas na tua cólera",
+      "category": 1
+    },
+    {
+      "title": "Sequência De Corpus Christi",
+      "category": 1
+    }
+  ],
+  "existingDuplicateIds": [
+    {
+      "id": 227,
+      "legacyHtml": [
+        "A ESPADA",
+        "ALELUIA PASCAL II"
+      ],
+      "resolution": "Not automatically renumbered. Existing saved references require an explicit migration policy."
+    }
+  ]
+}

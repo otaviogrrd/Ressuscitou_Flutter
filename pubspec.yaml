@@ -44,4 +44,5 @@ flutter:
   uses-material-design: true
   assets:
     - assets/cantos.json
+    - assets/portal_metadata.json
     - assets/img/

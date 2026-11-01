@@ -7,6 +7,8 @@ on:
     paths:
       - "lib/**"
       - "test/**"
+      - "tools/**"
+      - "assets/**"
       - "plugins/**"
       - "android/**"
       - "ios/**"
@@ -50,6 +52,11 @@ jobs:
         with:
           channel: stable
           flutter-version: "3.47.7"
+      - name: Validate legacy song HTML contract
+        if: matrix.platform == 'android'
+        run: |
+          python3 -m unittest discover -s tools -p 'test_*.py'
+          python3 tools/validate_catalog.py assets/cantos.json
       - name: Record SDK version
         run: |
           set -euo pipefail

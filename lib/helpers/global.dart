@@ -7,6 +7,7 @@ import "package:flutter/material.dart";
 import "package:intl/intl.dart";
 import 'package:package_info_plus/package_info_plus.dart';
 import "../model/canto.dart";
+import "song_presentation.dart";
 import "package:shared_preferences/shared_preferences.dart";
 
 var globals = new Globals();
@@ -124,18 +125,7 @@ bool checkDarkMode(BuildContext context) {
   return Theme.of(context).colorScheme.primary == globals.lightRedDarkTheme;
 }
 
-getColorCateg(int categoria) {
-  switch (categoria) {
-    case 2:
-      return Colors.blue[200];
-    case 3:
-      return Colors.green[200];
-    case 4:
-      return Colors.orange[100];
-    default:
-      return Colors.grey.shade200;
-  }
-}
+Color getColorCateg(int categoria) => SongColors.forCategory(categoria).backgroundColor;
 
 String getPrettyJSONString(jsonObject) {
   var encoder = new JsonEncoder.withIndent("     ");

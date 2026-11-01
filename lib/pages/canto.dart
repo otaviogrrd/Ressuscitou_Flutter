@@ -14,6 +14,7 @@ import "package:path_provider/path_provider.dart";
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import "package:percent_indicator/linear_percent_indicator.dart";
 import "../helpers/global.dart";
+import "../helpers/song_presentation.dart";
 import "../helpers/player_widget.dart";
 import "../model/canto.dart";
 import "../pages/listas.dart";
@@ -72,7 +73,8 @@ class _CantoPageState extends State<CantoPage> {
 
   Future<void> _loadCanto() async {
     _pageReady = false;
-    await webViewController.loadHtmlString(strCanto);
+    await webViewController.loadHtmlString(presentSongHtml(strCanto,
+        category: widget.canto.categoria, dark: darktheme));
   }
 
   Future<bool> _canScrollVertically() async {
@@ -107,10 +109,7 @@ class _CantoPageState extends State<CantoPage> {
       _loadCanto();
     }
 
-    if (widget.canto.categoria == 1) back = darktheme ? hexToColor("#333333") : hexToColor("#ffffff");
-    if (widget.canto.categoria == 2) back = darktheme ? hexToColor("#282b2e") : hexToColor("#c7d7e8");
-    if (widget.canto.categoria == 3) back = darktheme ? hexToColor("#2b3325") : hexToColor("#d6ffba");
-    if (widget.canto.categoria == 4) back = darktheme ? hexToColor("#33291f") : hexToColor("#FFCC99");
+    back = SongColors.forCategory(widget.canto.categoria, dark: darktheme).backgroundColor;
 
     transpor();
 

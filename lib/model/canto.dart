@@ -142,6 +142,26 @@ class Canto {
 }
 
 class CantoService {
+  static Future<Map<String, int>>? _portalCategories;
+
+  static void applyPortalCategories(List<Canto> cantos, Map<String, int> categories) {
+    for (final canto in cantos) {
+      final category = categories[canto.html];
+      if (category != null && category >= 1 && category <= 4) canto.categoria = category;
+    }
+  }
+
+  Future<void> _applyPortalCategories(List<Canto> cantos) async {
+    final categories = await (_portalCategories ??= rootBundle
+        .loadString('assets/portal_metadata.json')
+        .then((text) {
+          final data = jsonDecode(text) as Map<String, dynamic>;
+          return (data['categoryOverrides'] as Map<String, dynamic>)
+              .map((key, value) => MapEntry(key, value as int));
+        }));
+    applyPortalCategories(cantos, categories);
+  }
+
   final String urlCantos = "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/cantos.json";
   final String urlCantosVersao =
       "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/cantos_versao.txt";
@@ -162,6 +182,7 @@ class CantoService {
           if (res.statusCode == 200) {
             List<dynamic> body = jsonDecode(res.body);
             List<Canto> list = body.map((dynamic item) => Canto.fromJson(item)).toList();
+    await _applyPortalCategories(list);
             for (var i = 0; i < list.length; i++) {
               await list[i].mp3Downloaded();
             }
@@ -188,6 +209,7 @@ class CantoService {
 
     List<dynamic> body = jsonDecode(str);
     List<Canto> list = body.map((dynamic item) => Canto.fromJson(item)).toList();
+    await _applyPortalCategories(list);
     for (var i = 0; i < list.length; i++) {
       await list[i].mp3Downloaded();
     }
