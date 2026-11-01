@@ -304,4 +304,33 @@ void main() {
     expect(index.search('poder de outro'), isEmpty);
   });
 
+
+  test('Portuguese sound-based misspellings find original black lyric words', () {
+    final songs = [
+      Canto(id: 1, titulo: 'Primeiro', htmlBase64: encodedLyrics('Continuo chorando nesta manhã.')),
+      Canto(id: 2, titulo: 'Segundo', htmlBase64: encodedLyrics('Sigo o caminho com carinho.')),
+      Canto(id: 3, titulo: 'Terceiro', htmlBase64: encodedLyrics('Meu querido amigo.')),
+    ];
+    final index = CantoSearchIndex(songs);
+    final crying = index.searchResults('xorando').first;
+    expect(crying.canto.id, 1);
+    expect(crying.approximate, isTrue);
+    expect(crying.snippet, contains('chorando'));
+    expect(index.search('kaminho').map((song) => song.id), contains(2));
+    expect(index.search('kerido').map((song) => song.id), contains(3));
+    expect(index.search('xerifando'), isEmpty);
+  });
+
+  test('correct spelling stays ahead of phonetic matches and categories apply', () {
+    final index = CantoSearchIndex([
+      Canto(id: 2, titulo: 'Segundo', categoria: 2, htmlBase64: encodedLyrics('Eu estou chorando.')),
+      Canto(id: 1, titulo: 'Primeiro', categoria: 1, htmlBase64: encodedLyrics('Eu estou xorando.')),
+    ]);
+    final results = index.searchResults('xorando');
+    expect(results.map((result) => result.canto.id), [1, 2]);
+    expect(results.first.approximate, isFalse);
+    expect(results.last.approximate, isTrue);
+    expect(index.search('xorando', category: 2).single.id, 2);
+  });
+
 }

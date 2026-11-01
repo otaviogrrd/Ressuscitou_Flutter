@@ -141,7 +141,7 @@ class _SearchPhrase {
         if (size < 1 || start + size > _words.length) continue;
         final from = _words[start].start;
         final to = _words[start + size - 1].end;
-        if ((to - from - query.length).abs() > budget) continue;
+        if ((to - from - query.length).abs() > budget + 2) continue;
         final score = _typoScore(query, normalized.substring(from, to));
         if (score > best) {
           best = score;
@@ -339,11 +339,22 @@ int _editBudget(String query) {
   return length < 10 ? 1 : length < 20 ? 2 : 3;
 }
 
+// Common Portuguese sound/spelling substitutions. Require the entire word or
+// phrase key to agree, rather than accepting a shared sound in unrelated text.
+String _portugueseSoundKey(String text) => text
+    .replaceAll('ch', 'x')
+    .replaceAll('ss', 's')
+    .replaceAll(RegExp(r'qu(?=[ei])'), 'k')
+    .replaceAll(RegExp(r'c(?=[ei])'), 's')
+    .replaceAll(RegExp(r'c(?=[aou])'), 'k')
+    .replaceAll(RegExp(r'g(?=[ei])'), 'j');
+
 /// Compare ordered contiguous phrases, with a small edit budget. Banded edit
 /// distance exits early on unrelated text; it also permits adjacent transposes.
 int _typoScore(String query, String candidate) {
   final length = query.replaceAll(' ', '').length;
   if (length < 5) return 0;
+  if (query != candidate && _portugueseSoundKey(query) == _portugueseSoundKey(candidate)) return 96;
   final budget = _editBudget(query);
   if ((query.length - candidate.length).abs() > budget) return 0;
   var previous = List<int>.generate(candidate.length + 1, (index) => index);

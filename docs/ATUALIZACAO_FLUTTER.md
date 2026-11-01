@@ -86,9 +86,21 @@ resultados ficam abaixo dos acertos exatos e das pequenas correções de grafia.
 Não é uma busca semântica nem afirma que palavras trocadas sejam sinônimos.
 O filtro de categoria e a ordem original dos empates são preservados.
 
+A busca também reconhece trocas frequentes de grafia pelo som, como
+`xorando`/`chorando`, `kaminho`/`caminho` e `kerido`/`querido`, exigindo
+igualdade da chave fonética da palavra/frase inteira. Essas correspondências
+são aproximadas e os acertos exatos continuam primeiro.
+
+Frases curtas de três a cinco palavras podem trocar uma palavra longa,
+exigindo que as demais permaneçam iguais nas mesmas posições, uma âncora
+principal preservada e similaridade mínima da palavra e da frase inteira.
+Isso cobre `poder de Jesus`/`morrer de Jesus` sem exigir a pesquisa mais longa.
+
 A lista mostra abaixo do canto o trecho original com acentos e espaços:
-`Trecho` para correspondências exatas e `Trecho semelhante` para aproximações.
-Se a correspondência for só pelo título, indica `Título` ou `Título semelhante`.
+O texto aparece diretamente, sem prefixos como “Trecho” ou “Trecho semelhante”.
+As palavras encontradas são destacadas em negrito, incluindo a palavra original
+correspondente a uma troca de grafia. Um divisor com o título “Resultados
+semelhantes:” separa os aproximados, com espaçamento antes do grupo.
 Quando o título e a letra contêm a pesquisa, o trecho da letra é exibido.
 A extração e a normalização são feitas uma vez por carga; digitar não recarrega
 o catálogo do disco. A distância limitada permite interromper cedo a

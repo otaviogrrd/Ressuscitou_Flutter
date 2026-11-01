@@ -68,4 +68,10 @@ void main() {
     expect(boldParts(result, 'poder de Jesus'), ['MORRER', 'DE', 'JESUS']);
   });
 
+
+  test('phonetic spelling highlights the original word from the song', () {
+    final result = CantoSearchResult(Canto(), approximate: true, snippet: 'Eu sigo chorando.');
+    expect(boldParts(result, 'xorando'), ['chorando']);
+  });
+
 }
