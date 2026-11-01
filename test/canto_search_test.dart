@@ -90,7 +90,7 @@ void main() {
     ]);
     expect(index.search('senhor dos campos'), isEmpty);
     expect(index.search('senhor da noite'), isEmpty);
-    expect(index.search('senh'), isEmpty); // short queries do not use approximation
+    expect(index.search('senr'), isEmpty); // short queries do not use approximation
     expect(index.search('senhor dos caminho').single.id, 1);
     expect(index.search('senhor dos caminhs').single.id, 1);
   });
