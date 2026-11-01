@@ -1,139 +1,95 @@
-import "package:flutter/material.dart";
-import 'package:flutter_simple_treeview/flutter_simple_treeview.dart';
-import "package:get/get.dart";
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-import "../helpers/global.dart";
-import "../model/canto.dart";
-import "../pages/canto.dart";
+import '../helpers/global.dart';
+import '../model/canto.dart';
+import 'canto.dart';
 
 class LiturgicoPage extends StatefulWidget {
+  const LiturgicoPage({super.key});
   @override
-  _LiturgicoPageState createState() => _LiturgicoPageState();
+  State<LiturgicoPage> createState() => _LiturgicoPageState();
 }
 
 class _LiturgicoPageState extends State<LiturgicoPage> {
-  List<Canto> listCantos = [];
-  List<bool> expanded = [false, false, false, false, false, false, false, false, false, false, false, false, false];
+  late final Future<List<Canto>> _cantos = CantoService().getCantosLocal();
+  static const _groups = [
+    'ADVENTO',
+    'LAUDES - VÉSPERAS',
+    'CANTOS DE ENTRADA',
+    'NATAL',
+    'QUARESMA',
+    'PÁSCOA',
+    'PENTECOSTES',
+    'CANTOS À VIRGEM',
+    'CANTOS PARA AS CRIANÇAS',
+    'PAZ - APRESENTAÇÃO DAS OFERENDAS',
+    'FRAÇÃO DO PÃO',
+    'COMUNHÃO',
+    'CANTO FINAL',
+  ];
 
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text("Índice Litúrgico"), centerTitle: false),
-      body: FutureBuilder(
-          future: CantoService().getCantosLocal(),
-          builder: (BuildContext cont, AsyncSnapshot<List<Canto>> snapshot) {
-            if (snapshot.hasData) {
-              listCantos = snapshot.data;
-              return listaCantos();
-            } else
-              return Center(child: CircularProgressIndicator());
-          }),
-    );
-  }
+  bool _belongsTo(Canto canto, int index) => switch (index) {
+        0 => canto.adve,
+        1 => canto.laud,
+        2 => canto.entr,
+        3 => canto.nata,
+        4 => canto.quar,
+        5 => canto.pasc,
+        6 => canto.pent,
+        7 => canto.virg,
+        8 => canto.cria,
+        9 => canto.cpaz,
+        10 => canto.fpao,
+        11 => canto.comu,
+        12 => canto.cfin,
+        _ => false,
+      };
 
-  listaCantos() {
-    if (listCantos != null) {
-      return SingleChildScrollView(
-        child: TreeView(
-          nodes: [
-            getparent(0, "ADVENTO"),
-            getparent(1, "LAUDES - VÉSPERAS"),
-            getparent(2, "CANTOS DE ENTRADA"),
-            getparent(3, "NATAL"),
-            getparent(4, "QUARESMA"),
-            getparent(5, "PÁSCOA"),
-            getparent(6, "PENTECOSTES"),
-            getparent(7, "CANTOS À VIRGEM"),
-            getparent(6, "CANTOS PARA AS CRIANÇAS"),
-            getparent(9, "PAZ - APRESENTAÇÃO DAS OFERENDAS"),
-            getparent(10, "FRAÇÃO DO PÃO"),
-            getparent(11, "COMUNHÃO"),
-            getparent(12, "CANTO FINAL"),
-          ],
-        ),
-      );
-    }
-    return Container();
-  }
-
-  getparent(int index, String text) {
-    return TreeNode(
-
-      content: Container(
-        width: MediaQuery.of(context).size.width * 0.8,
-        child: ListTile(
-            dense: true,
-            onTap: () => setState(() => expanded[index] = !expanded[index]),
-            //leading: expanded[index]
-            //    ? Icon(Icons.keyboard_arrow_down, color: Theme.of(context).colorScheme.onBackground)
-            //    : Icon(Icons.keyboard_arrow_up, color: Theme.of(context).colorScheme.onBackground),
-            title: Text(text, style: TextStyle(fontSize: 16, color: Theme.of(context).colorScheme.primary, fontWeight: FontWeight.bold))),
-      ),
-      children: expanded[index] ? filtrar(index) : null,
-    );
-  }
-
-  List<TreeNode> filtrar(int index) {
-    List<TreeNode> widgets = [];
-
-    List<Canto> filterListCantos = [];
-
-    if (index == 0) filterListCantos = listCantos.where((c) => (c.adve)).toList();
-    if (index == 1) filterListCantos = listCantos.where((c) => (c.laud)).toList();
-    if (index == 2) filterListCantos = listCantos.where((c) => (c.entr)).toList();
-    if (index == 3) filterListCantos = listCantos.where((c) => (c.nata)).toList();
-    if (index == 4) filterListCantos = listCantos.where((c) => (c.quar)).toList();
-    if (index == 5) filterListCantos = listCantos.where((c) => (c.pasc)).toList();
-    if (index == 6) filterListCantos = listCantos.where((c) => (c.pent)).toList();
-    if (index == 7) filterListCantos = listCantos.where((c) => (c.virg)).toList();
-    if (index == 8) filterListCantos = listCantos.where((c) => (c.cria)).toList();
-    if (index == 9) filterListCantos = listCantos.where((c) => (c.cpaz)).toList();
-    if (index == 10) filterListCantos = listCantos.where((c) => (c.fpao)).toList();
-    if (index == 11) filterListCantos = listCantos.where((c) => (c.comu)).toList();
-    if (index == 12) filterListCantos = listCantos.where((c) => (c.cfin)).toList();
-    filterListCantos.forEach((element) {
-      widgets.add(
-        TreeNode(
-          content: InkWell(
-            onTap: () => Get.to(() => CantoPage(canto: element)).then((value) => {setState(() {})}),
-            child: Container(
-              width: MediaQuery.of(context).size.width * 0.7,
-              child: ListTile(
-                dense: true,
-                //contentPadding: EdgeInsets.only(left: 16, right: 10),
-                leading: ClipOval(
-                    child: Material(
-                  color: getColorCateg(element.categoria), // button color
-                  child: SizedBox(
-                    width: 35,
-                    height: 35,
-                    child: Center(
-                        child: Text(
-                      element.nr2019,
-                      style: TextStyle(fontSize: 12, color: Colors.black),
-                    )),
-                  ),
-                )),
-                title: Text(
-                  element.titulo,
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+  @override
+  Widget build(BuildContext context) => Scaffold(
+        appBar: AppBar(title: const Text('Índice Litúrgico')),
+        body: FutureBuilder<List<Canto>>(
+          future: _cantos,
+          builder: (context, snapshot) {
+            if (snapshot.hasError) {
+              return const Center(child: Text('Não foi possível carregar os cantos.'));
+            }
+            final cantos = snapshot.data;
+            if (cantos == null) return const Center(child: CircularProgressIndicator());
+            return ListView(children: [
+              for (var index = 0; index < _groups.length; index++)
+                ExpansionTile(
+                  key: PageStorageKey(index),
+                  title: Text(_groups[index],
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.primary,
+                        fontWeight: FontWeight.bold,
+                      )),
+                  children: [
+                    for (final canto in cantos.where((canto) => _belongsTo(canto, index)))
+                      ListTile(
+                        leading: CircleAvatar(
+                          backgroundColor: getColorCateg(canto.categoria),
+                          foregroundColor: Colors.black,
+                          child: Text(canto.nr2019, style: const TextStyle(fontSize: 12)),
+                        ),
+                        title: Text(canto.titulo),
+                        trailing: canto.url.isEmpty
+                            ? null
+                            : Icon(Icons.music_note,
+                                color: canto.downloaded
+                                    ? Theme.of(context).colorScheme.primary
+                                    : Colors.grey),
+                        onTap: () async {
+                          await Get.to(() => CantoPage(canto: canto));
+                          if (mounted) setState(() {});
+                        },
+                      ),
+                  ],
                 ),
-                trailing: geticon(element),
-              ),
-            ),
-          ),
+            ]);
+          },
         ),
       );
-    });
-    return widgets;
-  }
-
-  geticon(Canto canto) {
-    if (canto.url != "") {
-      if (canto.downloaded != null && canto.downloaded)
-        return Icon(Icons.music_note, color: Theme.of(context).colorScheme.primary);
-      else
-        return Icon(Icons.music_note, color: Colors.grey);
-    } else
-      return Icon(Icons.music_note, color: Colors.transparent);
-  }
 }

@@ -18,12 +18,12 @@ class _MensagensPageState extends State<MensagensPage> {
           future: MensagemService().getMensagens(),
           builder: (context, AsyncSnapshot<List<Mensagem>> snapshot) {
             if (snapshot.connectionState == ConnectionState.done) {
-              if (snapshot.data.isEmpty)
+              if ((snapshot.data?.isEmpty ?? true))
                 return Center(child: Text("Não há mensagens."));
               else
                 return SingleChildScrollView(
                     child: Column(children: [
-                  for (final item in snapshot.data)
+                  for (final item in snapshot.data ?? <Mensagem>[])
                     Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                       Text(item.titulo, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
                       Align(

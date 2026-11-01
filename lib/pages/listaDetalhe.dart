@@ -1,24 +1,22 @@
-import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
-import "package:flutter_form_builder/flutter_form_builder.dart";
 import "package:get/get.dart";
 import "../helpers/global.dart";
 import "../model/cantoList.dart";
 import "../pages/canto.dart";
 import "../pages/home.dart";
-import "package:share/share.dart";
+import "package:share_plus/share_plus.dart";
 
 class ListaDetalhePage extends StatefulWidget {
-  CantoList lista;
+  final CantoList lista;
 
-  ListaDetalhePage({Key key, @required this.lista}) : super(key: key);
+  ListaDetalhePage({Key? key, required this.lista}) : super(key: key);
 
   @override
   _ListaDetalhePageState createState() => new _ListaDetalhePageState();
 }
 
 class _ListaDetalhePageState extends State<ListaDetalhePage> {
-  final GlobalKey<FormBuilderState> formKey = GlobalKey<FormBuilderState>();
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   String listaOld = "";
   CantoList listaNew = new CantoList(cantos: []);
   bool editMode = false;
@@ -43,14 +41,14 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
 
   navigateOption(String value) {
     if (value == "1") setState(() => editMode = !editMode);
-    if (value == "2") setState(() => salvarLista());
+    if (value == "2") salvarLista();
     if (value == "3") deleteList();
     if (value == "4") {
       String share = "";
       globals.listaGlobal.forEach((element) {
         share = share + element.nr2019.padLeft(3, "0") + " - " + element.titulo + "\n";
       });
-      Share.share("Confira a lista *${listaNew.titulo}*, que criei no App *ressuscitou*:\n\n$share");
+      SharePlus.instance.share(ShareParams(text: "Confira a lista *${listaNew.titulo}*, que criei no App *ressuscitou*:\n\n$share", sharePositionOrigin: Rect.fromLTWH(0, 0, MediaQuery.sizeOf(context).width, 1)));
     }
   }
 
@@ -88,7 +86,7 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
             elevation: 1,
             onPressed: () {
               getHelp();
-//              Share.share("Confira a lista *${listaNew.titulo}*, que criei no App *ressuscitou*:\n\n$share");
+//              SharePlus.instance.share(ShareParams(text: "Confira a lista *${listaNew.titulo}*, que criei no App *ressuscitou*:\n\n$share", sharePositionOrigin: Rect.fromLTWH(0, 0, MediaQuery.sizeOf(context).width, 1)));
             }),
         body: Container(
             margin: EdgeInsets.symmetric(horizontal: 11),
@@ -96,22 +94,22 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
               Container(height: 10),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 5),
-                child: FormBuilder(
+                child: Form(
                     key: formKey,
-                    enabled: editMode,
                     child: Column(children: [
-                      FormBuilderTextField(
+                      TextFormField(
+                          enabled: editMode,
                           cursorColor: Theme.of(context).colorScheme.primary,
-                          name: "Título",
+
                           initialValue: listaOld,
                           textCapitalization: TextCapitalization.sentences,
                           minLines: 1,
                           maxLines: 2,
                           textInputAction: TextInputAction.go,
                           onChanged: (value) {
-                            listaNew.titulo = value;
+                            listaNew.titulo = value ?? "";
                           },
-                          validator: FormBuilderValidators.required(context, errorText: "Informe um título para lista!"),
+                          validator: (value) => value == null || value.trim().isEmpty ? "Informe um título para lista!" : null,
                           decoration: InputDecoration(
                             labelText: "Título",
                           ))
@@ -132,7 +130,7 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
         shape: BeveledRectangleBorder(borderRadius: BorderRadius.circular(2)),
         child: Column(mainAxisSize: MainAxisSize.max, children: [
           GestureDetector(
-            onTap: (editMode) ? () => Get.to(() => HomePage(selectable: true)).then((result) => setState(() {})) : () {},
+            onTap: (editMode) ? () => Get.to(() => HomePage(selectable: true))?.then((result) => setState(() {})) : () {},
             child: Container(
               height: 45,
               decoration:
@@ -158,14 +156,14 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
   }
 
   getCantos() {
-    if (globals.listaGlobal != null && globals.listaGlobal.length > 0)
+    if (globals.listaGlobal.isNotEmpty)
       return Padding(
         padding: EdgeInsets.only(bottom: 8.0),
         child: (!editMode)
             ? ListView(children: [
                 for (final item in globals.listaGlobal)
                   InkWell(
-                      onTap: () => Get.to(() => CantoPage(canto: item)).then((value) => {setState(() {})}),
+                      onTap: () => Get.to(() => CantoPage(canto: item))?.then((value) => {setState(() {})}),
                       child: Stack(
                         children: [
                           ListTile(
@@ -185,7 +183,7 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
                                                 )))))),
                             title: Text(item.titulo),
                           ),
-                          Divider(color: Theme.of(context).colorScheme.onBackground, height: 1)
+                          Divider(color: Theme.of(context).colorScheme.onSurface, height: 1)
                         ],
                       )),
               ])
@@ -216,13 +214,13 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
                         }),
                         direction: DismissDirection.endToStart,
                         child: Stack(
-                            children: [ListTile(title: Text(item.titulo)), Divider(color: Theme.of(context).colorScheme.onBackground, height: 1)]),
+                            children: [ListTile(title: Text(item.titulo)), Divider(color: Theme.of(context).colorScheme.onSurface, height: 1)]),
                       ),
                   ]),
       );
     else
       return InkWell(
-          onTap: () => Get.to(() => HomePage(selectable: true)).then((result) => setState(() {
+          onTap: () => Get.to(() => HomePage(selectable: true))?.then((result) => setState(() {
                 editMode = true;
                 if (globals.listaGlobal.isNotEmpty && (globals.prefs.getBool("mostraDicaLista") ?? true)) getHelp();
               })),
@@ -230,12 +228,13 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
   }
 
   salvarLista() async {
-    if (formKey.currentState.saveAndValidate()) {
+    if ((formKey.currentState?.validate() ?? false)) {
       listaNew.cantos = [];
       globals.listaGlobal.forEach((element) {
         listaNew.cantos.add(element.id);
       });
-      CantoListService().saveList(listaOld: listaOld, listaNew: listaNew);
+      await CantoListService().saveList(listaOld: listaOld, listaNew: listaNew);
+      if (!mounted) return;
       Get.back();
       snackBar(Get.overlayContext, "Lista Salva");
       listaOld = listaNew.titulo;
@@ -260,12 +259,12 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
       confirm: Container(
           margin: EdgeInsets.only(top: 8),
           width: 100,
-          child: FlatButton(
+          child: TextButton(
+            style: TextButton.styleFrom(backgroundColor: Theme.of(context).colorScheme.primary, foregroundColor: Theme.of(context).colorScheme.onPrimary),
             child: FittedBox(fit: BoxFit.scaleDown, child: Text("Apagar")),
-            color: Theme.of(context).colorScheme.primary,
-            textColor: Theme.of(context).colorScheme.onPrimary,
             onPressed: () async {
-              CantoListService().saveList(listaOld: listaOld);
+              await CantoListService().saveList(listaOld: listaOld);
+              if (!context.mounted) return;
               Navigator.of(context).pop();
               Get.back();
             },
@@ -273,10 +272,9 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
       cancel: Container(
           margin: EdgeInsets.only(top: 8),
           width: 100,
-          child: FlatButton(
+          child: TextButton(
+            style: TextButton.styleFrom(backgroundColor: Theme.of(context).colorScheme.secondary, foregroundColor: Theme.of(context).colorScheme.onSecondary),
             child: FittedBox(fit: BoxFit.scaleDown, child: Text("Cancelar")),
-            color: Theme.of(context).colorScheme.secondary,
-            textColor: Theme.of(context).colorScheme.onSecondary,
             onPressed: () async {
               Navigator.of(context).pop();
             },
@@ -305,10 +303,9 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
       ]),
       confirm: Container(
         width: 100,
-        child: FlatButton(
+        child: TextButton(
+            style: TextButton.styleFrom(backgroundColor: Theme.of(context).colorScheme.secondary, foregroundColor: Theme.of(context).colorScheme.onSecondary),
             child: FittedBox(fit: BoxFit.scaleDown, child: Text("Fechar")),
-            color: Theme.of(context).colorScheme.secondary,
-            textColor: Theme.of(context).colorScheme.onSecondary,
             onPressed: () {
               Navigator.pop(context);
             }),

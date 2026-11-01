@@ -5,7 +5,7 @@ class ImageViwerPage extends StatefulWidget {
   final String img;
   final String title;
 
-  ImageViwerPage({Key key, @required this.img, @required this.title}) : super(key: key);
+  ImageViwerPage({Key? key, required this.img, required this.title}) : super(key: key);
 
   @override
   _ImageViwerPageState createState() => new _ImageViwerPageState();

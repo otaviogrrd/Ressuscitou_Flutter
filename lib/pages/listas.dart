@@ -5,9 +5,9 @@ import "../model/cantoList.dart";
 import "../pages/listaDetalhe.dart";
 
 class ListasPage extends StatefulWidget {
-  int select;
+  final int? select;
 
-  ListasPage({Key key, this.select}) : super(key: key);
+  ListasPage({Key? key, this.select}) : super(key: key);
 
   @override
   _ListasPageState createState() => _ListasPageState();
@@ -24,8 +24,8 @@ class _ListasPageState extends State<ListasPage> {
           child: Icon(Icons.add,color: Theme.of(context).colorScheme.onSecondary,),
           elevation: 1,
           onPressed: () => Get.to(() => ListaDetalhePage(
-                lista: CantoList(titulo: "", cantos: (widget.select != null) ? [widget.select] : []),
-              )).then((value) => setState(() => listasLoaded = false))),
+                lista: CantoList(titulo: "", cantos: (widget.select != null) ? [widget.select!] : []),
+              ))?.then((value) => setState(() => listasLoaded = false))),
       body: getBody(),
     );
   }
@@ -38,7 +38,7 @@ class _ListasPageState extends State<ListasPage> {
           future: CantoListService().getCantosList(),
           builder: (BuildContext cont, AsyncSnapshot<List<CantoList>> snapshot) {
             if (snapshot.hasData) {
-              listCantos = snapshot.data;
+              listCantos = snapshot.data!;
               listasLoaded = true;
               return listaCantos();
             } else
@@ -47,7 +47,7 @@ class _ListasPageState extends State<ListasPage> {
   }
 
   listaCantos() {
-    if (listCantos != null && listCantos.isNotEmpty) {
+    if (listCantos.isNotEmpty) {
       return Container(
         margin: EdgeInsets.all(16),
         child: Column(
@@ -60,13 +60,13 @@ class _ListasPageState extends State<ListasPage> {
                       onTap: () {
                         if (widget.select != null) {
                           listCantos[index].cantos.remove(widget.select);
-                          listCantos[index].cantos.add(widget.select);
+                          listCantos[index].cantos.add(widget.select!);
                           CantoListService().saveList(listaOld: listCantos[index].titulo, listaNew: listCantos[index]);
                           Get.back();
                           snackBar(Get.overlayContext, "Canto adicionado à lista");
                         } else {
                           Get.to(() => ListaDetalhePage(lista: listCantos[index]))
-                              .then((value) => setState(() => listasLoaded = false));
+                              ?.then((value) => setState(() => listasLoaded = false));
                         }
                       },
                       child: Card(

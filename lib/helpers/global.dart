@@ -1,13 +1,11 @@
 library globals;
 
-import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
 
-import "package:flushbar/flushbar.dart";
 import "package:flutter/material.dart";
 import "package:intl/intl.dart";
-import 'package:package_info/package_info.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import "../model/canto.dart";
 import "package:shared_preferences/shared_preferences.dart";
 
@@ -80,14 +78,14 @@ class Globals {
   ];
   List<String> escalaMenos = ["C-", "C#-", "D-", "Eb-", "E-", "F-", "F#-", "G-", "G#-", "A-", "Bb-", "B-"];
   List<String> escalaMenor = ["Cm", "C#m", "Dm", "Ebm", "Em", "Fm", "F#m", "Gm", "G#m", "Am", "Bbm", "Bm"];
-  SharedPreferences prefs;
-  PackageInfo packInfo;
+  late SharedPreferences prefs;
+  late PackageInfo packInfo;
   double nrPopups = 0;
   bool tablet = false;
 
-  void inicial() {
-    SharedPreferences.getInstance().then((value) => this.prefs = value);
-    PackageInfo.fromPlatform().then((value) => this.packInfo = value);
+  Future<void> inicial() async {
+    prefs = await SharedPreferences.getInstance();
+    packInfo = await PackageInfo.fromPlatform();
   }
 }
 
@@ -108,44 +106,18 @@ bool isTablet(MediaQueryData query) {
   if ( globals.prefs.getBool("tablet") == null ) {
     globals.prefs.setBool("tablet", isTablet);
   }else{
-    return globals.prefs.getBool("tablet");
+    return globals.prefs.getBool("tablet") ?? isTablet;
   }
   return isTablet;
 }
 
-snackBar(BuildContext cont, String str, {String title}) {
-  globals.nrPopups++;
-  double topMargin = (70 * globals.nrPopups);
-  Flushbar(
-    title: title,
-    messageText: Padding(
-      padding: EdgeInsets.all(10),
-      child: Text(
-        str,
-        style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
-      ),
-    ),
-    margin: EdgeInsets.fromLTRB(20, topMargin, 20, 0),
-    duration: Duration(seconds: 3),
-    borderRadius: 3,
-    backgroundGradient: LinearGradient(
-      begin: FractionalOffset.bottomCenter,
-      end: FractionalOffset.topCenter,
-      colors: [Theme.of(cont).colorScheme.secondary, globals.lightRed],
-      stops: [0.9, 0.9],
-    ),
-    boxShadows: [
-      BoxShadow(
-        color: Colors.black45,
-        offset: Offset(3, 3),
-        blurRadius: 3,
-      ),
-    ],
-    isDismissible: true,
-    dismissDirection: FlushbarDismissDirection.HORIZONTAL,
-    flushbarPosition: FlushbarPosition.TOP,
-  )..show(cont);
-  Timer(Duration(seconds: 3), () => globals.nrPopups--);
+void snackBar(BuildContext? cont, String str, {String? title}) {
+  if (cont == null || !cont.mounted) return;
+  ScaffoldMessenger.maybeOf(cont)?.showSnackBar(SnackBar(
+    content: Text(title == null ? str : "$title\n$str"),
+    duration: const Duration(seconds: 3),
+    behavior: SnackBarBehavior.floating,
+  ));
 }
 
 bool checkDarkMode(BuildContext context) {
@@ -161,7 +133,7 @@ getColorCateg(int categoria) {
     case 4:
       return Colors.orange[100];
     default:
-      return Colors.grey[200];
+      return Colors.grey.shade200;
   }
 }
 

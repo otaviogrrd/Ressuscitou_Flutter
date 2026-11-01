@@ -1,13 +1,12 @@
 import 'dart:convert';
+import 'dart:typed_data';
 import "dart:io";
 
 import 'package:file_picker/file_picker.dart';
 import "package:flutter/material.dart";
 import 'package:flutter/services.dart';
-import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:get/get.dart';
 import "package:intl/intl.dart";
-import 'package:path_provider/path_provider.dart';
 
 import "../helpers/global.dart";
 import '../model/cantoList.dart';
@@ -19,7 +18,6 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  final GlobalKey<FormBuilderState> formKey = GlobalKey<FormBuilderState>();
   bool wfOnly = false;
   bool estendido = false;
   bool escalaAmericana = false;
@@ -42,7 +40,7 @@ class _SettingsPageState extends State<SettingsPage> {
             margin: EdgeInsets.symmetric(horizontal: 16),
             child: SingleChildScrollView(
               child: Column(children: [
-                Divider(color: Theme.of(context).colorScheme.onBackground, height: 2.0),
+                Divider(color: Theme.of(context).colorScheme.onSurface, height: 2.0),
                 SwitchListTile(
                     activeColor: Theme.of(context).colorScheme.primary,
                     title: Text("Apenas WiFi"),
@@ -52,7 +50,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       globals.prefs.setBool("wfOnly", value);
                       setState(() => wfOnly = value);
                     }),
-                Divider(color: Theme.of(context).colorScheme.onBackground, height: 2.0),
+                Divider(color: Theme.of(context).colorScheme.onSurface, height: 2.0),
                 SwitchListTile(
                     activeColor: Theme.of(context).colorScheme.primary,
                     title: Text("Modo Estendido"),
@@ -62,7 +60,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       globals.prefs.setBool("estendido", value);
                       setState(() => estendido = value);
                     }),
-                Divider(color: Theme.of(context).colorScheme.onBackground, height: 2.0),
+                Divider(color: Theme.of(context).colorScheme.onSurface, height: 2.0),
                 SwitchListTile(
                     activeColor: Theme.of(context).colorScheme.primary,
                     title: Text("Cifras Americanas"),
@@ -72,16 +70,16 @@ class _SettingsPageState extends State<SettingsPage> {
                       globals.prefs.setBool("escalaAmericana", value);
                       setState(() => escalaAmericana = value);
                     }),
-                Divider(color: Theme.of(context).colorScheme.onBackground, height: 2.0),
+                Divider(color: Theme.of(context).colorScheme.onSurface, height: 2.0),
                 ListTile(
                     title: Text("Apagar Transposições Salvas"),
                     onTap: () => deleteConfirm("Transposições Salvas", "TRANSP_", "Transposições apagadas")),
-                Divider(color: Theme.of(context).colorScheme.onBackground, height: 2.0),
+                Divider(color: Theme.of(context).colorScheme.onSurface, height: 2.0),
                 ListTile(
                     title: Text("Apagar Capotrastes Salvos"), onTap: () => deleteConfirm("Capotrastes Salvos", "CAPOT_", "Capotrastes apagados")),
-                Divider(color: Theme.of(context).colorScheme.onBackground, height: 2.0),
+                Divider(color: Theme.of(context).colorScheme.onSurface, height: 2.0),
                 ListTile(title: Text("Apagar Anotações Salvas"), onTap: () => deleteConfirm("Anotações Salvas", "ANOT_", "Anotações apagadas")),
-                Divider(color: Theme.of(context).colorScheme.onBackground, height: 2.0),
+                Divider(color: Theme.of(context).colorScheme.onSurface, height: 2.0),
                 SizedBox(height: 15),
                 ListTile(
                   title: Text("Tamanho da Fonte"),
@@ -99,7 +97,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     },
                   ),
                 ),
-                Divider(color: Theme.of(context).colorScheme.onBackground, height: 2.0),
+                Divider(color: Theme.of(context).colorScheme.onSurface, height: 2.0),
                 SwitchListTile(
                     activeColor: Theme.of(context).colorScheme.primary,
                     title: Text("Modo Tablet"),
@@ -108,11 +106,11 @@ class _SettingsPageState extends State<SettingsPage> {
                       globals.prefs.setBool("tablet", value);
                       setState(() => tablet = value);
                     }),
-                Divider(color: Theme.of(context).colorScheme.onBackground, height: 2.0),
+                Divider(color: Theme.of(context).colorScheme.onSurface, height: 2.0),
                 ListTile(title: Text("Exportar Dados Salvos"), onTap: () => exportarDados()),
-                Divider(color: Theme.of(context).colorScheme.onBackground, height: 2.0),
+                Divider(color: Theme.of(context).colorScheme.onSurface, height: 2.0),
                 ListTile(title: Text("Importar Dados"), onTap: () => importarDados()),
-                Divider(color: Theme.of(context).colorScheme.onBackground, height: 2.0),
+                Divider(color: Theme.of(context).colorScheme.onSurface, height: 2.0),
               ]),
             )));
   }
@@ -135,10 +133,9 @@ class _SettingsPageState extends State<SettingsPage> {
       confirm: Container(
           margin: EdgeInsets.only(top: 8),
           width: 100,
-          child: FlatButton(
+          child: TextButton(
+            style: TextButton.styleFrom(backgroundColor: Theme.of(context).colorScheme.primary, foregroundColor: Theme.of(context).colorScheme.onPrimary),
             child: FittedBox(fit: BoxFit.scaleDown, child: Text("Apagar")),
-            color: Theme.of(context).colorScheme.primary,
-            textColor: Theme.of(context).colorScheme.onPrimary,
             onPressed: () async {
               globals.cantosGlobal.forEach((element) => globals.prefs.remove(keyStr + element.id.toString()));
               Navigator.of(context).pop();
@@ -148,10 +145,9 @@ class _SettingsPageState extends State<SettingsPage> {
       cancel: Container(
           margin: EdgeInsets.only(top: 8),
           width: 100,
-          child: FlatButton(
+          child: TextButton(
+            style: TextButton.styleFrom(backgroundColor: Theme.of(context).colorScheme.secondary, foregroundColor: Theme.of(context).colorScheme.onSecondary),
             child: FittedBox(fit: BoxFit.scaleDown, child: Text("Cancelar")),
-            color: Theme.of(context).colorScheme.secondary,
-            textColor: Theme.of(context).colorScheme.onSecondary,
             onPressed: () async {
               Navigator.of(context).pop();
             },
@@ -163,7 +159,6 @@ class _SettingsPageState extends State<SettingsPage> {
     int trans = 0;
     int capot = 0;
     String anota = "";
-    List<CantoList> listas = [];
 
     Configuracoes configuracoes = new Configuracoes(cantos: [], listas: []);
     configuracoes.listas = await CantoListService().getCantosList();
@@ -186,16 +181,14 @@ class _SettingsPageState extends State<SettingsPage> {
     String filename = "Ressuscitou_Dados_$datetime.json";
 
     try {
-      String dir = "";
-      if (Platform.isAndroid) {
-        dir = "/storage/emulated/0/Download/";
-      } else if (Platform.isIOS) {
-        dir = (await getDownloadsDirectory()).path;
-      }
-      final String path = "$dir/" + filename;
-      final File file = File(path);
-      file.writeAsStringSync(getPrettyJSONString(configuracoes));
-      snackBar(Get.overlayContext, "Arquivo salvo em:\n$dir");
+      final destination = await FilePicker.platform.saveFile(
+        dialogTitle: 'Exportar dados do Ressuscitou',
+        fileName: filename,
+        type: FileType.custom,
+        allowedExtensions: ['json'],
+        bytes: Uint8List.fromList(utf8.encode(getPrettyJSONString(configuracoes))),
+      );
+      if (destination != null && mounted) snackBar(context, 'Dados exportados.');
     } on Exception catch (e) {
       snackBar(Get.overlayContext, e.toString());
     }
@@ -210,21 +203,23 @@ class _SettingsPageState extends State<SettingsPage> {
       ))
           ?.files;
       if (_paths != null) if (_paths.isNotEmpty) {
-        var myFile = File(_paths.first.path);
+        final path = _paths.first.path;
+        if (path == null) return;
+        var myFile = File(path);
 
         List<String> content = myFile.readAsLinesSync();
         String str = content.join("");
         Configuracoes configuracoes = new Configuracoes.fromJson(jsonDecode(str));
 
-        configuracoes.cantos.forEach((element) {
-          if (element.trans > 0) globals.prefs.setInt("TRANSP_" + element.cantoId.toString(), element.trans);
-          if (element.capot > 0) globals.prefs.setInt("CAPOT_" + element.cantoId.toString(), element.capot);
-          if (element.anota != "") globals.prefs.setString("ANOT_" + element.cantoId.toString(), element.anota);
-        });
+        for (final element in configuracoes.cantos) {
+          if (element.trans > 0) await globals.prefs.setInt("TRANSP_" + element.cantoId.toString(), element.trans);
+          if (element.capot > 0) await globals.prefs.setInt("CAPOT_" + element.cantoId.toString(), element.capot);
+          if (element.anota != "") await globals.prefs.setString("ANOT_" + element.cantoId.toString(), element.anota);
+        }
 
-        configuracoes.listas.forEach((element) {
-          CantoListService().saveList(listaOld: element.titulo, listaNew: element);
-        });
+        for (final element in configuracoes.listas) {
+          await CantoListService().saveList(listaOld: element.titulo, listaNew: element);
+        }
 
         snackBar(Get.overlayContext, "Dados importados com sucesso.");
       }

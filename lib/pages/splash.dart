@@ -1,4 +1,3 @@
-import "dart:async";
 
 import "package:flutter/material.dart";
 import "package:get/get.dart";
@@ -13,8 +12,8 @@ class Splash extends StatefulWidget {
 class _SplashState extends State<Splash> {
   @override
   initState() {
-    getCantos();
     super.initState();
+    getCantos();
   }
 
   @override
@@ -23,7 +22,7 @@ class _SplashState extends State<Splash> {
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        color: Theme.of(context).colorScheme.background,
+        color: Theme.of(context).colorScheme.surface,
         child: Center(
           child: Padding(
             padding: EdgeInsets.all(30),
@@ -34,9 +33,9 @@ class _SplashState extends State<Splash> {
     );
   }
 
-  getCantos() async {
-    await CantoService().getCantos().then((List<Canto> cantos) {
-      Timer(Duration(seconds: 1), () => Get.off(HomePage(selectable: false,)));
-    });
+  Future<void> getCantos() async {
+    await CantoService().getCantos();
+    await Future<void>.delayed(const Duration(seconds: 1));
+    if (mounted) Get.off(() => HomePage(selectable: false));
   }
 }

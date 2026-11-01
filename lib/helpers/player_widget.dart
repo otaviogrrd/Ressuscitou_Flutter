@@ -1,231 +1,160 @@
-import "dart:async";
+import 'dart:async';
 
-import "package:audioplayers/audioplayers.dart";
-import "package:flutter/foundation.dart";
-import "package:flutter/material.dart";
-import "../helpers/global.dart";
+import 'package:audioplayers/audioplayers.dart';
+import 'package:flutter/material.dart';
+
 import '../model/canto.dart';
+import 'global.dart';
 
-enum PlayerState { stopped, playing, paused }
-enum PlayingRouteState { speakers, earpiece }
+class AudioPlaybackController extends ChangeNotifier {
+  final AudioPlayer _player = AudioPlayer();
+  final List<StreamSubscription<dynamic>> _subscriptions = [];
+  Duration duration = Duration.zero;
+  Duration position = Duration.zero;
+  PlayerState state = PlayerState.stopped;
+  Future<void> Function()? onComplete;
+  String? _source;
+  bool _disposed = false;
 
-class PlayerWidget extends StatefulWidget {
-  final String url;
-  final Canto canto;
-  final PlayerMode mode;
+  AudioPlaybackController() {
+    _subscriptions.addAll([
+      _player.onDurationChanged.listen((value) {
+        duration = value;
+        _changed();
+      }),
+      _player.onPositionChanged.listen((value) {
+        position = value;
+        _changed();
+      }),
+      _player.onPlayerStateChanged.listen((value) {
+        state = value;
+        _changed();
+      }),
+      _player.onPlayerComplete.listen((_) {
+        position = duration;
+        _changed();
+        if (!_disposed) onComplete?.call();
+      }),
+    ]);
+  }
 
-  PlayerWidget({Key key, @required this.url, this.canto, this.mode = PlayerMode.MEDIA_PLAYER}) : super(key: key);
+  bool get isPlaying => state == PlayerState.playing;
+  double get progress => duration.inMilliseconds > 0
+      ? (position.inMilliseconds / duration.inMilliseconds).clamp(0.0, 1.0).toDouble()
+      : 0.0;
+
+  void _changed() {
+    if (!_disposed) notifyListeners();
+  }
+
+  Future<void> play(String path) async {
+    if (_disposed) return;
+    if (path.isEmpty) throw StateError('Arquivo de áudio indisponível.');
+    if (_source == path && state == PlayerState.paused) {
+      await _player.resume();
+    } else {
+      _source = path;
+      final uri = Uri.tryParse(path);
+      final source = uri != null && (uri.scheme == 'https' || uri.scheme == 'http')
+          ? UrlSource(path)
+          : DeviceFileSource(path);
+      await _player.play(source);
+    }
+  }
+
+  Future<void> pause() => _player.pause();
+
+  Future<void> stop() async {
+    await _player.stop();
+    position = Duration.zero;
+    _changed();
+  }
+
+  Future<void> seek(double value) => _player.seek(Duration(
+      milliseconds: (duration.inMilliseconds * value.clamp(0.0, 1.0).toDouble()).round()));
 
   @override
-  State<StatefulWidget> createState() {
-    return PlayerWidgetState(url, mode);
+  void dispose() {
+    _disposed = true;
+    onComplete = null;
+    for (final subscription in _subscriptions) {
+      unawaited(subscription.cancel());
+    }
+    unawaited(_player.dispose());
+    super.dispose();
   }
 }
 
-class PlayerWidgetState extends State<PlayerWidget> {
-  String url;
-  PlayerMode mode;
+class AudioProgress extends StatelessWidget {
+  final AudioPlaybackController controller;
+  const AudioProgress({super.key, required this.controller});
 
-  AudioPlayer _audioPlayer;
-  Duration _duration;
-  Duration _position;
-
-  PlayerState _playerState = PlayerState.stopped;
-  StreamSubscription _durationSubscription;
-  StreamSubscription _positionSubscription;
-  StreamSubscription _playerCompleteSubscription;
-  StreamSubscription _playerErrorSubscription;
-  StreamSubscription _playerStateSubscription;
-
-  get _isPlaying => _playerState == PlayerState.playing;
-
-  get _isPaused => _playerState == PlayerState.paused;
-
-  get _durationText => _duration?.toString()?.split(".")?.first ?? "";
-
-  get _positionText => _position?.toString()?.split(".")?.first ?? "";
-
-  PlayerWidgetState(this.url, this.mode);
+  String _time(Duration value) => value.toString().split('.').first;
 
   @override
-  void initState() {
-    super.initState();
-    _initAudioPlayer();
+  Widget build(BuildContext context) => Column(children: [
+        Slider(
+          value: controller.progress,
+          onChanged: controller.duration > Duration.zero
+              ? (value) async {
+                  try {
+                    await controller.seek(value);
+                  } catch (error) {
+                    if (context.mounted) snackBar(context, 'Erro no áudio: $error');
+                  }
+                }
+              : null,
+        ),
+        Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+          Text(_time(controller.position)),
+          Text(_time(controller.duration)),
+        ]),
+      ]);
+}
+
+class PlayerWidget extends StatefulWidget {
+  final String url;
+  final Canto? canto;
+  const PlayerWidget({super.key, required this.url, this.canto});
+
+  @override
+  State<PlayerWidget> createState() => _PlayerWidgetState();
+}
+
+class _PlayerWidgetState extends State<PlayerWidget> {
+  final _controller = AudioPlaybackController();
+
+  Future<void> _run(Future<void> Function() action) async {
+    try {
+      await action();
+    } catch (error) {
+      if (mounted) snackBar(context, 'Não foi possível reproduzir o áudio: $error');
+    }
   }
 
   @override
   void dispose() {
-    _stop();
-    _audioPlayer.dispose();
-    _durationSubscription?.cancel();
-    _positionSubscription?.cancel();
-    _playerCompleteSubscription?.cancel();
-    _playerErrorSubscription?.cancel();
-    _playerStateSubscription?.cancel();
+    _controller.dispose();
     super.dispose();
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            if (!_isPlaying)
-              IconButton(
-                key: Key("play_button"),
-                onPressed: _isPlaying ? null : () => _play(),
-                iconSize: 40,
-                icon: Icon(Icons.play_arrow),
-                color: Theme.of(context).colorScheme.primary,
-              ),
-            if (_isPlaying)
-              IconButton(
-                key: Key("pause_button"),
-                onPressed: _isPlaying ? () => _pause() : null,
-                iconSize: 40,
-                icon: Icon(Icons.pause),
-                color: Theme.of(context).colorScheme.primary,
-              ),
-            //if (_isPlaying || _isPaused)
-            Expanded(
-              child: Stack(
-                children: [
-                  Slider(
-                    activeColor: Theme.of(context).colorScheme.primary,
-                    inactiveColor: Theme.of(context).colorScheme.secondary,
-                    onChanged: (v) {
-                      if (v < 1) {
-                        final position = v * _duration.inMilliseconds;
-                        _audioPlayer.seek(Duration(milliseconds: position.round()));
-                      }
-//                      else
-//                        _audioPlayer.seek(Duration(milliseconds: _duration.inMilliseconds));
-                    },
-                    value: (_position != null &&
-                            _duration != null &&
-                            _position.inMilliseconds > 0 &&
-                            _position.inMilliseconds < _duration.inMilliseconds)
-                        ? _position.inMilliseconds / _duration.inMilliseconds
-                        : 0.0,
-                  ),
-                  if (_position != null)
-                    Positioned(
-                      top: 0,
-                      left: 15,
-                      child: Container(
-                        height: 15,
-                        child: FittedBox(
-                            fit: BoxFit.scaleDown,
-                            child: Text(
-                              _position != null ? "${_positionText ?? ""}" : "",
-                              style: TextStyle(fontSize: 12.0),
-                            )),
-                      ),
-                    ),
-                  if (_duration != null)
-                    Positioned(
-                      bottom: 0,
-                      right: 15,
-                      child: Container(
-                        height: 15,
-                        child: FittedBox(
-                          fit: BoxFit.scaleDown,
-                          child: Text(
-                            _duration != null ? _durationText : "",
-                            style: TextStyle(fontSize: 12.0),
-                          ),
-                        ),
-                      ),
-                    ),
-                ],
-              ),
-            ),
-
-            IconButton(
-              key: Key("stop_button"),
-              onPressed: _isPlaying || _isPaused ? () => _stop() : null,
-              iconSize: 40,
-              icon: Icon(Icons.stop),
-              color: Theme.of(context).colorScheme.primary,
-            ),
-          ],
-        ),
-      ],
-    );
-  }
-
-  void _initAudioPlayer() {
-    _audioPlayer = AudioPlayer(mode: mode);
-
-    _durationSubscription = _audioPlayer.onDurationChanged.listen((duration) {
-      setState(() => _duration = duration);
-    });
-
-    _positionSubscription = _audioPlayer.onAudioPositionChanged.listen((p) => setState(() {
-          _position = p;
-        }));
-
-    _playerCompleteSubscription = _audioPlayer.onPlayerCompletion.listen((event) {
-      _onComplete();
-      setState(() {
-        _position = _duration;
-      });
-    });
-
-    _playerErrorSubscription = _audioPlayer.onPlayerError.listen((msg) {
-      setState(() {
-        _playerState = PlayerState.stopped;
-        _duration = Duration(seconds: 0);
-        _position = Duration(seconds: 0);
-      });
-    });
-
-    _audioPlayer.onPlayerStateChanged.listen((state) {
-      if (!mounted) return;
-      setState(() {});
-    });
-
-    _audioPlayer.onNotificationPlayerStateChanged.listen((state) {
-      if (!mounted) return;
-    });
-  }
-
-  Future<int> _play() async {
-    final playPosition = (_position != null &&
-            _duration != null &&
-            _position.inMilliseconds > 0 &&
-            _position.inMilliseconds < _duration.inMilliseconds)
-        ? _position
-        : null;
-    final result = await _audioPlayer.play(url, position: playPosition);
-    if (result == 1) setState(() => _playerState = PlayerState.playing);
-
-    _audioPlayer.setPlaybackRate(playbackRate: 1.0);
-
-    return result;
-  }
-
-  Future<int> _pause() async {
-    final result = await _audioPlayer.pause();
-    if (result == 1) setState(() => _playerState = PlayerState.paused);
-    return result;
-  }
-
-  Future<int> _stop() async {
-    final result = await _audioPlayer.stop();
-    if (result == 1) {
-      setState(() {
-        _playerState = PlayerState.stopped;
-        _position = Duration();
-      });
-    }
-    return result;
-  }
-
-  void _onComplete() {
-    _position = Duration();
-    setState(() => _playerState = PlayerState.stopped);
-  }
+  Widget build(BuildContext context) => AnimatedBuilder(
+        animation: _controller,
+        builder: (context, _) => Row(children: [
+          IconButton(
+            tooltip: _controller.isPlaying ? 'Pausar' : 'Reproduzir',
+            icon: Icon(_controller.isPlaying ? Icons.pause : Icons.play_arrow),
+            onPressed: () => _run(_controller.isPlaying
+                ? _controller.pause
+                : () => _controller.play(widget.url)),
+          ),
+          Expanded(child: AudioProgress(controller: _controller)),
+          IconButton(
+            tooltip: 'Parar',
+            icon: const Icon(Icons.stop),
+            onPressed: () => _run(_controller.stop),
+          ),
+        ]),
+      );
 }

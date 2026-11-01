@@ -16,10 +16,10 @@ class SpeedDial extends StatefulWidget {
   /// The curve used to animate the button on scrolling.
   final Curve curve;
 
-  final String tooltip;
-  final String heroTag;
-  final Color backgroundColor;
-  final Color foregroundColor;
+  final String? tooltip;
+  final String? heroTag;
+  final Color? backgroundColor;
+  final Color? foregroundColor;
   final double elevation;
   final ShapeBorder shape;
 
@@ -33,22 +33,22 @@ class SpeedDial extends StatefulWidget {
   final double overlayOpacity;
 
   /// The animated icon to show as the main button child. If this is provided the [child] is ignored.
-  final AnimatedIconData animatedIcon;
+  final AnimatedIconData? animatedIcon;
 
   /// The theme for the animated icon.
-  final IconThemeData animatedIconTheme;
+  final IconThemeData? animatedIconTheme;
 
   /// The child of the main button, ignored if [animatedIcon] is non [null].
-  final Widget child;
+  final Widget? child;
 
   /// Executed when the dial is opened.
-  final VoidCallback onOpen;
+  final VoidCallback? onOpen;
 
   /// Executed when the dial is closed.
-  final VoidCallback onClose;
+  final VoidCallback? onClose;
 
   /// Executed when the dial is pressed. If given, the dial only opens on long press!
-  final VoidCallback onPress;
+  final VoidCallback? onPress;
 
   /// If true user is forced to close dial manually by tapping main button. WARNING: If true, overlay is not rendered.
   final bool closeManually;
@@ -85,7 +85,7 @@ class SpeedDial extends StatefulWidget {
 }
 
 class _SpeedDialState extends State<SpeedDial> with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  late AnimationController _controller;
 
   bool _open = false;
 
@@ -130,9 +130,9 @@ class _SpeedDialState extends State<SpeedDial> with SingleTickerProviderStateMix
     setState(() {
       _open = newValue;
     });
-    if (newValue && widget.onOpen != null) widget.onOpen();
+    if (newValue) widget.onOpen?.call();
     _performAnimation();
-    if (!newValue && widget.onClose != null) widget.onClose();
+    if (!newValue) widget.onClose?.call();
   }
 
   List<Widget> _getChildrenList() {
@@ -194,7 +194,7 @@ class _SpeedDialState extends State<SpeedDial> with SingleTickerProviderStateMix
   Widget _renderButton() {
     var child = widget.animatedIcon != null
         ? AnimatedIcon(
-            icon: widget.animatedIcon,
+            icon: widget.animatedIcon!,
             progress: _controller,
             color: widget.animatedIconTheme?.color,
             size: widget.animatedIconTheme?.size,
@@ -224,7 +224,7 @@ class _SpeedDialState extends State<SpeedDial> with SingleTickerProviderStateMix
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.end,
-          children: List.from(fabChildren)
+          children: List<Widget>.from(fabChildren)
             ..add(
               Container(
                 margin: EdgeInsets.only(top: 6.0),

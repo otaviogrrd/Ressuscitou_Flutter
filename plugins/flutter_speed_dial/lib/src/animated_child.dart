@@ -2,26 +2,26 @@ import 'package:flutter/material.dart';
 
 class AnimatedChild extends AnimatedWidget {
   final int index;
-  final Color backgroundColor;
-  final Color foregroundColor;
+  final Color? backgroundColor;
+  final Color? foregroundColor;
   final double elevation;
-  final Widget child;
+  final Widget? child;
 
-  final String label;
-  final TextStyle labelStyle;
-  final Color labelBackgroundColor;
-  final Widget labelWidget;
+  final String? label;
+  final TextStyle? labelStyle;
+  final Color? labelBackgroundColor;
+  final Widget? labelWidget;
 
   final bool visible;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
   final VoidCallback toggleChildren;
-  final ShapeBorder shape;
-  final String heroTag;
+  final ShapeBorder? shape;
+  final String? heroTag;
 
   AnimatedChild({
-    Key key,
-    Animation<double> animation,
-    this.index,
+    Key? key,
+    required Animation<double> animation,
+    required this.index,
     this.backgroundColor,
     this.foregroundColor,
     this.elevation = 4.0,
@@ -32,19 +32,19 @@ class AnimatedChild extends AnimatedWidget {
     this.labelWidget,
     this.visible = false,
     this.onTap,
-    this.toggleChildren,
+    required this.toggleChildren,
     this.shape,
     this.heroTag,
   }) : super(key: key, listenable: animation);
 
   Widget buildLabel() {
-    final Animation<double> animation = listenable;
+    final animation = listenable as Animation<double>;
 
     if (!((label != null || labelWidget != null) && visible && animation.value == 60.0)) {
       return Container();
     }
 
-    if (labelWidget != null) return labelWidget;
+    if (labelWidget != null) return labelWidget!;
 
     return GestureDetector(
       onTap: _performAction,
@@ -62,18 +62,18 @@ class AnimatedChild extends AnimatedWidget {
             )
           ],
         ),
-        child: Text(label, style: labelStyle),
+        child: Text(label ?? "", style: labelStyle),
       ),
     );
   }
 
   void _performAction() {
-    if (onTap != null) onTap();
+    onTap?.call();
     toggleChildren();
   }
 
   Widget build(BuildContext context) {
-    final Animation<double> animation = listenable;
+    final animation = listenable as Animation<double>;
 
     final Widget buttonChild = animation.value > 50.0
         ? Container(
@@ -104,7 +104,7 @@ class AnimatedChild extends AnimatedWidget {
                 onPressed: _performAction,
                 backgroundColor: backgroundColor,
                 foregroundColor: foregroundColor,
-                elevation: elevation ?? 6.0,
+                elevation: elevation,
                 child: buttonChild,
               ),
             ),
