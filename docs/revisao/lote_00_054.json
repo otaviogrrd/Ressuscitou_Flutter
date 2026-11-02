@@ -1,0 +1,1086 @@
+{
+  "scope": "0..54",
+  "catalogModified": false,
+  "extendedDefaultPreserved": true,
+  "comparison": "Official sheet image versus Chromium-rendered OCR draft screenshot in the published JPEG pair; not a physical-device screenshot.",
+  "coverage": "Every listed pair was opened and visually inspected. Blocking differences documented; rejected drafts are not certified character by character or chord by chord. Existing extended variants were not altered or approved.",
+  "entries": [
+    {
+      "sequence": 0,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "lyrics",
+          "severity": "major",
+          "detail": "Palavras foram fundidas: «beijes com» virou «beijescom»; «beijos de sua» virou «beijosdesua». Há outras junções na primeira estrofe."
+        },
+        {
+          "aspect": "layout",
+          "severity": "major",
+          "detail": "Espaçamento e quebras das estrofes diferem da ficha; o rascunho preserva BIS como texto solto e não é uma versão estendida pronta."
+        }
+      ],
+      "chordNotes": "Cifras Re-, Sib e La estão visíveis nas duas imagens; não foi observada nesta leitura uma mudança de altura que dispense nova conferência de alinhamento.",
+      "title": "A cabana dos pastores",
+      "page": "https://cn.org.br/portal/a-cabana-dos-pastores/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/a-cabana-dos-pastores.png",
+      "evidence": "docs/revisao/evidencias/b9bd981fd55f63a7-pair.jpg",
+      "key": "b9bd981fd55f63a7",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    },
+    {
+      "sequence": 1,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "lyrics",
+          "severity": "major",
+          "detail": "Há perda de acento («VÓS»→«VOS») e junção de palavras («Pois bem»→«Poisbem»). A segunda coluna também contém junções."
+        },
+        {
+          "aspect": "layout",
+          "severity": "major",
+          "detail": "O rascunho contém pontos e parênteses espúrios entre cifras e o primeiro refrão; linhas e grandes espaços deslocam verticalmente as entradas."
+        }
+      ],
+      "chordNotes": "As raízes das cifras aparentes foram preservadas, mas as linhas espúrias impedem aceitar a associação visual de todas as cifras às entradas.",
+      "title": "A ceifa das nações",
+      "page": "https://cn.org.br/portal/a-ceifa-das-nacoes/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/a-ceifa-das-nacoes.png",
+      "evidence": "docs/revisao/evidencias/76b832998edba523-pair.jpg",
+      "key": "76b832998edba523",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    },
+    {
+      "sequence": 2,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "lyrics",
+          "severity": "blocker",
+          "detail": "Na estrofe de Raquel, a palavra «que» saiu da sequência e aparece em uma linha isolada após a continuação da frase; várias palavras são fundidas."
+        },
+        {
+          "aspect": "alignment",
+          "severity": "major",
+          "detail": "A cifra Si7 anterior ao primeiro ROGAI fica isolada muito acima da linha cantada; a referência bíblica também foi reconhecida com números/pontuação incorretos."
+        }
+      ],
+      "chordNotes": "Mi-, La-, Do e Si7 aparecem, mas a correspondência vertical de Si7 com a linha de entrada está comprometida.",
+      "title": "A cordeira de Deus",
+      "page": "https://cn.org.br/portal/a-cordeira-de-deus/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/a-cordeira-de-deus.png",
+      "evidence": "docs/revisao/evidencias/3c60ef9073dc12b6-pair.jpg",
+      "key": "3c60ef9073dc12b6",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    },
+    {
+      "sequence": 3,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "chords",
+          "severity": "blocker",
+          "detail": "Diversas cifras Mi7 foram reconhecidas como «Mi?» na segunda coluna; a qualidade/extensão deixa de ser uma cifra válida."
+        },
+        {
+          "aspect": "lyrics",
+          "severity": "major",
+          "detail": "Palavras foram fundidas, por exemplo «polida para»→«polidapara». O desenho do acorde no rodapé não foi preservado; seu OCR gerou caracteres soltos."
+        }
+      ],
+      "chordNotes": "O asterisco de Mi7* e a alternativa Sol#dim7 exigem revisão específica; o diagrama não é representado corretamente pelo texto OCR.",
+      "title": "A Espada",
+      "page": "https://cn.org.br/portal/a-espada/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/a-espada.png",
+      "evidence": "docs/revisao/evidencias/f867d4cd01dc3e0d-pair.jpg",
+      "key": "f867d4cd01dc3e0d",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    },
+    {
+      "sequence": 4,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "chords",
+          "severity": "blocker",
+          "detail": "No segundo verso do refrão, Mi- da ficha aparece como Mi (sem o menor) no rascunho, nas duas ocorrências."
+        },
+        {
+          "aspect": "lyrics",
+          "severity": "major",
+          "detail": "«é dura» virou «édura» e «forte o» virou «forteo»; partes do cabeçalho vermelho foram convertidas indevidamente em La/Mi."
+        }
+      ],
+      "chordNotes": "A perda do sinal menor muda a qualidade harmônica e impede aprovação.",
+      "title": "A marcha é dura",
+      "page": "https://cn.org.br/portal/a-marcha-e-dura/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/a-marcha-e-dura.png",
+      "evidence": "docs/revisao/evidencias/0cb0f83ed4e13062-pair.jpg",
+      "key": "0cb0f83ed4e13062",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    },
+    {
+      "sequence": 5,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "lyrics",
+          "severity": "blocker",
+          "detail": "A linha «A NINGUÉM DEMOS OCASIÃO DE TROPEÇO» do primeiro refrão está ausente do corpo; restaram cifras/pontos em área vazia."
+        },
+        {
+          "aspect": "alignment",
+          "severity": "major",
+          "detail": "As cifras do refrão ficam afastadas das linhas cantadas por grandes vazios. As duas colunas contêm outras palavras coladas."
+        }
+      ],
+      "chordNotes": "A omissão da linha torna impossível aceitar a associação das cifras do primeiro refrão com a letra.",
+      "title": "A ninguém demos ocasião de tropeço",
+      "page": "https://cn.org.br/portal/a-ninguem-demos-ocasiao-de-tropeco/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/a-ninguem-demos-ocasiao-de-tropeco.png",
+      "evidence": "docs/revisao/evidencias/ab6caa146c432c42-pair.jpg",
+      "key": "ab6caa146c432c42",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    },
+    {
+      "sequence": 6,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "lyrics",
+          "severity": "major",
+          "detail": "A primeira estrofe contém junções extensas: «olhos dos»→«olhosdos» e palavras seguintes estão coladas; o refrão também começa com ATI em vez de A TI."
+        },
+        {
+          "aspect": "layout",
+          "severity": "major",
+          "detail": "O BIS A. ficou como BISA. isolado entre linhas, sem representar a repetição por extenso necessária à versão estendida."
+        }
+      ],
+      "chordNotes": "Re-, Sol-, Sib7 e La7 continuam visíveis; não houve validação exaustiva de cada posição após corrigir as palavras.",
+      "title": "A ti levanto meus olhos",
+      "page": "https://cn.org.br/portal/a-ti-levanto-meus-olhos/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/a-ti-levanto-meus-olhos.png",
+      "evidence": "docs/revisao/evidencias/947b9e67c2f4a162-pair.jpg",
+      "key": "947b9e67c2f4a162",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    },
+    {
+      "sequence": 7,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "lyrics",
+          "severity": "major",
+          "detail": "«mais fortes do» aparece fundido como «maisfortesdo»; há várias outras junções nos dois painéis de letra."
+        },
+        {
+          "aspect": "alignment",
+          "severity": "major",
+          "detail": "Pontos e grandes intervalos de linhas foram introduzidos entre partes da estrofe e acordes; a grade precisa ser refeita após separar a letra."
+        }
+      ],
+      "chordNotes": "As cifras aparentes La-, Re-, Mi/Mi7, Fa e Sol preservam a grafia básica, sem certificação integral das posições.",
+      "title": "A Ti, Senhor, com minha voz gritando imploro",
+      "page": "https://cn.org.br/portal/a-ti-senhor-com-minha-voz-gritando-imploro/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/a-ti-senhor-com-minha-voz-gritando-imploro.png",
+      "evidence": "docs/revisao/evidencias/2ac82e40227b2542-pair.jpg",
+      "key": "2ac82e40227b2542",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    },
+    {
+      "sequence": 8,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "lyrics",
+          "severity": "major",
+          "detail": "«teu caminho» virou «teucaminho» e «tua ternura» virou «tuaternura»; outras junções afetam a leitura das estrofes."
+        },
+        {
+          "aspect": "chords",
+          "severity": "major",
+          "detail": "A sequência de dois acordes Re- Fa aparece colada como Re-Fa em várias linhas. É necessário restabelecer a separação e os pontos de entrada."
+        }
+      ],
+      "chordNotes": "Não se trata de conversão A–G: são dois acordes da própria ficha que ficaram visualmente unidos.",
+      "title": "A Ti, Senhor levanto minha alma",
+      "page": "https://cn.org.br/portal/a-ti-senhor-levanto-minha-alma/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/a-ti-senhor-levanto-minha-alma.png",
+      "evidence": "docs/revisao/evidencias/395e6439331c3b85-pair.jpg",
+      "key": "395e6439331c3b85",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    },
+    {
+      "sequence": 9,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "lyrics",
+          "severity": "major",
+          "detail": "«se cumpre» aparece em «tisecumpre» e há várias junções, inclusive nas linhas da segunda coluna. A pontuação e os espaços precisam de recomposição."
+        },
+        {
+          "aspect": "layout",
+          "severity": "major",
+          "detail": "O primeiro refrão ganhou pontos/intervalos entre as cifras e a linha cantada; a separação vertical não acompanha a ficha."
+        }
+      ],
+      "chordNotes": "Re-, Sol-, Sib e La7 aparecem nas duas evidências, sem alteração de altura claramente observada nesta leitura.",
+      "title": "A Ti, Senhor, se deve o louvor em Sião",
+      "page": "https://cn.org.br/portal/a-ti-senhor-se-deve-o-louvor-em-siao/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/a-ti-senhor-se-deve-o-louvor-em-siao.png",
+      "evidence": "docs/revisao/evidencias/ddbc1396a4bc5b02-pair.jpg",
+      "key": "ddbc1396a4bc5b02",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    },
+    {
+      "sequence": 10,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "chords",
+          "severity": "blocker",
+          "detail": "A cifra La7 do começo aparece como La? no rascunho. Isso não é notação equivalente e deixa a extensão indefinida."
+        },
+        {
+          "aspect": "lyrics",
+          "severity": "major",
+          "detail": "Palavras estão coladas em ambas as colunas; os diagramas de Re-9 e Fa maj7 do rodapé viraram traços/caracteres, não desenhos utilizáveis."
+        }
+      ],
+      "chordNotes": "Além de corrigir La?, é preciso revisar a qualidade/extensão e a representação dos dois diagramas, sem perder a legenda harmônica.",
+      "title": "À vítima pascal",
+      "page": "https://cn.org.br/portal/a-vitima-pascal/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/a-vitima-pascal.png",
+      "evidence": "docs/revisao/evidencias/efc4b472188701ef-pair.jpg",
+      "key": "efc4b472188701ef",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    },
+    {
+      "sequence": 11,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "lyrics",
+          "severity": "major",
+          "detail": "Há perda de acento em «Ó»→«O» e junções como «meu amado»→«meuamado». A estrofe da pomba contém pontuação solta acima da entrada."
+        },
+        {
+          "aspect": "layout",
+          "severity": "major",
+          "detail": "As marcas BIS permanecem isoladas, e a transcrição apresenta vários vazios entre cifras e letra. Não está pronta como versão estendida."
+        }
+      ],
+      "chordNotes": "La-, Sol, Re-, Mi, Fa e Do aparentes estão preservados; a revisão exaustiva de alinhamento permanece necessária após corrigir as palavras.",
+      "title": "A voz do meu amado",
+      "page": "https://cn.org.br/portal/a-voz-do-meu-amado/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/a-voz-do-meu-amado.png",
+      "evidence": "docs/revisao/evidencias/fcef486b375ef3c3-pair.jpg",
+      "key": "fcef486b375ef3c3",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    },
+    {
+      "sequence": 12,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "lyrics",
+          "severity": "major",
+          "detail": "A linha «para recairmos no temor» foi colada em uma única sequência de texto, repetida nas duas ocorrências."
+        },
+        {
+          "aspect": "chords",
+          "severity": "major",
+          "detail": "No começo e no final, Fa e Do ficaram colados como FaDo, prejudicando a separação dos dois acordes."
+        }
+      ],
+      "chordNotes": "As alturas de Sol/Fa/Do são reconhecíveis, mas a junção FaDo precisa ser corrigida antes de conferir a transposição e o alinhamento.",
+      "title": "Abba, Pai",
+      "page": "https://cn.org.br/portal/abba-pai/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/abba-pai.png",
+      "evidence": "docs/revisao/evidencias/a0c3ffd5ec02f885-pair.jpg",
+      "key": "a0c3ffd5ec02f885",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    },
+    {
+      "sequence": 13,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "lyrics",
+          "severity": "major",
+          "detail": "«eis três» foi deformado em «istrês» na primeira coluna; há muitas outras junções, inclusive na fala e nas respostas."
+        },
+        {
+          "aspect": "layout",
+          "severity": "major",
+          "detail": "A grade contém grandes vazios entre fragmentos de estrofes e acordes. A reconstrução exige separar palavras sem deslocar as entradas."
+        }
+      ],
+      "chordNotes": "La-, Re-, Mi, Fa e Sol aparentes continuam nas duas imagens; não foi certificada a posição de cada cifra.",
+      "title": "Abraão",
+      "page": "https://cn.org.br/portal/abraao/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/abraao.png",
+      "evidence": "docs/revisao/evidencias/d58982d1455fed6c-pair.jpg",
+      "key": "d58982d1455fed6c",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    },
+    {
+      "sequence": 14,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "lyrics",
+          "severity": "major",
+          "detail": "Há junções como «Entrai em»→«Entraiem» e «sua presença»→«suapresença», com outros casos nas estrofes."
+        },
+        {
+          "aspect": "layout",
+          "severity": "major",
+          "detail": "BIS A. virou BISA. em texto solto, e há pontos soltos perto dos retornos. As marcas de melisma precisam permanecer associadas às linhas corretas."
+        }
+      ],
+      "chordNotes": "As cifras principais e a sequência Sol-, Re-, La, Re- estão aparentes; não há aprovação de alinhamento após corrigir as junções.",
+      "title": "Aclamai o Senhor",
+      "page": "https://cn.org.br/portal/aclamai-o-senhor/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/aclamai-o-senhor.png",
+      "evidence": "docs/revisao/evidencias/d11b1be576305a69-pair.jpg",
+      "key": "d11b1be576305a69",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    },
+    {
+      "sequence": 15,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "lyrics",
+          "severity": "major",
+          "detail": "A abertura contém junções como «Era ainda»→«Eraainda» e «noite quando»→«noitequando»; outras junções seguem nas duas colunas."
+        },
+        {
+          "aspect": "layout",
+          "severity": "major",
+          "detail": "Parênteses e caracteres espúrios aparecem nas chamadas; o diagrama de Re-9 foi reduzido a texto/traços, e BIS permanece abreviado."
+        }
+      ],
+      "chordNotes": "A cifra Re-9 em si aparece equivalente; o desenho de posição não foi conservado.",
+      "title": "Akedá",
+      "page": "https://cn.org.br/portal/akeda/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/akeda.png",
+      "evidence": "docs/revisao/evidencias/38357dcfb7a5a543-pair.jpg",
+      "key": "38357dcfb7a5a543",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    },
+    {
+      "sequence": 16,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "lyrics",
+          "severity": "major",
+          "detail": "Perde-se acentuação em respostas, por exemplo «É»→«E», e há muitas palavras coladas nas estrofes e perguntas."
+        },
+        {
+          "aspect": "alignment",
+          "severity": "major",
+          "detail": "Várias cifras ficam acima de linhas vazias/pontuação isolada, especialmente nas respostas; o vínculo visual com a letra precisa ser reconstruído."
+        }
+      ],
+      "chordNotes": "Mi/Mi-, Si/Si-, Sol e La estão aparentes; não foi marcada como erro a alternância maior/menor que também existe na ficha.",
+      "title": "Alçai ó portas",
+      "page": "https://cn.org.br/portal/alcai-o-portas/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/alcai-o-portas.png",
+      "evidence": "docs/revisao/evidencias/a5ac786ccbe9c159-pair.jpg",
+      "key": "a5ac786ccbe9c159",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    },
+    {
+      "sequence": 17,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "lyrics",
+          "severity": "major",
+          "detail": "«será o» foi fundido como «serão» no verso do sinal, alterando a leitura. Há outras junções na narrativa."
+        },
+        {
+          "aspect": "layout",
+          "severity": "major",
+          "detail": "O diagrama de Reb virou caracteres soltos no rodapé. As muitas marcações BIS não são uma expansão estendida conferida."
+        }
+      ],
+      "chordNotes": "Reb e Do7 estão presentes no refrão, mas o diagrama de digitação não foi representado.",
+      "title": "Alegria, Nasceu O Salvador",
+      "page": "https://cn.org.br/portal/alegria-nasceu-o-salvador/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/alegria-nasceu-o-salvador.png",
+      "evidence": "docs/revisao/evidencias/383543d0a8c3b483-pair.jpg",
+      "key": "383543d0a8c3b483",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    },
+    {
+      "sequence": 18,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "lyrics",
+          "severity": "major",
+          "detail": "Na primeira linha das crianças, a sílaba IA foi reduzida a A e U ficou unido a LU. Há junções como «Bendizei o Senhor»→«BendizeioSenhor»."
+        },
+        {
+          "aspect": "layout",
+          "severity": "major",
+          "detail": "As sílabas do aleluia e do melisma precisam de nova separação; a marca BIS A. e a indicação de braçadeira foram fragmentadas."
+        }
+      ],
+      "chordNotes": "La, Sib, Re- e La7 permanecem aparentes. A perda de sílaba exige refazer a associação das cifras ao canto.",
+      "title": "Aleluia! Bendizei o Senhor",
+      "page": "https://cn.org.br/portal/aleluia-bendizei-o-senhor/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/aleluia-bendizei-o-senhor.png",
+      "evidence": "docs/revisao/evidencias/b21acf225ad92869-pair.jpg",
+      "key": "b21acf225ad92869",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    },
+    {
+      "sequence": 19,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "lyrics",
+          "severity": "major",
+          "detail": "Há junções como «seu Cristo»→«seuCristo» e «convidados às»→«convidadosàs», nas duas colunas."
+        }
+      ],
+      "chordNotes": "Do, Mi e La- aparentam manter alturas/qualidades. Este rascunho ainda exige separação integral das palavras e conferência final de posições.",
+      "title": "Aleluia! Já chegou o reino",
+      "page": "https://cn.org.br/portal/aleluia-ja-chegou-o-reino/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/aleluia-ja-chegou-o-reino.png",
+      "evidence": "docs/revisao/evidencias/497aaaa8ad0caa43-pair.jpg",
+      "key": "497aaaa8ad0caa43",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    },
+    {
+      "sequence": 20,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "lyrics",
+          "severity": "major",
+          "detail": "«louvai-o no alto firmamento» foi unido numa sequência; «címbalos sonoros» virou «cimbalossonoros», perdendo acento e espaço."
+        },
+        {
+          "aspect": "chords",
+          "severity": "major",
+          "detail": "Na abertura, pares como La Mi e Re Mi aparecem colados como LaMi e ReMi; são acordes distintos que precisam de separação visual."
+        }
+      ],
+      "chordNotes": "As raízes ainda são reconhecíveis, mas não se deve importar os pares fundidos como se fossem uma única cifra.",
+      "title": "Aleluia! Louvai o Senhor",
+      "page": "https://cn.org.br/portal/aleluia-louvai-o-senhor/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/aleluia-louvai-o-senhor.png",
+      "evidence": "docs/revisao/evidencias/0d3cf57273e8bb9e-pair.jpg",
+      "key": "0d3cf57273e8bb9e",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    },
+    {
+      "sequence": 21,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "chords",
+          "severity": "blocker",
+          "detail": "La7 virou La? nas duas linhas PRESERVOU e na segunda coluna. O diagrama de Mi-6 também desapareceu, restando sua legenda."
+        },
+        {
+          "aspect": "lyrics",
+          "severity": "major",
+          "detail": "«Alçarei» foi reconhecido como «Algarei» e várias palavras estão fundidas nas estrofes."
+        }
+      ],
+      "chordNotes": "Fa#- e Mi-6 aparentes foram mantidos; os La? não podem substituir uma extensão definida na ficha.",
+      "title": "Amo o Senhor",
+      "page": "https://cn.org.br/portal/amo-o-senhor/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/amo-o-senhor.png",
+      "evidence": "docs/revisao/evidencias/0d6ab4eca0bea24f-pair.jpg",
+      "key": "0d6ab4eca0bea24f",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    },
+    {
+      "sequence": 22,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "chords",
+          "severity": "blocker",
+          "detail": "Na estrofe superior da segunda coluna, o Fa# da ficha aparece como Faé. O acidente deixou de ser reconhecido como sustenido."
+        },
+        {
+          "aspect": "lyrics",
+          "severity": "major",
+          "detail": "Na primeira coluna, «ouvido» perdeu a vogal inicial e aparece unido à palavra anterior. Outras junções estão presentes nos dois lados."
+        }
+      ],
+      "chordNotes": "Outros Fa# continuam legíveis, portanto o problema não é uma conversão intencional de notação; deve ser corrigido ocorrência a ocorrência.",
+      "title": "Ao despertar",
+      "page": "https://cn.org.br/portal/ao-despertar/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/ao-despertar.png",
+      "evidence": "docs/revisao/evidencias/6db2565eb3321cc9-pair.jpg",
+      "key": "6db2565eb3321cc9",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    },
+    {
+      "sequence": 23,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "chords",
+          "severity": "blocker",
+          "detail": "No início da segunda coluna, Mi7 foi reconhecido como Mi?. A cifra fica inválida/indefinida."
+        },
+        {
+          "aspect": "lyrics",
+          "severity": "major",
+          "detail": "«Cristo te ama» virou «Cristoteama», com várias outras junções; o diagrama de Re-9 do rodapé tornou-se caracteres espúrios."
+        }
+      ],
+      "chordNotes": "A extensão 7 precisa ser reposta onde virou interrogação, sem aprovar apenas pela presença de outras cifras Mi7 corretas.",
+      "title": "As armas da luz",
+      "page": "https://cn.org.br/portal/as-armas-da-luz/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/as-armas-da-luz.png",
+      "evidence": "docs/revisao/evidencias/2ba0d250254a3b6b-pair.jpg",
+      "key": "2ba0d250254a3b6b",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    },
+    {
+      "sequence": 24,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "lyrics",
+          "severity": "blocker",
+          "detail": "Na primeira frase da segunda coluna, a ordem «que me» foi quebrada: me ficou na linha superior e que foi para a inferior, mudando a sequência de leitura."
+        },
+        {
+          "aspect": "lyrics",
+          "severity": "major",
+          "detail": "Também há muitas palavras coladas nas duas colunas e quebras artificiais em frases contínuas."
+        }
+      ],
+      "chordNotes": "Mi-, Do, Re7, Si7 e Sol aparentes estão presentes; a ordem da letra deve ser corrigida antes da conferência final dos acordes.",
+      "title": "Assim fala o amém",
+      "page": "https://cn.org.br/portal/assim-fala-o-amem/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/assim-fala-o-amem.png",
+      "evidence": "docs/revisao/evidencias/d00f374b749c7e6e-pair.jpg",
+      "key": "d00f374b749c7e6e",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    },
+    {
+      "sequence": 25,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "lyrics",
+          "severity": "major",
+          "detail": "«rosto ocultarás» virou «rostoocultarás» e «confio em» virou «confioem», entre outras junções."
+        },
+        {
+          "aspect": "layout",
+          "severity": "major",
+          "detail": "A disposição do texto e os vazios entre linhas divergem da ficha; os retornos abreviados continuam pendentes de expansão estendida."
+        }
+      ],
+      "chordNotes": "Mi e La- aparentes mantêm a qualidade. A revisão precisa recompor palavras sem mudar os locais de entrada das cifras.",
+      "title": "Até quando?",
+      "page": "https://cn.org.br/portal/ate-quando/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/ate-quando.png",
+      "evidence": "docs/revisao/evidencias/4a3abc9947ba0f04-pair.jpg",
+      "key": "4a3abc9947ba0f04",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    },
+    {
+      "sequence": 26,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "lyrics",
+          "severity": "major",
+          "detail": "«sois vós» virou «soisvós» e «entre todas» virou «entretodas»; a primeira parte contém outras junções."
+        },
+        {
+          "aspect": "chords",
+          "severity": "major",
+          "detail": "Mi e La- aparecem fundidos como MiLa- em mais de uma chamada, dificultando a leitura de dois acordes sucessivos."
+        }
+      ],
+      "chordNotes": "As alturas/qualidades desses dois acordes são reconhecíveis; o erro registrado é a falta de separação, não uma mudança de notação.",
+      "title": "Ave Maria I",
+      "page": "https://cn.org.br/portal/ave-maria-i/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/ave-maria-i.png",
+      "evidence": "docs/revisao/evidencias/ca70174f9c7e8c24-pair.jpg",
+      "key": "ca70174f9c7e8c24",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    },
+    {
+      "sequence": 27,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "lyrics",
+          "severity": "major",
+          "detail": "«bendita sois vós» virou «benditasoisvós» e «entre todas as» virou «entretodasas». Há mais junções na primeira parte."
+        }
+      ],
+      "chordNotes": "A sequência Do/Mi/Fa da ficha foi preservada como tal; não foi tratada como erro por conter barras. Mi/Fa das linhas finais também estão aparentes.",
+      "title": "Ave Maria II (1984)",
+      "page": "https://cn.org.br/portal/ave-maria-ii-1984/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/ave-maria-ii-1984.png",
+      "evidence": "docs/revisao/evidencias/3205cd134aab2011-pair.jpg",
+      "key": "3205cd134aab2011",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    },
+    {
+      "sequence": 28,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "lyrics",
+          "severity": "major",
+          "detail": "Há junções como «cantar um»→«cantarum» e perda de acento em «ATÉ»→«ATE», além de outras na segunda coluna."
+        },
+        {
+          "aspect": "layout",
+          "severity": "major",
+          "detail": "Pontos e vazios foram introduzidos entre acordes e frases, sobretudo antes da resposta sobre arrasar e no retorno final."
+        }
+      ],
+      "chordNotes": "Mi-, La-, Re e Si7 aparentes não mostram conversão de altura claramente errada; a disposição precisa ser refeita após corrigir a letra.",
+      "title": "Babilônia criminal",
+      "page": "https://cn.org.br/portal/babilonia-criminal/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/babilonia-criminal.png",
+      "evidence": "docs/revisao/evidencias/7d5b9f170f2762b0-pair.jpg",
+      "key": "7d5b9f170f2762b0",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    },
+    {
+      "sequence": 29,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "lyrics",
+          "severity": "major",
+          "detail": "«fez vir» virou «fezvir» e «rocha eu» virou «rochaeu», entre outras junções nas duas colunas."
+        },
+        {
+          "aspect": "layout",
+          "severity": "major",
+          "detail": "A resposta final recebeu parêntese e pontos soltos antes de JACÓ; as marcas de repetição perderam a barra e ainda precisam de expansão editorial."
+        }
+      ],
+      "chordNotes": "As cifras com baixo/sequência Sol/Si- devem ser preservadas conforme cada ocorrência da ficha; não foi encontrada diferença de altura certificável nesta leitura.",
+      "title": "Balaão",
+      "page": "https://cn.org.br/portal/balaao/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/balaao.png",
+      "evidence": "docs/revisao/evidencias/1b3c20d5ce4bde5e-pair.jpg",
+      "key": "1b3c20d5ce4bde5e",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    },
+    {
+      "sequence": 30,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "lyrics",
+          "severity": "major",
+          "detail": "«Cantai comigo» virou «Cantaicomigo»; no refrão da segunda coluna, E e VEDE ficaram unidos, além de outras junções."
+        },
+        {
+          "aspect": "layout",
+          "severity": "major",
+          "detail": "BIS A. aparece como BISA. solto. A indicação de repetição não delimita um trecho estendido pronto para uso."
+        }
+      ],
+      "chordNotes": "Re-, Do, Sib, La e La7 aparentes foram conservados; a separação das palavras continua bloqueando a aprovação.",
+      "title": "Bendirei o Senhor em todo tempo",
+      "page": "https://cn.org.br/portal/bendirei-o-senhor-em-todo-tempo/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/bendirei-o-senhor-em-todo-tempo.png",
+      "evidence": "docs/revisao/evidencias/00b6b1ace7b71023-pair.jpg",
+      "key": "00b6b1ace7b71023",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    },
+    {
+      "sequence": 31,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "lyrics",
+          "severity": "major",
+          "detail": "«Bendita és» virou «Benditaés» e «tu acreditaste» virou «tuacreditaste», entre outros casos de palavras unidas."
+        },
+        {
+          "aspect": "layout",
+          "severity": "major",
+          "detail": "BIS permanece em texto solto nos dois refrões; a revisão de repetições por extenso não foi realizada neste rascunho normal."
+        }
+      ],
+      "chordNotes": "La-, Sol, Fa, Mi e Re- estão aparentes. Não foi observada mudança de altura nas cifras destacadas, sem certificação integral das posições.",
+      "title": "Bendita és tu, Maria",
+      "page": "https://cn.org.br/portal/bendita-es-tu-maria/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/bendita-es-tu-maria.png",
+      "evidence": "docs/revisao/evidencias/394b7468c321c284-pair.jpg",
+      "key": "394b7468c321c284",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    },
+    {
+      "sequence": 32,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "chords",
+          "severity": "blocker",
+          "detail": "Fa# aparece deformado como Faf no começo da segunda coluna e na entrada de NELE TAMBÉM. O acidente precisa ser reconhecido corretamente."
+        },
+        {
+          "aspect": "lyrics",
+          "severity": "major",
+          "detail": "«da criação» virou «dacriação» e «Nele também» virou «Neletambém», com várias junções adicionais."
+        }
+      ],
+      "chordNotes": "Há também acordes Mi- e La7 visualmente unidos; corrigir separação sem mudar a qualidade menor de Mi.",
+      "title": "Bendito seja Deus",
+      "page": "https://cn.org.br/portal/bendito-seja-deus/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/bendito-seja-deus.png",
+      "evidence": "docs/revisao/evidencias/163c01f6b2ca48a2-pair.jpg",
+      "key": "163c01f6b2ca48a2",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    },
+    {
+      "sequence": 33,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "lyrics",
+          "severity": "major",
+          "detail": "«A TI GLÓRIA» foi unido como «ATIGLÓRIA» em refrões; «seja o» também aparece como «sejao»."
+        }
+      ],
+      "chordNotes": "Sol, Fa#-, Mi, Mi-, Re, Do e Si7 aparentes conservam as raízes/qualidades, mas as palavras e seu espaçamento exigem correção integral.",
+      "title": "Bendito sejas, Senhor",
+      "page": "https://cn.org.br/portal/bendito-sejas-senhor/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/bendito-sejas-senhor.png",
+      "evidence": "docs/revisao/evidencias/a37f4ecdc32aa641-pair.jpg",
+      "key": "a37f4ecdc32aa641",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    },
+    {
+      "sequence": 34,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "lyrics",
+          "severity": "blocker",
+          "detail": "Falta a terceira linha do refrão inicial, que repete BENDIZE antes de NÃO ESQUEÇAS. A cifra Mi permanece em uma linha vazia no lugar do texto."
+        },
+        {
+          "aspect": "lyrics",
+          "severity": "major",
+          "detail": "As estrofes contêm palavras unidas em longas sequências, prejudicando leitura e correspondência com as cifras."
+        }
+      ],
+      "chordNotes": "A cifra Mi da linha omitida não basta para preservar a entrada; é necessário restaurar a linha inteira com seu alinhamento.",
+      "title": "Bendize, minha alma, a Iahweh",
+      "page": "https://cn.org.br/portal/bendize-minha-alma-a-iahweh/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/bendize-minha-alma-a-lahweh.png",
+      "evidence": "docs/revisao/evidencias/0310ee362d7966f4-pair.jpg",
+      "key": "0310ee362d7966f4",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    },
+    {
+      "sequence": 35,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "chords",
+          "severity": "blocker",
+          "detail": "No final da primeira coluna, La7 foi reconhecido como La?. Isso deixa a extensão do acorde indefinida."
+        },
+        {
+          "aspect": "lyrics",
+          "severity": "major",
+          "detail": "«nos liberta dos» foi unido como «noslibertados», e há muitas outras junções ao longo das duas colunas."
+        }
+      ],
+      "chordNotes": "A maioria das demais ocorrências de La7 está legível; a correção precisa alcançar também esta ocorrência final, não só a cifra no cabeçalho.",
+      "title": "Benedictus",
+      "page": "https://cn.org.br/portal/benedictus/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/benedictus.png",
+      "evidence": "docs/revisao/evidencias/a60ec791abee95ea-pair.jpg",
+      "key": "a60ec791abee95ea",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    },
+    {
+      "sequence": 36,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "chords",
+          "severity": "blocker",
+          "detail": "Várias ocorrências de La7 da ficha aparecem como La? no refrão e nas estrofes de ambas as colunas."
+        },
+        {
+          "aspect": "lyrics",
+          "severity": "major",
+          "detail": "«pôs» foi deformado como «pds», e há diversas palavras fundidas nas duas colunas."
+        }
+      ],
+      "chordNotes": "As extensões 7 não podem ficar como interrogação; é necessário conferir cada ocorrência, inclusive as recorrentes.",
+      "title": "Canta a Iahweh, Jerusalém",
+      "page": "https://cn.org.br/portal/canta-a-iahweh-jerusalem/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/canta-a-iahweh-jerusalem.png",
+      "evidence": "docs/revisao/evidencias/6b11743b236cc477-pair.jpg",
+      "key": "6b11743b236cc477",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    },
+    {
+      "sequence": 37,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "lyrics",
+          "severity": "blocker",
+          "detail": "Foi omitida a segunda ocorrência inicial de CANTAI A DEUS, que deveria ficar entre TOCAI e APLAINAI no bloco de abertura."
+        },
+        {
+          "aspect": "lyrics",
+          "severity": "major",
+          "detail": "Há várias palavras fundidas, e o diagrama de Re-9 do rodapé virou caracteres sem representação de digitação."
+        }
+      ],
+      "chordNotes": "Mi e Re-9 aparentes permanecem; a linha omitida e o limite da repetição precisam ser restaurados antes de revisar entradas.",
+      "title": "Cantai A Deus",
+      "page": "https://cn.org.br/portal/cantai-a-deus/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/cantai-a-deus.png",
+      "evidence": "docs/revisao/evidencias/f4af73ba84a56c61-pair.jpg",
+      "key": "f4af73ba84a56c61",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    },
+    {
+      "sequence": 38,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "lyrics",
+          "severity": "blocker",
+          "detail": "Na estrofe da morte/vida, a preposição ao foi deslocada para depois de Xeol e para outra linha, mudando a ordem do verso."
+        },
+        {
+          "aspect": "lyrics",
+          "severity": "major",
+          "detail": "Há perda de acentos nas respostas (HÁ vira HA), palavras unidas e pontuação solta em retornos."
+        }
+      ],
+      "chordNotes": "As cifras Sol/La-, Mi/La-, Re-/La- e Fa/Mi continuam aparentes, mas o deslocamento de palavras invalida a associação visual final.",
+      "title": "Cântico de Ana",
+      "page": "https://cn.org.br/portal/cantico-de-ana/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/cantico-de-ana.png",
+      "evidence": "docs/revisao/evidencias/8d1f0985f1d1653f-pair.jpg",
+      "key": "8d1f0985f1d1653f",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    },
+    {
+      "sequence": 39,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "lyrics",
+          "severity": "blocker",
+          "detail": "Na litania, e saiu da linha VENTOS/BRISAS e ficou abaixo; em GELOS/NEVES, a resposta BENDIZEI aparece antes da conclusão do objeto. A ordem de leitura foi alterada."
+        },
+        {
+          "aspect": "lyrics",
+          "severity": "major",
+          "detail": "Há várias palavras unidas nas invocações e no recitado final, além de respostas/reticências deslocadas."
+        }
+      ],
+      "chordNotes": "Mi7 e La- das respostas continuam aparentes, mas a litania e seus limites de repetição precisam de reconstrução integral.",
+      "title": "Cântico dos três jovens",
+      "page": "https://cn.org.br/portal/cantico-dos-tres-jovens/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/cantico-dos-tres-jovens.png",
+      "evidence": "docs/revisao/evidencias/ad74988333363204-pair.jpg",
+      "key": "ad74988333363204",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    },
+    {
+      "sequence": 40,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "lyrics",
+          "severity": "blocker",
+          "detail": "A frase dos carros do Faraó foi quebrada em linhas que intercalam os termos fora da ordem original. Também o que da abertura aparece depois da continuação da frase."
+        },
+        {
+          "aspect": "alignment",
+          "severity": "blocker",
+          "detail": "O rascunho mistura fragmentos de frases com vazios e caracteres espúrios; a associação das cifras à letra deixa de ser utilizável."
+        }
+      ],
+      "chordNotes": "Do7, Fa, La7, Re7 e Sol7 são reconhecíveis, mas a presença dessas cifras não valida as entradas diante da letra embaralhada.",
+      "title": "Canto de Moisés",
+      "page": "https://cn.org.br/portal/canto-de-moises/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/canto-de-moises.png",
+      "evidence": "docs/revisao/evidencias/820738d03888fda9-pair.jpg",
+      "key": "820738d03888fda9",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    },
+    {
+      "sequence": 41,
+      "status": "needs_correction",
+      "issues": [
+        {
+          "aspect": "lyrics",
+          "severity": "major",
+          "detail": "«Cristo nos compele» foi fundido em «Cristonoscompele»; há outras junções na narrativa e nas respostas."
+        },
+        {
+          "aspect": "layout",
+          "severity": "major",
+          "detail": "O melisma é mantido como anotação solta e as linhas possuem vazios grandes; conferir o vínculo da indicação com a frase após recompor os espaços."
+        }
+      ],
+      "chordNotes": "Mi-, Sol, Si, La-, Do, Re e La-9 aparentes foram preservados, sem aprovação exaustiva dos pontos de entrada.",
+      "title": "Caritas Christi urget nos",
+      "page": "https://cn.org.br/portal/caritas-christi-urget-nos/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/caritas-christi-urget-nos.png",
+      "evidence": "docs/revisao/evidencias/e8568fcf16b83f4f-pair.jpg",
+      "key": "e8568fcf16b83f4f",
+      "visuallyInspected": true,
+      "approved": false,
+      "exhaustiveTextAudit": false,
+      "extendedInspected": false
+    }
+  ]
+}

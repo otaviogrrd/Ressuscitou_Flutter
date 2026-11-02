@@ -1,0 +1,1632 @@
+[
+  {
+    "title": "Maria de Jasna Göra",
+    "page": "https://cn.org.br/portal/maria-de-jasna-gora/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/maria-de-jasna-gora.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "MARIA DE JASNA GORA",
+        "id": 121,
+        "normal": "current-845cc71267ba7072-normal.png",
+        "extended": "current-845cc71267ba7072-extended.png"
+      }
+    ],
+    "key": "707c2b7fefceaca6",
+    "image": "../sheets/707c2b7fefceaca6/source.png",
+    "draft": "../sheets/707c2b7fefceaca6/draft.html",
+    "screenshot": "707c2b7fefceaca6-draft.png",
+    "pair": "707c2b7fefceaca6-pair.png",
+    "meanConfidence": 94.01,
+    "columnCollisions": 14,
+    "sequence": 110,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/707c2b7fefceaca6-pair.jpg",
+    "inspecionado": true,
+    "achados": {
+      "sequence": 110,
+      "letra": "Uniões indevidas: salva-noscomo, pornós, intercedecomo, aseguir e deCristo.",
+      "cifra": "Mi, Re- e La- legíveis preservados nos trechos comparados.",
+      "alinhamento": "Mi de ora pro nobis deslocado mais à esquerda em relação à palavra nobis; linhas e espaços precisam recomposição.",
+      "repeticao": "Chamadas MARIA... mantidas; variante estendida não inspecionada."
+    }
+  },
+  {
+    "title": "Maria, Mãe da Igreja",
+    "page": "https://cn.org.br/portal/maria-mae-da-igreja/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/maria-mae-da-igreja.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "MARIA MAE DA IGREJA",
+        "id": 123,
+        "normal": "current-c4252fd8476d4674-normal.png",
+        "extended": "current-c4252fd8476d4674-extended.png"
+      }
+    ],
+    "key": "fd569c4a5174e543",
+    "image": "../sheets/fd569c4a5174e543/source.png",
+    "draft": "../sheets/fd569c4a5174e543/draft.html",
+    "screenshot": "fd569c4a5174e543-draft.png",
+    "pair": "fd569c4a5174e543-pair.png",
+    "meanConfidence": 93.9,
+    "columnCollisions": 17,
+    "sequence": 111,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/fd569c4a5174e543-pair.jpg",
+    "inspecionado": true,
+    "achados": {
+      "sequence": 111,
+      "letra": "Perde E em E ENSINA-NOS; palavras unidas eisoteuFilho, Eisatua e transpassou-lheoladocom.",
+      "cifra": "Fa7 aum quebrado: aum aparece em linha isolada abaixo da cifra nos dois ENSINA-NOS; qualidade fica separada do acorde.",
+      "alinhamento": "La- fica isolado longe de MARIA MINHA MÃE; pontos/nomes dos diagramas entram como conteúdo espúrio.",
+      "repeticao": "Duas passagens ENSINA-NOS e duas QUE NASCE aparecem; não aprova expansão."
+    }
+  },
+  {
+    "title": "Maria, Mãe do caminho ardente",
+    "page": "https://cn.org.br/portal/maria-mae-do-caminho-ardente/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/maria-mae-do-caminho-ardente.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "MARIA MAE DO CAMINHO ARDENTE",
+        "id": 124,
+        "normal": "current-06e15173bf64bc0c-normal.png",
+        "extended": "current-06e15173bf64bc0c-extended.png"
+      }
+    ],
+    "key": "87bf2e11ef5a1a9f",
+    "image": "../sheets/87bf2e11ef5a1a9f/source.png",
+    "draft": "../sheets/87bf2e11ef5a1a9f/draft.html",
+    "screenshot": "87bf2e11ef5a1a9f-draft.png",
+    "pair": "87bf2e11ef5a1a9f-pair.png",
+    "meanConfidence": 95.27,
+    "columnCollisions": 11,
+    "sequence": 112,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/87bf2e11ef5a1a9f-pair.jpg",
+    "inspecionado": true,
+    "achados": {
+      "sequence": 112,
+      "letra": "Uniões orvalhode, mostrasteo, acruz e dizernão, ausentes na ficha.",
+      "cifra": "Sol Mi- Do La e mudanças Re/Sol legíveis mantidas, mas Mi-Do e Sol Mi- ficam aglutinados sem separação suficiente.",
+      "alinhamento": "Cifras em geral acima das frases correspondentes, dependem de restauração de espaços da letra.",
+      "repeticao": "Repetições explícitas tu nos livras/com o orvalho e sob a cruz presentes."
+    }
+  },
+  {
+    "title": "Maria, pequena Maria",
+    "page": "https://cn.org.br/portal/maria-pequena-maria/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/maria-pequena-maria.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "MARIA PEQUENA MARIA",
+        "id": 125,
+        "normal": "current-b44f140077282dbc-normal.png",
+        "extended": "current-b44f140077282dbc-extended.png"
+      }
+    ],
+    "key": "524e18d363b45d3c",
+    "image": "../sheets/524e18d363b45d3c/source.png",
+    "draft": "../sheets/524e18d363b45d3c/draft.html",
+    "screenshot": "524e18d363b45d3c-draft.png",
+    "pair": "524e18d363b45d3c-pair.png",
+    "meanConfidence": 94.77,
+    "columnCollisions": 4,
+    "sequence": 113,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/524e18d363b45d3c-pair.jpg",
+    "inspecionado": true,
+    "achados": {
+      "sequence": 113,
+      "letra": "Uniões abrisasuave, sussurrodo, lugarjuntoa, afenda e Santúarioda.",
+      "cifra": "Fa#- e Mi-6 preservam acidente/qualidade nos trechos legíveis.",
+      "alinhamento": "Cifra Re de Tu és o lugar aparece afastada verticalmente da letra; diagrama final vira ruído | e. e:.",
+      "repeticao": "VENHA O SENHOR CONOSCO final permanece abreviado conforme ficha."
+    }
+  },
+  {
+    "title": "Maria, pomba incorrupta",
+    "page": "https://cn.org.br/portal/maria-pomba-incorrupta/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/maria-pomba-incorrupta.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "MARIA POMBA INCORRUPTA",
+        "id": 126,
+        "normal": "current-ce9b22836f547dc1-normal.png",
+        "extended": "current-ce9b22836f547dc1-extended.png"
+      }
+    ],
+    "key": "f15992d377eabc9b",
+    "image": "../sheets/f15992d377eabc9b/source.png",
+    "draft": "../sheets/f15992d377eabc9b/draft.html",
+    "screenshot": "f15992d377eabc9b-draft.png",
+    "pair": "f15992d377eabc9b-pair.png",
+    "meanConfidence": 93.06,
+    "columnCollisions": 14,
+    "sequence": 114,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/f15992d377eabc9b-pair.jpg",
+    "inspecionado": true,
+    "achados": {
+      "sequence": 114,
+      "letra": "Uniões radiantecomo, confinsda, belaacriação, refugiodas e EspíritoSanto; acentos de refúgio/ESPÍRITO perdidos.",
+      "cifra": "Fa# vira Faf em faz bela a criação e dá-lhe novo vigor: acidente incorreto.",
+      "alinhamento": "Mi- sobre POMBA INCORRUPTA afastado verticalmente; refrão e versos mantêm duas colunas.",
+      "repeticao": "Chamadas AVE MARIA... preservadas."
+    }
+  },
+  {
+    "title": "Misericórdia minha, misericórdia",
+    "page": "https://cn.org.br/portal/misericordia-minha-misericordia/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/misericordia-minha-misericordia.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "MISERICORDIA MINHA MISERICORDIA",
+        "id": 127,
+        "normal": "current-ad6363ba975eb3f0-normal.png",
+        "extended": "current-ad6363ba975eb3f0-extended.png"
+      }
+    ],
+    "key": "467bfe272587248a",
+    "image": "../sheets/467bfe272587248a/source.png",
+    "draft": "../sheets/467bfe272587248a/draft.html",
+    "screenshot": "467bfe272587248a-draft.png",
+    "pair": "467bfe272587248a-pair.png",
+    "meanConfidence": 94.74,
+    "columnCollisions": 46,
+    "sequence": 115,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/467bfe272587248a-pair.jpg",
+    "inspecionado": true,
+    "achados": {
+      "sequence": 115,
+      "letra": "Uniões Lavai-metodointeiro, Vede,Senhor, coraçõesquesão; Ó Senhor vira 6 Senhor em Abri meus lábios.",
+      "cifra": "Re-, Sol- e Do preservados nos pontos legíveis.",
+      "alinhamento": "Re- da resposta PURIFICAI-ME aproximadamente conservado; texto condensado prejudica ancoragem fina.",
+      "repeticao": "Chamadas de misericórdia e sequência das respostas presentes; expansão não examinada."
+    }
+  },
+  {
+    "title": "Mostrar-me-ás o caminho da vida",
+    "page": "https://cn.org.br/portal/mostrar-me-as-o-caminho-da-vida/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/mostrar-me-as-o-caminho-da-vida.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "MOSTRAR ME AS O CAMINHO DA VIDA",
+        "id": 128,
+        "normal": "current-a485f0e341104d80-normal.png",
+        "extended": "current-a485f0e341104d80-extended.png"
+      }
+    ],
+    "key": "dad50034bba494bb",
+    "image": "../sheets/dad50034bba494bb/source.png",
+    "draft": "../sheets/dad50034bba494bb/draft.html",
+    "screenshot": "dad50034bba494bb-draft.png",
+    "pair": "dad50034bba494bb-pair.png",
+    "meanConfidence": 94.12,
+    "columnCollisions": 4,
+    "sequence": 116,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/dad50034bba494bb-pair.jpg",
+    "inspecionado": true,
+    "achados": {
+      "sequence": 116,
+      "letra": "Uniões time, vidaestá, noiteinstruimeu, carn edescansa (carne+descansa unidas), teusanto e acorrupção.",
+      "cifra": "Mi-, La-, Si7 e Do legíveis preservados; nenhum acidente novo observado.",
+      "alinhamento": "BIS A. vira BISA no meio; porque/não abandonarás quebra em ordem visual defeituosa e cifras ficam longe das linhas.",
+      "repeticao": "Indicação BIS A. corrompida; chamadas MOSTRAR-ME-ÁS perdem acento em abreviações."
+    }
+  },
+  {
+    "title": "Muito me perseguiram",
+    "page": "https://cn.org.br/portal/muito-me-perseguiram/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/muito-me-perseguiram.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "MUITO ME PERSEGUIRAM",
+        "id": 129,
+        "normal": "current-4bbe2baf5733a272-normal.png",
+        "extended": "current-4bbe2baf5733a272-extended.png"
+      }
+    ],
+    "key": "3a7c3687d26425be",
+    "image": "../sheets/3a7c3687d26425be/source.png",
+    "draft": "../sheets/3a7c3687d26425be/draft.html",
+    "screenshot": "3a7c3687d26425be-draft.png",
+    "pair": "3a7c3687d26425be-pair.png",
+    "meanConfidence": 94.41,
+    "columnCollisions": 0,
+    "sequence": 117,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/3a7c3687d26425be-pair.jpg",
+    "inspecionado": true,
+    "achados": {
+      "sequence": 117,
+      "letra": "Uniões perseguiramdesde, costas araram→costasararam, rédeasdos, ervaque e dela o que→delaoque.",
+      "cifra": "La- e Mi mantidos nos trechos legíveis.",
+      "alinhamento": "La- antes MAS NÃO PUDERAM fica em linha muito afastada.",
+      "repeticao": "Perde a segunda linha MUITO ME PERSEGUIRAM, no primeiro refrão: salta de DESDE A JUVENTUDE para MAS NÃO PUDERAM."
+    }
+  },
+  {
+    "title": "Não está aqui, ressuscitou",
+    "page": "https://cn.org.br/portal/nao-esta-aqui-ressuscitou/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/nao-esta-aqui-ressuscitou.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "NAO ESTA AQUI RESSUSCITOU",
+        "id": 130,
+        "normal": "current-a88f4532a94a1e56-normal.png",
+        "extended": "current-a88f4532a94a1e56-extended.png"
+      }
+    ],
+    "key": "c0ce3afce382b012",
+    "image": "../sheets/c0ce3afce382b012/source.png",
+    "draft": "../sheets/c0ce3afce382b012/draft.html",
+    "screenshot": "c0ce3afce382b012-draft.png",
+    "pair": "c0ce3afce382b012-pair.png",
+    "meanConfidence": 91.52,
+    "columnCollisions": 13,
+    "sequence": 118,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/c0ce3afce382b012-pair.jpg",
+    "inspecionado": true,
+    "achados": {
+      "sequence": 118,
+      "letra": "Uniões outraMaria, eisque, derepentehouve, procuraisJesus e Ressuscitoudentreos.",
+      "cifra": "Do-, Re7, Sol- e Re maior distintos mantidos nos refrões; nenhum acidente novo visto.",
+      "alinhamento": "Ruído . ) entre segunda resposta da coluna direita; alturas e espaços das cifras variam.",
+      "repeticao": "Alternância Não está aqui/E vos precede/Ali o vereis e repetição Ide sem demora presentes."
+    }
+  },
+  {
+    "title": "Não há nele aparência",
+    "page": "https://cn.org.br/portal/nao-ha-nele-aparencia/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/nao-ha-nele-aparencia.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "NAO HA NELE APARENCIA",
+        "id": 131,
+        "normal": "current-36524dc111cac0b3-normal.png",
+        "extended": "current-36524dc111cac0b3-extended.png"
+      }
+    ],
+    "key": "b448451eda061b7d",
+    "image": "../sheets/b448451eda061b7d/source.png",
+    "draft": "../sheets/b448451eda061b7d/draft.html",
+    "screenshot": "b448451eda061b7d-draft.png",
+    "pair": "b448451eda061b7d-pair.png",
+    "meanConfidence": 95.24,
+    "columnCollisions": 14,
+    "sequence": 119,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/b448451eda061b7d-pair.jpg",
+    "inspecionado": true,
+    "achados": {
+      "sequence": 119,
+      "letra": "Uniões neleaparência, ne lebelezaque (nele+beleza+que), escóriados e todasasmisérias.",
+      "cifra": "Do, La-, Sol e Fa legíveis preservados.",
+      "alinhamento": "Cifras e versos muito espaçados verticalmente; La- segue misérias mas palavras coladas exigem recomposição.",
+      "repeticao": "Quatro DIANTE DELE... e três Maltratado finais presentes."
+    }
+  },
+  {
+    "title": "Noli me tangere",
+    "page": "https://cn.org.br/portal/noli-me-tangere/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/noli-me-tangere.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "NOLI ME TANGERE",
+        "id": 135,
+        "normal": "current-811b5e0193f22522-normal.png",
+        "extended": "current-811b5e0193f22522-extended.png"
+      }
+    ],
+    "key": "048d706e39010994",
+    "image": "../sheets/048d706e39010994/source.png",
+    "draft": "../sheets/048d706e39010994/draft.html",
+    "screenshot": "048d706e39010994-draft.png",
+    "pair": "048d706e39010994-pair.png",
+    "meanConfidence": 94.49,
+    "columnCollisions": 0,
+    "sequence": 120,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/048d706e39010994-pair.jpg",
+    "inspecionado": true,
+    "achados": {
+      "sequence": 120,
+      "letra": "Uniões dize-me,por, poisaindanão, subiao, anunc iaa (anuncia+a), aomeu e EVOSSO.",
+      "cifra": "Sib, Sol#, Fa-, Do- e Do legíveis preservados inclusive Do- Do na segunda RABBUNI.",
+      "alinhamento": "Cifras Fa/Sol separadas verticalmente de frases em pontos como segundo Senhor.",
+      "repeticao": "Três A quem buscas, duas respostas Senhor, duas RABBUNI presentes."
+    }
+  },
+  {
+    "title": "Ó céus, chovei do alto",
+    "page": "https://cn.org.br/portal/o-ceus-chovei-do-alto/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/o-ceus-chovei-do-alto.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "O CEUS CHOVEI DO ALTO",
+        "id": 136,
+        "normal": "current-67d154e55634c9ec-normal.png",
+        "extended": "current-67d154e55634c9ec-extended.png"
+      }
+    ],
+    "key": "9bf327e3525d50fd",
+    "image": "../sheets/9bf327e3525d50fd/source.png",
+    "draft": "../sheets/9bf327e3525d50fd/draft.html",
+    "screenshot": "9bf327e3525d50fd-draft.png",
+    "pair": "9bf327e3525d50fd-pair.png",
+    "meanConfidence": 94.3,
+    "columnCollisions": 1,
+    "sequence": 121,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/9bf327e3525d50fd-pair.jpg",
+    "inspecionado": true,
+    "achados": {
+      "sequence": 121,
+      "letra": "Uniões ovento, astrevas, ascadeias, afome, ninguémnos e ador.",
+      "cifra": "La-, Fa, Sol e Mi preservados nos trechos legíveis.",
+      "alinhamento": "BIS A deslocado à direita do bloco; algumas cifras de MARANATHA ficam uma linha afastadas.",
+      "repeticao": "Chamadas Maranatha de cada estrofe presentes; BIS permanece indicação do normal, não expansão."
+    }
+  },
+  {
+    "title": "O combate escatológico",
+    "page": "https://cn.org.br/portal/o-combate-escatologico/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/o-combate-escatologico.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "O COMBATE ESCATOLOGICO",
+        "id": 137,
+        "normal": "current-338ee1d43cfdf1f6-normal.png",
+        "extended": "current-338ee1d43cfdf1f6-extended.png"
+      }
+    ],
+    "key": "0dfd50128080e992",
+    "image": "../sheets/0dfd50128080e992/source.png",
+    "draft": "../sheets/0dfd50128080e992/draft.html",
+    "screenshot": "0dfd50128080e992-draft.png",
+    "pair": "0dfd50128080e992-pair.png",
+    "meanConfidence": 95.87,
+    "columnCollisions": 2,
+    "sequence": 122,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/0dfd50128080e992-pair.jpg",
+    "inspecionado": true,
+    "achados": {
+      "sequence": 122,
+      "letra": "Uniões céuaberto, cavalobranco, seunome, bestaque, seuprofeta e desangue.",
+      "cifra": "Mi, Fa, Sol, Do e La- legíveis mantidos.",
+      "alinhamento": "O SEU NOME É desordenado: É vai acima da frase; que se reúnem para um combate fragmentado em posições dispersas.",
+      "repeticao": "BIS perdido como delimitação gráfica: texto BIS isolado não define começo/fim do trecho."
+    }
+  },
+  {
+    "title": "Ó Deus, pelo Teu nome, salva-me",
+    "page": "https://cn.org.br/portal/o-deus-pelo-teu-nome-salva-me/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/o-deus-pelo-teu-nome-salva-me.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "O DEUS PELO TEU NOME SALVA-ME",
+        "id": 138,
+        "normal": "current-9cfcaa9d48df9021-normal.png",
+        "extended": "current-9cfcaa9d48df9021-extended.png"
+      }
+    ],
+    "key": "ea2c89a3cd07f4cb",
+    "image": "../sheets/ea2c89a3cd07f4cb/source.png",
+    "draft": "../sheets/ea2c89a3cd07f4cb/draft.html",
+    "screenshot": "ea2c89a3cd07f4cb-draft.png",
+    "pair": "ea2c89a3cd07f4cb-pair.png",
+    "meanConfidence": 93.39,
+    "columnCollisions": 5,
+    "sequence": 123,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/ea2c89a3cd07f4cb-pair.jpg",
+    "inspecionado": true,
+    "achados": {
+      "sequence": 123,
+      "letra": "Uniões arroganteslevantaram-secontramim, umsacrifício, cantareioseu e angústiaele.",
+      "cifra": "Fa7 de De toda a angústia vira Fa?; demais Mi-/Mi7, Do7, Re-, La- e Si7 distintos nos trechos legíveis.",
+      "alinhamento": "Aglutinações deslocam relação Fa7/Mi7 com palavras; refazer espaços.",
+      "repeticao": "Três linhas de toda a angústia e chamada final presentes."
+    }
+  },
+  {
+    "title": "Ó Deus, Tu és meu Deus",
+    "page": "https://cn.org.br/portal/o-deus-tu-es-meu-deus/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/o-deus-tu-es-meu-deus.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "O DEUS TU ES MEU DEUS",
+        "id": 139,
+        "normal": "current-2191204a110392e6-normal.png",
+        "extended": "current-2191204a110392e6-extended.png"
+      }
+    ],
+    "key": "a124787c503134f5",
+    "image": "../sheets/a124787c503134f5/source.png",
+    "draft": "../sheets/a124787c503134f5/draft.html",
+    "screenshot": "a124787c503134f5-draft.png",
+    "pair": "a124787c503134f5-pair.png",
+    "meanConfidence": 94.4,
+    "columnCollisions": 1,
+    "sequence": 124,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/a124787c503134f5-pair.jpg",
+    "inspecionado": true,
+    "achados": {
+      "sequence": 124,
+      "letra": "Uniões tiaminha, terraárida, esequiosa, teuNome, estáunidaa e pens oem (penso+em).",
+      "cifra": "La-, Re-, Fa e Mi preservados nas passagens legíveis.",
+      "alinhamento": "BIS A. vira | BISA. sem delimitador de extensão; acento de É melhor deslocado acima da letra.",
+      "repeticao": "Indicação do bloco inicial perdeu delimitação; chamadas Ó Deus... mantidas."
+    }
+  },
+  {
+    "title": "O Espírito do Senhor está sobre mim",
+    "page": "https://cn.org.br/portal/o-espirito-do-senhor-esta-sobre-mim/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/o-espirito-do-senhor-esta-sobre-mim.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "O ESPIRITO DO SENHOR ESTA SOBRE MIM",
+        "id": 140,
+        "normal": "current-e9eeab63cc536899-normal.png",
+        "extended": "current-e9eeab63cc536899-extended.png"
+      }
+    ],
+    "key": "9f5cd1ec239d15ef",
+    "image": "../sheets/9f5cd1ec239d15ef/source.png",
+    "draft": "../sheets/9f5cd1ec239d15ef/draft.html",
+    "screenshot": "9f5cd1ec239d15ef-draft.png",
+    "pair": "9f5cd1ec239d15ef-pair.png",
+    "meanConfidence": 95.39,
+    "columnCollisions": 3,
+    "sequence": 125,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/9f5cd1ec239d15ef-pair.jpg",
+    "inspecionado": true,
+    "achados": {
+      "sequence": 125,
+      "letra": "Uniões Paraque oscegosvejam, oscoxos, osleprososfiquem e paraanunciar.",
+      "cifra": "La- Mi La- da segunda linha inicial ficam órfãos por ausência da letra.",
+      "alinhamento": "Cifras órfãs logo antes PORQUE ME UNGIU; demais precisam reancoragem após corrigir palavras.",
+      "repeticao": "Omitida a segunda linha O ESPÍRITO DO SENHOR ESTÁ SOBRE MIM do refrão inicial."
+    }
+  },
+  {
+    "title": "Ó Jesus, meu amor",
+    "page": "https://cn.org.br/portal/o-jesus-meu-amor/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/o-jesus-meu-amor.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "O JESUS MEU AMOR",
+        "id": 141,
+        "normal": "current-ea5c07dedd768c71-normal.png",
+        "extended": "current-ea5c07dedd768c71-extended.png"
+      }
+    ],
+    "key": "fd10a7f4612e4c7e",
+    "image": "../sheets/fd10a7f4612e4c7e/source.png",
+    "draft": "../sheets/fd10a7f4612e4c7e/draft.html",
+    "screenshot": "fd10a7f4612e4c7e-draft.png",
+    "pair": "fd10a7f4612e4c7e-pair.png",
+    "meanConfidence": 94.01,
+    "columnCollisions": 2,
+    "sequence": 126,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/fd10a7f4612e4c7e-pair.jpg",
+    "inspecionado": true,
+    "achados": {
+      "sequence": 126,
+      "letra": "Uniões espinhosda, açoitesda, ofele, vinagrede, fostecrucificadopor, vida de ti→vidadeti e tiatimesmo.",
+      "cifra": "La-, Sol, Fa e Mi preservados nos trechos legíveis.",
+      "alinhamento": "Cifras Fa/Mi ficam muito acima de para que eu receba a mansidão; asterisco melisma separado da palavra.",
+      "repeticao": "Duas quanto me amaste e chamadas dos refrões presentes."
+    }
+  },
+  {
+    "title": "O lagareiro",
+    "page": "https://cn.org.br/portal/o-lagareiro/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/o-lagareiro.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "O LAGAREIRO",
+        "id": 142,
+        "normal": "current-972cd87e17a5b931-normal.png",
+        "extended": "current-972cd87e17a5b931-extended.png"
+      }
+    ],
+    "key": "e855d98ef6f63f2b",
+    "image": "../sheets/e855d98ef6f63f2b/source.png",
+    "draft": "../sheets/e855d98ef6f63f2b/draft.html",
+    "screenshot": "e855d98ef6f63f2b-draft.png",
+    "pair": "e855d98ef6f63f2b-pair.png",
+    "meanConfidence": 94.14,
+    "columnCollisions": 25,
+    "sequence": 127,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/e855d98ef6f63f2b-pair.jpg",
+    "inspecionado": true,
+    "achados": {
+      "sequence": 127,
+      "letra": "Uniões ÉESSE, DAVESTE, DEANDAR, ESTÁVERMELHA, ATUA, EFIZCORRER e EUMANCHEI.",
+      "cifra": "Mi-, La-, Si7 e Re legíveis preservados.",
+      "alinhamento": "Primeira pergunta POR QUE ESTÁ VERMELHA tem fragmentação de espaços e acento deslocado; refazer ancoragem.",
+      "repeticao": "Duas PISEI-OS e duas POR QUÊ presentes."
+    }
+  },
+  {
+    "title": "O Messias, leão para vencer",
+    "page": "https://cn.org.br/portal/o-messias-leao-para-vencer/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/o-messias-leao-para-vencer.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "O MESSIAS LEAO PARA VENCER",
+        "id": 144,
+        "normal": "current-8cd615672c99e0fd-normal.png",
+        "extended": "current-8cd615672c99e0fd-extended.png"
+      }
+    ],
+    "key": "00cd63076b04861b",
+    "image": "../sheets/00cd63076b04861b/source.png",
+    "draft": "../sheets/00cd63076b04861b/draft.html",
+    "screenshot": "00cd63076b04861b-draft.png",
+    "pair": "00cd63076b04861b-pair.png",
+    "meanConfidence": 95.24,
+    "columnCollisions": 17,
+    "sequence": 128,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/00cd63076b04861b-pair.jpg",
+    "inspecionado": true,
+    "achados": {
+      "sequence": 128,
+      "letra": "Uniões leãopara, fez-seCordeiropara, Eseu, Edesceu, Ecom elasubiu e fezentrarna.",
+      "cifra": "La-, Mi, Do, Fa e Re- mantidos nos trechos legíveis.",
+      "alinhamento": "Compressão de palavras muda posição relativa das cifras; notas 1/2 perdem referência numérica.",
+      "repeticao": "Refrão inicial e duas chamadas abreviadas presentes."
+    }
+  },
+  {
+    "title": "Ó morte, onde está a tua vitória?",
+    "page": "https://cn.org.br/portal/o-morte-onde-esta-a-tua-vitoria/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/o-morte-onde-esta-a-tua-vitoria.png",
+    "status": "Reprovado",
+    "legacy": [],
+    "key": "f97db5852ebba920",
+    "image": "../sheets/f97db5852ebba920/source.png",
+    "draft": "../sheets/f97db5852ebba920/draft.html",
+    "screenshot": "f97db5852ebba920-draft.png",
+    "pair": "f97db5852ebba920-pair.png",
+    "meanConfidence": 94.2,
+    "columnCollisions": 5,
+    "sequence": 129,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/f97db5852ebba920-pair.jpg",
+    "inspecionado": true,
+    "achados": {
+      "sequence": 129,
+      "letra": "Uniões abrirefecharde, trombetafinal, nósseremos, queCristomorreu; título de referência 1ª vira12.",
+      "cifra": "Re-5, La-6, Re7, Si, Si- e Mi- legíveis preservados, inclusive diferenças de qualidade.",
+      "alinhamento": "Diagramas finais viram 2 | | eo no corpo; algumas cifras muito acima da letra.",
+      "repeticao": "Três pares ALELUIA do refrão e chamadas SEGUNDO AS ESCRITURAS presentes."
+    }
+  },
+  {
+    "title": "O néscio pensa que Deus não existe",
+    "page": "https://cn.org.br/portal/o-nescio-pensa-que-deus-nao-existe/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/o-nescio-pensa-que-deus-nao-existe.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "O NESCIO PENSA QUE DEUS NAO EXISTE",
+        "id": 146,
+        "normal": "current-52025aee6c9df179-normal.png",
+        "extended": "current-52025aee6c9df179-extended.png"
+      }
+    ],
+    "key": "45eca0b89c242639",
+    "image": "../sheets/45eca0b89c242639/source.png",
+    "draft": "../sheets/45eca0b89c242639/draft.html",
+    "screenshot": "45eca0b89c242639-draft.png",
+    "pair": "45eca0b89c242639-pair.png",
+    "meanConfidence": 92.41,
+    "columnCollisions": 3,
+    "sequence": 130,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/45eca0b89c242639-pair.jpg",
+    "inspecionado": true,
+    "achados": {
+      "sequence": 130,
+      "letra": "Uniões paraver sehá, quesejajusto, procurea, s edesviaram, nadaos e estácom.",
+      "cifra": "Re-, Sol-, La7, Sib, Fa e La- mantidos nos pontos legíveis.",
+      "alinhamento": "BIS A. torna-se BIS À isolado e há ruído . ) próximo ao segundo NÃO HÁ QUEM.",
+      "repeticao": "Duas NÃO HÁ QUEM e duas um homem que procure presentes; limite do bis perdido."
+    }
+  },
+  {
+    "title": "O povo que caminhava nas trevas",
+    "page": "https://cn.org.br/portal/o-povo-que-caminhava-nas-trevas/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/o-povo-que-caminhava-nas-trevas.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "O POVO QUE CAMINHAVA NAS TREVAS",
+        "id": 147,
+        "normal": "current-2fba623391dac798-normal.png",
+        "extended": "current-2fba623391dac798-extended.png"
+      }
+    ],
+    "key": "d3dee3cdf484c025",
+    "image": "../sheets/d3dee3cdf484c025/source.png",
+    "draft": "../sheets/d3dee3cdf484c025/draft.html",
+    "screenshot": "d3dee3cdf484c025-draft.png",
+    "pair": "d3dee3cdf484c025-pair.png",
+    "meanConfidence": 94.57,
+    "columnCollisions": 9,
+    "sequence": 131,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/d3dee3cdf484c025-pair.jpg",
+    "inspecionado": true,
+    "achados": {
+      "sequence": 131,
+      "letra": "Uniões luzbrilhou, tuapresença, rejubilamao, repartiremosdespojos e vestesuja.",
+      "cifra": "Sol# do primeiro E O SEU NOME SERÁ virou Sol: sustenido omitido; segundo Sol correto.",
+      "alinhamento": "Cifras dos versos seguem frases mas dependem de reespaçamento das palavras unidas.",
+      "repeticao": "Duas E O SEU NOME SERÁ e duas PRÍNCIPE DA PAZ presentes."
+    }
+  },
+  {
+    "title": "O Senhor anuncia uma notícia",
+    "page": "https://cn.org.br/portal/o-senhor-anuncia-uma-noticia/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/o-senhor-anuncia-uma-noticia.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "O SENHOR ANUNCIA UMA NOTICIA",
+        "id": 149,
+        "normal": "current-3bf4693fcd2cd3fb-normal.png",
+        "extended": "current-3bf4693fcd2cd3fb-extended.png"
+      }
+    ],
+    "key": "231851283ea74a7e",
+    "image": "../sheets/231851283ea74a7e/source.png",
+    "draft": "../sheets/231851283ea74a7e/draft.html",
+    "screenshot": "231851283ea74a7e-draft.png",
+    "pair": "231851283ea74a7e-pair.png",
+    "meanConfidence": 94.68,
+    "columnCollisions": 2,
+    "sequence": 132,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/231851283ea74a7e-pair.jpg",
+    "inspecionado": true,
+    "achados": {
+      "sequence": 132,
+      "letra": "Uniões vósdormis, prataas, brilhodo, elacai aneve, cavalgaos e vozpoderosa.",
+      "cifra": "Sol, Mi-, La-, Si- e La maior em Monte Sombrio/voz preservados.",
+      "alinhamento": "BIS A. sem barra de extensão torna escopo do refrão incerto; palavras unidas mudam âncoras.",
+      "repeticao": "Duas FOGEM e duas chamadas finais preservadas; bis normal requer delimitação."
+    }
+  },
+  {
+    "title": "O Senhor é meu pastor",
+    "page": "https://cn.org.br/portal/o-senhor-e-meu-pastor/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/o-senhor-e-meu-pastor.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "O SENHOR E MEU PASTOR",
+        "id": 150,
+        "normal": "current-28afb243333b5237-normal.png",
+        "extended": "current-28afb243333b5237-extended.png"
+      }
+    ],
+    "key": "55aa680c37620918",
+    "image": "../sheets/55aa680c37620918/source.png",
+    "draft": "../sheets/55aa680c37620918/draft.html",
+    "screenshot": "55aa680c37620918-draft.png",
+    "pair": "55aa680c37620918-pair.png",
+    "meanConfidence": 93.04,
+    "columnCollisions": 6,
+    "sequence": 133,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/55aa680c37620918-pair.jpg",
+    "inspecionado": true,
+    "achados": {
+      "sequence": 133,
+      "letra": "Uniões forças e→forçase, restauraminhas, vápor valeescuro, teubastão, teucajado e casaeternamente; acentos de cál ice/É dispersos.",
+      "cifra": "La-, Fa, Mi e Sol legíveis preservados.",
+      "alinhamento": "La- de apascenta-me e de vais comigo muito afastado verticalmente; ruído de acentos sobre ATÉ AS ÁGUAS.",
+      "repeticao": "Duas restaura minhas forças e três porque tu presentes; chamadas finais mantidas."
+    }
+  },
+  {
+    "title": "O Senhor é minha luz e salvação",
+    "page": "https://cn.org.br/portal/o-senhor-e-minha-luz-e-salvacao/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/o-senhor-e-minha-luz-e-salvacao.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "O SENHOR E MINHA LUZ E SALVACAO",
+        "id": 151,
+        "normal": "current-0417fa3511b67d66-normal.png",
+        "extended": "current-0417fa3511b67d66-extended.png"
+      }
+    ],
+    "key": "a3cda75f34ef6892",
+    "image": "../sheets/a3cda75f34ef6892/source.png",
+    "draft": "../sheets/a3cda75f34ef6892/draft.html",
+    "screenshot": "a3cda75f34ef6892-draft.png",
+    "pair": "a3cda75f34ef6892-pair.png",
+    "meanConfidence": 93.66,
+    "columnCollisions": 0,
+    "sequence": 134,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/a3cda75f34ef6892-pair.jpg",
+    "inspecionado": true,
+    "achados": {
+      "sequence": 134,
+      "letra": "Uniões podereitemer, defensorde, farátremer, coisapeço, habit arna casado e estendesua.",
+      "cifra": "Re-, Sib, Do, Sol, Sol- e La7 preservados nos pontos legíveis.",
+      "alinhamento": "Cifras muito condensadas em o que poderei temer; restaurar espaços para âncoras.",
+      "repeticao": "Três ESPERA NO SENHOR SÊ FORTE e último ESPERA presentes."
+    }
+  },
+  {
+    "title": "O Senhor me deu",
+    "page": "https://cn.org.br/portal/o-senhor-me-deu/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/o-senhor-me-deu.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "O SENHOR ME DEU",
+        "id": 152,
+        "normal": "current-e720c3ccd24308b5-normal.png",
+        "extended": "current-e720c3ccd24308b5-extended.png"
+      }
+    ],
+    "key": "6a753c9f1c45ca65",
+    "image": "../sheets/6a753c9f1c45ca65/source.png",
+    "draft": "../sheets/6a753c9f1c45ca65/draft.html",
+    "screenshot": "6a753c9f1c45ca65-draft.png",
+    "pair": "6a753c9f1c45ca65-pair.png",
+    "meanConfidence": 94.02,
+    "columnCollisions": 21,
+    "sequence": 135,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/6a753c9f1c45ca65-pair.jpg",
+    "inspecionado": true,
+    "achados": {
+      "sequence": 135,
+      "letra": "Uniões línguade, palavra de→palavradeconforto, eujá sabia→eujásabia, porissopus e rosto não→rostonãodesvieidos.",
+      "cifra": "Fa#- do primeiro O SENHOR vira Faf-; Si- sobre que tu havias de ajudar-me vira Si sem menor.",
+      "alinhamento": "BIS isolado sem delimitação; cifras de SE TU SALVAS QUEM ME CONDENARÁ ficam afastadas.",
+      "repeticao": "Respostas E EU NÃO RESISTI duplicadas presentes; bis perdeu âmbito gráfico."
+    }
+  },
+  {
+    "title": "Ó Senhor, nosso Deus",
+    "page": "https://cn.org.br/portal/o-senhor-nosso-deus/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/o-senhor-nosso-deus.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "O SENHOR NOSSO DEUS",
+        "id": 154,
+        "normal": "current-d8be1c62487e491c-normal.png",
+        "extended": "current-d8be1c62487e491c-extended.png"
+      }
+    ],
+    "key": "bb51b52cd9e20e91",
+    "image": "../sheets/bb51b52cd9e20e91/source.png",
+    "draft": "../sheets/bb51b52cd9e20e91/draft.html",
+    "screenshot": "bb51b52cd9e20e91-draft.png",
+    "pair": "bb51b52cd9e20e91-pair.png",
+    "meanConfidence": 95.07,
+    "columnCollisions": 5,
+    "sequence": 136,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/bb51b52cd9e20e91-pair.jpg",
+    "inspecionado": true,
+    "achados": {
+      "sequence": 136,
+      "letra": "Ó Senhor vira 6Senhor; uniões Pelaboca, criançase, parareduzirao, silêncioinimigos e delecuid ares→delecuid ares sem espaço normal.",
+      "cifra": "Mi-, Sol, Si7, La- e Do legíveis preservados.",
+      "alinhamento": "Si7 de para reduzir ao silêncio muda âncora após aglutinação; demais requerem reespaçar letra.",
+      "repeticao": "Duas no entanto e duas chamadas Ó SENHOR presentes."
+    }
+  },
+  {
+    "title": "Olhai que estupendo",
+    "page": "https://cn.org.br/portal/olhai-que-estupendo/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/olhai-que-estupendo.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "OLHAI QUE ESTUPENDO",
+        "id": 155,
+        "normal": "current-75adf0f20c847ee9-normal.png",
+        "extended": "current-75adf0f20c847ee9-extended.png"
+      }
+    ],
+    "key": "d0b702fad8b4ed01",
+    "image": "../sheets/d0b702fad8b4ed01/source.png",
+    "draft": "../sheets/d0b702fad8b4ed01/draft.html",
+    "screenshot": "d0b702fad8b4ed01-draft.png",
+    "pair": "d0b702fad8b4ed01-pair.png",
+    "meanConfidence": 91.66,
+    "columnCollisions": 12,
+    "sequence": 137,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/d0b702fad8b4ed01-pair.jpg",
+    "inspecionado": true,
+    "achados": {
+      "sequence": 137,
+      "letra": "Uniões ung uentoperfumado (unguento+perfumado), descepelabarbade, orvalhodo e vidaeternamente.",
+      "cifra": "Mi-, Do, Si7 e La- preservados; sequência Si7 / Do / Si7 legível.",
+      "alinhamento": "Que desce quebrado com que abaixo de desce nas estrofes de unguento/orvalho.",
+      "repeticao": "Omitida a segunda OLHAI QUE ESTUPENDO do refrão inicial: há Mi- órfão antes PROVAI QUE ALEGRIA."
+    }
+  },
+  {
+    "title": "Os meninos de Belém",
+    "page": "https://cn.org.br/portal/os-meninos-de-belem/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/os-meninos-de-belem.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "OS MENINOS DE BELEM",
+        "id": 158,
+        "normal": "current-df1bb24d0307855e-normal.png",
+        "extended": "current-df1bb24d0307855e-extended.png"
+      }
+    ],
+    "key": "66eb5c386cdb055e",
+    "image": "../sheets/66eb5c386cdb055e/source.png",
+    "draft": "../sheets/66eb5c386cdb055e/draft.html",
+    "screenshot": "66eb5c386cdb055e-draft.png",
+    "pair": "66eb5c386cdb055e-pair.png",
+    "meanConfidence": 95.63,
+    "columnCollisions": 75,
+    "sequence": 138,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/66eb5c386cdb055e-pair.jpg",
+    "inspecionado": true,
+    "achados": {
+      "sequence": 138,
+      "letra": "Uniões DOISE, ECAMELOS, MagosMagos, denoitenãopossodormir, por quevi (porque+vi), VISTEUMA e MagosViemos.",
+      "cifra": "Fa# da retomada DE ONDE VINDES na direita vira Faf; Si-, La7, Sol, Re e Mi legíveis em outros pontos.",
+      "alinhamento": "Papéis Crianças/Magos misturados ao texto; mas de noite... de Gaspar fragmentado com mas e posso abaixo.",
+      "repeticao": "Vozes dos três reis e reprises existem, mas junções/fragmentação exigem revisão completa da transcrição."
+    }
+  },
+  {
+    "title": "Pentecostes",
+    "page": "https://cn.org.br/portal/pentecostes/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/pentecostes.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "PENTECOSTES",
+        "id": 161,
+        "normal": "current-4b130ebd7bcc2219-normal.png",
+        "extended": "current-4b130ebd7bcc2219-extended.png"
+      }
+    ],
+    "key": "f9523f20ca816871",
+    "image": "../sheets/f9523f20ca816871/source.png",
+    "draft": "../sheets/f9523f20ca816871/draft.html",
+    "screenshot": "f9523f20ca816871-draft.png",
+    "pair": "f9523f20ca816871-pair.png",
+    "meanConfidence": 95.12,
+    "columnCollisions": 13,
+    "sequence": 139,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/f9523f20ca816871-pair.jpg",
+    "inspecionado": true,
+    "achados": {
+      "sequence": 139,
+      "letra": "Uniões ÉUMA, pobreshomens, asredes, taxàsàs→taxasàs, geloapertava, olhoscheiosde e praçascantando.",
+      "cifra": "Re-, Do, La, Fa, Sib e La7 preservados nos pontos legíveis.",
+      "alinhamento": "Que uma mão de gelo... fica que abaixo de uma mão; cifras de É UM FOGO ficam muito acima da linha.",
+      "repeticao": "Chamadas SE SENTES e resposta O REINO DE DEUS JÁ CHEGOU presentes."
+    }
+  },
+  {
+    "title": "Por amor de meus amigos",
+    "page": "https://cn.org.br/portal/por-amor-de-meus-amigos/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/por-amor-de-meus-amigos.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "POR AMOR DE MEUS AMIGOS",
+        "id": 162,
+        "normal": "current-2ef31d310dd6c7ce-normal.png",
+        "extended": "current-2ef31d310dd6c7ce-extended.png"
+      }
+    ],
+    "key": "1d8edc916c7f4871",
+    "image": "../sheets/1d8edc916c7f4871/source.png",
+    "draft": "../sheets/1d8edc916c7f4871/draft.html",
+    "screenshot": "1d8edc916c7f4871-draft.png",
+    "pair": "1d8edc916c7f4871-pair.png",
+    "meanConfidence": 91.23,
+    "columnCollisions": 2,
+    "sequence": 140,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/1d8edc916c7f4871-pair.jpg",
+    "inspecionado": true,
+    "achados": {
+      "sequence": 140,
+      "letra": "Uniões tediga, alegriaquando, aCasa, lásobem astribos, astribosdo e paraJerusalém; acento PÉS vira PES com ruído.",
+      "cifra": "Mi- na linha LA LALALALALA vira MI- com I maiúsculo, grafia não padronizada; La-/Si7 preservados.",
+      "alinhamento": "Si7 de OS NOSSOS PÉS muito distante verticalmente; acentos/pontos separados entram no corpo.",
+      "repeticao": "Quatro JERUSALÉM JERUSALÉM DE NOVO... iniciais e duas LA... finais presentes."
+    }
+  },
+  {
+    "title": "Por que confabulam as nações?",
+    "page": "https://cn.org.br/portal/por-que-confabulam-as-nacoes/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/por-que-confabulam-as-nacoes.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "POR QUE CONFABULAM AS NACOES",
+        "id": 163,
+        "normal": "current-4c47c4e18e87e7ab-normal.png",
+        "extended": "current-4c47c4e18e87e7ab-extended.png"
+      }
+    ],
+    "key": "38e9a240c4057382",
+    "image": "../sheets/38e9a240c4057382/source.png",
+    "draft": "../sheets/38e9a240c4057382/draft.html",
+    "screenshot": "38e9a240c4057382-draft.png",
+    "pair": "38e9a240c4057382-pair.png",
+    "meanConfidence": 92.19,
+    "columnCollisions": 10,
+    "sequence": 141,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/38e9a240c4057382-pair.jpg",
+    "inspecionado": true,
+    "achados": {
+      "sequence": 141,
+      "letra": "Uniões ECONTRA, osseus, assuas, aqueleque, anunciarei o→Anuncia reio, decretodo e confinsda; constituí perde acento.",
+      "cifra": "Mi-, La- e Si7 legíveis mantidos.",
+      "alinhamento": "Cifras afastadas do segundo EU O CONSTITUÍ; ruídos de acento e ) entre palavras.",
+      "repeticao": "Duas EU O CONSTITUÍ e quatro EM SIÃO presentes, chamadas finais preservadas."
+    }
+  },
+  {
+    "title": "Por que esta noite é diferente",
+    "page": "https://cn.org.br/portal/por-que-esta-noite-e-diferente/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/por-que-esta-noite-e-diferente.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "POR QUE ESTA NOITE E DIFERENTE",
+        "id": 164,
+        "normal": "current-2a48c4f70c8491c3-normal.png",
+        "extended": "current-2a48c4f70c8491c3-extended.png"
+      }
+    ],
+    "key": "ec7b7edd41e29682",
+    "image": "../sheets/ec7b7edd41e29682/source.png",
+    "draft": "../sheets/ec7b7edd41e29682/draft.html",
+    "screenshot": "ec7b7edd41e29682-draft.png",
+    "pair": "ec7b7edd41e29682-pair.png",
+    "meanConfidence": 94.02,
+    "columnCollisions": 6,
+    "sequence": 142,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/ec7b7edd41e29682-pair.jpg",
+    "inspecionado": true,
+    "achados": {
+      "sequence": 142,
+      "letra": "Por que vira Porque; uniões estanoiteé, detodas, outrasnoites, enão, deterjantado e paraestartodos.",
+      "cifra": "La-, Re- e Mi legíveis mantidos; La- fica órfão no bloco final direito.",
+      "alinhamento": "Bloco final direito perde linha sob La- e gera ponto isolado; ancoragem dessa cifra quebrada.",
+      "repeticao": "Omitida linha POR QUE ESTA NOITE É DIFERENTE em maiúsculas no último bloco antes das duas DE TODAS AS OUTRAS NOITES."
+    }
+  },
+  {
+    "title": "Porque o meu jugo é suave",
+    "page": "https://cn.org.br/portal/porque-o-meu-jugo-e-suave/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/porque-o-meu-jugo-e-suave.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "PORQUE O MEU JUGO E SUAVE",
+        "id": 165,
+        "normal": "current-845a932a8994b3ee-normal.png",
+        "extended": "current-845a932a8994b3ee-extended.png"
+      }
+    ],
+    "key": "7c299183883c2668",
+    "image": "../sheets/7c299183883c2668/source.png",
+    "draft": "../sheets/7c299183883c2668/draft.html",
+    "screenshot": "7c299183883c2668-draft.png",
+    "pair": "7c299183883c2668-pair.png",
+    "meanConfidence": 95.72,
+    "columnCollisions": 10,
+    "sequence": 143,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/7c299183883c2668-pair.jpg",
+    "inspecionado": true,
+    "achados": {
+      "sequence": 143,
+      "letra": "Uniões Vindea, todosvós, euvos, sobrevós, aprendeidemim, ehumilde, decoração (de+coração) e ÉSUAVE.",
+      "cifra": "Do, Mi, La- e Fa presentes; Fa órfãs nas duas linhas omitidas do refrão.",
+      "alinhamento": "Duas Fa aparecem sem a linha correspondente; reposicionar após restauração.",
+      "repeticao": "Omitidas segunda e terceira ocorrências PORQUE O MEU JUGO É SUAVE do refrão: só primeira e duas E O MEU FARDO permanecem."
+    }
+  },
+  {
+    "title": "Quando Israel saiu do Egito",
+    "page": "https://cn.org.br/portal/quando-israel-saiu-do-egito/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/quando-israel-saiu-do-egito.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "QUANDO ISRAEL SAIU DO EGITO",
+        "id": 171,
+        "normal": "current-833cce8323300581-normal.png",
+        "extended": "current-833cce8323300581-extended.png"
+      }
+    ],
+    "key": "cfdfaec814c4add5",
+    "image": "../sheets/cfdfaec814c4add5/source.png",
+    "draft": "../sheets/cfdfaec814c4add5/draft.html",
+    "screenshot": "cfdfaec814c4add5-draft.png",
+    "pair": "cfdfaec814c4add5-pair.png",
+    "meanConfidence": 95.3,
+    "columnCollisions": 20,
+    "sequence": 144,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/cfdfaec814c4add5-pair.jpg",
+    "inspecionado": true,
+    "achados": {
+      "sequence": 144,
+      "letra": "Uniões ea casadeJacóde, povobárbaro, Judáfoiseusantuário, eIsrael, osm ontessaltaramcomo (os+montes+saltaram+como), ETU e SALTAISCOMO.",
+      "cifra": "Fa# final em QUE FAZ BROTAR vira Fat; Fa# anterior e Si- preservados.",
+      "alinhamento": "Aglutinações alteram âncoras de Fa/Mi nos versos iniciais.",
+      "repeticao": "Nota Repete-se todo o canto em um tom mais alto presente, mas asterisco de vínculo não aparece."
+    }
+  },
+  {
+    "title": "Quando o Senhor",
+    "page": "https://cn.org.br/portal/quando-o-senhor/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/quando-o-senhor.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "QUANDO O SENHOR",
+        "id": 172,
+        "normal": "current-8682dd1919b089ea-normal.png",
+        "extended": "current-8682dd1919b089ea-extended.png"
+      }
+    ],
+    "key": "3c9f63c67c90d43f",
+    "image": "../sheets/3c9f63c67c90d43f/source.png",
+    "draft": "../sheets/3c9f63c67c90d43f/draft.html",
+    "screenshot": "3c9f63c67c90d43f-draft.png",
+    "pair": "3c9f63c67c90d43f-pair.png",
+    "meanConfidence": 94.81,
+    "columnCollisions": 0,
+    "sequence": 145,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/3c9f63c67c90d43f-pair.jpg",
+    "inspecionado": true,
+    "achados": {
+      "sequence": 145,
+      "letra": "Uniões parecia-nossonhar, coisastem e fezconosco; língua perde acento.",
+      "cifra": "Re, Mi-, Sol, La e [Re7] preservados nos pontos legíveis.",
+      "alinhamento": "Re de estava cheia de risos muito afastado verticalmente; refazer o espaçamento.",
+      "repeticao": "Refrão completo e chamada final presentes."
+    }
+  },
+  {
+    "title": "Que estupendo, que alegria",
+    "page": "https://cn.org.br/portal/que-estupendo-que-alegria/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/que-estupendo-que-alegria.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "QUE ESTUPENDO QUE ALEGRIA",
+        "id": 173,
+        "normal": "current-1890d295f90e091d-normal.png",
+        "extended": "current-1890d295f90e091d-extended.png"
+      }
+    ],
+    "key": "a86a91918641fcaa",
+    "image": "../sheets/a86a91918641fcaa/source.png",
+    "draft": "../sheets/a86a91918641fcaa/draft.html",
+    "screenshot": "a86a91918641fcaa-draft.png",
+    "pair": "a86a91918641fcaa-pair.png",
+    "meanConfidence": 94.61,
+    "columnCollisions": 0,
+    "sequence": 146,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/a86a91918641fcaa-pair.jpg",
+    "inspecionado": true,
+    "achados": {
+      "sequence": 146,
+      "letra": "Uniões óleoderramado, sobreafronte, des c epelabarba (desce+pela+barba), deAarão, oSenhor doalto, avida e nosdá.",
+      "cifra": "La-, Re-, Mi, Fa, Sol e Do preservados nos pontos legíveis.",
+      "alinhamento": "que da estrofe do orvalho cai abaixo de desce, invertendo leitura normal.",
+      "repeticao": "Respostas de óleo/orvalho/bênção e chamadas QUE ESTUPENDO presentes."
+    }
+  },
+  {
+    "title": "Quem é esta que sobe do deserto",
+    "page": "https://cn.org.br/portal/quem-e-esta-que-sobe-do-deserto/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/quem-e-esta-que-sobe-do-deserto.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "QUEM E ESTA QUE SOBE DO DESERTO",
+        "id": 174,
+        "normal": "current-55540ad97e47ae56-normal.png",
+        "extended": "current-55540ad97e47ae56-extended.png"
+      }
+    ],
+    "key": "34ef28e21df3b91a",
+    "image": "../sheets/34ef28e21df3b91a/source.png",
+    "draft": "../sheets/34ef28e21df3b91a/draft.html",
+    "screenshot": "34ef28e21df3b91a-draft.png",
+    "pair": "34ef28e21df3b91a-pair.png",
+    "meanConfidence": 95.39,
+    "columnCollisions": 25,
+    "sequence": 147,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/34ef28e21df3b91a-pair.jpg",
+    "inspecionado": true,
+    "achados": {
+      "sequence": 147,
+      "letra": "Uniões Debaixoda macieiratedespertei, selono teucoração, seloem teubraço, Porqueforteéo, amorte, opodem e setudesses.",
+      "cifra": "La-/Re-/Fa da segunda pergunta ficam órfãs onde a letra foi omitida; outros acordes legíveis preservados.",
+      "alinhamento": "Cifras órfãs após primeira linha do refrão mostram perda estrutural.",
+      "repeticao": "Omitida segunda QUEM É ESTA QUE SOBE DO DESERTO no refrão inicial; três APOIADA EM SEU AMADO preservadas."
+    }
+  },
+  {
+    "title": "Quem nos separará",
+    "page": "https://cn.org.br/portal/quem-nos-separara/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/quem-nos-separara.png",
+    "status": "Pendente",
+    "legacy": [
+      {
+        "html": "QUEM NOS SEPARARA",
+        "id": 175,
+        "normal": "current-abd653458ae96dcd-normal.png",
+        "extended": "current-abd653458ae96dcd-extended.png"
+      }
+    ],
+    "key": "b70f426854962754",
+    "image": "../sheets/b70f426854962754/source.png",
+    "draft": "../sheets/b70f426854962754/draft.html",
+    "screenshot": "b70f426854962754-draft.png",
+    "pair": "b70f426854962754-pair.png",
+    "meanConfidence": 94.05,
+    "columnCollisions": 14,
+    "sequence": 148,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/b70f426854962754-pair.jpg",
+    "inspecionado": false,
+    "achados": null
+  },
+  {
+    "title": "Quero andar",
+    "page": "https://cn.org.br/portal/quero-andar/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/quero-andar.png",
+    "status": "Pendente",
+    "legacy": [
+      {
+        "html": "QUERO ANDAR",
+        "id": 176,
+        "normal": "current-7b8d6f00ea0923b7-normal.png",
+        "extended": "current-7b8d6f00ea0923b7-extended.png"
+      }
+    ],
+    "key": "4c4d1a1b471ec060",
+    "image": "../sheets/4c4d1a1b471ec060/source.png",
+    "draft": "../sheets/4c4d1a1b471ec060/draft.html",
+    "screenshot": "4c4d1a1b471ec060-draft.png",
+    "pair": "4c4d1a1b471ec060-pair.png",
+    "meanConfidence": 93.39,
+    "columnCollisions": 3,
+    "sequence": 149,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/4c4d1a1b471ec060-pair.jpg",
+    "inspecionado": false,
+    "achados": null
+  },
+  {
+    "title": "Quero cantar",
+    "page": "https://cn.org.br/portal/quero-cantar/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/quero-cantar.png",
+    "status": "Pendente",
+    "legacy": [
+      {
+        "html": "QUERO CANTAR",
+        "id": 177,
+        "normal": "current-2e2673e59407612d-normal.png",
+        "extended": "current-2e2673e59407612d-extended.png"
+      }
+    ],
+    "key": "d3d9cfc144e55ee8",
+    "image": "../sheets/d3d9cfc144e55ee8/source.png",
+    "draft": "../sheets/d3d9cfc144e55ee8/draft.html",
+    "screenshot": "d3d9cfc144e55ee8-draft.png",
+    "pair": "d3d9cfc144e55ee8-pair.png",
+    "meanConfidence": 94.64,
+    "columnCollisions": 18,
+    "sequence": 150,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/d3d9cfc144e55ee8-pair.jpg",
+    "inspecionado": false,
+    "achados": null
+  },
+  {
+    "title": "Ressuscitou",
+    "page": "https://cn.org.br/portal/ressuscitou-canto/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/ressuscitou.png",
+    "status": "Pendente",
+    "legacy": [
+      {
+        "html": "RESSUSCITOU",
+        "id": 178,
+        "normal": "current-8e9d7963fefd1153-normal.png",
+        "extended": "current-8e9d7963fefd1153-extended.png"
+      }
+    ],
+    "key": "6cf8508c732d54f0",
+    "image": "../sheets/6cf8508c732d54f0/source.png",
+    "draft": "../sheets/6cf8508c732d54f0/draft.html",
+    "screenshot": "6cf8508c732d54f0-draft.png",
+    "pair": "6cf8508c732d54f0-pair.png",
+    "meanConfidence": 94.81,
+    "columnCollisions": 2,
+    "sequence": 151,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/6cf8508c732d54f0-pair.jpg",
+    "inspecionado": false,
+    "achados": null
+  },
+  {
+    "title": "Resurrexit",
+    "page": "https://cn.org.br/portal/resurrexit/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/resurrexit.png",
+    "status": "Pendente",
+    "legacy": [
+      {
+        "html": "RESURREXIT",
+        "id": 179,
+        "normal": "current-7d11d3b098d4d119-normal.png",
+        "extended": "current-7d11d3b098d4d119-extended.png"
+      }
+    ],
+    "key": "0820bea17497607c",
+    "image": "../sheets/0820bea17497607c/source.png",
+    "draft": "../sheets/0820bea17497607c/draft.html",
+    "screenshot": "0820bea17497607c-draft.png",
+    "pair": "0820bea17497607c-pair.png",
+    "meanConfidence": 91.31,
+    "columnCollisions": 3,
+    "sequence": 152,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/0820bea17497607c-pair.jpg",
+    "inspecionado": false,
+    "achados": null
+  },
+  {
+    "title": "Salve Rainha",
+    "page": "https://cn.org.br/portal/salve-rainha/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/salve-rainha.png",
+    "status": "Pendente",
+    "legacy": [
+      {
+        "html": "SALVE RAINHA",
+        "id": 183,
+        "normal": "current-efbedc539674c41c-normal.png",
+        "extended": "current-efbedc539674c41c-extended.png"
+      }
+    ],
+    "key": "5b56614079fcce0d",
+    "image": "../sheets/5b56614079fcce0d/source.png",
+    "draft": "../sheets/5b56614079fcce0d/draft.html",
+    "screenshot": "5b56614079fcce0d-draft.png",
+    "pair": "5b56614079fcce0d-pair.png",
+    "meanConfidence": 94.89,
+    "columnCollisions": 6,
+    "sequence": 153,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/5b56614079fcce0d-pair.jpg",
+    "inspecionado": false,
+    "achados": null
+  },
+  {
+    "title": "Salve Rainha dos céus",
+    "page": "https://cn.org.br/portal/salve-rainha-dos-ceus/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/salve-rainha-dos-ceus.png",
+    "status": "Pendente",
+    "legacy": [
+      {
+        "html": "SALVE RAINHA DOS CEUS",
+        "id": 184,
+        "normal": "current-45c92ed680d73026-normal.png",
+        "extended": "current-45c92ed680d73026-extended.png"
+      }
+    ],
+    "key": "994252000b9c58a1",
+    "image": "../sheets/994252000b9c58a1/source.png",
+    "draft": "../sheets/994252000b9c58a1/draft.html",
+    "screenshot": "994252000b9c58a1-draft.png",
+    "pair": "994252000b9c58a1-pair.png",
+    "meanConfidence": 94.55,
+    "columnCollisions": 9,
+    "sequence": 154,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/994252000b9c58a1-pair.jpg",
+    "inspecionado": false,
+    "achados": null
+  },
+  {
+    "title": "Se hoje escutardes a sua voz",
+    "page": "https://cn.org.br/portal/se-hoje-escutardes-a-sua-voz/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/se-hoje-escutardes-a-sua-voz.png",
+    "status": "Pendente",
+    "legacy": [
+      {
+        "html": "SE HOJE ESCUTARDES A SUA VOZ",
+        "id": 191,
+        "normal": "current-c91e6f014f45a1a3-normal.png",
+        "extended": "current-c91e6f014f45a1a3-extended.png"
+      }
+    ],
+    "key": "ddc53b05a5285984",
+    "image": "../sheets/ddc53b05a5285984/source.png",
+    "draft": "../sheets/ddc53b05a5285984/draft.html",
+    "screenshot": "ddc53b05a5285984-draft.png",
+    "pair": "ddc53b05a5285984-pair.png",
+    "meanConfidence": 94.05,
+    "columnCollisions": 0,
+    "sequence": 155,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/ddc53b05a5285984-pair.jpg",
+    "inspecionado": false,
+    "achados": null
+  },
+  {
+    "title": "Se me refugiei no Senhor",
+    "page": "https://cn.org.br/portal/se-me-refugiei-no-senhor/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/se-me-refugiei-no-senhor.png",
+    "status": "Pendente",
+    "legacy": [
+      {
+        "html": "SE ME REFUGIEI NO SENHOR",
+        "id": 192,
+        "normal": "current-e1142be9d8964834-normal.png",
+        "extended": "current-e1142be9d8964834-extended.png"
+      }
+    ],
+    "key": "719d3ba9280a1c2d",
+    "image": "../sheets/719d3ba9280a1c2d/source.png",
+    "draft": "../sheets/719d3ba9280a1c2d/draft.html",
+    "screenshot": "719d3ba9280a1c2d-draft.png",
+    "pair": "719d3ba9280a1c2d-pair.png",
+    "meanConfidence": 94.57,
+    "columnCollisions": 4,
+    "sequence": 156,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/719d3ba9280a1c2d-pair.jpg",
+    "inspecionado": false,
+    "achados": null
+  },
+  {
+    "title": "Se o Senhor não constrói a casa",
+    "page": "https://cn.org.br/portal/se-o-senhor-nao-constroi-a-casa/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/se-o-senhor-nao-constroi-a-casa.png",
+    "status": "Pendente",
+    "legacy": [
+      {
+        "html": "SE O SENHOR NAO CONSTROI A CASA",
+        "id": 193,
+        "normal": "current-a9f8a1fe6bd9ee07-normal.png",
+        "extended": "current-a9f8a1fe6bd9ee07-extended.png"
+      }
+    ],
+    "key": "7b5a235e56f80a73",
+    "image": "../sheets/7b5a235e56f80a73/source.png",
+    "draft": "../sheets/7b5a235e56f80a73/draft.html",
+    "screenshot": "7b5a235e56f80a73-draft.png",
+    "pair": "7b5a235e56f80a73-pair.png",
+    "meanConfidence": 94.89,
+    "columnCollisions": 12,
+    "sequence": 157,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/7b5a235e56f80a73-pair.jpg",
+    "inspecionado": false,
+    "achados": null
+  },
+  {
+    "title": "Se vós ressuscitastes com Cristo",
+    "page": "https://cn.org.br/portal/se-vos-ressuscitastes-com-cristo/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/se-vos-ressuscitastes-com-cristo.png",
+    "status": "Pendente",
+    "legacy": [
+      {
+        "html": "SE VOS RESSUSCITASTES COM CRISTO",
+        "id": 194,
+        "normal": "current-c118bc05c664f0fa-normal.png",
+        "extended": "current-c118bc05c664f0fa-extended.png"
+      }
+    ],
+    "key": "45fcc94bce1f6a06",
+    "image": "../sheets/45fcc94bce1f6a06/source.png",
+    "draft": "../sheets/45fcc94bce1f6a06/draft.html",
+    "screenshot": "45fcc94bce1f6a06-draft.png",
+    "pair": "45fcc94bce1f6a06-pair.png",
+    "meanConfidence": 91.12,
+    "columnCollisions": 2,
+    "sequence": 158,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/45fcc94bce1f6a06-pair.jpg",
+    "inspecionado": false,
+    "achados": null
+  },
+  {
+    "title": "Seduziste-me Senhor",
+    "page": "https://cn.org.br/portal/seduziste-me-senhor/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/seduziste-me-senhor.png",
+    "status": "Pendente",
+    "legacy": [
+      {
+        "html": "SEDUZISTE ME SENHOR",
+        "id": 195,
+        "normal": "current-d10626a4db9d9f8b-normal.png",
+        "extended": "current-d10626a4db9d9f8b-extended.png"
+      }
+    ],
+    "key": "e4fc5200c75f72b6",
+    "image": "../sheets/e4fc5200c75f72b6/source.png",
+    "draft": "../sheets/e4fc5200c75f72b6/draft.html",
+    "screenshot": "e4fc5200c75f72b6-draft.png",
+    "pair": "e4fc5200c75f72b6-pair.png",
+    "meanConfidence": 94.39,
+    "columnCollisions": 17,
+    "sequence": 159,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/e4fc5200c75f72b6-pair.jpg",
+    "inspecionado": false,
+    "achados": null
+  },
+  {
+    "title": "Senhor, ajuda-me a não duvidar de Ti",
+    "page": "https://cn.org.br/portal/senhor-ajuda-me-a-nao-duvidar-de-ti/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/senhor-ajuda-me-a-nao-duvidar-de-ti.png",
+    "status": "Pendente",
+    "legacy": [
+      {
+        "html": "SENHOR AJUDA ME A NAO DUVIDAR DE TI",
+        "id": 196,
+        "normal": "current-ff4dd16a9fc5a000-normal.png",
+        "extended": "current-ff4dd16a9fc5a000-extended.png"
+      }
+    ],
+    "key": "30c78c682c716f70",
+    "image": "../sheets/30c78c682c716f70/source.png",
+    "draft": "../sheets/30c78c682c716f70/draft.html",
+    "screenshot": "30c78c682c716f70-draft.png",
+    "pair": "30c78c682c716f70-pair.png",
+    "meanConfidence": 94.04,
+    "columnCollisions": 7,
+    "sequence": 160,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/30c78c682c716f70-pair.jpg",
+    "inspecionado": false,
+    "achados": null
+  },
+  {
+    "title": "Senhor, não me corrijas na tua cólera",
+    "page": "https://cn.org.br/portal/senhor-nao-me-corrijas-na-tua-colera/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/senhor-nao-me-corrijas-na-tua-colera.png",
+    "status": "Pendente",
+    "legacy": [],
+    "key": "48ba3334e469735f",
+    "image": "../sheets/48ba3334e469735f/source.png",
+    "draft": "../sheets/48ba3334e469735f/draft.html",
+    "screenshot": "48ba3334e469735f-draft.png",
+    "pair": "48ba3334e469735f-pair.png",
+    "meanConfidence": 92.33,
+    "columnCollisions": 13,
+    "sequence": 161,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/48ba3334e469735f-pair.jpg",
+    "inspecionado": false,
+    "achados": null
+  },
+  {
+    "title": "Sequência De Corpus Christi",
+    "page": "https://cn.org.br/portal/sequencia-de-corpus-christi/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/sequencia-de-corpus-christi-1.png",
+    "status": "Pendente",
+    "legacy": [],
+    "key": "81e8605357e6327a",
+    "image": "../sheets/81e8605357e6327a/source.png",
+    "draft": "../sheets/81e8605357e6327a/draft.html",
+    "screenshot": "81e8605357e6327a-draft.png",
+    "pair": "81e8605357e6327a-pair.png",
+    "meanConfidence": 94.8,
+    "columnCollisions": 10,
+    "sequence": 162,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/81e8605357e6327a-pair.jpg",
+    "inspecionado": false,
+    "achados": null
+  },
+  {
+    "title": "Sequência De Corpus Christi",
+    "page": "https://cn.org.br/portal/sequencia-de-corpus-christi/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/sequencia-de-corpus-christi-2.png",
+    "status": "Pendente",
+    "legacy": [],
+    "key": "f1b1ba51456d49f4",
+    "image": "../sheets/f1b1ba51456d49f4/source.png",
+    "draft": "../sheets/f1b1ba51456d49f4/draft.html",
+    "screenshot": "f1b1ba51456d49f4-draft.png",
+    "pair": "f1b1ba51456d49f4-pair.png",
+    "meanConfidence": 95.21,
+    "columnCollisions": 1,
+    "sequence": 163,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/f1b1ba51456d49f4-pair.jpg",
+    "inspecionado": false,
+    "achados": null
+  },
+  {
+    "title": "Sermão da montanha",
+    "page": "https://cn.org.br/portal/sermao-da-montanha/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/sermao-da-montanha.png",
+    "status": "Pendente",
+    "legacy": [
+      {
+        "html": "SERMAO DA MONTANHA",
+        "id": 200,
+        "normal": "current-aff3ac807192774c-normal.png",
+        "extended": "current-aff3ac807192774c-extended.png"
+      }
+    ],
+    "key": "52f923f7c0cc2e97",
+    "image": "../sheets/52f923f7c0cc2e97/source.png",
+    "draft": "../sheets/52f923f7c0cc2e97/draft.html",
+    "screenshot": "52f923f7c0cc2e97-draft.png",
+    "pair": "52f923f7c0cc2e97-pair.png",
+    "meanConfidence": 91.2,
+    "columnCollisions": 19,
+    "sequence": 164,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/52f923f7c0cc2e97-pair.jpg",
+    "inspecionado": false,
+    "achados": null
+  }
+]

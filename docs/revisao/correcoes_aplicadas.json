@@ -1,0 +1,85 @@
+{
+  "catalogOriginalUnchanged": true,
+  "mode": "hash-guarded runtime overlay, normal and extended",
+  "evidence": [
+    {
+      "html": "CREDO",
+      "variant": "normal",
+      "pair": "correcoes/08d872ecb908-normal-pair.jpg",
+      "diffBox": [
+        200,
+        839,
+        239,
+        1095
+      ],
+      "sourceHash": "22e8e0450a7229ee1f542b979d315399c194814d5194842873239eeecffa079f",
+      "correctedHash": "5c325a2cf61847fabbe1dc755e1d552f3c73d3f444d7d589b8581eb300aec452"
+    },
+    {
+      "html": "CREDO",
+      "variant": "extended",
+      "pair": "correcoes/08d872ecb908-extended-pair.jpg",
+      "diffBox": [
+        200,
+        839,
+        239,
+        1095
+      ],
+      "sourceHash": "22e8e0450a7229ee1f542b979d315399c194814d5194842873239eeecffa079f",
+      "correctedHash": "5c325a2cf61847fabbe1dc755e1d552f3c73d3f444d7d589b8581eb300aec452"
+    },
+    {
+      "html": "NAO ESTA AQUI RESSUSCITOU",
+      "variant": "normal",
+      "pair": "correcoes/a88f4532a94a-normal-pair.jpg",
+      "diffBox": [
+        315,
+        792,
+        327,
+        807
+      ],
+      "sourceHash": "35fa44d8e042c7770ddf95c0ae4309bbd185c5c57c4a84ce11eaec1d65dc9dac",
+      "correctedHash": "555fd6810547ba71eac24bcdf157e24845efd63650f8f5d6e8ede7c7566e29cf"
+    },
+    {
+      "html": "NAO ESTA AQUI RESSUSCITOU",
+      "variant": "extended",
+      "pair": "correcoes/a88f4532a94a-extended-pair.jpg",
+      "diffBox": [
+        315,
+        792,
+        327,
+        807
+      ],
+      "sourceHash": "35fa44d8e042c7770ddf95c0ae4309bbd185c5c57c4a84ce11eaec1d65dc9dac",
+      "correctedHash": "555fd6810547ba71eac24bcdf157e24845efd63650f8f5d6e8ede7c7566e29cf"
+    },
+    {
+      "html": "VIRGEM DA MARAVILHA",
+      "variant": "normal",
+      "pair": "correcoes/b2658ceb49da-normal-pair.jpg",
+      "diffBox": [
+        346,
+        742,
+        353,
+        745
+      ],
+      "sourceHash": "59d75767b25cde0823e5e444812991fb271a1db78009e059809e22441364cd12",
+      "correctedHash": "51a8262f34e27564a26769bb53cd01749a05b815c318d6096df81a44cd3ca16b"
+    },
+    {
+      "html": "VIRGEM DA MARAVILHA",
+      "variant": "extended",
+      "pair": "correcoes/b2658ceb49da-extended-pair.jpg",
+      "diffBox": [
+        346,
+        1050,
+        353,
+        1053
+      ],
+      "sourceHash": "698b9a3c2e0b4e4ff8e4d92dbeb12b2e06c26b100c22c2c0281d01d43e7577b3",
+      "correctedHash": "356ffec50e5e84de3bbf5fedd9ce930787d305a5dcec256ace0ee9753d069f61"
+    }
+  ],
+  "inspection": "Before and after HTML were rendered with identical Chromium settings; screenshot dimensions matched; pairs show the exact changed regions. Full repetitions and hooks verified by tests."
+}

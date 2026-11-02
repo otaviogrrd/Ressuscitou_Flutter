@@ -1,0 +1,96 @@
+{
+  "scope": "explicitamente 3 cantos apenas",
+  "natureza": "Amostragem adicional dos PNG current-*normal/extended do aplicativo; separada da revisão dos 329 drafts OCR. Nenhum app/asset alterado.",
+  "metodo": "Visualização real das nove imagens em resolução original, com recortes adicionais das imagens estendidas de 118 e 256. Normal pode conservar BIS; estendida deve expandir por extenso.",
+  "entries": [
+    {
+      "sequence": 118,
+      "key": "c0ce3afce382b012",
+      "title": "Não está aqui, ressuscitou",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/nao-esta-aqui-ressuscitou.png",
+      "sourceLocal": "/workspace/portal-visual-review/visual-review/../sheets/c0ce3afce382b012/source.png",
+      "normal": "/workspace/portal-visual-review/visual-review/current-a88f4532a94a1e56-normal.png",
+      "extended": "/workspace/portal-visual-review/visual-review/current-a88f4532a94a1e56-extended.png",
+      "inspecaoVisual": true,
+      "statusNormal": "Reprovado",
+      "statusExtended": "Reprovado",
+      "achados": {
+        "letra": [
+          "Ambas variantes mostram referência 'Mateus 28, 1-s', enquanto ficha diz '1-8'. Corpo preserva as estrofes e respostas visíveis; 'Galileia' aparece com acento em Galiléia, diferença ortográfica."
+        ],
+        "cifra": [
+          "Em ambas, sobre 'o Crucificado', ficha traz Re7 e Sol-; HTML mostra Re7 e 'Solo'. Este último não preserva Sol menor nem constitui cifra inequívoca."
+        ],
+        "repeticao": [
+          "Ficha não marca BIS; sequências duplicadas de 'Ide sem demora', respostas NÃO ESTÁ AQUI e E VOS PRECEDE/ALI O VEREIS estão por extenso em ambas. Normal e estendida visualmente iguais neste canto."
+        ],
+        "alinhamento": [
+          "Sequência em uma coluna mantém ordem de leitura das duas colunas da ficha. Não identificada omissão de linha cantada nesta amostra."
+        ]
+      },
+      "duvidas": [
+        "Exatidão integral não certificada: associação fina de cada acorde à sílaba requer conferência musical; 'Solo' é diferença visual inequívoca."
+      ]
+    },
+    {
+      "sequence": 183,
+      "key": "ad0401695dac0f86",
+      "title": "Virgem da maravilha",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/virgem-da-maravilha.png",
+      "sourceLocal": "/workspace/portal-visual-review/visual-review/../sheets/ad0401695dac0f86/source.png",
+      "normal": "/workspace/portal-visual-review/visual-review/current-b2658ceb49dac1e2-normal.png",
+      "extended": "/workspace/portal-visual-review/visual-review/current-b2658ceb49dac1e2-extended.png",
+      "inspecaoVisual": true,
+      "statusNormal": "Reprovado",
+      "statusExtended": "Reprovado",
+      "achados": {
+        "letra": [
+          "Corpo cantado preservado nas duas variantes, incluindo as duas ocorrências 'sendo a filha de Deus, és a sua Mãe'. Observação 'Maria, tu, a criatura' perde a vírgula após 'tu'."
+        ],
+        "cifra": [
+          "Nas duas variantes, Si- sobre 'terra' em 'Maria, feita de terra' vira Si, perdendo menor. Demais sequências visíveis Si-/Mi-/Sol/Fa# correspondem em altura/qualidade nos trechos comparados."
+        ],
+        "repeticao": [
+          "Normal conserva barra e BIS A. no refrão inicial e reticências nos três retornos: permitido para normal.",
+          "Estendida expande corretamente o bloco inicial em chamada S. e resposta A., e apresenta o refrão completo após cada uma das três estrofes. Não carrega barra/BIS; mantém ** de nota explicativa, que não é marca de repetição."
+        ],
+        "alinhamento": [
+          "Linhas 'MÃE DE JESUS' e 'E MÃE NOSSA' da ficha se unem, conservando os dois acordes e palavras. Cifras Si-/Mi-/Si- permanecem sobre o começo do refrão."
+        ]
+      },
+      "duvidas": [
+        "Expansão aprovada para o BIS e retornos desta ficha, sem certificar todo o aplicativo. Perda de menor torna ambas variantes reprovadas para fidelidade harmônica."
+      ]
+    },
+    {
+      "sequence": 256,
+      "key": "6a80cd03db403f5d",
+      "title": "Credo",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/credo.png",
+      "sourceLocal": "/workspace/portal-visual-review/visual-review/../sheets/6a80cd03db403f5d/source.png",
+      "normal": "/workspace/portal-visual-review/visual-review/current-08d872ecb9081ec3-normal.png",
+      "extended": "/workspace/portal-visual-review/visual-review/current-08d872ecb9081ec3-extended.png",
+      "inspecaoVisual": true,
+      "statusNormal": "Reprovado",
+      "statusExtended": "Reprovado",
+      "achados": {
+        "letra": [
+          "Em ambas, 'SUBIU AOS CÉUS' vira 'SUBIU AOS CEUS', e 'NA COMUNHÃO' vira 'NA COMUNHAO'. 'TODO-PODEROSO' inicial perde hífen.",
+          "Ambas omitem a nota da ficha: '* Para as comunidades que já viveram a Redditio Symboli.' e o asterisco do título."
+        ],
+        "cifra": [
+          "Sequências visíveis correspondem em altura/qualidade: Re-/Fa na abertura; Sol-/Re- em CRIADOR; Fa/Do em AO TERCEIRO DIA; Fa/La-/Re- em RESSUSCITOU DOS MORTOS e RESSURREIÇÃO; Sib/La em VIDA ETERNA; Re- final. Nenhuma troca harmônica identificada nesta inspeção."
+        ],
+        "repeticao": [
+          "Sem marca BIS na ficha. Normal e estendida iguais, sem duplicações artificiais, o que é adequado neste canto."
+        ],
+        "alinhamento": [
+          "Cifras permanecem vinculadas às mesmas linhas; Fa/La-/Re- em NA RESSURREIÇÃO DA CARNE deslocam-se horizontalmente com a tipografia. Posição exata por sílaba não certificada."
+        ]
+      },
+      "duvidas": [
+        "Corpo do credo presente; não certifico equivalência editorial integral devido às diferenças ortográficas e nota omitida."
+      ]
+    }
+  ]
+}

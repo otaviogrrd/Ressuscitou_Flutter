@@ -1,0 +1,125 @@
+{
+  "scope": "Checagem independente e visual do legado atual; propostas apenas, nenhuma alteração de app/assets/catálogo.",
+  "metodo": "Nove imagens fonte/normal/extended abertas em resolução original; cifras 118 e 183 ampliadas em recortes; fragmentos extraídos do base64 UTF-8 original e unicidade conferida.",
+  "entries": [
+    {
+      "sequence": 118,
+      "catalogId": 130,
+      "title": "Não está aqui, ressuscitou",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/nao-esta-aqui-ressuscitou.png",
+      "sourceLocal": "/workspace/portal-visual-review/visual-review/../sheets/c0ce3afce382b012/source.png",
+      "normal": "/workspace/portal-visual-review/visual-review/current-a88f4532a94a1e56-normal.png",
+      "extended": "/workspace/portal-visual-review/visual-review/current-a88f4532a94a1e56-extended.png",
+      "inspecaoVisualIndependente": true,
+      "decisao": "PROPOSTA CONFIRMADA; aplicar somente se root decidir",
+      "fundamentacao": "Ficha oficial mostra inequivocamente Re7 e Sol- (Sol menor) na linha de cifras acima de o Crucificado. O hífen está separado à direita do l no recorte ampliado. Legado normal/extended mostram Solo em vermelho nessa mesma linha de cifras. Não é indicação de solista (S. é outra convenção na ficha), nem o artigo o da letra: o artigo permanece preto na linha seguinte. Substituição localizada preserva os espaços e Re7.",
+      "variants": [
+        {
+          "variant": "normal",
+          "catalogField": "html_base64",
+          "patches": [
+            {
+              "old": "<FONT COLOR=\"#FF0000\">    Re7           Solo\r\n<FONT COLOR=\"#000000\">    o Crucificado;",
+              "new": "<FONT COLOR=\"#FF0000\">    Re7           Sol-\r\n<FONT COLOR=\"#000000\">    o Crucificado;",
+              "oldOccurrences": 1
+            }
+          ]
+        },
+        {
+          "variant": "extended",
+          "catalogField": "ext_base64",
+          "patches": [
+            {
+              "old": "<FONT COLOR=\"#FF0000\">    Re7           Solo\r\n<FONT COLOR=\"#000000\">    o Crucificado;",
+              "new": "<FONT COLOR=\"#FF0000\">    Re7           Sol-\r\n<FONT COLOR=\"#000000\">    o Crucificado;",
+              "oldOccurrences": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sequence": 183,
+      "catalogId": 222,
+      "title": "Virgem da maravilha",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/virgem-da-maravilha.png",
+      "sourceLocal": "/workspace/portal-visual-review/visual-review/../sheets/ad0401695dac0f86/source.png",
+      "normal": "/workspace/portal-visual-review/visual-review/current-b2658ceb49dac1e2-normal.png",
+      "extended": "/workspace/portal-visual-review/visual-review/current-b2658ceb49dac1e2-extended.png",
+      "inspecaoVisualIndependente": true,
+      "decisao": "PROPOSTA CONFIRMADA; aplicar somente se root decidir",
+      "fundamentacao": "Ficha e recorte mostram Si- Mi- Si- acima de Maria, feita de terra. O terceiro acorde tem hífen visível, igual aos outros Si- da estrofe e da página. Legado normal/extended trazem Si natural nessa posição. É perda de qualidade menor, sem ambiguidade com letra ou indicação vocal.",
+      "variants": [
+        {
+          "variant": "normal",
+          "catalogField": "html_base64",
+          "patches": [
+            {
+              "old": "<FONT COLOR=\"#FF0000\">    Si-     Mi-      Si\r\n<FONT COLOR=\"#000000\">S.  Maria, feita de terra,",
+              "new": "<FONT COLOR=\"#FF0000\">    Si-     Mi-      Si-\r\n<FONT COLOR=\"#000000\">S.  Maria, feita de terra,",
+              "oldOccurrences": 1
+            }
+          ]
+        },
+        {
+          "variant": "extended",
+          "catalogField": "ext_base64",
+          "patches": [
+            {
+              "old": "<FONT COLOR=\"#FF0000\">    Si-     Mi-      Si\r\n<FONT COLOR=\"#000000\">S.  Maria, feita de terra,",
+              "new": "<FONT COLOR=\"#FF0000\">    Si-     Mi-      Si-\r\n<FONT COLOR=\"#000000\">S.  Maria, feita de terra,",
+              "oldOccurrences": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sequence": 256,
+      "catalogId": 62,
+      "title": "Credo",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/credo.png",
+      "sourceLocal": "/workspace/portal-visual-review/visual-review/../sheets/6a80cd03db403f5d/source.png",
+      "normal": "/workspace/portal-visual-review/visual-review/current-08d872ecb9081ec3-normal.png",
+      "extended": "/workspace/portal-visual-review/visual-review/current-08d872ecb9081ec3-extended.png",
+      "inspecaoVisualIndependente": true,
+      "decisao": "PROPOSTA CONFIRMADA; aplicar somente se root decidir",
+      "fundamentacao": "Fonte oficial traz SUBIU AOS CÉUS e NA COMUNHÃO DOS SANTOS. Normal e extended mostram CEUS e COMUNHAO. Restaurar os acentos é edição ortográfica portuguesa comum, sem mudar conteúdo litúrgico, cifras, ordem ou repetição.",
+      "variants": [
+        {
+          "variant": "normal",
+          "catalogField": "html_base64",
+          "patches": [
+            {
+              "old": "<b>SUBIU AOS CEUS, ESTÁ SENTADO À DIREITA DE DEUS PAI TODO-PODEROSO,</b>",
+              "new": "<b>SUBIU AOS CÉUS, ESTÁ SENTADO À DIREITA DE DEUS PAI TODO-PODEROSO,</b>",
+              "oldOccurrences": 1
+            },
+            {
+              "old": "<b>NA COMUNHAO DOS SANTOS,</b>",
+              "new": "<b>NA COMUNHÃO DOS SANTOS,</b>",
+              "oldOccurrences": 1
+            }
+          ]
+        },
+        {
+          "variant": "extended",
+          "catalogField": "ext_base64",
+          "patches": [
+            {
+              "old": "<b>SUBIU AOS CEUS, ESTÁ SENTADO À DIREITA DE DEUS PAI TODO-PODEROSO,</b>",
+              "new": "<b>SUBIU AOS CÉUS, ESTÁ SENTADO À DIREITA DE DEUS PAI TODO-PODEROSO,</b>",
+              "oldOccurrences": 1
+            },
+            {
+              "old": "<b>NA COMUNHAO DOS SANTOS,</b>",
+              "new": "<b>NA COMUNHÃO DOS SANTOS,</b>",
+              "oldOccurrences": 1
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "foraDoEscopo": "Não aplicar substituição global de Solo, Si, CEUS ou COMUNHAO ao catálogo. Propostas são fragmentos exatos acima. Outras diferenças editoriais citadas na amostra (referência 1-s/1-8, hífen, notas, vírgulas) não receberam proposta neste arquivo."
+}

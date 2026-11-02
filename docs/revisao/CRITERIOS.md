@@ -28,3 +28,13 @@ Nenhuma correção deve substituir automaticamente `html_base64` ou `ext_base64`
 Na incorporação, preservar as duas variantes e os hooks da WebView, a fonte
 monoespaçada, os espaços de alinhamento, `<H1>`, `#FF0000`, `@transp@` e
 `@capot@`. Alterações ficam fora do catálogo até conferência e validação.
+
+A conversão de cifras A–G para nomes europeus é intencional e necessária à
+transposição do app: A=La, B=Si, C=Do, D=Re, E=Mi, F=Fa e G=Sol. Essa mudança
+de notação não é falha quando preserva a altura. Conferir separadamente
+sustenidos/bemóis, qualidade maior/menor, extensões e nota do baixo. Uma cifra
+reconhecida como palavra ou instrução não deve ser tratada como acorde válido.
+
+Quando uma discrepância já reprovar a ficha, registrar a evidência concreta e
+indicar se a exatidão integral da transcrição ainda não foi exaurida. Não
+converter esse diagnóstico em aprovação das linhas restantes.

@@ -1,0 +1,682 @@
+{
+  "scope": "Revisão visual real das sequências 42–54 e 165–178; somente evidências pareadas, sem alteração de catálogo.",
+  "entries": [
+    {
+      "sequence": 42,
+      "key": "974cea7e31053ff0",
+      "title": "Carmen 63",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/carmen-63.png",
+      "evidence": "docs/revisao/evidencias/974cea7e31053ff0-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Fusões em 'Estãorotasminhas', 'minhas portasdepar' e 'jáestáforjada'."
+        ],
+        "cifra": [],
+        "alinhamento": [
+          "Cifras da resposta ESTÃO ROTAS / PAGAS ficam separadas da letra por vazios excessivos."
+        ],
+        "repeticao": [
+          "Retorno final GANHAREI MEU REINO permanece abreviado com reticências."
+        ]
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 43,
+      "key": "b76a8d3f88293baf",
+      "title": "Chegue à tua presença meu clamor",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/chegue-a-tua-presenca-meu-clamor.png",
+      "evidence": "docs/revisao/evidencias/b76a8d3f88293baf-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Omitida a linha 'Chegue à tua presença meu clamor,' após La-.",
+          "Fusões 'brotede', 'canteminha' e 'línguatuas'."
+        ],
+        "cifra": [],
+        "alinhamento": [
+          "La- fica órfão antes de Fa da linha seguinte."
+        ],
+        "repeticao": [
+          "Retornos finais ficam com reticências, sem expansão."
+        ]
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 44,
+      "key": "fe369afb46585498",
+      "title": "Como a corça",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/como-a-corca.png",
+      "evidence": "docs/revisao/evidencias/fe369afb46585498-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Fusões 'corçaanseiapelascorrentesde', 'teabates,almaminha'."
+        ],
+        "cifra": [
+          "Primeira resposta direita: Sol no HTML em lugar de Sol# sobre o segundo DEUS; na resposta inicial esquerda Faf- em vez de Fa#-."
+        ],
+        "alinhamento": [],
+        "repeticao": [
+          "Retornos finais ESPERA EM DEUS e Porque ele permanecem abreviados."
+        ]
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 45,
+      "key": "1836bc6569831f47",
+      "title": "Como condenados a morte",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/como-condenados-a-morte.png",
+      "evidence": "docs/revisao/evidencias/1836bc6569831f47-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Fusões 'anós', 'Postoscomo' e 'paraos'."
+        ],
+        "cifra": [],
+        "alinhamento": [
+          "Na resposta direita La- aparece sem letra; das quatro linhas COMO CONDENADOS À MORTE só três são legíveis no HTML."
+        ],
+        "repeticao": [
+          "Omitida uma das quatro repetições explícitas de COMO CONDENADOS À MORTE; retornos finais abreviados."
+        ]
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 46,
+      "key": "8842b47073c98bb1",
+      "title": "Como é maravilhoso",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/como-e-maravilhoso.png",
+      "evidence": "docs/revisao/evidencias/8842b47073c98bb1-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Fusões 'émaravilhoso', 'Écomo', 'pelabarba', 'aVidapara'."
+        ],
+        "cifra": [
+          "Re7 virou Re? no primeiro Maravilhoso e em Nos deu; resposta MARAVILHOSO perdeu menor de Si- (SolSi)."
+        ],
+        "alinhamento": [
+          "Linha É como óleo que desce quebra que em linha avulsa."
+        ],
+        "repeticao": [
+          "Refrão final fica com reticências."
+        ]
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 47,
+      "key": "5599b9145bb5be21",
+      "title": "Como ovelha que vê",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/como-ovelha-que-ve.png",
+      "evidence": "docs/revisao/evidencias/5599b9145bb5be21-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Fusões 'Mariaseguia-o', 'ver-tenesteestado' e 'MeuFilhoe'."
+        ],
+        "cifra": [],
+        "alinhamento": [
+          "Cifras de diversas linhas ficam isoladas por grande espaço vertical (Nunca poderia imaginar / que chegaria)."
+        ],
+        "repeticao": [
+          "Retorno COMO OVELHA QUE VÊ continua abreviado com reticências até DA TUA VIDA."
+        ]
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 48,
+      "key": "1e299cfc16385892",
+      "title": "Como são amáveis tuas moradas",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/como-sao-amaveis-tuas-moradas.png",
+      "evidence": "docs/revisao/evidencias/1e299cfc16385892-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Fusões 'amáveistuas', 'pelosátriosdo', 'Valemaisum dianosteusátrios'.",
+          "A SANTA VIAGEM final aparece como 'ÀSANTA VIAGEM'."
+        ],
+        "cifra": [],
+        "alinhamento": [
+          "Parêntese avulso antes de NOS PALÁCIOS DOS POTENTES; cifras de refrão afastadas da letra."
+        ],
+        "repeticao": [
+          "Retornos PASSANDO e FELIZ QUEM HABITA permanecem com reticências."
+        ]
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 49,
+      "key": "f5bce2af4a4c1cb7",
+      "title": "Confessei a ti o meu pecado",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/confessei-a-ti-o-meu-pecado.png",
+      "evidence": "docs/revisao/evidencias/f5bce2af4a4c1cb7-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Fusões 'TIO', 'ETU', 'cujoespíritonão', 'porelaaridezdo' e 'te indicareiocaminho'."
+        ],
+        "cifra": [],
+        "alinhamento": [
+          "Cifras Re-/La- em Feliz o homem ficam muito separadas verticalmente de suas linhas."
+        ],
+        "repeticao": [
+          "Todos os retornos CONFESSEI A TI O MEU PECADO continuam abreviados."
+        ]
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 50,
+      "key": "ed6703f7ca4e06a4",
+      "title": "Consolai o meu povo",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/consolai-o-meu-povo.png",
+      "evidence": "docs/revisao/evidencias/ed6703f7ca4e06a4-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Fusões 'EFALAI', 'EGRITAI-LHE', 'vozno desertogrita' e 'opastorleva'."
+        ],
+        "cifra": [],
+        "alinhamento": [],
+        "repeticao": [
+          "Retorno CONSOLAI final fica abreviado."
+        ]
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 51,
+      "key": "e65be429c22504f1",
+      "title": "Cristo É A Luz",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/cristo-e-a-luz.png",
+      "evidence": "docs/revisao/evidencias/e65be429c22504f1-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Fusões recorrentes 'Cristoé', 'aVida', 'aVerdade', 'ÉO' e 'ÉA' nas respostas."
+        ],
+        "cifra": [],
+        "alinhamento": [],
+        "repeticao": []
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 52,
+      "key": "e9a98c64e32f3046",
+      "title": "Dayenu",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/dayenu-1.png",
+      "evidence": "docs/revisao/evidencias/e9a98c64e32f3046-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Fusões 'Cristonos tivessefeitosairdo', 'tivesselibertadodetodos', 'tivesseconstruídoem'."
+        ],
+        "cifra": [],
+        "alinhamento": [
+          "Cifras da segunda exposição De quantos bens ficam isoladas da letra por vão vertical."
+        ],
+        "repeticao": [
+          "Respostas ISTO NOS TERIA BASTADO ficam abreviadas em todas as estrofes seguintes."
+        ]
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 53,
+      "key": "b2314df149860cfd",
+      "title": "Dayenu",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/dayenu-2.png",
+      "evidence": "docs/revisao/evidencias/b2314df149860cfd-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Fusões 'fezsairdo', 'fezentrarna', 'estáressuscitado'; primeira frase Tanto mais nós temos que dar graças ao Senhor quebra em fragmentos fora de ordem linear."
+        ],
+        "cifra": [],
+        "alinhamento": [
+          "Primeira linha divide que/graças ao abaixo de temos/dar/Senhor; Que nos deu as suas riquezas fragmentada em duas alturas."
+        ],
+        "repeticao": [
+          "BIS A. aparece como texto/barra em todas as estrofes sem expandir a resposta por extenso."
+        ]
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 54,
+      "key": "e6f236bcfb04082a",
+      "title": "De profundis",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/de-profundis.png",
+      "evidence": "docs/revisao/evidencias/e6f236bcfb04082a-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Fusões 'TIGRITO', 'tensem', 'nossospecados', 'TISE', 'Eleredime'."
+        ],
+        "cifra": [
+          "Fa7 das duas primeiras frases vira Fa?."
+        ],
+        "alinhamento": [],
+        "repeticao": [
+          "BIS A./BISA/BIS preservados como indicações sem repetição por extenso."
+        ]
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 165,
+      "key": "46d5323fa4df2e45",
+      "title": "Shlom-lej Mariam",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/shlom-lej-mariam.png",
+      "evidence": "docs/revisao/evidencias/46d5323fa4df2e45-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Fusões 'Benditasois', 'entreas', 'ebendito', 'frutodo' e 'aiaiaiai'."
+        ],
+        "cifra": [],
+        "alinhamento": [
+          "Mi- inicial da estrofe Ave Maria fica separado da letra por grande vazio."
+        ],
+        "repeticao": [
+          "BIS A. inicial e BIS do refrão não expandidos; retornos SANTA/SHLOM abreviados."
+        ]
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 166,
+      "key": "82e2f6755543bbf1",
+      "title": "Sião, mãe de todos os povos",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/siao-mae-de-todos-os-povos.png",
+      "evidence": "docs/revisao/evidencias/82e2f6755543bbf1-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Fusões 'portasdeSião', 'coisasestupendas', 'Talhomem', 'Estãoem'."
+        ],
+        "cifra": [],
+        "alinhamento": [
+          "Primeiro MÃE,MÃE,CIDADE DE DEUS quebra primeiro MÃE em linha acima de MÃE,CIDADE."
+        ],
+        "repeticao": [
+          "Barras/BIS A./BIS mantidos nas respostas sem expansão por extenso."
+        ]
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 167,
+      "key": "d265efdb154731c2",
+      "title": "Só a só",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/so-a-so.png",
+      "evidence": "docs/revisao/evidencias/d265efdb154731c2-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Fusões 'tepoderá', 'torretranspassada', 'tusustentas', 'débilfé', 'SÓASÓ'.",
+          "Nota de dedilhado corrompida: 1ª vira 12 e 4ª vira 42."
+        ],
+        "cifra": [],
+        "alinhamento": [
+          "Diagramas de acordes oficiais no rodapé viram caracteres soltos no HTML, sem diagrama utilizável."
+        ],
+        "repeticao": [
+          "Retorno final SÓ A SÓ fica abreviado."
+        ]
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 168,
+      "key": "a67d04c34752b535",
+      "title": "Sobe Deus entre aclamações",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/sobe-deus-entre-aclamacoes.png",
+      "evidence": "docs/revisao/evidencias/a67d04c34752b535-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Fusões 'Deusentreaclamações', 'Povostodos,bateipalmas', 'CantaiaDeus'.",
+          "Sinal = avulso sobre ACLAMAÇÕES do retorno final."
+        ],
+        "cifra": [],
+        "alinhamento": [],
+        "repeticao": [
+          "Dois retornos SOBE DEUS mantêm reticências e BISA com barra; falta texto repetido por extenso."
+        ]
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 169,
+      "key": "1c4bc74dd2d06fe7",
+      "title": "Stabat Mater dolorosa",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/stabat-mater-dolorosa.png",
+      "evidence": "docs/revisao/evidencias/1c4bc74dd2d06fe7-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Fusões 'atranspassou', 'benditaMãe', 'tantosuplício', 'aosaçoites'; subtítulo século XIII vira séculoXII."
+        ],
+        "cifra": [
+          "Do7/Sib7 iniciais viram Do?/Sib?; o mesmo par corrompido em Ó que triste e aflita."
+        ],
+        "alinhamento": [
+          "Diagrama Re-5 do rodapé vira caracteres isolados, sem desenho utilizável."
+        ],
+        "repeticao": [
+          "BIS inicial e final sem expansão; dois retornos STABAT abreviados."
+        ]
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 170,
+      "key": "ecec78a78223e4b1",
+      "title": "Tu cobriste de vergonha a morte",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/tu-cobriste-de-vergonha-a-morte.png",
+      "evidence": "docs/revisao/evidencias/ecec78a78223e4b1-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Fusões 'Tunos', 'daescravidãoà', 'cordeironascido', 'fosteassassinado', 'cordeiroque'."
+        ],
+        "cifra": [
+          "La7 vira La? em A MORTE, da morte à vida e Tu foste tirado."
+        ],
+        "alinhamento": [
+          "COMO MOISÉS AO FARAÓ traz pontos soltos sobre palavras; várias cifras distantes verticalmente."
+        ],
+        "repeticao": [
+          "BIS A. inicial sem expansão; dois retornos MARIA abreviados."
+        ]
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 171,
+      "key": "72e5ff1640872d00",
+      "title": "Tu és digno de receber o livro",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/tu-es-digno-de-receber-o-livro.png",
+      "evidence": "docs/revisao/evidencias/72e5ff1640872d00-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Fusões 'Tués', 'olivro', 'abriros', 'tufosteimolado', 'povoenação'.",
+          "Segunda estrofe 'teu o sangue' da fonte aparece como 'teuo sangue', sem separação."
+        ],
+        "cifra": [],
+        "alinhamento": [],
+        "repeticao": [
+          "Dois retornos E FIZESTE DELES ficam abreviados."
+        ]
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 172,
+      "key": "d6e60f046ad2c6a2",
+      "title": "Tu és formoso",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/tu-es-formoso.png",
+      "evidence": "docs/revisao/evidencias/d6e60f046ad2c6a2-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Fusões 'cavalgacheio', 'pelaverdade', 'faztemívelatuadireita', 'Dospaláciosde', 'tufaráspríncipessobrea'."
+        ],
+        "cifra": [
+          "Fa#- sobre Agudas vira Faf-."
+        ],
+        "alinhamento": [
+          "Parêntese/pontos avulsos acima de A GRAÇA e TU ÉS BENDITO."
+        ],
+        "repeticao": [
+          "Três retornos TU ÉS FORMOSO ficam abreviados."
+        ]
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 173,
+      "key": "49041944c57d5009",
+      "title": "Tu que és fiel",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/tu-que-es-fiel.png",
+      "evidence": "docs/revisao/evidencias/49041944c57d5009-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Fusões 'juízoo teu' / 'juízooteu', 'inimigopersegue-me', 'vidacontrao', 'comoterraressequida', 'teuEspíritome'."
+        ],
+        "cifra": [],
+        "alinhamento": [
+          "Cifras Sol-/Do- da primeira resposta muito afastadas da letra; pontos/acento avulsos sobre resposta."
+        ],
+        "repeticao": [
+          "Quatro retornos TU QUE ÉS FIEL ficam abreviados."
+        ]
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 174,
+      "key": "f2313c540028e7c3",
+      "title": "Um grande sinal",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/um-grande-sinal.png",
+      "evidence": "docs/revisao/evidencias/f2313c540028e7c3-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Fusões 'outrosinalno', 'setecabeças', 'edez', 'colocou-sediante', 'Filhotãologo', 'batalhoujuntamente'.",
+          "'encontrou mais' da fonte vira 'enconiroumais'."
+        ],
+        "cifra": [],
+        "alinhamento": [],
+        "repeticao": [
+          "Dois retornos UM GRANDE SINAL ficam abreviados; final LA LA também traz reticências."
+        ]
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 175,
+      "key": "20bcd47e03b3e93e",
+      "title": "Um rebento brota do tronco de Jessé",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/um-rebento-brota-do-tronco-de-jesse.png",
+      "evidence": "docs/revisao/evidencias/20bcd47e03b3e93e-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Fusões 'EFORTALEZA', 'julgarápor ouvirdizer', 'palavraserá', 'contraoviolento', 'novilhopastarãojuntos', 'araizde'."
+        ],
+        "cifra": [],
+        "alinhamento": [
+          "Parêntese avulso entre cifras e resposta PORQUE UM CAMINHO SE ABRIRÁ; cifras muito apartadas em leão/menino."
+        ],
+        "repeticao": [
+          "Dois retornos UM REBENTO BROTA ficam abreviados."
+        ]
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 176,
+      "key": "410bda186380cce0",
+      "title": "Uri, uri, uri urá",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/uri-uri-uri-ura.png",
+      "evidence": "docs/revisao/evidencias/410bda186380cce0-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Primeiros uri/urá em solo perdem acento (ura); fusões 'vainascer', 'sechamará', 'paié', 'LALALALA'."
+        ],
+        "cifra": [],
+        "alinhamento": [
+          "Si7 fica órfão antes de PAM; pontuação solta entre cifra e texto de LA LA e COMO SE CHAMARÁ."
+        ],
+        "repeticao": [
+          "Na primeira resposta há só duas linhas URI explícitas antes de PAM, contra três na fonte; retornos finais URI abreviados."
+        ]
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 177,
+      "key": "67e3b6c4313340ba",
+      "title": "Vamos já, pastores",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/vamos-ja-pastores.png",
+      "evidence": "docs/revisao/evidencias/67e3b6c4313340ba-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Fusões 'JÁ,PASTORES', 'jácantam', 'járiem', 'pai,José'."
+        ],
+        "cifra": [],
+        "alinhamento": [
+          "Grandes vazios verticais no refrão inicial tornam distante a associação das cifras a SE CHAMA EMANUEL."
+        ],
+        "repeticao": [
+          "BIS do PA RA RAM PAM PAM preservado sem expansão; dois retornos VAMOS JÁ abreviados."
+        ]
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 178,
+      "key": "fd6ccba2824767e4",
+      "title": "Vem do Líbano",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/vem-do-libano.png",
+      "evidence": "docs/revisao/evidencias/fd6ccba2824767e4-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Ó irmã e ó esposa viram '6irmã' e '6esposa'; fusões 'Teráspor', 'coroaos', 'osaltoscimos', 'Eupertençoao', 'eleé tudoparamim', 'rolaseouve'."
+        ],
+        "cifra": [],
+        "alinhamento": [
+          "Mi-/Re da estrofe Como um selo ficam separados da linha por espaço vertical; ponto avulso acima de NÃO."
+        ],
+        "repeticao": [
+          "Três retornos BUSQUEI O AMOR continuam abreviados."
+        ]
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    }
+  ]
+}

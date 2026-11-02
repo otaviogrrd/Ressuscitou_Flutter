@@ -19,7 +19,8 @@ def normalized(value):
 def findings(entry):
     result = []
     for item in entry.get('issues', []):
-        result.append(f"{item.get('aspect', 'observação')}: {item['detail']}")
+        aspect = {'lyrics':'letra','layout':'alinhamento','chords':'cifra','repetition':'repetição'}.get(item.get('aspect'), item.get('aspect','observação'))
+        result.append(f"{aspect}: {item['detail']}")
     notes = entry.get('achados')
     if isinstance(notes, str):
         result.append(notes)
@@ -117,11 +118,23 @@ O painel usa as imagens públicas do GitHub e requer internet para carregá-las.
 | Nº | Canto/ficha | Resultado | Evidência | Achados |
 |---:|---|---|---|---|
 '''
+    by_file = {}
+    for entry in entries:
+        by_file.setdefault(entry['reportFile'], []).append(entry)
+    for filename, group in by_file.items():
+        path = DIRECTORY / Path(filename).with_suffix('.md')
+        if not path.exists():
+            content = '# Comparação visual — ' + Path(filename).stem + '\n\n'
+            content += 'Inspeção de capturas do rascunho OCR; não aprova o catálogo ou a versão estendida.\n\n'
+            for entry in group:
+                content += f"## {entry['sequence']:03d} — {entry['title']}\n\n**{entry['status']}** · [Comparação]({BASE + entry['evidence']})\n\n"
+                content += '\n'.join('- ' + note for note in entry['findings']) + '\n\n'
+            path.write_text(content, encoding='utf-8')
     rows = []
     details = []
     for entry in entries:
         title = entry['title'].replace('|', '\\|')
-        rows.append(f"| {entry['sequence']:03d} | {title} | {entry['status']} | [Comparação]({BASE + entry['evidence']}) | [{entry['reportFile']}]({entry['reportFile']}) |")
+        rows.append(f"| {entry['sequence']:03d} | {title} | {entry['status']} | [Comparação]({BASE + entry['evidence']}) | [Detalhes]({Path(entry['reportFile']).with_suffix('.md').as_posix()}) |")
         details.append(f"### {entry['sequence']:03d} — {entry['title']}\n\n**{entry['status']}** · [Ficha oficial]({entry['sourceUrl']}) · [Comparação]({BASE + entry['evidence']})\n\n" + '\n'.join('- ' + note for note in entry['findings']) + '\n')
     (DIRECTORY / 'RELATORIO.md').write_text(header + '\n'.join(rows) + '\n\n## Limites e próximos passos\n\nOs rascunhos reprovados exigem correção/transcrição e nova comparação antes de entrar no app. Não foram aprovados por score OCR. A ficha antes indisponível, Para ti morada santa, foi recuperada e revisada como imagem329.\n', encoding='utf-8')
     (DIRECTORY / 'ACHADOS.md').write_text('# Achados por ficha\n\n' + '\n'.join(details), encoding='utf-8')
