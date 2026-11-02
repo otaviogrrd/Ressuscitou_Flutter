@@ -41,7 +41,7 @@ workflows:
       cocoapods: default
       ios_signing:
         distribution_type: app_store
-        bundle_identifier: br.cn.ressuscitou
+        bundle_identifier: br.com.otaviogrrd.ressuscitou
     scripts:
       - *dependencies
       - *analyze

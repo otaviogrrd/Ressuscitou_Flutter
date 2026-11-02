@@ -3,6 +3,19 @@
 O arquivo `codemagic.yaml` na raiz usa Flutter 3.47.7, como o CI do GitHub.
 Os workflows são manuais; conectar o repositório não publica o app.
 
+## Novo aplicativo na nova conta Apple
+
+Esta publicação é separada do aplicativo anterior “Ressuscitou BR”.
+- Nome no aparelho: **Ressuscitou**.
+- Bundle ID: **`br.com.otaviogrrd.ressuscitou`**, novo e diferente do anterior.
+- A equipe Apple antiga foi removida do projeto; a assinatura será aplicada pelos perfis da nova conta.
+- Na nova conta Apple Developer, registre um App ID explícito com esse Bundle ID.
+- No App Store Connect da mesma conta, crie um novo app com esse Bundle ID e nome “Ressuscitou”, sujeito à disponibilidade na loja.
+- Configure no Codemagic o certificado Apple Distribution e o perfil App Store dessa nova conta.
+
+Os usuários do aplicativo anterior não recebem esta publicação separada como atualização automática.
+O nome cadastrado na App Store é uma configuração do App Store Connect, independente do nome exibido no aparelho.
+
 ## Conectar e compilar
 
 1. No Codemagic, adicione o repositório GitHub `otaviogrrd/Ressuscitou_Flutter`.
@@ -14,7 +27,7 @@ Os workflows são manuais; conectar o repositório não publica o app.
    e a compilação para simulador é uma verificação separada.
 5. Para gerar o IPA para TestFlight, cadastre no Codemagic o certificado Apple
    Distribution com sua chave privada e um perfil App Store para
-   `br.cn.ressuscitou`. Eles precisam pertencer à mesma equipe Apple Developer.
+   `br.com.otaviogrrd.ressuscitou`. Eles precisam pertencer à mesma equipe Apple Developer.
    Use a área de assinatura do Codemagic; não adicione chaves ao Git.
 6. Execute `ios-ipa`. `xcode-project use-profiles` aplica o perfil cadastrado;
    o número da compilação usa `BUILD_NUMBER` do Codemagic. Se já existe uma
