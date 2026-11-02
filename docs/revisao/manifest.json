@@ -6685,7 +6685,7 @@
       "meanConfidence": 34.29,
       "columnCollisions": 15,
       "sequence": 288,
-      "published": false,
+      "published": true,
       "evidence": "docs/revisao/evidencias/879e188412c8e4b2-pair.jpg"
     },
     {
@@ -6709,7 +6709,7 @@
       "meanConfidence": 0.0,
       "columnCollisions": 0,
       "sequence": 289,
-      "published": false,
+      "published": true,
       "evidence": "docs/revisao/evidencias/d174d87c4c0ac475-pair.jpg"
     },
     {
@@ -6733,7 +6733,7 @@
       "meanConfidence": 93.24,
       "columnCollisions": 29,
       "sequence": 290,
-      "published": false,
+      "published": true,
       "evidence": "docs/revisao/evidencias/174fcaf7467efcaa-pair.jpg"
     },
     {
@@ -6757,7 +6757,7 @@
       "meanConfidence": 92.59,
       "columnCollisions": 20,
       "sequence": 291,
-      "published": false,
+      "published": true,
       "evidence": "docs/revisao/evidencias/1344655dbce07d90-pair.jpg"
     },
     {
@@ -6781,7 +6781,7 @@
       "meanConfidence": 30.84,
       "columnCollisions": 2,
       "sequence": 292,
-      "published": false,
+      "published": true,
       "evidence": "docs/revisao/evidencias/6eda7460bef4da18-pair.jpg"
     },
     {
@@ -6805,7 +6805,7 @@
       "meanConfidence": 43.75,
       "columnCollisions": 27,
       "sequence": 293,
-      "published": false,
+      "published": true,
       "evidence": "docs/revisao/evidencias/58fe76e0f5ea96d7-pair.jpg"
     },
     {
@@ -6829,7 +6829,7 @@
       "meanConfidence": 71.97,
       "columnCollisions": 12,
       "sequence": 294,
-      "published": false,
+      "published": true,
       "evidence": "docs/revisao/evidencias/73537024692d6c3f-pair.jpg"
     },
     {
@@ -6853,7 +6853,7 @@
       "meanConfidence": 94.07,
       "columnCollisions": 20,
       "sequence": 295,
-      "published": false,
+      "published": true,
       "evidence": "docs/revisao/evidencias/1d7af0bbb81b150a-pair.jpg"
     },
     {
@@ -6877,7 +6877,7 @@
       "meanConfidence": 35.94,
       "columnCollisions": 32,
       "sequence": 296,
-      "published": false,
+      "published": true,
       "evidence": "docs/revisao/evidencias/30a31362f6edfd83-pair.jpg"
     },
     {
@@ -6901,7 +6901,7 @@
       "meanConfidence": 0,
       "columnCollisions": 0,
       "sequence": 297,
-      "published": false,
+      "published": true,
       "evidence": "docs/revisao/evidencias/7599226e78103f97-pair.jpg"
     },
     {
@@ -6925,7 +6925,7 @@
       "meanConfidence": 92.77,
       "columnCollisions": 28,
       "sequence": 298,
-      "published": false,
+      "published": true,
       "evidence": "docs/revisao/evidencias/9db958eade99f542-pair.jpg"
     },
     {
@@ -6949,7 +6949,7 @@
       "meanConfidence": 93.55,
       "columnCollisions": 21,
       "sequence": 299,
-      "published": false,
+      "published": true,
       "evidence": "docs/revisao/evidencias/e4230995ab4c97b9-pair.jpg"
     },
     {
