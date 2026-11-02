@@ -18,7 +18,11 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--review', type=Path, default=Path('portal-review/visual-review'))
     parser.add_argument('--batch', type=int, default=12)
+    parser.add_argument('--manifest-path', default='docs/revisao/manifest.json')
+    parser.add_argument('--sequence-offset', type=int, default=0)
     args = parser.parse_args()
+    if not args.manifest_path.startswith('docs/revisao/') or '..' in Path(args.manifest_path).parts or args.sequence_offset < 0:
+        raise ValueError('Unexpected evidence manifest path or offset')
     repository = os.environ['GITHUB_REPOSITORY']
     token = os.environ['GITHUB_TOKEN']
     source_sha = os.environ['SOURCE_SHA']
@@ -58,7 +62,7 @@ def main():
     manifest['evidenceBranch'] = BRANCH
     pending = []
     for index, item in enumerate(manifest['entries']):
-        item['sequence'] = index
+        item['sequence'] = index + args.sequence_offset
         item['published'] = False
         name = item.get('pair')
         if not name or Path(name).name != name or not (args.review / name).is_file():
@@ -77,7 +81,7 @@ def main():
             item['published'] = True
         data = json.dumps(manifest, ensure_ascii=False, indent=2).encode()
         blob = api('/git/blobs', {'content': base64.b64encode(data).decode(), 'encoding': 'base64'})
-        elements.append({'path': 'docs/revisao/manifest.json', 'mode': '100644', 'type': 'blob', 'sha': blob['sha']})
+        elements.append({'path': args.manifest_path, 'mode': '100644', 'type': 'blob', 'sha': blob['sha']})
         new_tree = api('/git/trees', {'base_tree': tree, 'tree': elements})['sha']
         commit = api('/git/commits', {'message': f'Review evidence: {min(offset + args.batch, len(pending))}/{len(pending)} sheets',
                                       'tree': new_tree, 'parents': [parent]})['sha']

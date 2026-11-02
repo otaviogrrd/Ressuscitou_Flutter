@@ -7,6 +7,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel, Field
 
 from .engine import SearchEngine
+from .corrections import apply_corrections
 
 
 class SearchRequest(BaseModel):
@@ -27,6 +28,9 @@ def create_app(engine=None):
                 overrides = json.loads(metadata.read_text(encoding='utf-8')).get('categoryOverrides', {})
                 for song in songs:
                     song['categoria'] = overrides.get(song['html'], song.get('categoria', 0))
+            reviewed = catalog.with_name('reviewed_html_corrections.json')
+            if reviewed.exists():
+                apply_corrections(songs, json.loads(reviewed.read_text(encoding='utf-8'))['songs'])
             model = SentenceTransformer(os.getenv('EMBEDDING_MODEL', 'sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2'),
                                         revision=os.getenv('MODEL_REVISION', 'main'), device='cpu', trust_remote_code=False)
             model.max_seq_length = 128

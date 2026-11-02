@@ -47,4 +47,5 @@ flutter:
   assets:
     - assets/cantos.json
     - assets/portal_metadata.json
+    - assets/reviewed_html_corrections.json
     - assets/img/

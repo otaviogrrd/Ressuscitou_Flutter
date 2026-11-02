@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "reviewDate": "2026-11-02",
+  "songs": {
+    "NAO ESTA AQUI RESSUSCITOU": {
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/nao-esta-aqui-ressuscitou.png",
+      "reviewedBy": "visual comparison plus independent confirmation",
+      "html_base64": {
+        "sourceSha256": "35fa44d8e042c7770ddf95c0ae4309bbd185c5c57c4a84ce11eaec1d65dc9dac",
+        "patches": [
+          {
+            "old": "<FONT COLOR=\"#FF0000\">    Re7           Solo\r\n<FONT COLOR=\"#000000\">    o Crucificado;",
+            "new": "<FONT COLOR=\"#FF0000\">    Re7           Sol-\r\n<FONT COLOR=\"#000000\">    o Crucificado;",
+            "oldOccurrences": 1
+          }
+        ]
+      },
+      "ext_base64": {
+        "sourceSha256": "35fa44d8e042c7770ddf95c0ae4309bbd185c5c57c4a84ce11eaec1d65dc9dac",
+        "patches": [
+          {
+            "old": "<FONT COLOR=\"#FF0000\">    Re7           Solo\r\n<FONT COLOR=\"#000000\">    o Crucificado;",
+            "new": "<FONT COLOR=\"#FF0000\">    Re7           Sol-\r\n<FONT COLOR=\"#000000\">    o Crucificado;",
+            "oldOccurrences": 1
+          }
+        ]
+      }
+    },
+    "VIRGEM DA MARAVILHA": {
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/virgem-da-maravilha.png",
+      "reviewedBy": "visual comparison plus independent confirmation",
+      "html_base64": {
+        "sourceSha256": "59d75767b25cde0823e5e444812991fb271a1db78009e059809e22441364cd12",
+        "patches": [
+          {
+            "old": "<FONT COLOR=\"#FF0000\">    Si-     Mi-      Si\r\n<FONT COLOR=\"#000000\">S.  Maria, feita de terra,",
+            "new": "<FONT COLOR=\"#FF0000\">    Si-     Mi-      Si-\r\n<FONT COLOR=\"#000000\">S.  Maria, feita de terra,",
+            "oldOccurrences": 1
+          }
+        ]
+      },
+      "ext_base64": {
+        "sourceSha256": "698b9a3c2e0b4e4ff8e4d92dbeb12b2e06c26b100c22c2c0281d01d43e7577b3",
+        "patches": [
+          {
+            "old": "<FONT COLOR=\"#FF0000\">    Si-     Mi-      Si\r\n<FONT COLOR=\"#000000\">S.  Maria, feita de terra,",
+            "new": "<FONT COLOR=\"#FF0000\">    Si-     Mi-      Si-\r\n<FONT COLOR=\"#000000\">S.  Maria, feita de terra,",
+            "oldOccurrences": 1
+          }
+        ]
+      }
+    },
+    "CREDO": {
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/credo.png",
+      "reviewedBy": "visual comparison plus independent confirmation",
+      "html_base64": {
+        "sourceSha256": "22e8e0450a7229ee1f542b979d315399c194814d5194842873239eeecffa079f",
+        "patches": [
+          {
+            "old": "<b>SUBIU AOS CEUS, ESTÁ SENTADO À DIREITA DE DEUS PAI TODO-PODEROSO,</b>",
+            "new": "<b>SUBIU AOS CÉUS, ESTÁ SENTADO À DIREITA DE DEUS PAI TODO-PODEROSO,</b>",
+            "oldOccurrences": 1
+          },
+          {
+            "old": "<b>NA COMUNHAO DOS SANTOS,</b>",
+            "new": "<b>NA COMUNHÃO DOS SANTOS,</b>",
+            "oldOccurrences": 1
+          }
+        ]
+      },
+      "ext_base64": {
+        "sourceSha256": "22e8e0450a7229ee1f542b979d315399c194814d5194842873239eeecffa079f",
+        "patches": [
+          {
+            "old": "<b>SUBIU AOS CEUS, ESTÁ SENTADO À DIREITA DE DEUS PAI TODO-PODEROSO,</b>",
+            "new": "<b>SUBIU AOS CÉUS, ESTÁ SENTADO À DIREITA DE DEUS PAI TODO-PODEROSO,</b>",
+            "oldOccurrences": 1
+          },
+          {
+            "old": "<b>NA COMUNHAO DOS SANTOS,</b>",
+            "new": "<b>NA COMUNHÃO DOS SANTOS,</b>",
+            "oldOccurrences": 1
+          }
+        ]
+      }
+    }
+  }
+}

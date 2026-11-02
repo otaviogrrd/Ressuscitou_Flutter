@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import "package:http/http.dart";
 import "package:path_provider/path_provider.dart";
 import "../helpers/global.dart";
+import "../helpers/catalog_corrections.dart";
 
 class Canto {
   int id;
@@ -143,6 +144,19 @@ class Canto {
 
 class CantoService {
   static Future<Map<String, int>>? _portalCategories;
+  static Future<Map<String, dynamic>>? _reviewedHtml;
+
+  static void applyReviewedHtmlCorrections(List<Canto> cantos, Map<String, dynamic> songs) {
+    for (final canto in cantos) {
+      final rules = songs[canto.html];
+      if (rules is! Map<String, dynamic>) continue;
+      final normal = rules['html_base64'];
+      final extended = rules['ext_base64'];
+      if (normal is Map<String, dynamic>) canto.htmlBase64 = applyReviewedHtmlPatches(canto.htmlBase64, normal);
+      if (extended is Map<String, dynamic>) canto.extBase64 = applyReviewedHtmlPatches(canto.extBase64, extended);
+    }
+  }
+
 
   static void applyPortalCategories(List<Canto> cantos, Map<String, int> categories) {
     for (final canto in cantos) {
@@ -160,6 +174,10 @@ class CantoService {
               .map((key, value) => MapEntry(key, value as int));
         }));
     applyPortalCategories(cantos, categories);
+    final reviewed = await (_reviewedHtml ??= rootBundle
+        .loadString('assets/reviewed_html_corrections.json')
+        .then((text) => (jsonDecode(text) as Map<String, dynamic>)['songs'] as Map<String, dynamic>));
+    applyReviewedHtmlCorrections(cantos, reviewed);
   }
 
   final String urlCantos = "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/cantos.json";

@@ -7,7 +7,7 @@ RUN pip install --no-cache-dir --index-url https://download.pytorch.org/whl/cpu 
 ARG PREFETCH_MODEL=1
 RUN if [ "$PREFETCH_MODEL" = 1 ]; then python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2', device='cpu', trust_remote_code=False)"; fi
 COPY backend/search_service ./search_service
-COPY assets/cantos.json assets/portal_metadata.json ./assets/
+COPY assets/cantos.json assets/portal_metadata.json assets/reviewed_html_corrections.json ./assets/
 RUN mkdir -p /opt/models && useradd --uid 10001 --create-home appuser && chown -R appuser /app /opt/models
 USER appuser
 EXPOSE 8080
