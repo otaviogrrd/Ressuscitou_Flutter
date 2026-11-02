@@ -33,6 +33,8 @@ workflows:
 
   ios-ipa:
     name: iOS - IPA para TestFlight
+    integrations:
+      app_store_connect: Cnc
     instance_type: mac_mini_m2
     max_build_duration: 60
     environment:
@@ -62,3 +64,9 @@ workflows:
       - build/ios/ipa/*.ipa
       - build/ios/archive/*.xcarchive/dSYMs/*.dSYM
       - /tmp/xcodebuild_logs/*.log
+    publishing:
+      app_store_connect:
+        auth: integration
+        # Upload for internal testing; beta and App Store reviews remain manual.
+        submit_to_testflight: false
+        submit_to_app_store: false
