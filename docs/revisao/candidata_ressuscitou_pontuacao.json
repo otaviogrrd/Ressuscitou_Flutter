@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "status": "pending_visual_before_after",
+  "reviewDate": "2026-11-02",
+  "catalogRef": "58a9c86c3c5483d00f836cfbb711a01027e2aec5",
+  "scope": "Uma proposta de pontuação em RESSUSCITOU; não é regra ativa nem certificação integral.",
+  "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/ressuscitou.png",
+  "sourceEvidence": {
+    "ref": "chore/portal-visual-evidence",
+    "path": "docs/revisao/evidencias/6cf8508c732d54f0-pair.jpg",
+    "blobSha": "1df06c1a8f4bc4676e002da409bf468b7bb96ef9",
+    "panel": "left",
+    "inspectedVisually": true,
+    "note": "Cópia publicada da ficha em escala ajustada, não nova coleta do portal."
+  },
+  "songs": {
+    "RESSUSCITOU": {
+      "html_base64": {
+        "sourceSha256": "b85d9fdc0b7351ac5a95a9cece5cbf13ef7b365ffd71135d06cf2238b91f3094",
+        "patches": [
+          {
+            "old": "<FONT COLOR=\"#000000\">S.  Alegria, alegria irmãos,",
+            "new": "<FONT COLOR=\"#000000\">S.  Alegria, alegria, irmãos,",
+            "oldOccurrences": 1
+          }
+        ]
+      },
+      "ext_base64": {
+        "sourceSha256": "1ceb8dde09dd5e2bc966544d90fe0441a1f122a9a1c78868d2c77eae957930d2",
+        "patches": [
+          {
+            "old": "<FONT COLOR=\"#000000\">S.  Alegria, alegria irmãos,",
+            "new": "<FONT COLOR=\"#000000\">S.  Alegria, alegria, irmãos,",
+            "oldOccurrences": 1
+          }
+        ]
+      }
+    }
+  }
+}
