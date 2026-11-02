@@ -7,10 +7,10 @@ Os workflows são manuais; conectar o repositório não publica o app.
 
 Esta publicação é separada do aplicativo anterior “Ressuscitou BR”.
 - Nome no aparelho: **Ressuscitou**.
-- Bundle ID: **`br.com.otaviogrrd.ressuscitou`**, novo e diferente do anterior.
+- Bundle ID: **`br.org.cn.ressuscitou`**, novo e diferente do anterior.
 - A equipe Apple antiga foi removida do projeto; a assinatura será aplicada pelos perfis da nova conta.
-- Na nova conta Apple Developer, registre um App ID explícito com esse Bundle ID.
-- No App Store Connect da mesma conta, crie um novo app com esse Bundle ID e nome “Ressuscitou”, sujeito à disponibilidade na loja.
+- O App ID explícito e o registro “Ressuscitou” já foram criados na nova conta com esse Bundle ID; reutilize-os.
+- No App Store Connect da mesma conta, use o registro existente “Ressuscitou”, associado a `br.org.cn.ressuscitou`.
 - Configure no Codemagic o certificado Apple Distribution e o perfil App Store dessa nova conta.
 
 Os usuários do aplicativo anterior não recebem esta publicação separada como atualização automática.
@@ -27,7 +27,7 @@ O nome cadastrado na App Store é uma configuração do App Store Connect, indep
    e a compilação para simulador é uma verificação separada.
 5. Para gerar o IPA para TestFlight, cadastre no Codemagic o certificado Apple
    Distribution com sua chave privada e um perfil App Store para
-   `br.com.otaviogrrd.ressuscitou`. Eles precisam pertencer à mesma equipe Apple Developer.
+   `br.org.cn.ressuscitou`. Eles precisam pertencer à mesma equipe Apple Developer.
    Use a área de assinatura do Codemagic; não adicione chaves ao Git.
 6. Execute `ios-ipa`. `xcode-project use-profiles` aplica o perfil cadastrado;
    o número da compilação usa `BUILD_NUMBER` do Codemagic. Se já existe uma
