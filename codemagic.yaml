@@ -56,9 +56,13 @@ workflows:
         script: xcode-project use-profiles
       - name: Compilar IPA assinado
         script: |
+          set -euo pipefail
+          # Keep CI builds above the legacy app's build 28.
+          base_build=$(awk '/^version:/ {split($2, parts, "+"); print parts[2]}' pubspec.yaml)
+          ios_build=$((base_build + BUILD_NUMBER))
           flutter build ipa --release \
             --dart-define=SEARCH_API_URL="${SEARCH_API_URL:-}" \
-            --build-number="$BUILD_NUMBER" \
+            --build-number="$ios_build" \
             --export-options-plist="$HOME/export_options.plist"
     artifacts:
       - build/ios/ipa/*.ipa
