@@ -728,8 +728,8 @@ class _CantoPageState extends State<CantoPage> {
     int localSelection = capoSelected;
     return Get.defaultDialog(
         title: "Capotraste",
-        backgroundColor: Theme.of(context).colorScheme.surface,
-        titleStyle: TextStyle(fontSize: 20, color: Theme.of(context).colorScheme.onSurface),
+        backgroundColor: Colors.white,
+        titleStyle: TextStyle(fontSize: 20, color: Colors.black),
         radius: 4,
         content: ConstrainedBox(
             constraints: BoxConstraints(minWidth: MediaQuery.of(context).size.width * 0.6),
@@ -746,17 +746,17 @@ class _CantoPageState extends State<CantoPage> {
                       maxValue: 30,
                       textStyle: TextStyle(
                         fontSize: 18,
-                        color: Theme.of(context).colorScheme.onSurface,
+                        color: Colors.black,
                       ),
                       selectedTextStyle: TextStyle(
                         fontSize: 26,
                         fontWeight: FontWeight.bold,
-                        color: Theme.of(context).colorScheme.onSurface,
+                        color: Colors.black,
                       ),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
                         border: Border.all(
-                          color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.35),
+                          color: Colors.black54,
                         ),
                       ),
                       onChanged: (value) {
@@ -770,7 +770,7 @@ class _CantoPageState extends State<CantoPage> {
                       margin: EdgeInsets.only(top: 12),
                       width: 100,
                       child: TextButton(
-            style: TextButton.styleFrom(backgroundColor: Theme.of(context).colorScheme.secondary, foregroundColor: Theme.of(context).colorScheme.onSecondary),
+            style: TextButton.styleFrom(backgroundColor: const Color(0xFFEEEEEE), foregroundColor: Colors.black),
                         child: FittedBox(fit: BoxFit.scaleDown, child: Text("Salvar")),
                         onPressed: () async {
                           await globals.prefs.setInt("CAPOT_" + widget.canto.id.toString(), localSelection);
