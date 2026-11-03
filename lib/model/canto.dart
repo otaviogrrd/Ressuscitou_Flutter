@@ -25,7 +25,6 @@ class Canto {
   bool comu;
   bool cfin;
   String numero;
-  String conteudo;
   String htmlBase64;
   String extBase64;
   String titulo;
@@ -58,7 +57,6 @@ class Canto {
     this.fpao = false,
     this.comu = false,
     this.cfin = false,
-    this.conteudo = "",
     this.htmlBase64 = "",
     this.extBase64 = "",
     this.downloaded = false,
@@ -96,7 +94,6 @@ class Canto {
       fpao: json["fpao"] ?? false,
       comu: json["comu"] ?? false,
       cfin: json["cfin"] ?? false,
-      conteudo: json["conteudo"] ?? "",
       htmlBase64: json["html_base64"] ?? "",
       extBase64: json["ext_base64"] ?? "",
       downloaded: json["downloaded"] ?? false,
@@ -124,7 +121,6 @@ class Canto {
         "fpao": this.fpao,
         "comu": this.comu,
         "cfin": this.cfin,
-        "conteudo": this.conteudo,
         "html_base64": this.htmlBase64,
         "ext_base64": this.extBase64,
         "downloaded": this.downloaded,

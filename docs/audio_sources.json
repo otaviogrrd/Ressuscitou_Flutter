@@ -1,0 +1,2075 @@
+{
+  "catalogo_auditado": "assets/cantos.json",
+  "repositorio_audios_commit": "55cc7a87671916771458817b8ecaa5ebaf420588",
+  "observacao": "Auditoria de nomes de arquivos; nao testa HTTP, decodificacao ou correspondencia musical.",
+  "total_cantos": 229,
+  "audios_indicados": 181,
+  "indicados_sem_arquivo": [],
+  "arquivos_nao_referenciados": [
+    "audios/EIS O MEU SERVO.mp3",
+    "audios/ZAQUEU.mp3"
+  ],
+  "cantos": [
+    {
+      "id": 1,
+      "titulo": "A CABANA DOS PASTORES",
+      "numero": "21",
+      "html": "A CABANA DOS PASTORES",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/A%20CABANA%20DOS%20PASTORES.mp3"
+    },
+    {
+      "id": 2,
+      "titulo": "À CEIA DO CORDEIRO",
+      "numero": "239",
+      "html": "A CEIA DO CORDEIRO",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/A%20CEIA%20DO%20CORDEIRO.mp3"
+    },
+    {
+      "id": 3,
+      "titulo": "A CEIFA DAS NAÇÕES",
+      "numero": "22",
+      "html": "A CEIFA DAS NACOES",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/A%20CEIFA%20DAS%20NACOES.mp3"
+    },
+    {
+      "id": 4,
+      "titulo": "A CORDEIRA DE DEUS",
+      "numero": "240",
+      "html": "A CORDEIRA DE DEUS",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/A%20CORDEIRA%20DE%20DEUS.mp3"
+    },
+    {
+      "id": 227,
+      "titulo": "A ESPADA",
+      "numero": "23A",
+      "html": "A ESPADA",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/A%20ESPADA.mp3"
+    },
+    {
+      "id": 5,
+      "titulo": "A MARCHA É DURA",
+      "numero": "23",
+      "html": "A MARCHA E DURA",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/A%20MARCHA%20E%20DURA.mp3"
+    },
+    {
+      "id": 6,
+      "titulo": "A NINGUÉM DEMOS OCASIÃO DE TROPEÇO",
+      "numero": "24",
+      "html": "A NINGUEM DEMOS OCASIAO DE TROPECO",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/A%20NINGUEM%20DEMOS%20OCASIAO%20DE%20TROPECO.mp3"
+    },
+    {
+      "id": 7,
+      "titulo": "A POMBA VOOU",
+      "numero": "241",
+      "html": "A POMBA VOOU",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/A%20POMBA%20VOOU.mp3"
+    },
+    {
+      "id": 8,
+      "titulo": "A TI LEVANTO MEUS OLHOS",
+      "numero": "25",
+      "html": "A TI LEVANTO MEUS OLHOS",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/A%20TI%20LEVANTO%20MEUS%20OLHOS.mp3"
+    },
+    {
+      "id": 9,
+      "titulo": "A TI, SENHOR LEVANTO MINHA ALMA",
+      "numero": "27",
+      "html": "A TI SENHOR LEVANTO MINHA ALMA",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/A%20TI%20SENHOR%20LEVANTO%20MINHA%20ALMA.mp3"
+    },
+    {
+      "id": 10,
+      "titulo": "A TI, SENHOR, COM MINHA VOZ GRITANDO IMPLORO",
+      "numero": "26",
+      "html": "A TI SENHOR COM MINHA VOZ GRITANDO IMPLORO",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/A%20TI%20SENHOR%20COM%20MINHA%20VOZ%20GRITANDO%20IMPLORO.mp3"
+    },
+    {
+      "id": 11,
+      "titulo": "A TI, SENHOR, SE DEVE LOUVOR EM SIÃO",
+      "numero": "28",
+      "html": "A TI SENHOR SE DEVE LOUVOR EM SIAO",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/A%20TI%20SENHOR%20SE%20DEVE%20LOUVOR%20EM%20SIAO.mp3"
+    },
+    {
+      "id": 12,
+      "titulo": "À VÍTIMA PASCAL",
+      "numero": "29",
+      "html": "A VITIMA PASCAL",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/A%20VITIMA%20PASCAL.mp3"
+    },
+    {
+      "id": 13,
+      "titulo": "A VOZ DO MEU AMADO",
+      "numero": "242",
+      "html": "A VOZ DO MEU AMADO",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/A%20VOZ%20DO%20MEU%20AMADO.mp3"
+    },
+    {
+      "id": 14,
+      "titulo": "ABBA, PAI",
+      "numero": "243",
+      "html": "ABBA PAI",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/ABBA%20PAI.mp3"
+    },
+    {
+      "id": 15,
+      "titulo": "ABRAÃO",
+      "numero": "30",
+      "html": "ABRAAO",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/ABRAAO.mp3"
+    },
+    {
+      "id": 16,
+      "titulo": "ACLAMAI O SENHOR",
+      "numero": "31",
+      "html": "ACLAMAI O SENHOR",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/ACLAMAI%20O%20SENHOR.mp3"
+    },
+    {
+      "id": 17,
+      "titulo": "AKEDÁ",
+      "numero": "32",
+      "html": "AKEDA",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/AKEDA.mp3"
+    },
+    {
+      "id": 18,
+      "titulo": "ALÇAI Ó PORTAS",
+      "numero": "33",
+      "html": "ALCAI O PORTAS",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/ALCAI%20O%20PORTAS.mp3"
+    },
+    {
+      "id": 19,
+      "titulo": "ALELUIA INTERLECCIONAL",
+      "numero": "173",
+      "html": "ALELUIA INTERLECCIONAL",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/ALELUIA%20INTERLECCIONAL.mp3"
+    },
+    {
+      "id": 20,
+      "titulo": "ALELUIA PASCAL",
+      "numero": "174",
+      "html": "ALELUIA PASCAL",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/ALELUIA%20PASCAL.mp3"
+    },
+    {
+      "id": 227,
+      "titulo": "ALELUIA PASCAL II",
+      "numero": "175",
+      "html": "ALELUIA PASCAL II",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/ALELUIA%20PASCAL%20II.mp3"
+    },
+    {
+      "id": 21,
+      "titulo": "ALELUIA! BENDIZEI O SENHOR",
+      "numero": "34",
+      "html": "ALELUIA BENDIZEI O SENHOR",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/ALELUIA%20BENDIZEI%20O%20SENHOR.mp3"
+    },
+    {
+      "id": 22,
+      "titulo": "ALELUIA! JÁ CHEGOU O REINO",
+      "numero": "35",
+      "html": "ALELUIA JA CHEGOU O REINO",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/ALELUIA%20JA%20CHEGOU%20O%20REINO.mp3"
+    },
+    {
+      "id": 23,
+      "titulo": "ALELUIA! LOUVAI O SENHOR",
+      "numero": "36",
+      "html": "ALELUIA LOUVAI O SENHOR",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/ALELUIA%20LOUVAI%20O%20SENHOR.mp3"
+    },
+    {
+      "id": 24,
+      "titulo": "AMÉM, AMÉM, AMÉM",
+      "numero": "37",
+      "html": "AMEM AMEM AMEM",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/AMEM%20AMEM%20AMEM.mp3"
+    },
+    {
+      "id": 25,
+      "titulo": "AMO O SENHOR",
+      "numero": "38",
+      "html": "AMO O SENHOR",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/AMO%20O%20SENHOR.mp3"
+    },
+    {
+      "id": 26,
+      "titulo": "ANÁFORA DO SAL",
+      "numero": "176",
+      "html": "ANAFORA DO SAL",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/ANAFORA%20DO%20SAL.mp3"
+    },
+    {
+      "id": 27,
+      "titulo": "ANTÍFONA - VERSÍCULO ANTES DO EVANGELHO",
+      "numero": "177",
+      "html": "ANTIFONA - VERSICULO ANTES DO EVANGELHO",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/ANTIFONA%20-%20VERSICULO%20ANTES%20DO%20EVANGELHO.mp3"
+    },
+    {
+      "id": 28,
+      "titulo": "AO DESPERTAR",
+      "numero": "39",
+      "html": "AO DESPERTAR",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/AO%20DESPERTAR.mp3"
+    },
+    {
+      "id": 29,
+      "titulo": "AS ARMAS DA LUZ",
+      "numero": "213",
+      "html": "AS ARMAS DA LUZ",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/AS%20ARMAS%20DA%20LUZ.mp3"
+    },
+    {
+      "id": 30,
+      "titulo": "ASSIM FALA O AMÉM",
+      "numero": "214",
+      "html": "ASSIM FALA O AMEM",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/ASSIM%20FALA%20O%20AMEM.mp3"
+    },
+    {
+      "id": 31,
+      "titulo": "ATÉ QUANDO?",
+      "numero": "40",
+      "html": "ATE QUANDO",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/ATE%20QUANDO.mp3"
+    },
+    {
+      "id": 32,
+      "titulo": "AVE MARIA I",
+      "numero": "41",
+      "html": "AVE MARIA I",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/AVE%20MARIA%20I.mp3"
+    },
+    {
+      "id": 33,
+      "titulo": "AVE MARIA II (1984)",
+      "numero": "42",
+      "html": "AVE MARIA II 1984",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/AVE%20MARIA%20II%201984.mp3"
+    },
+    {
+      "id": 34,
+      "titulo": "BABILÔNIA CRIMINAL",
+      "numero": "43",
+      "html": "BABILONIA CRIMINAL",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/BABILONIA%20CRIMINAL.mp3"
+    },
+    {
+      "id": 35,
+      "titulo": "BALAÃO",
+      "numero": "44",
+      "html": "BALAAO",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/BALAAO.mp3"
+    },
+    {
+      "id": 36,
+      "titulo": "BÊNÇÃO DA ÁGUA",
+      "numero": "178",
+      "html": "BENCAO DA AGUA",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/BENCAO%20DA%20AGUA.mp3"
+    },
+    {
+      "id": 37,
+      "titulo": "BÊNÇÃO PENITENCIAL",
+      "numero": "180",
+      "html": "BENCAO PENITENCIAL",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/BENCAO%20PENITENCIAL.mp3"
+    },
+    {
+      "id": 38,
+      "titulo": "BENDIREI O SENHOR EM TODO TEMPO",
+      "numero": "45",
+      "html": "BENDIREI O SENHOR EM TODO TEMPO",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/BENDIREI%20O%20SENHOR%20EM%20TODO%20TEMPO.mp3"
+    },
+    {
+      "id": 39,
+      "titulo": "BENDITA ÉS TÚ, MARIA",
+      "numero": "46",
+      "html": "BENDITA ES TU MARIA",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/BENDITA%20ES%20TU%20MARIA.mp3"
+    },
+    {
+      "id": 40,
+      "titulo": "BENDITO SEJA DEUS",
+      "numero": "215",
+      "html": "BENDITO SEJA DEUS",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/BENDITO%20SEJA%20DEUS.mp3"
+    },
+    {
+      "id": 41,
+      "titulo": "BENDITO SEJAS, SENHOR",
+      "numero": "47",
+      "html": "BENDITO SEJAS SENHOR",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/BENDITO%20SEJAS%20SENHOR.mp3"
+    },
+    {
+      "id": 42,
+      "titulo": "BENDIZE, MINHA ALMA, A IAHWEH",
+      "numero": "48",
+      "html": "BENDIZE MINHA ALMA A IAHWEH",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/BENDIZE%20MINHA%20ALMA%20A%20IAHWEH.mp3"
+    },
+    {
+      "id": 43,
+      "titulo": "BENEDICTUS",
+      "numero": "49",
+      "html": "BENEDICTUS",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/BENEDICTUS.mp3"
+    },
+    {
+      "id": 44,
+      "titulo": "CANTA A IAHWEH, JERUSALÉM",
+      "numero": "50",
+      "html": "CANTA A IAHWEH JERUSALEM",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/CANTA%20A%20IAHWEH%20JERUSALEM.mp3"
+    },
+    {
+      "id": 46,
+      "titulo": "CÂNTICO DE ANA",
+      "numero": "51",
+      "html": "CANTICO DE ANA",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/CANTICO%20DE%20ANA.mp3"
+    },
+    {
+      "id": 47,
+      "titulo": "CÂNTICO DOS TRÊS JOVENS",
+      "numero": "52",
+      "html": "CANTICO DOS TRES JOVENS",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/CANTICO%20DOS%20TRES%20JOVENS.mp3"
+    },
+    {
+      "id": 48,
+      "titulo": "CANTO DE MOISÉS",
+      "numero": "53",
+      "html": "CANTO DE MOISES",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/CANTO%20DE%20MOISES.mp3"
+    },
+    {
+      "id": 49,
+      "titulo": "CARITAS CHRISTI URGET NOS",
+      "numero": "54",
+      "html": "CARITAS CHRISTI URGET NOS",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/CARITAS%20CHRISTI%20URGET%20NOS.mp3"
+    },
+    {
+      "id": 50,
+      "titulo": "CHEGUE À TUA PRESENÇA O MEU CLAMOR",
+      "numero": "55",
+      "html": "CHEGUE A TUA PRESENCA O MEU CLAMOR",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/CHEGUE%20A%20TUA%20PRESENCA%20O%20MEU%20CLAMOR.mp3"
+    },
+    {
+      "id": 51,
+      "titulo": "COMO A CORÇA",
+      "numero": "56",
+      "html": "COMO A CORCA",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/COMO%20A%20CORCA.mp3"
+    },
+    {
+      "id": 52,
+      "titulo": "COMO CONDENADOS A MORTE",
+      "numero": "244",
+      "html": "COMO CONDENADOS A MORTE",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/COMO%20CONDENADOS%20A%20MORTE.mp3"
+    },
+    {
+      "id": 53,
+      "titulo": "COMO É MARAVILHOSO",
+      "numero": "57",
+      "html": "COMO E MARAVILHOSO",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/COMO%20E%20MARAVILHOSO.mp3"
+    },
+    {
+      "id": 54,
+      "titulo": "COMO ESCORRE O MEL",
+      "numero": "245",
+      "html": "COMO ESCORRE O MEL",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/COMO%20ESCORRE%20O%20MEL.mp3"
+    },
+    {
+      "id": 55,
+      "titulo": "COMO LÍRIO ENTRE OS ESPINHOS",
+      "numero": "246",
+      "html": "COMO LIRIO ENTRE OS ESPINHOS",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/COMO%20LIRIO%20ENTRE%20OS%20ESPINHOS.mp3"
+    },
+    {
+      "id": 56,
+      "titulo": "COMO O IMPULSO QUE SENTE A IRA",
+      "numero": "216",
+      "html": "COMO O IMPULSO QUE SENTE A IRA",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/COMO%20O%20IMPULSO%20QUE%20SENTE%20A%20IRA.mp3"
+    },
+    {
+      "id": 57,
+      "titulo": "COMO OVELHA QUE VÊ",
+      "numero": "217",
+      "html": "COMO OVELHA QUE VE",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/COMO%20OVELHA%20QUE%20VE.mp3"
+    },
+    {
+      "id": 58,
+      "titulo": "COMO SÃO AMÁVEIS TUAS MORADAS",
+      "numero": "58",
+      "html": "COMO SAO AMAVEIS TUAS MORADAS",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/COMO%20SAO%20AMAVEIS%20TUAS%20MORADAS.mp3"
+    },
+    {
+      "id": 59,
+      "titulo": "CONFESSEI A TI O MEU PECADO",
+      "numero": "59",
+      "html": "CONFESSEI A TI O MEU PECADO",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/CONFESSEI%20A%20TI%20O%20MEU%20PECADO.mp3"
+    },
+    {
+      "id": 60,
+      "titulo": "CONSOLAI O MEU POVO",
+      "numero": "218",
+      "html": "CONSOLAI O MEU POVO",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/CONSOLAI%20O%20MEU%20POVO.mp3"
+    },
+    {
+      "id": 61,
+      "titulo": "CORDEIRO DE DEUS",
+      "numero": "181",
+      "html": "CORDEIRO DE DEUS",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/CORDEIRO%20DE%20DEUS.mp3"
+    },
+    {
+      "id": 62,
+      "titulo": "CREDO",
+      "numero": "182",
+      "html": "CREDO",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/CREDO.mp3"
+    },
+    {
+      "id": 63,
+      "titulo": "DAYENÚ",
+      "numero": "60",
+      "html": "DAYENU",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/DAYENU.mp3"
+    },
+    {
+      "id": 64,
+      "titulo": "DE PROFUNDIS",
+      "numero": "62",
+      "html": "DE PROFUNDIS",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/DE%20PROFUNDIS.mp3"
+    },
+    {
+      "id": 65,
+      "titulo": "DÉBORA",
+      "numero": "219",
+      "html": "DEBORA",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/DEBORA.mp3"
+    },
+    {
+      "id": 66,
+      "titulo": "DIA DE REPOUSO",
+      "numero": "63",
+      "html": "DIA DE REPOUSO",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/DIA%20DE%20REPOUSO.mp3"
+    },
+    {
+      "id": 67,
+      "titulo": "DIANTE DOS ANJOS",
+      "numero": "64",
+      "html": "DIANTE DOS ANJOS",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/DIANTE%20DOS%20ANJOS.mp3"
+    },
+    {
+      "id": 68,
+      "titulo": "DIZ O SENHOR AO MEU SENHOR",
+      "numero": "65",
+      "html": "DIZ O SENHOR AO MEU SENHOR",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/DIZ%20O%20SENHOR%20AO%20MEU%20SENHOR.mp3"
+    },
+    {
+      "id": 69,
+      "titulo": "DIZEI AOS DE CORAÇÃO CANSADO",
+      "numero": "66",
+      "html": "DIZEI AOS DE CORACAO CANSADO",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/DIZEI%20AOS%20DE%20CORACAO%20CANSADO.mp3"
+    },
+    {
+      "id": 70,
+      "titulo": "É PACIENTE",
+      "numero": "67",
+      "html": "E PACIENTE",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/E%20PACIENTE.mp3"
+    },
+    {
+      "id": 71,
+      "titulo": "EIS O MEU SERVO",
+      "numero": "220",
+      "html": "EIS O MEU SERVO",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/EIS%20O%20MEU%20SERVO.mp3"
+    },
+    {
+      "id": 72,
+      "titulo": "EIS QUE O NOSSO ESPELHO É O SENHOR",
+      "numero": "221",
+      "html": "EIS QUE O NOSSO ESPELHO E O SENHOR",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/EIS%20QUE%20O%20NOSSO%20ESPELHO%20E%20O%20SENHOR.mp3"
+    },
+    {
+      "id": 73,
+      "titulo": "EIS-ME AQUI QUE VENHO EM BREVE",
+      "numero": "68",
+      "html": "EIS ME AQUI QUE VENHO EM BREVE",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/EIS%20ME%20AQUI%20QUE%20VENHO%20EM%20BREVE.mp3"
+    },
+    {
+      "id": 74,
+      "titulo": "ELÍ, ELÍ, LAMÁ SABATANI",
+      "numero": "69",
+      "html": "ELI ELI LAMA SABATANI",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/ELI%20ELI%20LAMA%20SABATANI.mp3"
+    },
+    {
+      "id": 75,
+      "titulo": "EM MEIO A MULTIDÃO",
+      "numero": "70",
+      "html": "EM MEIO A MULTIDAO",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/EM%20MEIO%20A%20MULTIDAO.mp3"
+    },
+    {
+      "id": 230,
+      "titulo": "EM TUA LUZ, SENHOR, VEMOS A LUZ",
+      "numero": "",
+      "html": "EM TUA LUZ SENHOR VEMOS A LUZ",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/EM%20TUA%20LUZ%20SENHOR%20VEMOS%20A%20LUZ.mp3"
+    },
+    {
+      "id": 76,
+      "titulo": "EM UMA NOITE ESCURA",
+      "numero": "71",
+      "html": "EM UMA NOITE ESCURA",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/EM%20UMA%20NOITE%20ESCURA.mp3"
+    },
+    {
+      "id": 77,
+      "titulo": "ENCONTRARAM-SE DOIS ANJOS",
+      "numero": "72",
+      "html": "ENCONTRARAM SE DOIS ANJOS",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/ENCONTRARAM%20SE%20DOIS%20ANJOS.mp3"
+    },
+    {
+      "id": 78,
+      "titulo": "ESCONDE-ME NO OCULTO DE TUA TENDA",
+      "numero": "73",
+      "html": "ESCONDE ME NO OCULTO DE TUA TENDA",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/ESCONDE%20ME%20NO%20OCULTO%20DE%20TUA%20TENDA.mp3"
+    },
+    {
+      "id": 79,
+      "titulo": "ESCUTAI ILHAS DE LONGE",
+      "numero": "222",
+      "html": "ESCUTAI ILHAS DE LONGE",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/ESCUTAI%20ILHAS%20DE%20LONGE.mp3"
+    },
+    {
+      "id": 80,
+      "titulo": "ESPEREI, ESPEREI NO SENHOR",
+      "numero": "74",
+      "html": "ESPEREI ESPEREI NO SENHOR",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/ESPEREI%20ESPEREI%20NO%20SENHOR.mp3"
+    },
+    {
+      "id": 81,
+      "titulo": "ESTÃO ROTAS MINHAS ATADURAS",
+      "numero": "75",
+      "html": "ESTAO ROTAS MINHAS ATADURAS",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/ESTAO%20ROTAS%20MINHAS%20ATADURAS.mp3"
+    },
+    {
+      "id": 82,
+      "titulo": "ESTE É O DIA QUE FEZ O SENHOR",
+      "numero": "76",
+      "html": "ESTE E O DIA QUE FEZ O SENHOR",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/ESTE%20E%20O%20DIA%20QUE%20FEZ%20O%20SENHOR.mp3"
+    },
+    {
+      "id": 83,
+      "titulo": "ESTE É O MEU MANDAMENTO",
+      "numero": "77",
+      "html": "ESTE E O MEU MANDAMENTO",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/ESTE%20E%20O%20MEU%20MANDAMENTO.mp3"
+    },
+    {
+      "id": 84,
+      "titulo": "ESTENDO MINHAS MÃOS",
+      "numero": "247",
+      "html": "ESTENDO MINHAS MAOS",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/ESTENDO%20MINHAS%20MAOS.mp3"
+    },
+    {
+      "id": 85,
+      "titulo": "ESTOU CHAMANDO-TE",
+      "numero": "78",
+      "html": "ESTOU CHAMANDO TE",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/ESTOU%20CHAMANDO%20TE.mp3"
+    },
+    {
+      "id": 86,
+      "titulo": "EU TE AMO, SENHOR",
+      "numero": "79",
+      "html": "EU TE AMO SENHOR",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/EU%20TE%20AMO%20SENHOR.mp3"
+    },
+    {
+      "id": 87,
+      "titulo": "EU VENHO REUNIR",
+      "numero": "80",
+      "html": "EU VENHO REUNIR",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/EU%20VENHO%20REUNIR.mp3"
+    },
+    {
+      "id": 88,
+      "titulo": "EVENU SHALOM ALEHEM",
+      "numero": "81",
+      "html": "EVENU SHALOM ALEHEM",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/EVENU%20SHALOM%20ALEHEM.mp3"
+    },
+    {
+      "id": 89,
+      "titulo": "EXULTAI, JUSTOS, NO SENHOR",
+      "numero": "82",
+      "html": "EXULTAI, JUSTOS, NO SENHOR",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/EXULTAI%2C%20JUSTOS%2C%20NO%20SENHOR.mp3"
+    },
+    {
+      "id": 90,
+      "titulo": "FELICIDADE PARA O HOMEM",
+      "numero": "83",
+      "html": "FELICIDADE PARA O HOMEM",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/FELICIDADE%20PARA%20O%20HOMEM.mp3"
+    },
+    {
+      "id": 91,
+      "titulo": "FELIZ O HOMEM",
+      "numero": "84",
+      "html": "FELIZ O HOMEM",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/FELIZ%20O%20HOMEM.mp3"
+    },
+    {
+      "id": 92,
+      "titulo": "FILHAS DE JERUSALÉM",
+      "numero": "85",
+      "html": "FILHAS DE JERUSALEM",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/FILHAS%20DE%20JERUSALEM.mp3"
+    },
+    {
+      "id": 93,
+      "titulo": "FOGE, Ó MEU AMADO",
+      "numero": "86",
+      "html": "FOGE O MEU AMADO",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/FOGE%20O%20MEU%20AMADO.mp3"
+    },
+    {
+      "id": 94,
+      "titulo": "FORMOSA ÉS, AMIGA MINHA",
+      "numero": "248",
+      "html": "FORMOSA ES AMIGA MINHA",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/FORMOSA%20ES%20AMIGA%20MINHA.mp3"
+    },
+    {
+      "id": 95,
+      "titulo": "GLÓRIA A DEUS NO ALTO DO CÉU",
+      "numero": "183",
+      "html": "GLORIA A DEUS NO ALTO DO CEU",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/GLORIA%20A%20DEUS%20NO%20ALTO%20DO%20CEU.mp3"
+    },
+    {
+      "id": 96,
+      "titulo": "GRAÇAS A IAHWEH",
+      "numero": "87",
+      "html": "GRACAS A IAHWEH",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/GRACAS%20A%20IAHWEH.mp3"
+    },
+    {
+      "id": 97,
+      "titulo": "GRITAI JUBILOSOS",
+      "numero": "88",
+      "html": "GRITAI JUBILOSOS",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/GRITAI%20JUBILOSOS.mp3"
+    },
+    {
+      "id": 98,
+      "titulo": "HINO À CARIDADE",
+      "numero": "249",
+      "html": "HINO A CARIDADE",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/HINO%20A%20CARIDADE.mp3"
+    },
+    {
+      "id": 99,
+      "titulo": "HINO A CRISTO LUZ",
+      "numero": "89",
+      "html": "HINO A CRISTO LUZ",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/HINO%20A%20CRISTO%20LUZ.mp3"
+    },
+    {
+      "id": 100,
+      "titulo": "HINO À CRUZ GLORIOSA",
+      "numero": "223",
+      "html": "HINO A CRUZ GLORIOSA",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/HINO%20A%20CRUZ%20GLORIOSA.mp3"
+    },
+    {
+      "id": 101,
+      "titulo": "HINO À KENOSIS",
+      "numero": "90",
+      "html": "HINO A KENOSIS",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/HINO%20A%20KENOSIS.mp3"
+    },
+    {
+      "id": 102,
+      "titulo": "HINO DA ASCENSÃO",
+      "numero": "91",
+      "html": "HINO DA ASCENSAO",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/HINO%20DA%20ASCENSAO.mp3"
+    },
+    {
+      "id": 103,
+      "titulo": "HINO DA PÁSCOA",
+      "numero": "92",
+      "html": "HINO DA PASCOA",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/HINO%20DA%20PASCOA.mp3"
+    },
+    {
+      "id": 104,
+      "titulo": "HINO DAS LAUDES DE PENTECOSTES",
+      "numero": "184",
+      "html": "HINO DAS LAUDES DE PENTECOSTES",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/HINO%20DAS%20LAUDES%20DE%20PENTECOSTES.mp3"
+    },
+    {
+      "id": 105,
+      "titulo": "HINO DO ADVENTO",
+      "numero": "93",
+      "html": "HINO DO ADVENTO",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/HINO%20DO%20ADVENTO.mp3"
+    },
+    {
+      "id": 106,
+      "titulo": "IAHWEH, TU ÉS MEU DEUS",
+      "numero": "94",
+      "html": "IAHWEH TU ES MEU DEUS",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/IAHWEH%20TU%20ES%20MEU%20DEUS.mp3"
+    },
+    {
+      "id": 107,
+      "titulo": "IDE E ANUNCIAI A MEUS IRMÃOS",
+      "numero": "95",
+      "html": "IDE E ANUNCIAI A MEUS IRMAOS",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/IDE%20E%20ANUNCIAI%20A%20MEUS%20IRMAOS.mp3"
+    },
+    {
+      "id": 108,
+      "titulo": "IMPROPERIOS",
+      "numero": "96",
+      "html": "IMPROPERIOS",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/IMPROPERIOS.mp3"
+    },
+    {
+      "id": 109,
+      "titulo": "JÁ VEM O MEU DEUS",
+      "numero": "97",
+      "html": "JA VEM O MEU DEUS",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/JA%20VEM%20O%20MEU%20DEUS.mp3"
+    },
+    {
+      "id": 110,
+      "titulo": "JACÓ",
+      "numero": "224",
+      "html": "JACO",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/JACO.mp3"
+    },
+    {
+      "id": 111,
+      "titulo": "JERUSALÉM RECONSTRUÍDA",
+      "numero": "98",
+      "html": "JERUSALEM RECONSTRUIDA",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/JERUSALEM%20RECONSTRUIDA.mp3"
+    },
+    {
+      "id": 112,
+      "titulo": "JESUS PERCORRIA TODAS AS CIDADES",
+      "numero": "250",
+      "html": "JESUS PERCORRIA TODAS AS CIDADES",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/JESUS%20PERCORRIA%20TODAS%20AS%20CIDADES.mp3"
+    },
+    {
+      "id": 113,
+      "titulo": "LADAINHA DE TODOS OS SANTOS",
+      "numero": "185",
+      "html": "LADAINHA DE TODOS OS SANTOS",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/LADAINHA%20DE%20TODOS%20OS%20SANTOS.mp3"
+    },
+    {
+      "id": 114,
+      "titulo": "LADAINHA PENITENCIAL I",
+      "numero": "187",
+      "html": "LADAINHA PENITENCIAL I",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/LADAINHA%20PENITENCIAL%20I.mp3"
+    },
+    {
+      "id": 115,
+      "titulo": "LADAINHA PENITENCIAL II",
+      "numero": "188",
+      "html": "LADAINHA PENITENCIAL II",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/LADAINHA%20PENITENCIAL%20II.mp3"
+    },
+    {
+      "id": 116,
+      "titulo": "LEVA-ME AO CÉU",
+      "numero": "99",
+      "html": "LEVA ME AO CEU",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/LEVA%20ME%20AO%20CEU.mp3"
+    },
+    {
+      "id": 117,
+      "titulo": "LEVANTO MEUS OLHOS PARA OS MONTES",
+      "numero": "100",
+      "html": "LEVANTO MEUS OLHOS PARA OS MONTES",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/LEVANTO%20MEUS%20OLHOS%20PARA%20OS%20MONTES.mp3"
+    },
+    {
+      "id": 118,
+      "titulo": "LOUVAI O SENHOR",
+      "numero": "101",
+      "html": "LOUVAI O SENHOR",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/LOUVAI%20O%20SENHOR.mp3"
+    },
+    {
+      "id": 119,
+      "titulo": "LOUVAI O SENHOR NOS CÉUS",
+      "numero": "102",
+      "html": "LOUVAI O SENHOR NOS CEUS",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/LOUVAI%20O%20SENHOR%20NOS%20CEUS.mp3"
+    },
+    {
+      "id": 120,
+      "titulo": "MAGNIFICAT",
+      "numero": "103",
+      "html": "MAGNIFICAT",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/MAGNIFICAT.mp3"
+    },
+    {
+      "id": 121,
+      "titulo": "MARIA DE JASNA GÖRA",
+      "numero": "105",
+      "html": "MARIA DE JASNA GORA",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/MARIA%20DE%20JASNA%20GORA.mp3"
+    },
+    {
+      "id": 122,
+      "titulo": "MARIA, CASA DA BÊNÇÃO",
+      "numero": "104",
+      "html": "MARIA CASA DA BENCAO",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/MARIA%20CASA%20DA%20BENCAO.mp3"
+    },
+    {
+      "id": 123,
+      "titulo": "MARIA, MÃE DA IGREJA",
+      "numero": "106",
+      "html": "MARIA MAE DA IGREJA",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/MARIA%20MAE%20DA%20IGREJA.mp3"
+    },
+    {
+      "id": 124,
+      "titulo": "MARIA, MÃE DO CAMINHO ARDENTE",
+      "numero": "107",
+      "html": "MARIA MAE DO CAMINHO ARDENTE",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/MARIA%20MAE%20DO%20CAMINHO%20ARDENTE.mp3"
+    },
+    {
+      "id": 125,
+      "titulo": "MARIA, PEQUENA MARIA",
+      "numero": "108",
+      "html": "MARIA PEQUENA MARIA",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/MARIA%20PEQUENA%20MARIA.mp3"
+    },
+    {
+      "id": 126,
+      "titulo": "MARIA, POMBA INCORRUPTA",
+      "numero": "109",
+      "html": "MARIA POMBA INCORRUPTA",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/MARIA%20POMBA%20INCORRUPTA.mp3"
+    },
+    {
+      "id": 127,
+      "titulo": "MISERICÓRDIA MINHA, MISERICÓRDIA",
+      "numero": "110",
+      "html": "MISERICORDIA MINHA MISERICORDIA",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/MISERICORDIA%20MINHA%20MISERICORDIA.mp3"
+    },
+    {
+      "id": 128,
+      "titulo": "MOSTRAR-ME-ÁS O CAMINHO DA VIDA",
+      "numero": "111",
+      "html": "MOSTRAR ME AS O CAMINHO DA VIDA",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/MOSTRAR%20ME%20AS%20O%20CAMINHO%20DA%20VIDA.mp3"
+    },
+    {
+      "id": 129,
+      "titulo": "MUITO ME PERSEGUIRAM",
+      "numero": "112",
+      "html": "MUITO ME PERSEGUIRAM",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/MUITO%20ME%20PERSEGUIRAM.mp3"
+    },
+    {
+      "id": 130,
+      "titulo": "NÃO ESTÁ AQUI, RESSUSCITOU",
+      "numero": "113",
+      "html": "NAO ESTA AQUI RESSUSCITOU",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/NAO%20ESTA%20AQUI%20RESSUSCITOU.mp3"
+    },
+    {
+      "id": 131,
+      "titulo": "NÃO HÁ NELE APARÊNCIA",
+      "numero": "114",
+      "html": "NAO HA NELE APARENCIA",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/NAO%20HA%20NELE%20APARENCIA.mp3"
+    },
+    {
+      "id": 132,
+      "titulo": "NÃO RESISTAIS AO MAL",
+      "numero": "251",
+      "html": "NAO RESISTAIS AO MAL",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/NAO%20RESISTAIS%20AO%20MAL.mp3"
+    },
+    {
+      "id": 133,
+      "titulo": "NÃO SOFRAS PELOS MALVADOS",
+      "numero": "225",
+      "html": "NAO SOFRAS PELOS MALVADOS",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/NAO%20SOFRAS%20PELOS%20MALVADOS.mp3"
+    },
+    {
+      "id": 134,
+      "titulo": "NINGUÉM PODE SERVIR A DOIS SENHORES",
+      "numero": "226",
+      "html": "NINGUEM PODE SERVIR A DOIS SENHORES",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/NINGUEM%20PODE%20SERVIR%20A%20DOIS%20SENHORES.mp3"
+    },
+    {
+      "id": 135,
+      "titulo": "NOLI ME TANGERE",
+      "numero": "252",
+      "html": "NOLI ME TANGERE",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/NOLI%20ME%20TANGERE.mp3"
+    },
+    {
+      "id": 136,
+      "titulo": "Ó CÉUS, CHOVEI DO ALTO",
+      "numero": "115",
+      "html": "O CEUS CHOVEI DO ALTO",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/O%20CEUS%20CHOVEI%20DO%20ALTO.mp3"
+    },
+    {
+      "id": 137,
+      "titulo": "O COMBATE ESCATOLÓGICO",
+      "numero": "227",
+      "html": "O COMBATE ESCATOLOGICO",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/O%20COMBATE%20ESCATOLOGICO.mp3"
+    },
+    {
+      "id": 138,
+      "titulo": "Ó DEUS, PELO TEU NOME, SALVA-ME",
+      "numero": "116",
+      "html": "O DEUS PELO TEU NOME SALVA-ME",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/O%20DEUS%20PELO%20TEU%20NOME%20SALVA-ME.mp3"
+    },
+    {
+      "id": 139,
+      "titulo": "Ó DEUS, TU ÉS MEU DEUS",
+      "numero": "117",
+      "html": "O DEUS TU ES MEU DEUS",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/O%20DEUS%20TU%20ES%20MEU%20DEUS.mp3"
+    },
+    {
+      "id": 140,
+      "titulo": "O ESPÍRITO DO SENHOR ESTÁ SOBRE MIM",
+      "numero": "253",
+      "html": "O ESPIRITO DO SENHOR ESTA SOBRE MIM",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/O%20ESPIRITO%20DO%20SENHOR%20ESTA%20SOBRE%20MIM.mp3"
+    },
+    {
+      "id": 141,
+      "titulo": "Ó JESUS, MEU AMOR",
+      "numero": "118",
+      "html": "O JESUS MEU AMOR",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/O%20JESUS%20MEU%20AMOR.mp3"
+    },
+    {
+      "id": 142,
+      "titulo": "O LAGAREIRO",
+      "numero": "228",
+      "html": "O LAGAREIRO",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/O%20LAGAREIRO.mp3"
+    },
+    {
+      "id": 143,
+      "titulo": "O MESMO DEUS",
+      "numero": "229",
+      "html": "O MESMO DEUS",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/O%20MESMO%20DEUS.mp3"
+    },
+    {
+      "id": 144,
+      "titulo": "O MESSIAS LEÃO PARA VENCER",
+      "numero": "254",
+      "html": "O MESSIAS LEAO PARA VENCER",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/O%20MESSIAS%20LEAO%20PARA%20VENCER.mp3"
+    },
+    {
+      "id": 145,
+      "titulo": "Ó MORTE, ONDE ESTÁ TUA VITÓRIA",
+      "numero": "119",
+      "html": "O MORTE ONDE ESTA TUA VITORIA",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/O%20MORTE%20ONDE%20ESTA%20TUA%20VITORIA.mp3"
+    },
+    {
+      "id": 146,
+      "titulo": "O NÉSCIO PENSA QUE DEUS NÃO EXISTE",
+      "numero": "120",
+      "html": "O NESCIO PENSA QUE DEUS NAO EXISTE",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/O%20NESCIO%20PENSA%20QUE%20DEUS%20NAO%20EXISTE.mp3"
+    },
+    {
+      "id": 147,
+      "titulo": "O POVO QUE CAMINHAVA NAS TREVAS",
+      "numero": "121",
+      "html": "O POVO QUE CAMINHAVA NAS TREVAS",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/O%20POVO%20QUE%20CAMINHAVA%20NAS%20TREVAS.mp3"
+    },
+    {
+      "id": 148,
+      "titulo": "O SEMEADOR",
+      "numero": "230",
+      "html": "O SEMEADOR",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/O%20SEMEADOR.mp3"
+    },
+    {
+      "id": 149,
+      "titulo": "O SENHOR ANUNCIA UMA NOTÍCIA",
+      "numero": "122",
+      "html": "O SENHOR ANUNCIA UMA NOTICIA",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/O%20SENHOR%20ANUNCIA%20UMA%20NOTICIA.mp3"
+    },
+    {
+      "id": 150,
+      "titulo": "O SENHOR É MEU PASTOR",
+      "numero": "123",
+      "html": "O SENHOR E MEU PASTOR",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/O%20SENHOR%20E%20MEU%20PASTOR.mp3"
+    },
+    {
+      "id": 151,
+      "titulo": "O SENHOR É MINHA LUZ E SALVAÇÃO",
+      "numero": "124",
+      "html": "O SENHOR E MINHA LUZ E SALVACAO",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/O%20SENHOR%20E%20MINHA%20LUZ%20E%20SALVACAO.mp3"
+    },
+    {
+      "id": 152,
+      "titulo": "O SENHOR ME DEU",
+      "numero": "231",
+      "html": "O SENHOR ME DEU",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/O%20SENHOR%20ME%20DEU.mp3"
+    },
+    {
+      "id": 153,
+      "titulo": "Ó SENHOR, MEU CORAÇÃO NÃO É PRETENSIOSO",
+      "numero": "232",
+      "html": "O SENHOR MEU CORACAO NAO E PRETENSIOSO",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/O%20SENHOR%20MEU%20CORACAO%20NAO%20E%20PRETENSIOSO.mp3"
+    },
+    {
+      "id": 154,
+      "titulo": "Ó SENHOR, NOSSO DEUS",
+      "numero": "125",
+      "html": "O SENHOR NOSSO DEUS",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/O%20SENHOR%20NOSSO%20DEUS.mp3"
+    },
+    {
+      "id": 155,
+      "titulo": "OLHAI QUE ESTUPENDO",
+      "numero": "126",
+      "html": "OLHAI QUE ESTUPENDO",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/OLHAI%20QUE%20ESTUPENDO.mp3"
+    },
+    {
+      "id": 156,
+      "titulo": "ORAÇÃO EUCARISTICA II",
+      "numero": "190",
+      "html": "ORACAO EUCARISTICA II",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/ORACAO%20EUCARISTICA%20II.mp3"
+    },
+    {
+      "id": 157,
+      "titulo": "ORAÇÃO EUCARÍSTICA IV",
+      "numero": "193",
+      "html": "ORACAO EUCARISTICA IV",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/ORACAO%20EUCARISTICA%20IV.mp3"
+    },
+    {
+      "id": 158,
+      "titulo": "OS MENINOS DE BELEM",
+      "numero": "127",
+      "html": "OS MENINOS DE BELEM",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/OS%20MENINOS%20DE%20BELEM.mp3"
+    },
+    {
+      "id": 159,
+      "titulo": "PAI NOSSO",
+      "numero": "197",
+      "html": "PAI NOSSO",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/PAI%20NOSSO.mp3"
+    },
+    {
+      "id": 160,
+      "titulo": "PARA TI MORADA SANTA",
+      "numero": "128",
+      "html": "PARA TI MORADA SANTA",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/PARA%20TI%20MORADA%20SANTA.mp3"
+    },
+    {
+      "id": 161,
+      "titulo": "PENTECOSTES",
+      "numero": "129",
+      "html": "PENTECOSTES",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/PENTECOSTES.mp3"
+    },
+    {
+      "id": 162,
+      "titulo": "POR AMOR DE MEUS AMIGOS",
+      "numero": "130",
+      "html": "POR AMOR DE MEUS AMIGOS",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/POR%20AMOR%20DE%20MEUS%20AMIGOS.mp3"
+    },
+    {
+      "id": 163,
+      "titulo": "POR QUE CONFABULAM AS NAÇÕES?",
+      "numero": "131",
+      "html": "POR QUE CONFABULAM AS NACOES",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/POR%20QUE%20CONFABULAM%20AS%20NACOES.mp3"
+    },
+    {
+      "id": 164,
+      "titulo": "POR QUE ESTA NOITE É DIFERENTE",
+      "numero": "132",
+      "html": "POR QUE ESTA NOITE E DIFERENTE",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/POR%20QUE%20ESTA%20NOITE%20E%20DIFERENTE.mp3"
+    },
+    {
+      "id": 165,
+      "titulo": "PORQUE O MEU JUGO É SUAVE",
+      "numero": "133",
+      "html": "PORQUE O MEU JUGO E SUAVE",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/PORQUE%20O%20MEU%20JUGO%20E%20SUAVE.mp3"
+    },
+    {
+      "id": 168,
+      "titulo": "PRECÔNIO PASCAL",
+      "numero": "198",
+      "html": "PRECONIO PASCAL",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/PRECONIO%20PASCAL.mp3"
+    },
+    {
+      "id": 167,
+      "titulo": "PREFÁCIO DA PÁSCOA I",
+      "numero": "200",
+      "html": "PREFACIO DA PASCOA I",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/PREFACIO%20DA%20PASCOA%20I.mp3"
+    },
+    {
+      "id": 228,
+      "titulo": "PREFÁCIO DO ADVENTO I",
+      "numero": "201",
+      "html": "PREFACIO DO ADVENTO I",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/PREFACIO%20DO%20ADVENTO%20I.mp3"
+    },
+    {
+      "id": 229,
+      "titulo": "PREFÁCIO DO ADVENTO II",
+      "numero": "202",
+      "html": "PREFACIO DO ADVENTO II",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/PREFACIO%20DO%20ADVENTO%20II.mp3"
+    },
+    {
+      "id": 166,
+      "titulo": "PREFÁCIO DO NATAL DO SENHOR I",
+      "numero": "203",
+      "html": "PREFACIO DO NATAL DO SENHOR I",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/PREFACIO%20DO%20NATAL%20DO%20SENHOR%20I.mp3"
+    },
+    {
+      "id": 170,
+      "titulo": "QUANDO DORMIA",
+      "numero": "233",
+      "html": "QUANDO DORMIA",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/QUANDO%20DORMIA.mp3"
+    },
+    {
+      "id": 171,
+      "titulo": "QUANDO ISRAEL SAIU DO EGITO",
+      "numero": "134",
+      "html": "QUANDO ISRAEL SAIU DO EGITO",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/QUANDO%20ISRAEL%20SAIU%20DO%20EGITO.mp3"
+    },
+    {
+      "id": 172,
+      "titulo": "QUANDO O SENHOR",
+      "numero": "135",
+      "html": "QUANDO O SENHOR",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/QUANDO%20O%20SENHOR.mp3"
+    },
+    {
+      "id": 173,
+      "titulo": "QUE ESTUPENDO, QUE ALEGRIA",
+      "numero": "136",
+      "html": "QUE ESTUPENDO QUE ALEGRIA",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/QUE%20ESTUPENDO%20QUE%20ALEGRIA.mp3"
+    },
+    {
+      "id": 174,
+      "titulo": "QUEM É ESTA QUE SOBE DO DESERTO",
+      "numero": "137",
+      "html": "QUEM E ESTA QUE SOBE DO DESERTO",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/QUEM%20E%20ESTA%20QUE%20SOBE%20DO%20DESERTO.mp3"
+    },
+    {
+      "id": 175,
+      "titulo": "QUEM NOS SEPARARÁ",
+      "numero": "138",
+      "html": "QUEM NOS SEPARARA",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/QUEM%20NOS%20SEPARARA.mp3"
+    },
+    {
+      "id": 176,
+      "titulo": "QUERO ANDAR",
+      "numero": "139",
+      "html": "QUERO ANDAR",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/QUERO%20ANDAR.mp3"
+    },
+    {
+      "id": 177,
+      "titulo": "QUERO CANTAR",
+      "numero": "140",
+      "html": "QUERO CANTAR",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/QUERO%20CANTAR.mp3"
+    },
+    {
+      "id": 178,
+      "titulo": "RESSUSCITOU",
+      "numero": "141",
+      "html": "RESSUSCITOU",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/RESSUSCITOU.mp3"
+    },
+    {
+      "id": 179,
+      "titulo": "RESURREXIT",
+      "numero": "142",
+      "html": "RESURREXIT",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/RESURREXIT.mp3"
+    },
+    {
+      "id": 180,
+      "titulo": "ROUBASTE MEU CORAÇÃO",
+      "numero": "255",
+      "html": "ROUBASTE MEU CORACAO",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/ROUBASTE%20MEU%20CORACAO.mp3"
+    },
+    {
+      "id": 181,
+      "titulo": "SALMODIA PARA AS ORAÇÕES UNIVERSAIS",
+      "numero": "204",
+      "html": "SALMODIA PARA AS ORACOES UNIVERSAIS",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/SALMODIA%20PARA%20AS%20ORACOES%20UNIVERSAIS.mp3"
+    },
+    {
+      "id": 182,
+      "titulo": "SALMODIA PARA O SALMO RESPONSORIAL",
+      "numero": "205",
+      "html": "SALMODIA PARA O SALMO RESPONSORIAL",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/SALMODIA%20PARA%20O%20SALMO%20RESPONSORIAL.mp3"
+    },
+    {
+      "id": 183,
+      "titulo": "SALVE RAINHA",
+      "numero": "143",
+      "html": "SALVE RAINHA",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/SALVE%20RAINHA.mp3"
+    },
+    {
+      "id": 184,
+      "titulo": "SALVE RAINHA DOS CÉUS",
+      "numero": "144",
+      "html": "SALVE RAINHA DOS CEUS",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/SALVE%20RAINHA%20DOS%20CEUS.mp3"
+    },
+    {
+      "id": 185,
+      "titulo": "SANTO 1982",
+      "numero": "206",
+      "html": "SANTO 1982",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/SANTO%201982.mp3"
+    },
+    {
+      "id": 186,
+      "titulo": "SANTO 1988",
+      "numero": "207",
+      "html": "SANTO 1988",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/SANTO%201988.mp3"
+    },
+    {
+      "id": 187,
+      "titulo": "SANTO HEBRAICO",
+      "numero": "208",
+      "html": "SANTO HEBRAICO",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/SANTO%20HEBRAICO.mp3"
+    },
+    {
+      "id": 188,
+      "titulo": "SANTO PALESTINA 74",
+      "numero": "209",
+      "html": "SANTO PALESTINA 74",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/SANTO%20PALESTINA%2074.mp3"
+    },
+    {
+      "id": 189,
+      "titulo": "SANTO PALOMERAS 65",
+      "numero": "210",
+      "html": "SANTO PALOMERAS 65",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/SANTO%20PALOMERAS%2065.mp3"
+    },
+    {
+      "id": 190,
+      "titulo": "SANTO ROMA 77",
+      "numero": "211",
+      "html": "SANTO ROMA 77",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/SANTO%20ROMA%2077.mp3"
+    },
+    {
+      "id": 191,
+      "titulo": "SE HOJE ESCUTARDES A SUA VOZ",
+      "numero": "145",
+      "html": "SE HOJE ESCUTARDES A SUA VOZ",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/SE%20HOJE%20ESCUTARDES%20A%20SUA%20VOZ.mp3"
+    },
+    {
+      "id": 192,
+      "titulo": "SE ME REFUGIEI NO SENHOR",
+      "numero": "146",
+      "html": "SE ME REFUGIEI NO SENHOR",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/SE%20ME%20REFUGIEI%20NO%20SENHOR.mp3"
+    },
+    {
+      "id": 193,
+      "titulo": "SE O SENHOR NÃO CONSTRÓI A CASA",
+      "numero": "147",
+      "html": "SE O SENHOR NAO CONSTROI A CASA",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/SE%20O%20SENHOR%20NAO%20CONSTROI%20A%20CASA.mp3"
+    },
+    {
+      "id": 194,
+      "titulo": "SE VÓS RESSUSCITASTES COM CRISTO",
+      "numero": "148",
+      "html": "SE VOS RESSUSCITASTES COM CRISTO",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/SE%20VOS%20RESSUSCITASTES%20COM%20CRISTO.mp3"
+    },
+    {
+      "id": 195,
+      "titulo": "SEDUZISTE-ME SENHOR",
+      "numero": "149",
+      "html": "SEDUZISTE ME SENHOR",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/SEDUZISTE%20ME%20SENHOR.mp3"
+    },
+    {
+      "id": 196,
+      "titulo": "SENHOR, AJUDA-ME A NÃO DUVIDAR DE TI",
+      "numero": "150",
+      "html": "SENHOR AJUDA ME A NAO DUVIDAR DE TI",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/SENHOR%20AJUDA%20ME%20A%20NAO%20DUVIDAR%20DE%20TI.mp3"
+    },
+    {
+      "id": 197,
+      "titulo": "SENHOR, NÃO ME CORRIJAS NA SUA CÓLERA",
+      "numero": "151",
+      "html": "SENHOR NAO ME CORRIJAS NA SUA COLERA",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/SENHOR%20NAO%20ME%20CORRIJAS%20NA%20SUA%20COLERA.mp3"
+    },
+    {
+      "id": 198,
+      "titulo": "SENHOR, TU ME ESCRUTAS E CONHECES",
+      "numero": "234",
+      "html": "SENHOR TU ME ESCRUTAS E CONHECES",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/SENHOR%20TU%20ME%20ESCRUTAS%20E%20CONHECES.mp3"
+    },
+    {
+      "id": 199,
+      "titulo": "SENTA-TE SOLITÁRIO E SILENCIOSO",
+      "numero": "235",
+      "html": "SENTA TE SOLITARIO E SILENCIOSO",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/SENTA%20TE%20SOLITARIO%20E%20SILENCIOSO.mp3"
+    },
+    {
+      "id": 200,
+      "titulo": "SERMÃO DA MONTANHA",
+      "numero": "256",
+      "html": "SERMAO DA MONTANHA",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/SERMAO%20DA%20MONTANHA.mp3"
+    },
+    {
+      "id": 201,
+      "titulo": "SHEMÁ ISRAEL",
+      "numero": "236",
+      "html": "SHEMA ISRAEL",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/SHEMA%20ISRAEL.mp3"
+    },
+    {
+      "id": 202,
+      "titulo": "SHLOM-LEJ MARIAM",
+      "numero": "152",
+      "html": "SHLOM-LEJ MARIAM",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/SHLOM-LEJ%20MARIAM.mp3"
+    },
+    {
+      "id": 203,
+      "titulo": "SIÃO, MÃE DE TODOS OS POVOS",
+      "numero": "153",
+      "html": "SIAO MAE DE TODOS OS POVOS",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/SIAO%20MAE%20DE%20TODOS%20OS%20POVOS.mp3"
+    },
+    {
+      "id": 204,
+      "titulo": "SÓ A SÓ",
+      "numero": "154",
+      "html": "SO A SO",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/SO%20A%20SO.mp3"
+    },
+    {
+      "id": 205,
+      "titulo": "SOBE DEUS ENTRE ACLAMAÇÕES",
+      "numero": "155",
+      "html": "SOBE DEUS ENTRE ACLAMACOES",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/SOBE%20DEUS%20ENTRE%20ACLAMACOES.mp3"
+    },
+    {
+      "id": 206,
+      "titulo": "STABAT MATER DOLOROSA",
+      "numero": "156",
+      "html": "STABAT MATER DOLOROSA",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/STABAT%20MATER%20DOLOROSA.mp3"
+    },
+    {
+      "id": 207,
+      "titulo": "TE DEUM",
+      "numero": "212",
+      "html": "TE DEUM",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/TE%20DEUM.mp3"
+    },
+    {
+      "id": 208,
+      "titulo": "TU COBRISTE DE VERGONHA A MORTE",
+      "numero": "237",
+      "html": "TU COBRISTE DE VERGONHA A MORTE",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/TU%20COBRISTE%20DE%20VERGONHA%20A%20MORTE.mp3"
+    },
+    {
+      "id": 209,
+      "titulo": "TU ÉS A MINHA ESPERANÇA, SENHOR",
+      "numero": "257",
+      "html": "TU ES A MINHA ESPERANCA SENHOR",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/TU%20ES%20A%20MINHA%20ESPERANCA%20SENHOR.mp3"
+    },
+    {
+      "id": 210,
+      "titulo": "TU ÉS DIGNO DE RECEBER O LIVRO",
+      "numero": "238",
+      "html": "TU ES DIGNO DE RECEBER O LIVRO",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/TU%20ES%20DIGNO%20DE%20RECEBER%20O%20LIVRO.mp3"
+    },
+    {
+      "id": 211,
+      "titulo": "TU ÉS FORMOSO",
+      "numero": "157",
+      "html": "TU ES FORMOSO",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/TU%20ES%20FORMOSO.mp3"
+    },
+    {
+      "id": 212,
+      "titulo": "TU QUE ÉS FIEL",
+      "numero": "158",
+      "html": "TU QUE ES FIEL",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/TU%20QUE%20ES%20FIEL.mp3"
+    },
+    {
+      "id": 213,
+      "titulo": "UM GRANDE SINAL",
+      "numero": "159",
+      "html": "UM GRANDE SINAL",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/UM%20GRANDE%20SINAL.mp3"
+    },
+    {
+      "id": 214,
+      "titulo": "UM REBENTO BROTA DO TRONCO DE JESSÉ",
+      "numero": "160",
+      "html": "UM REBENTO BROTA DO TRONCO DE JESSE",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/UM%20REBENTO%20BROTA%20DO%20TRONCO%20DE%20JESSE.mp3"
+    },
+    {
+      "id": 215,
+      "titulo": "URI, URI, URI, URÁ",
+      "numero": "161",
+      "html": "URI URI URI URA",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/URI%20URI%20URI%20URA.mp3"
+    },
+    {
+      "id": 216,
+      "titulo": "VAMOS JÁ, PASTORES",
+      "numero": "162",
+      "html": "VAMOS JA PASTORES",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/VAMOS%20JA%20PASTORES.mp3"
+    },
+    {
+      "id": 217,
+      "titulo": "VEM DO LÍBANO",
+      "numero": "163",
+      "html": "VEM DO LIBANO",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/VEM%20DO%20LIBANO.mp3"
+    },
+    {
+      "id": 219,
+      "titulo": "VEM, ESPÍRITO SANTO",
+      "numero": "164",
+      "html": "VEM ESPIRITO SANTO",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/VEM%20ESPIRITO%20SANTO.mp3"
+    },
+    {
+      "id": 218,
+      "titulo": "VEM O SENHOR",
+      "numero": "166",
+      "html": "VEM O SENHOR",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/VEM%20O%20SENHOR.mp3"
+    },
+    {
+      "id": 220,
+      "titulo": "VEM, FILHO DO HOMEM",
+      "numero": "165",
+      "html": "VEM FILHO DO HOMEM",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/VEM%20FILHO%20DO%20HOMEM.mp3"
+    },
+    {
+      "id": 221,
+      "titulo": "VENI CREATOR",
+      "numero": "167",
+      "html": "VENI CREATOR",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/VENI%20CREATOR.mp3"
+    },
+    {
+      "id": 222,
+      "titulo": "VIRGEM DA MARAVILHA",
+      "numero": "168",
+      "html": "VIRGEM DA MARAVILHA",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/VIRGEM%20DA%20MARAVILHA.mp3"
+    },
+    {
+      "id": 223,
+      "titulo": "VIVEI ALEGRES",
+      "numero": "169",
+      "html": "VIVEI ALEGRES",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": false,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/VIVEI%20ALEGRES.mp3"
+    },
+    {
+      "id": 224,
+      "titulo": "VÓS SOIS A LUZ DO MUNDO",
+      "numero": "170",
+      "html": "VOS SOIS A LUZ DO MUNDO",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/VOS%20SOIS%20A%20LUZ%20DO%20MUNDO.mp3"
+    },
+    {
+      "id": 225,
+      "titulo": "VOS TOMAREI DENTRE AS NAÇÕES",
+      "numero": "171",
+      "html": "VOS TOMAREI DENTRE AS NACOES",
+      "audio_indicado_no_catalogo": true,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/VOS%20TOMAREI%20DENTRE%20AS%20NACOES.mp3"
+    },
+    {
+      "id": 226,
+      "titulo": "ZAQUEU",
+      "numero": "172",
+      "html": "ZAQUEU",
+      "audio_indicado_no_catalogo": false,
+      "arquivo_existe_no_repositorio": true,
+      "url_mp3": "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/ZAQUEU.mp3"
+    }
+  ]
+}

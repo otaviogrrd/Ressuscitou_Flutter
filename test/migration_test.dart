@@ -34,6 +34,15 @@ void main() {
     expect(Canto.fromJson({}).numero, isEmpty);
   });
 
+  test('legacy content is ignored and not serialized', () {
+    final canto = Canto.fromJson({
+      'id': 227, 'numero': '21', 'conteudo': 'indiceantigosemespacos',
+    });
+    expect(canto.id, 227);
+    expect(canto.numero, '21');
+    expect(canto.toJson().containsKey('conteudo'), isFalse);
+  });
+
   test('older backups retain lists, transpositions, capo and notes', () {
     final backup = <String, dynamic>{
       'listas': [
