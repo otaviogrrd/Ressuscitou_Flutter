@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -8,7 +9,7 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   test('repairs the three reviewed songs in both variants without losing repetitions or IDs', () async {
-    final raw = jsonDecode(await rootBundle.loadString('assets/cantos.json')) as List;
+    final raw = jsonDecode(await File('test/fixtures/cantos_legacy.json').readAsString()) as List;
     final songs = raw.map((row) => Canto.fromJson(row as Map<String, dynamic>)).toList();
     final data = jsonDecode(await rootBundle.loadString('assets/reviewed_html_corrections.json')) as Map<String, dynamic>;
     final rules = data['songs'] as Map<String, dynamic>;

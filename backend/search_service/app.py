@@ -23,8 +23,11 @@ def create_app(engine=None):
             from sentence_transformers import SentenceTransformer
             catalog = Path(os.getenv('CATALOG_PATH', '/app/assets/cantos.json'))
             songs = json.loads(catalog.read_text(encoding='utf-8'))
+            legacy = isinstance(songs, list)
+            if not legacy:
+                songs = songs['cantos']
             metadata = catalog.with_name('portal_metadata.json')
-            if metadata.exists():
+            if legacy and metadata.exists():
                 overrides = json.loads(metadata.read_text(encoding='utf-8')).get('categoryOverrides', {})
                 for song in songs:
                     song['categoria'] = overrides.get(song['html'], song.get('categoria', 0))
