@@ -3,14 +3,14 @@ import "../helpers/global.dart";
 
 class CantoList {
   String titulo;
-  List<int> cantos = [];
+  List<int> cantos;
 
-  CantoList({this.titulo, this.cantos});
+  CantoList({this.titulo = "", List<int>? cantos}) : cantos = cantos ?? [];
 
   factory CantoList.fromJson(Map<String, dynamic> json) {
-    List<dynamic> body = json["cantos"];
+    List<dynamic> body = json["cantos"] ?? [];
     var cantos = body.map((dynamic item) => item).toList();
-    var canto = CantoList(titulo: json["titulo"], cantos: []);
+    var canto = CantoList(titulo: json["titulo"] ?? "", cantos: []);
     cantos.forEach((element) {
       canto.cantos.add(element);
     });
@@ -25,22 +25,22 @@ class CantoList {
 }
 
 class CantoListService {
-  saveList({String listaOld, CantoList listaNew}) async {
+  Future<void> saveList({String? listaOld, CantoList? listaNew}) async {
     List<CantoList> list = [];
-    String str = globals.prefs.getString("Listas");
-    if (str != null && str != "") {
+    String str = globals.prefs.getString("Listas") ?? "";
+    if (str.isNotEmpty) {
       List<dynamic> body = jsonDecode(str);
       list = body.map((dynamic item) => CantoList.fromJson(item)).toList();
     }
     list.removeWhere((element) => element.titulo == listaOld);
     if (listaNew != null) list.add(listaNew);
     str = jsonEncode(list);
-    globals.prefs.setString("Listas", str);
+    await globals.prefs.setString("Listas", str);
   }
 
   Future<List<CantoList>> getCantosList() async {
-    String str = globals.prefs.getString("Listas");
-    if (str != null && str != "") {
+    String str = globals.prefs.getString("Listas") ?? "";
+    if (str.isNotEmpty) {
       List<dynamic> body = jsonDecode(str);
       List<CantoList> list = body.map((dynamic item) => CantoList.fromJson(item)).toList();
       return list;

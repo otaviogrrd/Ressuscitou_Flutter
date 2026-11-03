@@ -1,0 +1,1303 @@
+[
+  {
+    "title": "Aclamação Ao Evangelho I",
+    "page": "https://cn.org.br/portal/aclamacao-ao-evangelho-i/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/aclamacao-ao-evangelho-i.png",
+    "status": "Reprovado",
+    "legacy": [],
+    "key": "848fefc7af92c6eb",
+    "image": "../sheets/848fefc7af92c6eb/source.png",
+    "draft": "../sheets/848fefc7af92c6eb/draft.html",
+    "screenshot": "848fefc7af92c6eb-draft.png",
+    "pair": "848fefc7af92c6eb-pair.png",
+    "meanConfidence": 94.77,
+    "columnCollisions": 19,
+    "sequence": 220,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/848fefc7af92c6eb-pair.jpg",
+    "achados": "Modelo I: «Eu sou» virou «Eusou»; no Modelo III «esse dará» aparece «essedará» e cifra Mi- antes de «fruto» perdeu posição relativa. Cabeçalhos/modelos fundidos; mantém os três modelos e duas linhas de aleluia.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Aclamação Ao Evangelho Ii",
+    "page": "https://cn.org.br/portal/aclamacao-ao-evangelho-ii/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/aclamacao-ao-evangelho-ii.png",
+    "status": "Reprovado",
+    "legacy": [],
+    "key": "40eaf6fb0bd48ca4",
+    "image": "../sheets/40eaf6fb0bd48ca4/source.png",
+    "draft": "../sheets/40eaf6fb0bd48ca4/draft.html",
+    "screenshot": "40eaf6fb0bd48ca4-draft.png",
+    "pair": "40eaf6fb0bd48ca4-pair.png",
+    "meanConfidence": 93.87,
+    "columnCollisions": 9,
+    "sequence": 221,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/40eaf6fb0bd48ca4-pair.jpg",
+    "achados": "Modelo II: «Glória ao Senhor» virou «Glóriaao Senhor», «No esplendor» virou «No esplendor da nuvem» sem separação em «esplendor»? Evidência clara: «Este é meu» virou «Este émeu» e «este émeu». Modelo I «eterna glória» virou «eternaglória». Cifras finais Sol/Do da retomada afastadas da letra por linhas vazias.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Aclamações Às Orações Dos Fiéis",
+    "page": "https://cn.org.br/portal/aclamacoes-as-oracoes-dos-fieis/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/aclamacoes-as-oracoes-dos-fieis.png",
+    "status": "Reprovado",
+    "legacy": [],
+    "key": "a9d28370d63b9873",
+    "image": "../sheets/a9d28370d63b9873/source.png",
+    "draft": "../sheets/a9d28370d63b9873/draft.html",
+    "screenshot": "a9d28370d63b9873-draft.png",
+    "pair": "a9d28370d63b9873-pair.png",
+    "meanConfidence": 94.34,
+    "columnCollisions": 2,
+    "sequence": 222,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/a9d28370d63b9873-pair.jpg",
+    "achados": "Modelo I «Nós vos pedimos, Senhor» virou «Nós vospedimos,Senhor». Modelo III cifras Re Sol e Mi- Si7 Mi- coladas em «ReSol», «Mi-Si7Mi-», prejudicando leitura dos acordes. Mesma melodia do Modelo I fundida em «melodiado Modelo|».",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Aleluia Interlecional",
+    "page": "https://cn.org.br/portal/aleluia-interlecional/",
+    "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-09-52.png",
+    "status": "Reprovado",
+    "legacy": [],
+    "key": "56d7b2b090016281",
+    "image": "../sheets/56d7b2b090016281/source.png",
+    "draft": "../sheets/56d7b2b090016281/draft.html",
+    "screenshot": "56d7b2b090016281-draft.png",
+    "pair": "56d7b2b090016281-pair.png",
+    "meanConfidence": 94.71,
+    "columnCollisions": 9,
+    "sequence": 223,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/56d7b2b090016281-pair.jpg",
+    "achados": "Modo I «esse dará fruto abundante» virou «esse daráfrutoabundante»; Modo III «Eu sou» virou «Eusou», «e eu nele» virou «e eunele». Linhas de cifras Re/Mi- separadas da letra por vazios; cabeçalho Modo III reconhecido como «Ill». Oito alternativas Aleluia Interlecional serão registradas individualmente.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Aleluia Interlecional",
+    "page": "https://cn.org.br/portal/aleluia-interlecional/",
+    "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-09-52-300x300.png",
+    "status": "Reprovado",
+    "legacy": [],
+    "key": "1d1c24f516d65e8b",
+    "image": "../sheets/1d1c24f516d65e8b/source.png",
+    "draft": "../sheets/1d1c24f516d65e8b/draft.html",
+    "screenshot": "1d1c24f516d65e8b-draft.png",
+    "pair": "1d1c24f516d65e8b-pair.png",
+    "meanConfidence": 30.66,
+    "columnCollisions": 16,
+    "sequence": 224,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/1d1c24f516d65e8b-pair.jpg",
+    "achados": "Alternativa de baixa resolução da mesma ficha. HTML contém linhas numéricas de dados OCR («4 1 1 ... 91.843369»), letra ilegível/inventada («MENU ALELUAA»); cifras não reconstruídas. Revisão integral de transcrição não exaurida: descarte deste rascunho e use fonte maior.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Aleluia Interlecional",
+    "page": "https://cn.org.br/portal/aleluia-interlecional/",
+    "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-09-52-150x150.png",
+    "status": "Reprovado",
+    "legacy": [],
+    "key": "4b8886d001e3b9af",
+    "image": "../sheets/4b8886d001e3b9af/source.png",
+    "draft": "../sheets/4b8886d001e3b9af/draft.html",
+    "screenshot": "4b8886d001e3b9af-draft.png",
+    "pair": "4b8886d001e3b9af-pair.png",
+    "meanConfidence": 0,
+    "columnCollisions": 0,
+    "sequence": 225,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/4b8886d001e3b9af-pair.jpg",
+    "achados": "Alternativa de resolução ainda menor da mesma ficha. HTML mostra somente título, sem os três modos, letra, cifras ou repetições. Fonte desfocada; não permite validar transcrição.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Aleluia Interlecional",
+    "page": "https://cn.org.br/portal/aleluia-interlecional/",
+    "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-09-52-768x767.png",
+    "status": "Reprovado",
+    "legacy": [],
+    "key": "830d9e4a5610ec8c",
+    "image": "../sheets/830d9e4a5610ec8c/source.png",
+    "draft": "../sheets/830d9e4a5610ec8c/draft.html",
+    "screenshot": "830d9e4a5610ec8c-draft.png",
+    "pair": "830d9e4a5610ec8c-pair.png",
+    "meanConfidence": 93.57,
+    "columnCollisions": 16,
+    "sequence": 226,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/830d9e4a5610ec8c-pair.jpg",
+    "achados": "Alternativa da mesma ficha: no Modo III a cifra Mi- de «ramos» virou «Mk»; «Eu sou a videira» virou «Eu soua videira». «esse dará fruto abundante» fundido nos três modos. Vazios excessivos separam cifras das linhas.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Aleluia Interlecional",
+    "page": "https://cn.org.br/portal/aleluia-interlecional/",
+    "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-09-52-830x829.png",
+    "status": "Reprovado",
+    "legacy": [],
+    "key": "22191c8bb3aaa394",
+    "image": "../sheets/22191c8bb3aaa394/source.png",
+    "draft": "../sheets/22191c8bb3aaa394/draft.html",
+    "screenshot": "22191c8bb3aaa394-draft.png",
+    "pair": "22191c8bb3aaa394-pair.png",
+    "meanConfidence": 92.89,
+    "columnCollisions": 4,
+    "sequence": 227,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/22191c8bb3aaa394-pair.jpg",
+    "achados": "Alternativa da mesma ficha. Uma tabela extensa de dados OCR aparece entre verso e cifras; parte da letra verticalizada à direita. Após «Eu sou a videira» o fluxo de versos e cifras foi destruído. Revisão integral de transcrição não exaurida diante da corrupção estrutural.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Aleluia Interlecional",
+    "page": "https://cn.org.br/portal/aleluia-interlecional/",
+    "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-09-52-230x230.png",
+    "status": "Reprovado",
+    "legacy": [],
+    "key": "7cb484c65b968246",
+    "image": "../sheets/7cb484c65b968246/source.png",
+    "draft": "../sheets/7cb484c65b968246/draft.html",
+    "screenshot": "7cb484c65b968246-draft.png",
+    "pair": "7cb484c65b968246-pair.png",
+    "meanConfidence": 37.53,
+    "columnCollisions": 0,
+    "sequence": 228,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/7cb484c65b968246-pair.jpg",
+    "achados": "Alternativa de baixa resolução da mesma ficha. HTML reduzido a fragmentos «Momo1», «ma atra Mc AutLDA», «e man aont»; desaparecem modelos, letra reconhecível, cifras e repetições. Transcrição não exaurida, rascunho inutilizável.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Aleluia Interlecional",
+    "page": "https://cn.org.br/portal/aleluia-interlecional/",
+    "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-09-52-350x350.png",
+    "status": "Reprovado",
+    "legacy": [],
+    "key": "1e06c24731ff5565",
+    "image": "../sheets/1e06c24731ff5565/source.png",
+    "draft": "../sheets/1e06c24731ff5565/draft.html",
+    "screenshot": "1e06c24731ff5565-draft.png",
+    "pair": "1e06c24731ff5565-pair.png",
+    "meanConfidence": 46.95,
+    "columnCollisions": 26,
+    "sequence": 229,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/1e06c24731ff5565-pair.jpg",
+    "achados": "Alternativa da mesma ficha. «ALELUIA» virou «MELINA», «ALELIUM» etc.; Sol/Do/Re/Mi- viraram «sa», «tom», «ta», «w». Verso «Eu sou a videira» irreconhecível. Corrupção generalizada; revisão de transcrição não exaurida.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Aleluia Interlecional",
+    "page": "https://cn.org.br/portal/aleluia-interlecional/",
+    "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-09-52-480x479.png",
+    "status": "Reprovado",
+    "legacy": [],
+    "key": "00b27de172088f90",
+    "image": "../sheets/00b27de172088f90/source.png",
+    "draft": "../sheets/00b27de172088f90/draft.html",
+    "screenshot": "00b27de172088f90-draft.png",
+    "pair": "00b27de172088f90-pair.png",
+    "meanConfidence": 75.31,
+    "columnCollisions": 1,
+    "sequence": 230,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/00b27de172088f90-pair.jpg",
+    "achados": "Alternativa da mesma ficha. Sol inicial virou «so» e Sol final «5a»; «Eu sou a videira» virou «Eusau andeira». Modo II substituído parcialmente por tabela numérica OCR, versos verticalizados; cifras desconectadas. Transcrição não exaurida.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Aleluia Pascal",
+    "page": "https://cn.org.br/portal/aleluia-pascal/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/aleluia-pascal.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "ALELUIA PASCAL",
+        "id": 20,
+        "normal": "current-92151787ec572186-normal.png",
+        "extended": "current-92151787ec572186-extended.png"
+      }
+    ],
+    "key": "6eb2d29c07abef66",
+    "image": "../sheets/6eb2d29c07abef66/source.png",
+    "draft": "../sheets/6eb2d29c07abef66/draft.html",
+    "screenshot": "6eb2d29c07abef66-draft.png",
+    "pair": "6eb2d29c07abef66-pair.png",
+    "meanConfidence": 94.62,
+    "columnCollisions": 28,
+    "sequence": 231,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/6eb2d29c07abef66-pair.jpg",
+    "achados": "Sequência S/A1/A2/A3 e três blocos/repetições preservados visualmente, cifras La/Mi/La equivalentes e alinhadas aos três aleluias. Subtítulo «Para o tempo Pascal» fundido como «Parao tempoPascal»; em múltiplas linhas falta espaço após vírgula («ALELUIA,ALELUIA»). Nota das três vozes presente. Corrigir espaços antes de incorporar.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Aleluia Pascal II",
+    "page": "https://cn.org.br/portal/aleluia-pascal-ii/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/aleluia-pascal-ii.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "ALELUIA PASCAL II",
+        "id": 227,
+        "normal": "current-2bfde3799bffc08c-normal.png",
+        "extended": "current-2bfde3799bffc08c-extended.png"
+      }
+    ],
+    "key": "3e1dce9b6f944b54",
+    "image": "../sheets/3e1dce9b6f944b54/source.png",
+    "draft": "../sheets/3e1dce9b6f944b54/draft.html",
+    "screenshot": "3e1dce9b6f944b54-draft.png",
+    "pair": "3e1dce9b6f944b54-pair.png",
+    "meanConfidence": 94.26,
+    "columnCollisions": 31,
+    "sequence": 232,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/3e1dce9b6f944b54-pair.jpg",
+    "achados": "«Cristo Jesus» fundido «CristoJesus», «é o Senhor» como «éo Senhor»; coluna direita «Este é o dia que» virou «Este éo diaque» e «fez para» «fezpara». Cifras La/Mi/La e cinco respostas por coluna preservadas; notas presentes, mas marcador ** virou +.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Amém, amém, amém",
+    "page": "https://cn.org.br/portal/amem-amem-amem/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/amem-amem-amem.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "AMEM AMEM AMEM",
+        "id": 24,
+        "normal": "current-065d5aa5598fd066-normal.png",
+        "extended": "current-065d5aa5598fd066-extended.png"
+      }
+    ],
+    "key": "31136d1d2e4664ae",
+    "image": "../sheets/31136d1d2e4664ae/source.png",
+    "draft": "../sheets/31136d1d2e4664ae/draft.html",
+    "screenshot": "31136d1d2e4664ae-draft.png",
+    "pair": "31136d1d2e4664ae-pair.png",
+    "meanConfidence": 92.18,
+    "columnCollisions": 6,
+    "sequence": 233,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/31136d1d2e4664ae-pair.jpg",
+    "achados": "Cifra Sol7 acima de SABEDORIA e ESTes SÃO virou «Sol?»; «AMÉM» nas retomadas virou «AMEN». «E de onde vêm» fundido «edeondevêm»; «ESTES SÃO OS QUE VÊM» virou «ESTESSÃO OS QUEVEM». Bis ainda literal no rascunho normal. Alinhamento e acentos exigem correção.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Anáfora do Sal",
+    "page": "https://cn.org.br/portal/anafora-do-sal/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/anafora-do-sal.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "ANAFORA DO SAL",
+        "id": 26,
+        "normal": "current-192b888a33208f89-normal.png",
+        "extended": "current-192b888a33208f89-extended.png"
+      }
+    ],
+    "key": "49f5f9b64b506878",
+    "image": "../sheets/49f5f9b64b506878/source.png",
+    "draft": "../sheets/49f5f9b64b506878/draft.html",
+    "screenshot": "49f5f9b64b506878-draft.png",
+    "pair": "49f5f9b64b506878-pair.png",
+    "meanConfidence": 94.07,
+    "columnCollisions": 21,
+    "sequence": 234,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/49f5f9b64b506878-pair.jpg",
+    "achados": "Muitas palavras fundidas: «esteja convosco» virou «estejaconvosco», «justo e necessário» «justoe necessário», «verdadeiro sabor a toda realidade criada» «verdadeirosabor atoda realidadecriada». Cifras deslocadas verticalmente por grandes espaços; blocos BIS A presentes, sem expansão conferida. «e reina pelos séculos» fundido «reinapelosséculos».",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Antífona – Versículo antes do Evangelho",
+    "page": "https://cn.org.br/portal/antifona-versiculo-antes-do-evangelho/",
+    "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-14-53.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "ANTIFONA - VERSICULO ANTES DO EVANGELHO",
+        "id": 27,
+        "normal": "current-8e9d91a4f327a50d-normal.png",
+        "extended": "current-8e9d91a4f327a50d-extended.png"
+      }
+    ],
+    "key": "75876ad9facf9532",
+    "image": "../sheets/75876ad9facf9532/source.png",
+    "draft": "../sheets/75876ad9facf9532/draft.html",
+    "screenshot": "75876ad9facf9532-draft.png",
+    "pair": "75876ad9facf9532-pair.png",
+    "meanConfidence": 95.06,
+    "columnCollisions": 2,
+    "sequence": 235,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/75876ad9facf9532-pair.jpg",
+    "achados": "Modo I «ó Cristo» virou «6 Cristo» na primeira resposta; «de eterna» «deeterna», «a videira» «avideira». Modo II cifras Mi- do «No esplendor» e da última linha «escutai-o» perderam menor e renderizam Mi. «filho amado» fundido «filhoamado». Retomadas e dois modos presentes.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Antífona – Versículo antes do Evangelho",
+    "page": "https://cn.org.br/portal/antifona-versiculo-antes-do-evangelho/",
+    "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-14-53-300x300.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "ANTIFONA - VERSICULO ANTES DO EVANGELHO",
+        "id": 27,
+        "normal": "current-8e9d91a4f327a50d-normal.png",
+        "extended": "current-8e9d91a4f327a50d-extended.png"
+      }
+    ],
+    "key": "22fe38293bdef012",
+    "image": "../sheets/22fe38293bdef012/source.png",
+    "draft": "../sheets/22fe38293bdef012/draft.html",
+    "screenshot": "22fe38293bdef012-draft.png",
+    "pair": "22fe38293bdef012-pair.png",
+    "meanConfidence": 41.73,
+    "columnCollisions": 35,
+    "sequence": 236,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/22fe38293bdef012-pair.jpg",
+    "achados": "Alternativa de baixa resolução de 235. «GLÓRIA A VÓS, Ó CRISTO» virou «CLOMMAVOS.ODNFTO»; cifras em sua maioria viraram sílabas «tes», «ser», «Wu». Dois modos ainda posicionados, mas letra e harmonia inutilizáveis. Transcrição integral não exaurida.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Antífona – Versículo antes do Evangelho",
+    "page": "https://cn.org.br/portal/antifona-versiculo-antes-do-evangelho/",
+    "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-14-53-150x150.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "ANTIFONA - VERSICULO ANTES DO EVANGELHO",
+        "id": 27,
+        "normal": "current-8e9d91a4f327a50d-normal.png",
+        "extended": "current-8e9d91a4f327a50d-extended.png"
+      }
+    ],
+    "key": "d33317e3f4333840",
+    "image": "../sheets/d33317e3f4333840/source.png",
+    "draft": "../sheets/d33317e3f4333840/draft.html",
+    "screenshot": "d33317e3f4333840-draft.png",
+    "pair": "d33317e3f4333840-pair.png",
+    "meanConfidence": 4.79,
+    "columnCollisions": 0,
+    "sequence": 237,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/d33317e3f4333840-pair.jpg",
+    "achados": "Alternativa de resolução muito baixa de 235. Corpo sumiu quase completamente: apenas «entire meeerues testaram» em vermelho sob título. Não há versos/cifras/repetições utilizáveis.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Antífona – Versículo antes do Evangelho",
+    "page": "https://cn.org.br/portal/antifona-versiculo-antes-do-evangelho/",
+    "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-14-53-768x765.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "ANTIFONA - VERSICULO ANTES DO EVANGELHO",
+        "id": 27,
+        "normal": "current-8e9d91a4f327a50d-normal.png",
+        "extended": "current-8e9d91a4f327a50d-extended.png"
+      }
+    ],
+    "key": "3ddae08eed8c70c6",
+    "image": "../sheets/3ddae08eed8c70c6/source.png",
+    "draft": "../sheets/3ddae08eed8c70c6/draft.html",
+    "screenshot": "3ddae08eed8c70c6-draft.png",
+    "pair": "3ddae08eed8c70c6-pair.png",
+    "meanConfidence": 94.12,
+    "columnCollisions": 0,
+    "sequence": 238,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/3ddae08eed8c70c6-pair.jpg",
+    "achados": "Alternativa de 235. «ó Cristo» reconhecido «6 Cristo»; Mi- inicial de «No esplendor» virou Mi maior. «a videira, e vós» virou «avideira,evós» e «ouviu-se a voz do Pai» «ouviu-sea vozdo Pai». Os dois modos/retomadas estão presentes, letra e cifras precisam correção.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Antífona – Versículo antes do Evangelho",
+    "page": "https://cn.org.br/portal/antifona-versiculo-antes-do-evangelho/",
+    "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-14-53-830x827.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "ANTIFONA - VERSICULO ANTES DO EVANGELHO",
+        "id": 27,
+        "normal": "current-8e9d91a4f327a50d-normal.png",
+        "extended": "current-8e9d91a4f327a50d-extended.png"
+      }
+    ],
+    "key": "293c017c8004a022",
+    "image": "../sheets/293c017c8004a022/source.png",
+    "draft": "../sheets/293c017c8004a022/draft.html",
+    "screenshot": "293c017c8004a022-draft.png",
+    "pair": "293c017c8004a022-pair.png",
+    "meanConfidence": 94.61,
+    "columnCollisions": 7,
+    "sequence": 239,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/293c017c8004a022-pair.jpg",
+    "achados": "Alternativa de 235. Mi- final da primeira linha «Eu sou ... ramos» virou Mi maior. «ó Cristo» virou «6 Cristo»; «Glória ao Senhor» fundido «GlóriaaoSenhor» e «ouviu-se a voz» «ouviu-seavoz». Dois modos e retomadas preservados, alinhamento fica prejudicado pelas fusões.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Antífona – Versículo antes do Evangelho",
+    "page": "https://cn.org.br/portal/antifona-versiculo-antes-do-evangelho/",
+    "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-14-53-230x229.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "ANTIFONA - VERSICULO ANTES DO EVANGELHO",
+        "id": 27,
+        "normal": "current-8e9d91a4f327a50d-normal.png",
+        "extended": "current-8e9d91a4f327a50d-extended.png"
+      }
+    ],
+    "key": "b8f662e49a362c3b",
+    "image": "../sheets/b8f662e49a362c3b/source.png",
+    "draft": "../sheets/b8f662e49a362c3b/draft.html",
+    "screenshot": "b8f662e49a362c3b-draft.png",
+    "pair": "b8f662e49a362c3b-pair.png",
+    "meanConfidence": 39.2,
+    "columnCollisions": 6,
+    "sequence": 240,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/b8f662e49a362c3b-pair.jpg",
+    "achados": "Alternativa de baixa resolução de 235. Restam somente fragmentos «Moto!», «me veta sans», «Magoa», «Amero» sob título. Ausentes versos, cifras e repetições dos dois modos.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Antífona – Versículo antes do Evangelho",
+    "page": "https://cn.org.br/portal/antifona-versiculo-antes-do-evangelho/",
+    "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-14-53-350x349.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "ANTIFONA - VERSICULO ANTES DO EVANGELHO",
+        "id": 27,
+        "normal": "current-8e9d91a4f327a50d-normal.png",
+        "extended": "current-8e9d91a4f327a50d-extended.png"
+      }
+    ],
+    "key": "eedeb4769f1a7021",
+    "image": "../sheets/eedeb4769f1a7021/source.png",
+    "draft": "../sheets/eedeb4769f1a7021/draft.html",
+    "screenshot": "eedeb4769f1a7021-draft.png",
+    "pair": "eedeb4769f1a7021-pair.png",
+    "meanConfidence": 46.38,
+    "columnCollisions": 22,
+    "sequence": 241,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/eedeb4769f1a7021-pair.jpg",
+    "achados": "Alternativa de 235. «Rei de eterna glória» virou «Re do toraquina»; Sol/Do/Re viraram «sa/bo/ne». Texto do verso e respostas quase inteiramente corrompido. Dois blocos espaciais persistem, mas não a transcrição. Revisão de transcrição não exaurida.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Antífona – Versículo antes do Evangelho",
+    "page": "https://cn.org.br/portal/antifona-versiculo-antes-do-evangelho/",
+    "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-14-53-480x478.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "ANTIFONA - VERSICULO ANTES DO EVANGELHO",
+        "id": 27,
+        "normal": "current-8e9d91a4f327a50d-normal.png",
+        "extended": "current-8e9d91a4f327a50d-extended.png"
+      }
+    ],
+    "key": "7cfa3e468ecf4a54",
+    "image": "../sheets/7cfa3e468ecf4a54/source.png",
+    "draft": "../sheets/7cfa3e468ecf4a54/draft.html",
+    "screenshot": "7cfa3e468ecf4a54-draft.png",
+    "pair": "7cfa3e468ecf4a54-pair.png",
+    "meanConfidence": 78.52,
+    "columnCollisions": 6,
+    "sequence": 242,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/7cfa3e468ecf4a54-pair.jpg",
+    "achados": "Alternativa de 235. «Glória a vós» virou «Glong avos» e «Eu sou a videira» «Eu soua ydera»; cifras Sol viram «So!», «Sal», Mi- perde menor ou vira «Mr/Mo./Mie». Respostas de ambos modos ainda reconhecíveis, mas incorretas. Transcrição não exaurida.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Arpejos",
+    "page": "https://cn.org.br/portal/arpejos/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/arpejos.png",
+    "status": "Reprovado",
+    "legacy": [],
+    "key": "a525e28fed6abc5f",
+    "image": "../sheets/a525e28fed6abc5f/source.png",
+    "draft": "../sheets/a525e28fed6abc5f/draft.html",
+    "screenshot": "a525e28fed6abc5f-draft.png",
+    "pair": "a525e28fed6abc5f-pair.png",
+    "meanConfidence": 75.27,
+    "columnCollisions": 14,
+    "sequence": 243,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/a525e28fed6abc5f-pair.jpg",
+    "achados": "Ficha técnica de arpejos, sem canto novo. Diagramas de cordas/notas foram perdidos e substituídos por letras «e», «o», «0» dispersas; nota 4ª,5ª,6ª/3ª/2ª/1ª virou 42,52,62/32/22/12. Não serve como representação musical. Precisa preservar imagem/diagramas, não OCR de letra.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Benção da Água",
+    "page": "https://cn.org.br/portal/bencao-da-agua/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/bencao-da-agua-1.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "BENCAO DA AGUA",
+        "id": 36,
+        "normal": "current-1279fa5cad1e9975-normal.png",
+        "extended": "current-1279fa5cad1e9975-extended.png"
+      }
+    ],
+    "key": "eb65c28aa7a5c1d0",
+    "image": "../sheets/eb65c28aa7a5c1d0/source.png",
+    "draft": "../sheets/eb65c28aa7a5c1d0/draft.html",
+    "screenshot": "eb65c28aa7a5c1d0-draft.png",
+    "pair": "eb65c28aa7a5c1d0-pair.png",
+    "meanConfidence": 94.71,
+    "columnCollisions": 10,
+    "sequence": 244,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/eb65c28aa7a5c1d0-pair.jpg",
+    "achados": "Página 1 da Bênção da Água, continuação em 245. «por meio» virou «pormeio», «sinais sacramentais» «sinaissacramentais», «sinal do fim do pecado» «sinaldo fimdo pecado», «foi ungido ... Espírito Santo» «foiungido ... EspíritoSanto». Asteriscos de melisma junto a trechos desapareceram; sobra nota solta. Cifras principais Mi-/La-/Si7/Do/Re presentes, mas vazios separam algumas linhas.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Benção da Água",
+    "page": "https://cn.org.br/portal/bencao-da-agua/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/bencao-da-agua-2.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "BENCAO DA AGUA",
+        "id": 36,
+        "normal": "current-1279fa5cad1e9975-normal.png",
+        "extended": "current-1279fa5cad1e9975-extended.png"
+      }
+    ],
+    "key": "c98df0562a12b38d",
+    "image": "../sheets/c98df0562a12b38d/source.png",
+    "draft": "../sheets/c98df0562a12b38d/draft.html",
+    "screenshot": "c98df0562a12b38d-draft.png",
+    "pair": "c98df0562a12b38d-pair.png",
+    "meanConfidence": 93.64,
+    "columnCollisions": 1,
+    "sequence": 245,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/c98df0562a12b38d-pair.jpg",
+    "achados": "Página 2/continuação de 244. «Infundi nesta água» virou «Infundinesta água», «fazei brotar para» «fazeibrotarpara», «sejam sepultados com» «sejam sepultadoscom». «Desça, ó Pai» virou «Desça, 6 Pai» e AMÉM final perdeu acentos. Cifras finais Mi-/Re/Mi- afastadas da letra por linha de pontos; BIS A permanece literal no rascunho normal.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Benção Penitencial",
+    "page": "https://cn.org.br/portal/bencao-penitencial/",
+    "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-17-18.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "BENCAO PENITENCIAL",
+        "id": 37,
+        "normal": "current-471410ec75c97d92-normal.png",
+        "extended": "current-471410ec75c97d92-extended.png"
+      }
+    ],
+    "key": "c191f182200eff46",
+    "image": "../sheets/c191f182200eff46/source.png",
+    "draft": "../sheets/c191f182200eff46/draft.html",
+    "screenshot": "c191f182200eff46-draft.png",
+    "pair": "c191f182200eff46-pair.png",
+    "meanConfidence": 93.34,
+    "columnCollisions": 9,
+    "sequence": 246,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/c191f182200eff46-pair.jpg",
+    "achados": "«É NOSSO DEVER E SALVAÇÃO» primeira resposta perdeu acento e espaço («E NOSSO DEVER ESALVAÇÃO»); «criastes o homem» virou «criastesohomem», «cheio de» «cheiode», «o Espírito Santo» «oEspíritoSanto». Marcadores P. viram PR em várias entradas. Cifras Sol/La-/Fa/Mi e retomada Santo presentes, mas versos/cifras muito separados.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Benção Penitencial",
+    "page": "https://cn.org.br/portal/bencao-penitencial/",
+    "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-17-18-300x300.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "BENCAO PENITENCIAL",
+        "id": 37,
+        "normal": "current-471410ec75c97d92-normal.png",
+        "extended": "current-471410ec75c97d92-extended.png"
+      }
+    ],
+    "key": "204b50d667692545",
+    "image": "../sheets/204b50d667692545/source.png",
+    "draft": "../sheets/204b50d667692545/draft.html",
+    "screenshot": "204b50d667692545-draft.png",
+    "pair": "204b50d667692545-pair.png",
+    "meanConfidence": 32.55,
+    "columnCollisions": 9,
+    "sequence": 247,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/204b50d667692545-pair.jpg",
+    "achados": "Alternativa de baixa resolução de 246. «ELE ESTÁ NO MEIO DE NÓS» virou «ELEEDTA woMOO TeHOS»; letra generalizadamente corrompida, cifras praticamente ausentes, linha numérica OCR incluída («5 1 ...19.329224»). Revisão integral de transcrição não exaurida.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Benção Penitencial",
+    "page": "https://cn.org.br/portal/bencao-penitencial/",
+    "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-17-18-150x150.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "BENCAO PENITENCIAL",
+        "id": 37,
+        "normal": "current-471410ec75c97d92-normal.png",
+        "extended": "current-471410ec75c97d92-extended.png"
+      }
+    ],
+    "key": "299026c04612d351",
+    "image": "../sheets/299026c04612d351/source.png",
+    "draft": "../sheets/299026c04612d351/draft.html",
+    "screenshot": "299026c04612d351-draft.png",
+    "pair": "299026c04612d351-pair.png",
+    "meanConfidence": 1.31,
+    "columnCollisions": 0,
+    "sequence": 248,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/299026c04612d351-pair.jpg",
+    "achados": "Alternativa desfocada de 246. Corpo ausente: somente «weesrue,» em vermelho sob título. Nenhuma cifra, verso ou resposta preservado.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Benção Penitencial",
+    "page": "https://cn.org.br/portal/bencao-penitencial/",
+    "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-17-18-768x768.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "BENCAO PENITENCIAL",
+        "id": 37,
+        "normal": "current-471410ec75c97d92-normal.png",
+        "extended": "current-471410ec75c97d92-extended.png"
+      }
+    ],
+    "key": "bec7cfe8e1533ccc",
+    "image": "../sheets/bec7cfe8e1533ccc/source.png",
+    "draft": "../sheets/bec7cfe8e1533ccc/draft.html",
+    "screenshot": "bec7cfe8e1533ccc-draft.png",
+    "pair": "bec7cfe8e1533ccc-pair.png",
+    "meanConfidence": 92.3,
+    "columnCollisions": 9,
+    "sequence": 249,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/bec7cfe8e1533ccc-pair.jpg",
+    "achados": "Alternativa de 246. «É NOSSO» fundido «ÉNOSSO», «criastes o» «criasteso», «Não o abandonais» «Não oabandonais», «Enviastes ao mundo» «Enviastes aomundo»/fundido. Na coluna direita «para que nos tornássemos» tem leitura visual reordenada: nos tornássemos acima de para que. Cifras mantêm alturas, mas ordem/espaçamento dos versos falham.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Benção Penitencial",
+    "page": "https://cn.org.br/portal/bencao-penitencial/",
+    "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-17-18-830x830.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "BENCAO PENITENCIAL",
+        "id": 37,
+        "normal": "current-471410ec75c97d92-normal.png",
+        "extended": "current-471410ec75c97d92-extended.png"
+      }
+    ],
+    "key": "4f337d4d4e42c717",
+    "image": "../sheets/4f337d4d4e42c717/source.png",
+    "draft": "../sheets/4f337d4d4e42c717/draft.html",
+    "screenshot": "4f337d4d4e42c717-draft.png",
+    "pair": "4f337d4d4e42c717-pair.png",
+    "meanConfidence": 92.59,
+    "columnCollisions": 20,
+    "sequence": 250,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/4f337d4d4e42c717-pair.jpg",
+    "achados": "Alternativa de 246. «nos tornássemos» vira «nostomássemos»; «amor paterno» «amor patemo», instrução «litúrgico» «lúrgico». «O NOSSO CORAÇÃO ESTÁ» perdeu acento em ESTÁ. Vários trechos fundidos («echeio», «demodo», «maisadmiravelmente», «Senhornosso»); cifras ainda presentes. PR/Pp/R substituem marcadores P.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Benção Penitencial",
+    "page": "https://cn.org.br/portal/bencao-penitencial/",
+    "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-17-18-230x230.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "BENCAO PENITENCIAL",
+        "id": 37,
+        "normal": "current-471410ec75c97d92-normal.png",
+        "extended": "current-471410ec75c97d92-extended.png"
+      }
+    ],
+    "key": "3b4b929802dded17",
+    "image": "../sheets/3b4b929802dded17/source.png",
+    "draft": "../sheets/3b4b929802dded17/draft.html",
+    "screenshot": "3b4b929802dded17-draft.png",
+    "pair": "3b4b929802dded17-pair.png",
+    "meanConfidence": 21.89,
+    "columnCollisions": 8,
+    "sequence": 251,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/3b4b929802dded17-pair.jpg",
+    "achados": "Alternativa de baixa resolução de 246. OCR só produz fragmentos «+yaaa coms tora vm CON», «tease temer», «cam rat atene», sem o conteúdo litúrgico nem cifras reconhecíveis. Revisão de transcrição não exaurida; fonte insuficiente.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Benção Penitencial",
+    "page": "https://cn.org.br/portal/bencao-penitencial/",
+    "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-17-18-350x350.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "BENCAO PENITENCIAL",
+        "id": 37,
+        "normal": "current-471410ec75c97d92-normal.png",
+        "extended": "current-471410ec75c97d92-extended.png"
+      }
+    ],
+    "key": "1fb9e53ba64d99e8",
+    "image": "../sheets/1fb9e53ba64d99e8/source.png",
+    "draft": "../sheets/1fb9e53ba64d99e8/draft.html",
+    "screenshot": "1fb9e53ba64d99e8-draft.png",
+    "pair": "1fb9e53ba64d99e8-pair.png",
+    "meanConfidence": 40.77,
+    "columnCollisions": 29,
+    "sequence": 252,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/1fb9e53ba64d99e8-pair.jpg",
+    "achados": "Alternativa de baixa resolução de 246. «ELE ESTÁ NO MEIO DE NÓS» virou «BLEESTA HO MEIOOE NOS»; Sol/La-/Fa/Mi substituídos por letras isoladas e sílabas. «Não o abandonais» e oração restante irreconhecíveis. Repetição do dever ainda em dois blocos, mas transcrição geral não exaurida.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Benção Penitencial",
+    "page": "https://cn.org.br/portal/bencao-penitencial/",
+    "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-17-18-480x480.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "BENCAO PENITENCIAL",
+        "id": 37,
+        "normal": "current-471410ec75c97d92-normal.png",
+        "extended": "current-471410ec75c97d92-extended.png"
+      }
+    ],
+    "key": "fb760c21151d5b53",
+    "image": "../sheets/fb760c21151d5b53/source.png",
+    "draft": "../sheets/fb760c21151d5b53/draft.html",
+    "screenshot": "fb760c21151d5b53-draft.png",
+    "pair": "fb760c21151d5b53-pair.png",
+    "meanConfidence": 79.44,
+    "columnCollisions": 7,
+    "sequence": 253,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/fb760c21151d5b53-pair.jpg",
+    "achados": "Alternativa de 246. Cifras Sol viram «Su/Sa/Sal», La- perde menor como La, Re- vira Re, Fa vira «ta»; «vos bendizemos Senhor» «vosbendgemos Senhar», «ressurreição» «SUAFESBUITOÇÃO». Erros extensos de letra e harmonia; não se confunde com conversão intencional de nomes. Transcrição não exaurida.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Celebração Penitencial",
+    "page": "https://cn.org.br/portal/celebracao-penitencial/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/celebracao-penitencial.png",
+    "status": "Reprovado",
+    "legacy": [],
+    "key": "0b1e727ae8c46155",
+    "image": "../sheets/0b1e727ae8c46155/source.png",
+    "draft": "../sheets/0b1e727ae8c46155/draft.html",
+    "screenshot": "0b1e727ae8c46155-draft.png",
+    "pair": "0b1e727ae8c46155-pair.png",
+    "meanConfidence": 93.47,
+    "columnCollisions": 10,
+    "sequence": 254,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/0b1e727ae8c46155-pair.jpg",
+    "achados": "Texto litúrgico próximo de 246 mas título/ficha Celebração Penitencial e resposta «É NOSSO DEVER E NOSSA SALVAÇÃO» em dobro. HTML conserva ambos blocos, porém «criastes o homem» «criasteso homem», «o pecado» «o pecade», «e mais ... o restaurastes» «... orestaurastes», «Não o abandonais» «Não oabandonais». Marcador P. virou [=) numa entrada; cifras muito afastadas verticalmente.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Cordeiro de Deus",
+    "page": "https://cn.org.br/portal/cordeiro-de-deus/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/cordeiro-de-deus.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "CORDEIRO DE DEUS",
+        "id": 61,
+        "normal": "current-49dbabec237ac9a0-normal.png",
+        "extended": "current-49dbabec237ac9a0-extended.png"
+      }
+    ],
+    "key": "f90eefc50285d5bb",
+    "image": "../sheets/f90eefc50285d5bb/source.png",
+    "draft": "../sheets/f90eefc50285d5bb/draft.html",
+    "screenshot": "f90eefc50285d5bb-draft.png",
+    "pair": "f90eefc50285d5bb-pair.png",
+    "meanConfidence": 93.9,
+    "columnCollisions": 4,
+    "sequence": 255,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/f90eefc50285d5bb-pair.jpg",
+    "achados": "Latim: «QUI TOLLIS» virou «QUITOLLIS» nas três estrofes. Português: «O PECADO» fundido «OPECADO», «DE NÓS» virou «DENOS» sem acento nas duas respostas. Três estrofes, duas frases finais Dona nobis/Dai-nos e cifras La-/Sol/La-/Fa/Mi presentes e equivalentes.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Credo",
+    "page": "https://cn.org.br/portal/credo/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/credo.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "CREDO",
+        "id": 62,
+        "normal": "current-08d872ecb9081ec3-normal.png",
+        "extended": "current-08d872ecb9081ec3-extended.png"
+      }
+    ],
+    "key": "6a80cd03db403f5d",
+    "image": "../sheets/6a80cd03db403f5d/source.png",
+    "draft": "../sheets/6a80cd03db403f5d/draft.html",
+    "screenshot": "6a80cd03db403f5d-draft.png",
+    "pair": "6a80cd03db403f5d-pair.png",
+    "meanConfidence": 94.81,
+    "columnCollisions": 10,
+    "sequence": 256,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/6a80cd03db403f5d-pair.jpg",
+    "achados": "«CREIO EM» virou «CREIOEM», «PAI TODO» «PAITODO», «FOI CONCEBIDO» «FOICONCEBIDO», «PELO PODER» «PELOPODER», «ESTÁ SENTADO À DIREITA DE» «ESTÁSENTADO ÀDIREITADE». Cifras Re-/Fa aparecem coladas «Re-Fa»; Sib/La conservam acidente bemol e alturas, mas alinhamento muda pelas fusões. Ordem do credo até AMÉM e nota final presentes.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Glória a Deus no alto do céu",
+    "page": "https://cn.org.br/portal/gloria-a-deus-no-alto-do-ceu/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/gloria-a-deus-no-alto-do-ceu.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "GLORIA A DEUS NO ALTO DO CEU",
+        "id": 95,
+        "normal": "current-791675d1f4995d42-normal.png",
+        "extended": "current-791675d1f4995d42-extended.png"
+      }
+    ],
+    "key": "763be5b27e10610f",
+    "image": "../sheets/763be5b27e10610f/source.png",
+    "draft": "../sheets/763be5b27e10610f/draft.html",
+    "screenshot": "763be5b27e10610f-draft.png",
+    "pair": "763be5b27e10610f-pair.png",
+    "meanConfidence": 93.05,
+    "columnCollisions": 22,
+    "sequence": 257,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/763be5b27e10610f-pair.jpg",
+    "achados": "Letra: «GRAÇAS» virou «GRAGAS»; «SÓ VÓS» perdeu acentos «SO VOS» nas três linhas, AMÉM virou AMEM; «acolhei a nossa súplica» fundido «acolheianossasúplica». Cifras Fa#- e Mi- preservadas visualmente, respostas em ordem, mas espaços e acentos impedem aprovação.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Hino das Laudes de Pentecostes",
+    "page": "https://cn.org.br/portal/hino-das-laudes-de-pentecostes/",
+    "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-20-05.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "HINO DAS LAUDES DE PENTECOSTES",
+        "id": 104,
+        "normal": "current-7111415666a27c1f-normal.png",
+        "extended": "current-7111415666a27c1f-extended.png"
+      }
+    ],
+    "key": "70eecf449e7010ef",
+    "image": "../sheets/70eecf449e7010ef/source.png",
+    "draft": "../sheets/70eecf449e7010ef/draft.html",
+    "screenshot": "70eecf449e7010ef-draft.png",
+    "pair": "70eecf449e7010ef-pair.png",
+    "meanConfidence": 94.06,
+    "columnCollisions": 0,
+    "sequence": 258,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/70eecf449e7010ef-pair.jpg",
+    "achados": "«É este o jubileu» fundido «Éesteo jubileu»; «dos antigos profetas» «dos antigosprofetas», «toca as línguas e» «toca as línguase», «Enviai sobre» «Enviai sobre» fundido como «Enviaisobre», «o dom» «odom», «revelai-nos o mistério» «revelai-nosomistério». Quatro retomadas e AMÉM presentes; La-/Sol equivalentes, com deslocamentos pelas palavras fundidas.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Hino das Laudes de Pentecostes",
+    "page": "https://cn.org.br/portal/hino-das-laudes-de-pentecostes/",
+    "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-20-05-300x300.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "HINO DAS LAUDES DE PENTECOSTES",
+        "id": 104,
+        "normal": "current-7111415666a27c1f-normal.png",
+        "extended": "current-7111415666a27c1f-extended.png"
+      }
+    ],
+    "key": "e28ca091899c7423",
+    "image": "../sheets/e28ca091899c7423/source.png",
+    "draft": "../sheets/e28ca091899c7423/draft.html",
+    "screenshot": "e28ca091899c7423-draft.png",
+    "pair": "e28ca091899c7423-pair.png",
+    "meanConfidence": 34.01,
+    "columnCollisions": 10,
+    "sequence": 259,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/e28ca091899c7423-pair.jpg",
+    "achados": "Alternativa de baixa resolução de 258. «DIA DE IMENSA ALEGRIA» virou «DADEIMENSA LEONA»; demais estrofes e cifras em fragmentos/sílabas sem sentido. Não conserva letra ou harmonia utilizável. Revisão integral de transcrição não exaurida.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Hino das Laudes de Pentecostes",
+    "page": "https://cn.org.br/portal/hino-das-laudes-de-pentecostes/",
+    "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-20-05-150x150.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "HINO DAS LAUDES DE PENTECOSTES",
+        "id": 104,
+        "normal": "current-7111415666a27c1f-normal.png",
+        "extended": "current-7111415666a27c1f-extended.png"
+      }
+    ],
+    "key": "c45e8805135b073f",
+    "image": "../sheets/c45e8805135b073f/source.png",
+    "draft": "../sheets/c45e8805135b073f/draft.html",
+    "screenshot": "c45e8805135b073f-draft.png",
+    "pair": "c45e8805135b073f-pair.png",
+    "meanConfidence": 21.6,
+    "columnCollisions": 0,
+    "sequence": 260,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/c45e8805135b073f-pair.jpg",
+    "achados": "Alternativa muito desfocada de 258. Corpo ausente: somente «maias atestePEMA IS,» sob título. Estrofes, refrões, AMÉM e cifras não foram reconstruídos.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Hino das Laudes de Pentecostes",
+    "page": "https://cn.org.br/portal/hino-das-laudes-de-pentecostes/",
+    "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-20-05-768x767.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "HINO DAS LAUDES DE PENTECOSTES",
+        "id": 104,
+        "normal": "current-7111415666a27c1f-normal.png",
+        "extended": "current-7111415666a27c1f-extended.png"
+      }
+    ],
+    "key": "8db6f76e39b4ff3f",
+    "image": "../sheets/8db6f76e39b4ff3f/source.png",
+    "draft": "../sheets/8db6f76e39b4ff3f/draft.html",
+    "screenshot": "8db6f76e39b4ff3f-draft.png",
+    "pair": "8db6f76e39b4ff3f-pair.png",
+    "meanConfidence": 92.24,
+    "columnCollisions": 0,
+    "sequence": 261,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/8db6f76e39b4ff3f-pair.jpg",
+    "achados": "Alternativa de 258. La- sobre «dos antigos profetas» perdeu menor e virou La; La- sobre «revelai-nos» aparece «la.» (ponto). Sol La- do AMÉM colados «SolLa-». «mística inebriante» fundida «místic a inebriante»/«místicainebriante»; «resgata os escravos» «resgataos escravos» e deslocado acima do «que». Quatro retomadas preservadas.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Hino das Laudes de Pentecostes",
+    "page": "https://cn.org.br/portal/hino-das-laudes-de-pentecostes/",
+    "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-20-05-830x829.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "HINO DAS LAUDES DE PENTECOSTES",
+        "id": 104,
+        "normal": "current-7111415666a27c1f-normal.png",
+        "extended": "current-7111415666a27c1f-extended.png"
+      }
+    ],
+    "key": "e5334d90016b9ba0",
+    "image": "../sheets/e5334d90016b9ba0/source.png",
+    "draft": "../sheets/e5334d90016b9ba0/draft.html",
+    "screenshot": "e5334d90016b9ba0-draft.png",
+    "pair": "e5334d90016b9ba0-pair.png",
+    "meanConfidence": 93.07,
+    "columnCollisions": 5,
+    "sequence": 262,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/e5334d90016b9ba0-pair.jpg",
+    "achados": "Alternativa de 258. La- inicial de «Renova-se», em «do ano quinquagésimo», «o dom ... Espírito» e «revelai-nos» perdeu menor e aparece La/La. «mística inebriante» fundida «místicainebriante»; «fonte de eterno» virou «fontede etemo». Linhas «que resgata» e «que acolhe» quebradas com «que» abaixo do restante, ordem visual incorreta.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Hino das Laudes de Pentecostes",
+    "page": "https://cn.org.br/portal/hino-das-laudes-de-pentecostes/",
+    "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-20-05-230x230.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "HINO DAS LAUDES DE PENTECOSTES",
+        "id": 104,
+        "normal": "current-7111415666a27c1f-normal.png",
+        "extended": "current-7111415666a27c1f-extended.png"
+      }
+    ],
+    "key": "63e8d8f6850d2dee",
+    "image": "../sheets/63e8d8f6850d2dee/source.png",
+    "draft": "../sheets/63e8d8f6850d2dee/draft.html",
+    "screenshot": "63e8d8f6850d2dee-draft.png",
+    "pair": "63e8d8f6850d2dee-pair.png",
+    "meanConfidence": 39.29,
+    "columnCollisions": 1,
+    "sequence": 263,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/63e8d8f6850d2dee-pair.jpg",
+    "achados": "Alternativa muito desfocada de 258. Só fragmentos «manucaciotro», «Voa», «comerce», «+ mace tarte» permanecem; letra, cifras e repetições ausentes. Revisão de transcrição não exaurida.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Hino das Laudes de Pentecostes",
+    "page": "https://cn.org.br/portal/hino-das-laudes-de-pentecostes/",
+    "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-20-05-350x350.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "HINO DAS LAUDES DE PENTECOSTES",
+        "id": 104,
+        "normal": "current-7111415666a27c1f-normal.png",
+        "extended": "current-7111415666a27c1f-extended.png"
+      }
+    ],
+    "key": "e38022518b42ee23",
+    "image": "../sheets/e38022518b42ee23/source.png",
+    "draft": "../sheets/e38022518b42ee23/draft.html",
+    "screenshot": "e38022518b42ee23-draft.png",
+    "pair": "e38022518b42ee23-pair.png",
+    "meanConfidence": 47.21,
+    "columnCollisions": 8,
+    "sequence": 264,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/e38022518b42ee23-pair.jpg",
+    "achados": "Alternativa de baixa resolução de 258. Refrão «DIA DE IMENSA ALEGRIA» virou «ONADE IMENSAALEGRA»; cifras La-/Sol viram «ta/sa/be/Le» etc.; estrofes ilegíveis. As duas colunas permanecem sem conteúdo musical utilizável. Revisão integral não exaurida.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Hino das Laudes de Pentecostes",
+    "page": "https://cn.org.br/portal/hino-das-laudes-de-pentecostes/",
+    "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-20-05-480x479.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "HINO DAS LAUDES DE PENTECOSTES",
+        "id": 104,
+        "normal": "current-7111415666a27c1f-normal.png",
+        "extended": "current-7111415666a27c1f-extended.png"
+      }
+    ],
+    "key": "4a49db196149150d",
+    "image": "../sheets/4a49db196149150d/source.png",
+    "draft": "../sheets/4a49db196149150d/draft.html",
+    "screenshot": "4a49db196149150d-draft.png",
+    "pair": "4a49db196149150d-pair.png",
+    "meanConfidence": 77.57,
+    "columnCollisions": 7,
+    "sequence": 265,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/4a49db196149150d-pair.jpg",
+    "achados": "Alternativa de 258. La- perde menor em diversas entradas (La, la, Ls, ts), Sol vira So/Sa/Sal; «Renova-se o prodígio» virou «Renava-s2 oprodigia», «da Igreja nascente» «da lgrgranascente», «que resgata» «Que reagata». «o dom do vosso Espírito» «odom dovossa Espinio». Erros de harmonia, letra e alinhamento; transcrição não exaurida.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Ladainha de todos os Santos",
+    "page": "https://cn.org.br/portal/ladainha-de-todos-os-santos/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/ladainha-de-todos-os-santos-1.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "LADAINHA DE TODOS OS SANTOS",
+        "id": 113,
+        "normal": "current-900d9f68369c3b98-normal.png",
+        "extended": "current-900d9f68369c3b98-extended.png"
+      }
+    ],
+    "key": "046e1b7fa831d7a0",
+    "image": "../sheets/046e1b7fa831d7a0/source.png",
+    "draft": "../sheets/046e1b7fa831d7a0/draft.html",
+    "screenshot": "046e1b7fa831d7a0-draft.png",
+    "pair": "046e1b7fa831d7a0-pair.png",
+    "meanConfidence": 84.46,
+    "columnCollisions": 6,
+    "sequence": 266,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/046e1b7fa831d7a0-pair.jpg",
+    "achados": "Página 1 da Ladainha, continua em267. «São João» perdeu til/acentos e virou «São Joao»; «São Felipe e São Bartolomeu» foi reordenado em «Sao ... Sao Bartolomeu, Felipee» em linha inferior. São João e São Tiago/Santo Estêvão e São Lourenço/São Francisco e São Domingos quebrados com o «e» abaixo dos nomes. Cifras Re Mi- coladas ReMi-. Aspas de repetição viram letras s/pontos e vários NÓS viram NOS.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  },
+  {
+    "title": "Ladainha de todos os Santos",
+    "page": "https://cn.org.br/portal/ladainha-de-todos-os-santos/",
+    "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/ladainha-de-todos-os-santos-2.png",
+    "status": "Reprovado",
+    "legacy": [
+      {
+        "html": "LADAINHA DE TODOS OS SANTOS",
+        "id": 113,
+        "normal": "current-900d9f68369c3b98-normal.png",
+        "extended": "current-900d9f68369c3b98-extended.png"
+      }
+    ],
+    "key": "022510ed0de75f52",
+    "image": "../sheets/022510ed0de75f52/source.png",
+    "draft": "../sheets/022510ed0de75f52/draft.html",
+    "screenshot": "022510ed0de75f52-draft.png",
+    "pair": "022510ed0de75f52-pair.png",
+    "meanConfidence": 92,
+    "columnCollisions": 24,
+    "sequence": 267,
+    "published": false,
+    "evidence": "docs/revisao/evidencias/022510ed0de75f52-pair.jpg",
+    "achados": "Página 2 da Ladainha. «Santa Teresa D’Ávila e» fundido «Santa TeresaD’Ávilae», «Teresinha do» «Teresinhado»; «todos os santos e santas de» «Todos os santose santasde». Linhas Para que nos livreis de todo o mal/pecado foram divididas e reordenadas. «Pela vossa encarnação» e «Por vossa morte e ressurreição» fragmentados. «Christe, audi nos» «Christe,audinos». Alturas Do/Mi-/Sol/Re presentes, mas repetição por aspas e alinhamento não confiáveis.",
+    "variantesInspecionadas": [
+      "rascunho normal vs ficha oficial"
+    ],
+    "duvidas": "Versão estendida não avaliada neste par."
+  }
+]

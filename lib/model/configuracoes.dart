@@ -9,18 +9,18 @@ class CantosConfig {
   String anota;
 
   CantosConfig({
-    this.cantoId,
-    this.trans,
-    this.capot,
-    this.anota,
+    this.cantoId = 0,
+    this.trans = 0,
+    this.capot = 0,
+    this.anota = "",
   });
 
   factory CantosConfig.fromJson(Map<String, dynamic> json) {
     return CantosConfig(
-      cantoId: json["cantoId"],
-      trans: json["trans"],
-      capot: json["capot"],
-      anota: json["anota"],
+      cantoId: json["cantoId"] ?? 0,
+      trans: json["trans"] ?? 0,
+      capot: json["capot"] ?? 0,
+      anota: json["anota"] ?? "",
     );
   }
 
@@ -33,17 +33,17 @@ class CantosConfig {
 }
 
 class Configuracoes {
-  List<CantoList> listas = [];
-  List<CantosConfig> cantos = [];
+  List<CantoList> listas;
+  List<CantosConfig> cantos;
 
   Configuracoes({
-    this.listas,
-    this.cantos,
-  });
+    List<CantoList>? listas,
+    List<CantosConfig>? cantos,
+  }) : listas = listas ?? [], cantos = cantos ?? [];
 
   factory Configuracoes.fromJson(Map<String, dynamic> json) {
-    List<dynamic> listas = json["listas"];
-    List<dynamic> cantos = json["cantos"];
+    List<dynamic> listas = json["listas"] ?? [];
+    List<dynamic> cantos = json["cantos"] ?? [];
 
     var config = Configuracoes(listas: [], cantos: []);
 

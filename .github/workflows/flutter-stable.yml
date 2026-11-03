@@ -1,0 +1,100 @@
+name: Flutter stable compatibility
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [master]
+    paths:
+      - "lib/**"
+      - "test/**"
+      - "tools/**"
+      - "assets/**"
+      - "plugins/**"
+      - "android/**"
+      - "ios/**"
+      - "pubspec.yaml"
+      - "pubspec.lock"
+      - ".fvmrc"
+      - ".github/workflows/flutter-stable.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: flutter-stable-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  mobile:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: android
+            os: ubuntu-latest
+            build: flutter build apk --debug
+          - platform: ios
+            os: macos-latest
+            build: flutter build ios --simulator --debug
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 40
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        if: matrix.platform == 'android'
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: "3.47.7"
+      - name: Validate legacy song HTML contract
+        if: matrix.platform == 'android'
+        run: |
+          python3 -m unittest discover -s tools -p 'test_*.py'
+          python3 tools/validate_catalog.py assets/cantos.json
+      - name: Record SDK version
+        run: |
+          set -euo pipefail
+          mkdir -p migration-logs
+          flutter --version 2>&1 | tee migration-logs/flutter-version.log
+          dart --version 2>&1 | tee migration-logs/dart-version.log
+      - name: Resolve dependencies
+        run: |
+          set -euo pipefail
+          flutter pub get 2>&1 | tee migration-logs/pub-get.log
+          (cd plugins/flutter_speed_dial && flutter pub get) 2>&1 | tee migration-logs/plugin-pub-get.log
+      - name: Analyze application and custom menu
+        if: matrix.platform == 'android'
+        run: |
+          set -euo pipefail
+          flutter analyze --no-fatal-infos lib test 2>&1 | tee migration-logs/analyze.log
+          (cd plugins/flutter_speed_dial && flutter analyze --no-fatal-infos) 2>&1 | tee migration-logs/plugin-analyze.log
+      - name: Test migration, search and data compatibility
+        run: |
+          set -euo pipefail
+          flutter test 2>&1 | tee migration-logs/test.log
+      - name: Build without production signing
+        run: |
+          set -euo pipefail
+          ${{ matrix.build }} 2>&1 | tee migration-logs/build.log
+      - name: Save validation logs and resolved dependencies
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: flutter-${{ matrix.platform }}-validation
+          path: |
+            migration-logs/
+            pubspec.lock
+            ios/Podfile.lock
+          if-no-files-found: ignore
+      - name: Save debug APK
+        if: success() && matrix.platform == 'android'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ressuscitou-debug-apk
+          path: build/app/outputs/flutter-apk/app-debug.apk

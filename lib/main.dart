@@ -1,16 +1,18 @@
-import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter_localizations/flutter_localizations.dart";
 import "package:get/get.dart";
-import "../helpers/global.dart";
-import "../pages/splash.dart";
+import "helpers/global.dart";
+import "pages/splash.dart";
 
-void main() => runApp(MainPage());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await globals.inicial();
+  runApp(MainPage());
+}
 
 class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    globals.inicial();
     return GetMaterialApp(
       defaultTransition: Transition.cupertino,
       debugShowCheckedModeBanner: false,
@@ -19,16 +21,17 @@ class MainPage extends StatelessWidget {
       supportedLocales: const [Locale('pt', 'BR')],
       themeMode: ThemeMode.system,
       darkTheme: ThemeData(
+          useMaterial3: false,
           scaffoldBackgroundColor: Colors.grey.shade900,
           colorScheme: ColorScheme.dark(
             primary: globals.lightRedDarkTheme,
-            primaryVariant: Colors.grey.shade900,
-            secondary: Colors.grey[700],
+            primaryContainer: Colors.grey.shade900,
+            secondary: Colors.grey.shade700,
             onPrimary: Colors.black,
             onSecondary: Colors.white,
-            onBackground: Colors.white54,
+            onSurface: Colors.white54,
           ),
-          inputDecorationTheme: InputDecorationTheme(
+          inputDecorationTheme: InputDecorationThemeData(
               filled: true,
               disabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.transparent),
@@ -56,17 +59,18 @@ class MainPage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(2),
               ))),
       theme: ThemeData(
+        useMaterial3: false,
         scaffoldBackgroundColor: Colors.white,
         primaryColor: globals.darkRed,
         colorScheme: ColorScheme.light(
           primary: globals.darkRed,
-          primaryVariant: globals.darkRedShadow,
-          secondary: Colors.grey[200],
+          primaryContainer: globals.darkRedShadow,
+          secondary: Colors.grey.shade200,
           onPrimary: Colors.white,
           onSecondary: Colors.black,
-          onBackground: Colors.black26,
+          onSurface: Colors.black26,
         ),
-        inputDecorationTheme: InputDecorationTheme(
+        inputDecorationTheme: InputDecorationThemeData(
           filled: true,
           fillColor: Colors.white,
           contentPadding: EdgeInsets.all(10),
@@ -96,6 +100,12 @@ class MainPage extends StatelessWidget {
             borderRadius: BorderRadius.circular(2),
           ),
         ),
+      ),
+      // AppBar handles the top inset; protect page controls from Android's
+      // gesture area and three-button navigation in edge-to-edge mode.
+      builder: (context, child) => SafeArea(
+        top: false,
+        child: child ?? const SizedBox.shrink(),
       ),
       home: Splash(),
     );

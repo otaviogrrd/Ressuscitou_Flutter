@@ -1,0 +1,71 @@
+name: Portal HTML screenshot review
+on:
+  workflow_dispatch:
+    inputs:
+      source_run_id:
+        description: Completed run containing official-portal-review
+        default: "41359420187"
+        required: true
+      force_render:
+        description: Regenerate unchanged evidence deliberately
+        type: boolean
+        default: false
+  pull_request:
+    branches: [master]
+    paths:
+      - "tools/render_portal_review.py"
+      - "tools/publish_portal_evidence.py"
+      - "tools/check_portal_evidence.py"
+      - ".github/workflows/portal-visual-review.yml"
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: portal-visual-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - name: Preserve completed unchanged evidence
+        id: existing
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FORCE_RENDER: ${{ inputs.force_render || false }}
+          SOURCE_RUN_ID: ${{ inputs.source_run_id || '41359420187' }}
+        run: python tools/check_portal_evidence.py
+      - name: Reuse original sheets and OCR drafts
+        if: steps.existing.outputs.skip != 'true'
+        uses: actions/download-artifact@v4
+        with:
+          name: official-portal-review
+          path: portal-review
+          run-id: ${{ inputs.source_run_id || '41359420187' }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-python@v5
+        if: steps.existing.outputs.skip != 'true'
+        with:
+          python-version: "3.11"
+      - name: Install renderer
+        if: steps.existing.outputs.skip != 'true'
+        run: |
+          pip install pillow playwright
+          python -m playwright install --with-deps chromium
+      - name: Render normal and extended HTML evidence
+        if: steps.existing.outputs.skip != 'true'
+        run: python tools/render_portal_review.py
+      - name: Publish evidence on isolated review branch
+        if: steps.existing.outputs.skip != 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SOURCE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: python tools/publish_portal_evidence.py
+      - name: Save side by side review
+        if: always() && steps.existing.outputs.skip != 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: portal-visual-review
+          path: portal-review/
+          retention-days: 14

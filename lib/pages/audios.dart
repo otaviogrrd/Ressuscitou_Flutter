@@ -1,4 +1,3 @@
-import "dart:async";
 import "dart:io";
 
 import "package:connectivity_plus/connectivity_plus.dart";
@@ -20,6 +19,7 @@ class _AudiosPageState extends State<AudiosPage> {
   bool cantosLoaded = false;
   bool downloading = false;
   int downCount = 0;
+  final Set<int> _failedDownloads = {};
   List<Canto> listCantos = [];
   List<Canto> listCantos2 = [];
 
@@ -38,13 +38,13 @@ class _AudiosPageState extends State<AudiosPage> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-        onWillPop: () {
-          if (downloading) downloading = false;
-          Navigator.pop(context, false);
-          return Future.value(false);
-        },
-        child: Scaffold(
+    return PopScope<Object?>(
+      onPopInvokedWithResult: (didPop, result) {
+        if (didPop) {
+          downloading = false;
+        }
+      },
+      child: Scaffold(
           appBar: AppBar(title: Text("Áudios"), centerTitle: false, actions: [
             if (globals.listaGlobal.isNotEmpty && !downloading)
               IconButton(
@@ -52,7 +52,7 @@ class _AudiosPageState extends State<AudiosPage> {
                 onPressed: () => action("Reproduzir"),
                 tooltip: "Reproduzir selecionados",
               ),
-            if (listCantos.where((c) => (c.selected != null && c.selected)).toList().isNotEmpty && !downloading)
+            if (listCantos.where((c) => (c.selected)).toList().isNotEmpty && !downloading)
               IconButton(
                 icon: Icon(Icons.delete),
                 onPressed: () => action("Apagar"),
@@ -87,14 +87,13 @@ class _AudiosPageState extends State<AudiosPage> {
             )),
         confirm: Container(
           width: 100,
-          child: FlatButton(
+          child: TextButton(
+            style: TextButton.styleFrom(backgroundColor: Theme.of(context).colorScheme.primary, foregroundColor: Theme.of(context).colorScheme.onPrimary),
             child: FittedBox(fit: BoxFit.scaleDown, child: Text("Apagar")),
-            color: Theme.of(context).colorScheme.primary,
-            textColor: Theme.of(context).colorScheme.onPrimary,
             onPressed: () async {
               var count = 0;
               for (var i = 0; i < listCantos.length; i++) {
-                if (listCantos[i].selected != null && listCantos[i].selected) {
+                if (listCantos[i].selected) {
                   count++;
                   await listCantos[i].mp3Delete();
                 }
@@ -112,10 +111,9 @@ class _AudiosPageState extends State<AudiosPage> {
         ),
         cancel: Container(
           width: 100,
-          child: FlatButton(
+          child: TextButton(
+            style: TextButton.styleFrom(backgroundColor: Theme.of(context).colorScheme.secondary, foregroundColor: Theme.of(context).colorScheme.onSecondary),
               child: FittedBox(fit: BoxFit.scaleDown, child: Text("Cancelar")),
-              color: Theme.of(context).colorScheme.secondary,
-              textColor: Theme.of(context).colorScheme.onSecondary,
               onPressed: () => Navigator.pop(context)),
         ),
       );
@@ -147,7 +145,7 @@ class _AudiosPageState extends State<AudiosPage> {
 
   download() async {
     var connectivityResult = await (Connectivity().checkConnectivity());
-    if (connectivityResult == ConnectivityResult.none) {
+    if (connectivityResult.contains(ConnectivityResult.none)) {
       snackBar(Get.overlayContext, "Sem conexão de internet!");
       return;
     }
@@ -163,93 +161,85 @@ class _AudiosPageState extends State<AudiosPage> {
             padding: EdgeInsets.only(top: 10),
             child: Text("Aproximadamente 1GB!"),
           ),
-          if (connectivityResult == ConnectivityResult.mobile)
+          if (connectivityResult.contains(ConnectivityResult.mobile) && !connectivityResult.contains(ConnectivityResult.wifi))
             Padding(
               padding: EdgeInsets.only(top: 10),
               child: Text("É recomendado o uso de WiFi", style: TextStyle(fontWeight: FontWeight.bold)),
             ),
-          if (connectivityResult == ConnectivityResult.mobile)
+          if (connectivityResult.contains(ConnectivityResult.mobile) && !connectivityResult.contains(ConnectivityResult.wifi))
             Text("para economia de seus dados móveis.", style: TextStyle(fontWeight: FontWeight.bold))
         ],
       ),
       confirm: Container(
         width: 100,
-        child: FlatButton(
+        child: TextButton(
+            style: TextButton.styleFrom(backgroundColor: Theme.of(context).colorScheme.primary, foregroundColor: Theme.of(context).colorScheme.onPrimary),
             child: FittedBox(fit: BoxFit.scaleDown, child: Text("Continuar")),
-            color: Theme.of(context).colorScheme.primary,
-            textColor: Theme.of(context).colorScheme.onPrimary,
             onPressed: () {
               action("UnMarkAll");
               downloading = true;
+              _failedDownloads.clear();
               startDownloader();
               Navigator.pop(context);
             }),
       ),
       cancel: Container(
         width: 100,
-        child: FlatButton(
+        child: TextButton(
+            style: TextButton.styleFrom(backgroundColor: Theme.of(context).colorScheme.secondary, foregroundColor: Theme.of(context).colorScheme.onSecondary),
             child: FittedBox(fit: BoxFit.scaleDown, child: Text("Cancelar")),
-            color: Theme.of(context).colorScheme.secondary,
-            textColor: Theme.of(context).colorScheme.onSecondary,
             onPressed: () => Navigator.pop(context)),
       ),
     );
   }
 
-  startDownloader() async {
-    if (listCantos2.where((c) => (!c.downloaded)).toList().length > 0 && downloading) {
-      loop:
-      for (var c = 0; c < listCantos2.length; c++) {
-        if (listCantos2[c].percentDownload == 0) {
-          downloadFile(c);
-          downCount++;
-        }
-        if (downCount == 3) break loop;
+  void startDownloader() {
+    if (!mounted || !downloading) return;
+    for (var index = 0; index < listCantos2.length && downCount < 3; index++) {
+      final canto = listCantos2[index];
+      if (!canto.downloaded && canto.percentDownload == 0 && !_failedDownloads.contains(canto.id)) {
+        downCount++;
+        downloadFile(index);
       }
     }
+    if (downCount == 0) setState(() {
+      downloading = false;
+      cantosLoaded = false;
+    });
   }
 
-  Future downloadFile(int index) async {
-    if (listCantos2[index].percentDownload > 0) {
+  Future<void> downloadFile(int index) async {
+    final canto = listCantos2[index];
+    if (canto.percentDownload > 0) {
       downCount--;
       startDownloader();
       return;
     }
-    listCantos2[index].percentDownload = 0.001;
-
-    StreamController<int> progressStreamController = new StreamController();
-    Dio dio = new Dio();
-    final dir = await getApplicationDocumentsDirectory();
-    final file = File("${dir.path}/" + listCantos2[index].html + ".mp3");
-    var url = "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/" + listCantos2[index].html + ".mp3";
-
-    dio.get(
-      url,
-      onReceiveProgress: (received, total) {
-        progressStreamController.add(((received / total) * 100).round());
-      },
-      options: Options(
-          responseType: ResponseType.bytes,
-          followRedirects: false,
-          validateStatus: (status) {
-            return status < 500;
-          }),
-    ).then((response) async {
-      file.writeAsBytes(response.data).then((value) {
-        listCantos2[index].downloaded = true;
-        setState(() {});
-      });
-    }).whenComplete(() {
-      progressStreamController.close();
-      listCantos2[index].downloaded = true;
+    canto.percentDownload = 0.001;
+    try {
+      final dir = await getApplicationDocumentsDirectory();
+      final file = File('${dir.path}/${canto.html}.mp3');
+      final response = await Dio().get<List<int>>(
+        'https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/${canto.html}.mp3',
+        options: Options(responseType: ResponseType.bytes),
+        onReceiveProgress: (received, total) {
+          if (mounted && total > 0) {
+            setState(() => canto.percentDownload = (received / total).clamp(0.0, 1.0).toDouble());
+          }
+        },
+      );
+      final bytes = response.data;
+      if (bytes == null || bytes.isEmpty) throw StateError('Áudio vazio.');
+      await file.writeAsBytes(bytes, flush: true);
+      await canto.mp3Downloaded();
+    } catch (error) {
+      canto.percentDownload = 0;
+      _failedDownloads.add(canto.id);
+      if (mounted) snackBar(context, 'Erro ao baixar áudio: $error');
+    } finally {
       downCount--;
-      Timer(Duration(seconds: 1), () => startDownloader());
-    });
-
-    await for (int p in progressStreamController.stream) {
-      setState(() {
-        listCantos2[index].percentDownload = p / 100;
-      });
+      if (mounted) setState(() {});
+      if (mounted && downloading) startDownloader();
     }
   }
 
@@ -261,8 +251,8 @@ class _AudiosPageState extends State<AudiosPage> {
           future: CantoService().getCantosLocal(),
           builder: (BuildContext cont, AsyncSnapshot<List<Canto>> snapshot) {
             if (snapshot.hasData) {
-              listCantos = snapshot.data.where((c) => (c.downloaded != null && c.downloaded)).toList();
-              listCantos2 = snapshot.data.where((c) => (c.url != null && c.url == "X" && c.downloaded != null && !c.downloaded)).toList();
+              listCantos = snapshot.data!.where((c) => (c.downloaded)).toList();
+              listCantos2 = snapshot.data!.where((c) => (c.url == "X" && !c.downloaded)).toList();
               cantosLoaded = true;
               delaySetState();
               return listaCantos();
@@ -277,7 +267,9 @@ class _AudiosPageState extends State<AudiosPage> {
         return ListView.builder(
             itemCount: listCantos2.length,
             itemBuilder: (context, index) {
-              return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+              return Padding(
+                padding: const EdgeInsets.only(top: 8, bottom: 8, right: 16),
+                child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
                 Expanded(
                     child: Padding(
                   padding: EdgeInsets.only(left: 16, right: 16),
@@ -288,7 +280,7 @@ class _AudiosPageState extends State<AudiosPage> {
                         height: 45,
                         width: 45,
                         child: CircularPercentIndicator(
-                          radius: 30.0,
+                          radius: 20.0,
                           lineWidth: 2,
                           percent: listCantos2[index].percentDownload,
                           center: FittedBox(
@@ -301,10 +293,11 @@ class _AudiosPageState extends State<AudiosPage> {
                         ),
                       )
                     : Container(height: 45, width: 45, child: Icon(Icons.check)),
-              ]);
+              ]),
+              );
             });
     }
-    if (listCantos != null && listCantos.isNotEmpty) {
+    if (listCantos.isNotEmpty) {
       return Column(
         children: [
           Table(children: [

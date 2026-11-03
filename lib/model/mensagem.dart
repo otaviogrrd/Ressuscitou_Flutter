@@ -1,10 +1,7 @@
-import "dart:async";
 import 'dart:convert';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:http/http.dart';
 import "package:intl/intl.dart";
 import '../helpers/global.dart';
@@ -18,30 +15,30 @@ class Mensagem {
   String dataFim;
   int buildDe;
   int buildAte;
-  DateTime data_Ini;
-  DateTime data_Fim;
+  late DateTime data_Ini;
+  late DateTime data_Fim;
 
   Mensagem({
-    this.id,
-    this.plataforma,
-    this.titulo,
-    this.conteudo,
-    this.dataIni,
-    this.dataFim,
-    this.buildDe,
-    this.buildAte,
+    this.id = "",
+    this.plataforma = "",
+    this.titulo = "",
+    this.conteudo = "",
+    this.dataIni = "",
+    this.dataFim = "",
+    this.buildDe = 0,
+    this.buildAte = 0,
   });
 
   factory Mensagem.fromJson(Map<String, dynamic> json) {
     return Mensagem(
-      id: json["id"],
-      plataforma: json["plataforma"],
-      titulo: json["titulo"],
-      conteudo: json["conteudo"],
-      dataIni: json["dataIni"],
-      dataFim: json["dataFim"],
-      buildDe: json["buildDe"],
-      buildAte: json["buildAte"],
+      id: json["id"] ?? "",
+      plataforma: json["plataforma"] ?? "",
+      titulo: json["titulo"] ?? "",
+      conteudo: json["conteudo"] ?? "",
+      dataIni: json["dataIni"] ?? "",
+      dataFim: json["dataFim"] ?? "",
+      buildDe: json["buildDe"] ?? 0,
+      buildAte: json["buildAte"] ?? 0,
     );
   }
 }
@@ -53,13 +50,17 @@ class MensagemService {
     String str = "";
     str = globals.prefs.getString("Mensagens") ?? "";
 
-    var connectivityResult = await (Connectivity().checkConnectivity());
-    if (connectivityResult != ConnectivityResult.none) {
-      var res = await get(urlMensagem);
-      if (res.statusCode == 200) {
-        str = res.body;
-        globals.prefs.setString("Mensagens", str);
+    try {
+      final connectivityResult = await Connectivity().checkConnectivity();
+      if (!connectivityResult.contains(ConnectivityResult.none)) {
+        final response = await get(Uri.parse(urlMensagem)).timeout(const Duration(seconds: 15));
+        if (response.statusCode == 200) {
+          str = response.body;
+          await globals.prefs.setString("Mensagens", str);
+        }
       }
+    } catch (_) {
+      // Keep the cached messages if the network is unavailable.
     }
 
     if (str != "") {
@@ -68,13 +69,13 @@ class MensagemService {
 
       String build = globals.packInfo.buildNumber;
 
-      if (Theme.of(Get.overlayContext).platform == TargetPlatform.iOS) {
+      if (defaultTargetPlatform == TargetPlatform.iOS) {
         list.removeWhere((element) => element.plataforma == "Android");
       }
-      if (Theme.of(Get.overlayContext).platform == TargetPlatform.android) {
+      if (defaultTargetPlatform == TargetPlatform.android) {
         list.removeWhere((element) => element.plataforma == "iOS");
         if (kReleaseMode) {
-          build = build.substring(1, 4); //em release temos as build 1???, 2???, e 4???: para cada tipo de android
+          if (build.length == 4) build = build.substring(1, 4); //em release temos as build 1???, 2???, e 4???: para cada tipo de android
         }
       }
       list.removeWhere((element) => element.buildDe > int.parse(build));

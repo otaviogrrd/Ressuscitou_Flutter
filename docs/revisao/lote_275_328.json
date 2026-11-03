@@ -1,0 +1,1286 @@
+{
+  "range": [
+    275,
+    328
+  ],
+  "complete": false,
+  "entries": [
+    {
+      "sequence": 275,
+      "key": "02af7b462e366b78",
+      "title": "Oração Eucarística IV",
+      "page": "https://cn.org.br/portal/oracao-eucaristica-iv/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/oracao-eucaristica-iv-3.png",
+      "evidence": "docs/revisao/evidencias/02af7b462e366b78-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "'seus que' aparece 'seusque'; 'bênção' vira 'abênção'; 'Celebrando, agora, ó Pai' vira 'Celebrando,agora,6 Pai'."
+        ],
+        "cifra": [
+          "Do, La-, Fa, Sol, Re- e Mi estão presentes nos dois painéis; sem troca harmônica inequívoca nesta página."
+        ],
+        "alinhamento": [
+          "BIS perde a barra lateral e aparece isolado no intervalo das duas linhas do refrão; cifras e texto recebem espaçamento vertical irregular."
+        ],
+        "repeticao": [
+          "Indicação BIS sobrevive apenas como palavra; seu alcance gráfico não está preservado."
+        ]
+      },
+      "duvidas": "Requer nova comparação após corrigir achados; versão estendida não aprovada.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 276,
+      "key": "b4c727f11d39f4a6",
+      "title": "Oração Eucarística IV",
+      "page": "https://cn.org.br/portal/oracao-eucaristica-iv/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/oracao-eucaristica-iv-4.png",
+      "evidence": "docs/revisao/evidencias/b4c727f11d39f4a6-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "'pelo Espírito' vira 'peloEspírito'; 'ó Pai de bondade' vira '6 Paide bondade'; marcadores '...N' de Papa/Bispo desaparecem."
+        ],
+        "cifra": [
+          "Mi7 e Re- mantidos; cifra Fa final aparece só sobre o terceiro AMÉM, como na fonte."
+        ],
+        "alinhamento": [
+          "'na paz do vosso Cristo' é quebrado com 'paz' em linha separada; papéis P/A se afastam das linhas."
+        ],
+        "repeticao": [
+          "Duas ocorrências de PARA O LOUVOR e quatro AMÉM preservadas."
+        ]
+      },
+      "duvidas": "Requer nova comparação após corrigir achados; versão estendida não aprovada.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 277,
+      "key": "9d37c2c5d0bfb44c",
+      "title": "Pai Nosso",
+      "page": "https://cn.org.br/portal/pai-nosso/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/pai-nosso.png",
+      "evidence": "docs/revisao/evidencias/9d37c2c5d0bfb44c-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "'PERDOAI-NOS AS' vira 'PERDOAI-NOSAS'; 'SEJA FEITA A' vira 'SEJAFEITAA'; numerosas palavras coladas."
+        ],
+        "cifra": [
+          "Re-, Fa, La-, Sol-, La e Sib visualmente presentes e na ordem da ficha."
+        ],
+        "alinhamento": [
+          "Espaços de separação da letra perdidos, comprometendo relação sílaba/cifra; nota editorial perde asterisco."
+        ],
+        "repeticao": [
+          "ABBA, ABBA e sequência única do Pai Nosso mantidas."
+        ]
+      },
+      "duvidas": "Requer nova comparação após corrigir achados; versão estendida não aprovada.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 278,
+      "key": "86cec7365d421dc1",
+      "title": "Precônio Pascal",
+      "page": "https://cn.org.br/portal/preconio-pascal/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/preconio-pascal-1.png",
+      "evidence": "docs/revisao/evidencias/86cec7365d421dc1-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "'Braçadeira 3º Traste' vira 'Braçadeira 3º Traste' com numeral aparente semelhante; 'nossos pais do Egito' vira 'nossos paisdo Egito'; 'Esta é a Páscoa' vira 'Esta é aPáscoa'."
+        ],
+        "cifra": [
+          "Mi7 da frase 'Esta é a noite em que foram libertados' vira Mi? (extensão ilegível/incorreta)."
+        ],
+        "alinhamento": [
+          "Barras laterais dos BIS A./BIS sumiram; grandes vazios verticais quebram estrofes."
+        ],
+        "repeticao": [
+          "Dois DESTRUIU AS TREVAS preservados, mas alcance dos bis não preservado."
+        ]
+      },
+      "duvidas": "Requer nova comparação após corrigir achados; versão estendida não aprovada.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 279,
+      "key": "0d6955e3cc97f961",
+      "title": "Precônio Pascal",
+      "page": "https://cn.org.br/portal/preconio-pascal/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/preconio-pascal-2.png",
+      "evidence": "docs/revisao/evidencias/0d6955e3cc97f961-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "'Ó noite maravilhosa' vira 'O noitemaravilhosa' com ')' espúrio; 'Cristo não nos teria resgatado' aparece 'Cristonão nos teriaresgatado'."
+        ],
+        "cifra": [
+          "La-, Sol, Do, Fa, Mi e Mi7 presentes; não há alteração harmônica inequívoca além de posicionamento."
+        ],
+        "alinhamento": [
+          "'Sem o pecado de Adão' quebra com 'o pecado' isolado abaixo; BIS A perde barra de abrangência."
+        ],
+        "repeticao": [
+          "Ó FELIZ CULPA duas vezes e três AMÉM preservados; bis sem alcance gráfico."
+        ]
+      },
+      "duvidas": "Requer nova comparação após corrigir achados; versão estendida não aprovada.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 280,
+      "key": "2211c2ba0af1d895",
+      "title": "Prefácio da Páscoa I",
+      "page": "https://cn.org.br/portal/prefacio-da-pascoa-i/",
+      "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2024/03/Prefacio-da-Pascoa-I-Novo2.jpg",
+      "evidence": "docs/revisao/evidencias/2211c2ba0af1d895-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "'P.' vira Si, Li) ou PR em diferentes linhas; 'O mistério pascal' vira 'O mistériopascal'; título interno vira 'PREFACIO DA PASCOA!'."
+        ],
+        "cifra": [
+          "Marcador de celebrante P. foi convertido em falsa cifra Si, causando acorde inexistente no começo; demais La-/Re-/Mi/Fa/Sol precisam revisão após remoção dos falsos acordes."
+        ],
+        "alinhamento": [
+          "BIS A isolado sem barra; texto 'É Ele o verdadeiro Cordeiro' deslocado por lacuna vertical."
+        ],
+        "repeticao": [
+          "Duas linhas É NOSSO DEVER mantidas; alcance do bis de MORRENDO não preservado."
+        ]
+      },
+      "duvidas": "Requer nova comparação após corrigir achados; versão estendida não aprovada.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 281,
+      "key": "97d76601ffef257f",
+      "title": "Prefácio da Páscoa I",
+      "page": "https://cn.org.br/portal/prefacio-da-pascoa-i/",
+      "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2024/03/Prefacio-da-Pascoa-I-Novo2-300x264.jpg",
+      "evidence": "docs/revisao/evidencias/97d76601ffef257f-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "'O Senhor esteja convosco' foi substituído por 'E O hentersemacomo'; 'DESTRUIU A NOSSA MORTE' vira 'DESTRUA NORIANGRTE'."
+        ],
+        "cifra": [
+          "Quase todas as cifras desaparecem; não há progressão utilizável."
+        ],
+        "alinhamento": [
+          "Palavras e símbolos espúrios substituem a estrutura de canto."
+        ],
+        "repeticao": [
+          "Segunda É NOSSO DEVER ainda reconhecível; bis e demais repetições não recuperados."
+        ],
+        "duvida": "Miniatura 300x264 alternativa da 280; transcrição não exaurida devido corrupção maciça."
+      },
+      "duvidas": "Miniatura 300x264 alternativa da 280; transcrição não exaurida devido corrupção maciça.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 282,
+      "key": "affb8bdac0695c1c",
+      "title": "Prefácio da Páscoa I",
+      "page": "https://cn.org.br/portal/prefacio-da-pascoa-i/",
+      "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2024/03/Prefacio-da-Pascoa-I-Novo2-768x676.jpg",
+      "evidence": "docs/revisao/evidencias/affb8bdac0695c1c-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "'ó Pai' vira '6 Pai'; 'Cantar o Santo do Tempo Pascal ou outro' vira sequência 'Cant:oSantoacTempoPasta!auoutro'."
+        ],
+        "cifra": [
+          "Sol vira Soi/So!/Sor; La- vira La; Re- vira Re.; Mi vira M. Há perda de qualidade menor."
+        ],
+        "alinhamento": [
+          "Versos fragmentados em alturas diferentes; cifras deixam de alinhar com palavras."
+        ],
+        "repeticao": [
+          "Duas É NOSSO DEVER reconhecíveis; BIS A sem barra."
+        ],
+        "duvida": "Alternativa de resolução 768x676 da 280."
+      },
+      "duvidas": "Alternativa de resolução 768x676 da 280.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 283,
+      "key": "1047cb546070f24a",
+      "title": "Prefácio da Páscoa I",
+      "page": "https://cn.org.br/portal/prefacio-da-pascoa-i/",
+      "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2024/03/Prefacio-da-Pascoa-I-Novo2-830x731.jpg",
+      "evidence": "docs/revisao/evidencias/1047cb546070f24a-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "'ó Pai' vira '6 Pai'; instrução Cantar o Santo vira 'Carta! SantodcTempoPascal! ou outro'."
+        ],
+        "cifra": [
+          "La- inicial vira La; Re- vira Re; Sol vira So!/Soi; Mi sobre DEUS vira M. Menores perdidos."
+        ],
+        "alinhamento": [
+          "Trecho 'é nosso dever e salvação' fragmentado; barra do BIS À ausente."
+        ],
+        "repeticao": [
+          "Duas É NOSSO DEVER e três SANTO presentes, bis sem escopo."
+        ],
+        "duvida": "Alternativa de resolução 830x731 da 280."
+      },
+      "duvidas": "Alternativa de resolução 830x731 da 280.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 284,
+      "key": "4acd0cf34415dc43",
+      "title": "Prefácio da Páscoa I",
+      "page": "https://cn.org.br/portal/prefacio-da-pascoa-i/",
+      "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2024/03/Prefacio-da-Pascoa-I-Novo2-230x203.jpg",
+      "evidence": "docs/revisao/evidencias/4acd0cf34415dc43-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "'O Senhor esteja convosco' substituído por 'ASam eee correa'; corpo contém texto sem correspondência reconhecível."
+        ],
+        "cifra": [
+          "Cifras da fonte não reaparecem como progressão legível."
+        ],
+        "alinhamento": [
+          "Estrutura de versos irreconhecível e colunas fragmentadas."
+        ],
+        "repeticao": [
+          "Refrões e bis não preservados de modo legível."
+        ],
+        "duvida": "Miniatura 230x203 alternativa da 280; revisão de transcrição não exaurida devido corrupção maciça."
+      },
+      "duvidas": "Miniatura 230x203 alternativa da 280; revisão de transcrição não exaurida devido corrupção maciça.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 285,
+      "key": "cf264330fd87e010",
+      "title": "Prefácio da Páscoa I",
+      "page": "https://cn.org.br/portal/prefacio-da-pascoa-i/",
+      "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2024/03/Prefacio-da-Pascoa-I-Novo2-350x308.jpg",
+      "evidence": "docs/revisao/evidencias/cf264330fd87e010-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "'O Senhor esteja convosco' vira 'DSenhor esteja comanco'; 'ressurgindo' vira 'RESSUAGINDO'; 'É NOSSO' vira 'ENOSBO'."
+        ],
+        "cifra": [
+          "Cifras quase integralmente perdidas, restando caracteres avulsos sem valor musical verificável."
+        ],
+        "alinhamento": [
+          "Palavras fragmentadas e deslocadas; bis vira sinais '=.'."
+        ],
+        "repeticao": [
+          "SANTO triplo mantido, outros refrões corrompidos."
+        ],
+        "duvida": "Miniatura 350x308 alternativa da 280; transcrição não exaurida devido corrupção."
+      },
+      "duvidas": "Miniatura 350x308 alternativa da 280; transcrição não exaurida devido corrupção.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 286,
+      "key": "b97d3f809bcaa30e",
+      "title": "Prefácio da Páscoa I",
+      "page": "https://cn.org.br/portal/prefacio-da-pascoa-i/",
+      "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2024/03/Prefacio-da-Pascoa-I-Novo2-480x423.jpg",
+      "evidence": "docs/revisao/evidencias/b97d3f809bcaa30e-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "'O Senhor' vira 'O Sonhor'; 'tirou' vira 'trou'; 'justo' vira 'epusto'."
+        ],
+        "cifra": [
+          "Fa/Sol/La-/Re-/Mi substituídos por caracteres como a, ne, ta e M; harmonia não utilizável."
+        ],
+        "alinhamento": [
+          "Sílabas soltas em linhas intermediárias; instrução de cantar Santo torna-se fragmentos vermelhos."
+        ],
+        "repeticao": [
+          "Duas É NOSSO DEVER e três SANTO ainda visíveis; BIS A sem barra."
+        ],
+        "duvida": "Alternativa 480x423 da 280; revisão de transcrição não exaurida."
+      },
+      "duvidas": "Alternativa 480x423 da 280; revisão de transcrição não exaurida.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 287,
+      "key": "9549b017c66d32a9",
+      "title": "Prefácio do Advento I",
+      "page": "https://cn.org.br/portal/prefacio-do-advento-i/",
+      "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-35-44.png",
+      "evidence": "docs/revisao/evidencias/9549b017c66d32a9-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "'ele virá uma segunda vez' vira 'ele viráuma segunda vez'; 'plano de amor' vira 'planode amor'; títulos e indicação inicial com palavras coladas."
+        ],
+        "cifra": [
+          "Sol/La-/Fa/Mi/Do mantidos nas frases legíveis; sem troca harmônica inequívoca."
+        ],
+        "alinhamento": [
+          "'Por essa razão, agora e sempre' separa 'e' e 'agora sempre' em alturas diversas; papéis P viram PR."
+        ],
+        "repeticao": [
+          "Duas É NOSSO DEVER e três SANTO presentes."
+        ]
+      },
+      "duvidas": "Requer nova comparação após corrigir achados; versão estendida não aprovada.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 288,
+      "key": "879e188412c8e4b2",
+      "title": "Prefácio do Advento I",
+      "page": "https://cn.org.br/portal/prefacio-do-advento-i/",
+      "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-35-44-300x300.png",
+      "evidence": "docs/revisao/evidencias/879e188412c8e4b2-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "'ELE ESTÁ NO MEIO DE NÓS' vira 'DLEROTAND MBODE MÓS'; texto direito contém linhas numéricas espúrias."
+        ],
+        "cifra": [
+          "Cifras substituídas por números e letras soltas, progressão perdida."
+        ],
+        "alinhamento": [
+          "Tabela numérica atravessa o painel, versos não correspondem à ficha."
+        ],
+        "repeticao": [
+          "Refrões e SANTO não preservados legivelmente."
+        ],
+        "duvida": "Miniatura 300x300 alternativa da 287; transcrição não exaurida devido corrupção."
+      },
+      "duvidas": "Miniatura 300x300 alternativa da 287; transcrição não exaurida devido corrupção.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 289,
+      "key": "d174d87c4c0ac475",
+      "title": "Prefácio do Advento I",
+      "page": "https://cn.org.br/portal/prefacio-do-advento-i/",
+      "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-35-44-150x150.png",
+      "evidence": "docs/revisao/evidencias/d174d87c4c0ac475-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "Todo o corpo vira apenas 'cetraçesoentar'."
+        ],
+        "cifra": [
+          "Todas as cifras ausentes."
+        ],
+        "alinhamento": [
+          "Corpo da ficha omitido."
+        ],
+        "repeticao": [
+          "Todas as estrofes e respostas omitidas."
+        ],
+        "duvida": "Miniatura 150x150 alternativa da 287; fonte pequena demais para transcrição exaustiva, omissão visual inequívoca."
+      },
+      "duvidas": "Miniatura 150x150 alternativa da 287; fonte pequena demais para transcrição exaustiva, omissão visual inequívoca.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 290,
+      "key": "174fcaf7467efcaa",
+      "title": "Prefácio do Advento I",
+      "page": "https://cn.org.br/portal/prefacio-do-advento-i/",
+      "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-35-44-768x768.png",
+      "evidence": "docs/revisao/evidencias/174fcaf7467efcaa-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "'ele veio a primeira vez' vira 'eleveio aprimeira vez'; 'Cantar o Santo do tempo litúrgico correspondente' vira 'CantaroSantodotempo Iturgico carres pondente'."
+        ],
+        "cifra": [
+          "Sol/La-/Fa/Mi/Do presentes sem perda inequívoca de qualidade."
+        ],
+        "alinhamento": [
+          "'Por essa razão, agora e sempre' disperso por três linhas; marcadores P. viram PR."
+        ],
+        "repeticao": [
+          "Duas É NOSSO DEVER e três SANTO presentes."
+        ],
+        "duvida": "Alternativa 768x768 da 287."
+      },
+      "duvidas": "Alternativa 768x768 da 287.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 291,
+      "key": "1344655dbce07d90",
+      "title": "Prefácio do Advento I",
+      "page": "https://cn.org.br/portal/prefacio-do-advento-i/",
+      "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-35-44-830x830.png",
+      "evidence": "docs/revisao/evidencias/1344655dbce07d90-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "'Pai santo' vira 'Paisanto'; 'ele veio' vira 'eleveio'; 'nosso dever e salvação' com 'ésalvação'."
+        ],
+        "cifra": [
+          "Sol/La-/Fa/Mi/Do presentes na ordem da fonte."
+        ],
+        "alinhamento": [
+          "'Por essa razão, agora e sempre' quebrado em alturas diversas; P. vira PB/PR."
+        ],
+        "repeticao": [
+          "Respostas repetidas e SANTO triplo presentes."
+        ],
+        "duvida": "Alternativa 830x830 da 287."
+      },
+      "duvidas": "Alternativa 830x830 da 287.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 292,
+      "key": "6eda7460bef4da18",
+      "title": "Prefácio do Advento I",
+      "page": "https://cn.org.br/portal/prefacio-do-advento-i/",
+      "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-35-44-230x230.png",
+      "evidence": "docs/revisao/evidencias/6eda7460bef4da18-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "Corpo inteiro substituído por poucas linhas como 'Cosa peetme samen'."
+        ],
+        "cifra": [
+          "Todas as cifras ausentes."
+        ],
+        "alinhamento": [
+          "Duas colunas curtas não reproduzem os versos."
+        ],
+        "repeticao": [
+          "Respostas e estrofes omitidas."
+        ],
+        "duvida": "Miniatura 230x230 alternativa da 287; transcrição não exaurida devido corrupção."
+      },
+      "duvidas": "Miniatura 230x230 alternativa da 287; transcrição não exaurida devido corrupção.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 293,
+      "key": "58fe76e0f5ea96d7",
+      "title": "Prefácio do Advento I",
+      "page": "https://cn.org.br/portal/prefacio-do-advento-i/",
+      "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-35-44-350x350.png",
+      "evidence": "docs/revisao/evidencias/58fe76e0f5ea96d7-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "'ELE ESTÁ NO MEIO DE NÓS' vira 'BLEESTA MO MEIDDEMOS'; 'SANTO' central vira BANTO."
+        ],
+        "cifra": [
+          "Sol/La- substituídos por See/La/na/tn; não preserva qualidade menor e progressão."
+        ],
+        "alinhamento": [
+          "Caracteres dispersos entre os versos; relação cifra/letra destruída."
+        ],
+        "repeticao": [
+          "Respostas reconhecíveis apenas parcialmente."
+        ],
+        "duvida": "Miniatura 350x350 alternativa da 287; transcrição não exaurida devido corrupção."
+      },
+      "duvidas": "Miniatura 350x350 alternativa da 287; transcrição não exaurida devido corrupção.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 294,
+      "key": "73537024692d6c3f",
+      "title": "Prefácio do Advento I",
+      "page": "https://cn.org.br/portal/prefacio-do-advento-i/",
+      "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-35-44-480x480.png",
+      "evidence": "docs/revisao/evidencias/73537024692d6c3f-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "'Revestido de sua glória' vira 'Revesido de sua gona'; 'O Senhor esteja convosco' vira 'O Senhorestejacomosco'; instrução litúrgica corrompida."
+        ],
+        "cifra": [
+          "La- vira La em várias linhas, Mi vira Ar/At, Sol vira So;/Sal; progressão alterada."
+        ],
+        "alinhamento": [
+          "Relação entre sílabas e cifras comprometida pelas palavras fundidas."
+        ],
+        "repeticao": [
+          "Duas respostas É NOSSO DEVER e SANTO triplo reconhecíveis."
+        ],
+        "duvida": "Alternativa 480x480 da 287; transcrição não exaurida."
+      },
+      "duvidas": "Alternativa 480x480 da 287; transcrição não exaurida.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 295,
+      "key": "1d7af0bbb81b150a",
+      "title": "Prefácio do Advento II",
+      "page": "https://cn.org.br/portal/prefacio-do-advento-ii/",
+      "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-36-25.png",
+      "evidence": "docs/revisao/evidencias/1d7af0bbb81b150a-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "'O próprio Senhor nos dá a alegria' vira 'O próprioSenhor nos dáa alegria'; 'nos encontre vigilantes na oração' vira 'nos encontrevigilantesna oração'."
+        ],
+        "cifra": [
+          "Sol/La-/Fa/Mi/Do aparecem na ordem da fonte sem perda inequívoca de qualidade."
+        ],
+        "alinhamento": [
+          "'Por essa razão, agora e sempre' fragmentado em duas linhas; P. vira PR."
+        ],
+        "repeticao": [
+          "Duas É NOSSO DEVER e três SANTO presentes."
+        ]
+      },
+      "duvidas": "Requer nova comparação após corrigir achados; versão estendida não aprovada.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 296,
+      "key": "30a31362f6edfd83",
+      "title": "Prefácio do Advento II",
+      "page": "https://cn.org.br/portal/prefacio-do-advento-ii/",
+      "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-36-25-300x300.png",
+      "evidence": "docs/revisao/evidencias/30a31362f6edfd83-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "'ELE ESTÁ NO MEIO DE NÓS' vira 'CLERETANO MIODEMOS'; corpo substituído por sílabas sem correspondência."
+        ],
+        "cifra": [
+          "Cifras quase todas ausentes, substituídas por a/x/be/ta."
+        ],
+        "alinhamento": [
+          "Versos e acordes não conservam associação."
+        ],
+        "repeticao": [
+          "Respostas e SANTO não preservados legivelmente."
+        ],
+        "duvida": "Miniatura 300x300 alternativa da 295; transcrição não exaurida devido corrupção."
+      },
+      "duvidas": "Miniatura 300x300 alternativa da 295; transcrição não exaurida devido corrupção.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 297,
+      "key": "7599226e78103f97",
+      "title": "Prefácio do Advento II",
+      "page": "https://cn.org.br/portal/prefacio-do-advento-ii/",
+      "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-36-25-150x150.png",
+      "evidence": "docs/revisao/evidencias/7599226e78103f97-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "Painel HTML apresenta somente o título; corpo inteiro ausente."
+        ],
+        "cifra": [
+          "Todas as cifras omitidas."
+        ],
+        "alinhamento": [
+          "Área do corpo vazia."
+        ],
+        "repeticao": [
+          "Todas as estrofes e respostas omitidas."
+        ],
+        "duvida": "Miniatura 150x150 alternativa da 295; fonte não permite transcrição exaustiva, omissão inequívoca."
+      },
+      "duvidas": "Miniatura 150x150 alternativa da 295; fonte não permite transcrição exaustiva, omissão inequívoca.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 298,
+      "key": "9db958eade99f542",
+      "title": "Prefácio do Advento II",
+      "page": "https://cn.org.br/portal/prefacio-do-advento-ii/",
+      "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-36-25-768x767.png",
+      "evidence": "docs/revisao/evidencias/9db958eade99f542-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "'exceto' na indicação litúrgica vira 'exceio'; 'Pai santo' vira 'Paisanto'; 'os seus' vira 'osseus'."
+        ],
+        "cifra": [
+          "La- inicial de Na verdade vira La (perda de menor); demais Sol/La-/Fa/Mi/Do legíveis."
+        ],
+        "alinhamento": [
+          "'agora' isolado sob 'de entrarmos ... no mistério'; P. vira PR/Pp."
+        ],
+        "repeticao": [
+          "Duas É NOSSO DEVER e três SANTO presentes."
+        ],
+        "duvida": "Alternativa 768x768 da 295."
+      },
+      "duvidas": "Alternativa 768x768 da 295.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 299,
+      "key": "e4230995ab4c97b9",
+      "title": "Prefácio do Advento II",
+      "page": "https://cn.org.br/portal/prefacio-do-advento-ii/",
+      "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-36-25-830x829.png",
+      "evidence": "docs/revisao/evidencias/e4230995ab4c97b9-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "'Advento' na instrução vira 'Acento'; intervalo '17 a 24' vira '17 4 24'; 'vigilantes na' vira 'vigilantesna'."
+        ],
+        "cifra": [
+          "Sol/La-/Fa/Mi/Do mantidos nas posições gerais da ficha."
+        ],
+        "alinhamento": [
+          "'agora' isolado sob o verso 'de entrarmos ... no mistério'; P. vira PR."
+        ],
+        "repeticao": [
+          "Duas É NOSSO DEVER e SANTO triplo presentes."
+        ],
+        "duvida": "Alternativa 830x830 da 295."
+      },
+      "duvidas": "Alternativa 830x830 da 295.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 300,
+      "key": "edc95384108e468d",
+      "title": "Prefácio do Advento II",
+      "page": "https://cn.org.br/portal/prefacio-do-advento-ii/",
+      "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-36-25-230x230.png",
+      "evidence": "docs/revisao/evidencias/edc95384108e468d-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "Corpo substituído por quatro linhas como 'Decal romaçanenta ma tera'."
+        ],
+        "cifra": [
+          "Todas as cifras omitidas."
+        ],
+        "alinhamento": [
+          "Estrutura de versos e colunas não reproduzida."
+        ],
+        "repeticao": [
+          "Todas as respostas omitidas."
+        ],
+        "duvida": "Miniatura 230x230 alternativa da 295; transcrição não exaurida devido corrupção."
+      },
+      "duvidas": "Miniatura 230x230 alternativa da 295; transcrição não exaurida devido corrupção.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 301,
+      "key": "ff05104fdd084b84",
+      "title": "Prefácio do Advento II",
+      "page": "https://cn.org.br/portal/prefacio-do-advento-ii/",
+      "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-36-25-350x350.png",
+      "evidence": "docs/revisao/evidencias/ff05104fdd084b84-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "'O Senhor esteja convosco' vira 'O Secos nolan encaram'; SANTO inicial vira BANTO."
+        ],
+        "cifra": [
+          "Cifras substituídas por su/u/ee/A/ra, sem progressão utilizável."
+        ],
+        "alinhamento": [
+          "Caracteres avulsos e versos fragmentados."
+        ],
+        "repeticao": [
+          "É NOSSO DEVER e SANTO corrompidos."
+        ],
+        "duvida": "Miniatura 350x350 alternativa da 295; transcrição não exaurida devido corrupção."
+      },
+      "duvidas": "Miniatura 350x350 alternativa da 295; transcrição não exaurida devido corrupção.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 302,
+      "key": "966e84cf4c3bd96f",
+      "title": "Prefácio do Advento II",
+      "page": "https://cn.org.br/portal/prefacio-do-advento-ii/",
+      "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-36-25-480x479.png",
+      "evidence": "docs/revisao/evidencias/966e84cf4c3bd96f-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "'nos encontre vigilantes' vira 'nos encontnav igilantes'; 'Predito' vira 'Prado'; 'Batista' vira 'Bahsta'."
+        ],
+        "cifra": [
+          "Sol vira Sal, La- vira La/la e Mi vira Mr; perda de qualidade menor e nomes incorretos."
+        ],
+        "alinhamento": [
+          "Texto e cifras fundidos; instrução de cantar Santo irreconhecível."
+        ],
+        "repeticao": [
+          "Duas respostas e SANTO triplo reconhecíveis."
+        ],
+        "duvida": "Alternativa 480x480 da 295; transcrição não exaurida devido corrupção extensa."
+      },
+      "duvidas": "Alternativa 480x480 da 295; transcrição não exaurida devido corrupção extensa.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 303,
+      "key": "bac348f7ef442905",
+      "title": "Prefácio do Natal do Senhor I",
+      "page": "https://cn.org.br/portal/prefacio-do-natal-do-senhor-i/",
+      "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-37-15.png",
+      "evidence": "docs/revisao/evidencias/bac348f7ef442905-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "'nova luz da vossa glória brilhou para nós' vira 'nova luzda vossa glóriabrilhoupara nós'; 'os anjos' vira 'osanjos'."
+        ],
+        "cifra": [
+          "Sol sobre 'grandeza' vira Sal; demais La-/Fa/Mi/Do presentes."
+        ],
+        "alinhamento": [
+          "P. vira PR; muitas palavras perdem espaços; cifras permanecem próximas às linhas gerais."
+        ],
+        "repeticao": [
+          "Duas É NOSSO DEVER e SANTO triplo presentes."
+        ]
+      },
+      "duvidas": "Requer nova comparação após corrigir achados; versão estendida não aprovada.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 304,
+      "key": "b972d0729719c263",
+      "title": "Prefácio do Natal do Senhor I",
+      "page": "https://cn.org.br/portal/prefacio-do-natal-do-senhor-i/",
+      "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-37-15-300x300.png",
+      "evidence": "docs/revisao/evidencias/b972d0729719c263-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "'ELE ESTÁ NO MEIO DE NÓS' vira 'GLEESTAWO DOCE HOG'; 'SANTO' vira 'àtanto,BENTOBent'."
+        ],
+        "cifra": [
+          "Progressão substituída por letras avulsas como u/n/v; cifras perdidas."
+        ],
+        "alinhamento": [
+          "Estrutura de estrofes não reproduzida de maneira utilizável."
+        ],
+        "repeticao": [
+          "Respostas e SANTO corrompidos."
+        ],
+        "duvida": "Miniatura 300x300 alternativa da 303; transcrição não exaurida devido corrupção."
+      },
+      "duvidas": "Miniatura 300x300 alternativa da 303; transcrição não exaurida devido corrupção.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 305,
+      "key": "247bacb72b000f88",
+      "title": "Prefácio do Natal do Senhor I",
+      "page": "https://cn.org.br/portal/prefacio-do-natal-do-senhor-i/",
+      "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-37-15-150x150.png",
+      "evidence": "docs/revisao/evidencias/247bacb72b000f88-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "HTML apresenta apenas título; corpo inteiro ausente."
+        ],
+        "cifra": [
+          "Todas as cifras omitidas."
+        ],
+        "alinhamento": [
+          "Corpo do painel vazio."
+        ],
+        "repeticao": [
+          "Respostas e estrofes omitidas."
+        ],
+        "duvida": "Miniatura 150x150 alternativa da 303; omissão inequívoca, transcrição da miniatura não exaurida."
+      },
+      "duvidas": "Miniatura 150x150 alternativa da 303; omissão inequívoca, transcrição da miniatura não exaurida.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 306,
+      "key": "c1129e63aa42bdf8",
+      "title": "Prefácio do Natal do Senhor I",
+      "page": "https://cn.org.br/portal/prefacio-do-natal-do-senhor-i/",
+      "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-37-15-768x767.png",
+      "evidence": "docs/revisao/evidencias/c1129e63aa42bdf8-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "'Pai santo' vira 'Paisanto'; 'nova luz da vossa glória brilhou para nós' funde palavras; instrução litúrgica vira 'CantaraSantodotempohturgrco corres pondento'."
+        ],
+        "cifra": [
+          "La- no final da primeira É NOSSO DEVER vira La. (perde menor); demais Sol/La-/Fa/Mi/Do legíveis."
+        ],
+        "alinhamento": [
+          "P. vira Pp/PR; espaços da letra perdidos."
+        ],
+        "repeticao": [
+          "Duas respostas e SANTO triplo presentes."
+        ],
+        "duvida": "Alternativa 768x767 da 303."
+      },
+      "duvidas": "Alternativa 768x767 da 303.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 307,
+      "key": "674e2995ebd86ab4",
+      "title": "Prefácio do Natal do Senhor I",
+      "page": "https://cn.org.br/portal/prefacio-do-natal-do-senhor-i/",
+      "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-37-15-830x829.png",
+      "evidence": "docs/revisao/evidencias/674e2995ebd86ab4-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "'Por ele' vira 'Por ete'; 'Corações ao alto' vira 'Corações ao aito'; 'oitava' da indicação litúrgica vira 'Olava'."
+        ],
+        "cifra": [
+          "La- final da primeira É NOSSO DEVER vira la. sem menor; demais cifras principais mantidas."
+        ],
+        "alinhamento": [
+          "P. vira Pp/PR; palavras coladas como 'glóriabrilhoupara'."
+        ],
+        "repeticao": [
+          "Duas respostas e SANTO triplo presentes."
+        ],
+        "duvida": "Alternativa 830x829 da 303."
+      },
+      "duvidas": "Alternativa 830x829 da 303.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 308,
+      "key": "828635eb81e15e59",
+      "title": "Prefácio do Natal do Senhor I",
+      "page": "https://cn.org.br/portal/prefacio-do-natal-do-senhor-i/",
+      "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-37-15-230x230.png",
+      "evidence": "docs/revisao/evidencias/828635eb81e15e59-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "Todo o corpo é reduzido a linhas sem correspondência como 'creamorm eucação'."
+        ],
+        "cifra": [
+          "Todas as cifras omitidas."
+        ],
+        "alinhamento": [
+          "Estrutura de estrofes ausente."
+        ],
+        "repeticao": [
+          "Respostas e estrofes omitidas."
+        ],
+        "duvida": "Miniatura 230x230 alternativa da 303; transcrição não exaurida devido corrupção."
+      },
+      "duvidas": "Miniatura 230x230 alternativa da 303; transcrição não exaurida devido corrupção.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 309,
+      "key": "622a9eeeb3a5e245",
+      "title": "Prefácio do Natal do Senhor I",
+      "page": "https://cn.org.br/portal/prefacio-do-natal-do-senhor-i/",
+      "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-37-15-350x350.png",
+      "evidence": "docs/revisao/evidencias/622a9eeeb3a5e245-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "'O Senhor esteja convosco' vira 'O Senterenn coaensce'; 'SANTO' é um dos poucos trechos reconhecíveis."
+        ],
+        "cifra": [
+          "Cifras substituídas por ta/la/Ms/m/Sa e símbolos; progressão não utilizável."
+        ],
+        "alinhamento": [
+          "Versos fragmentados com caracteres soltos."
+        ],
+        "repeticao": [
+          "É NOSSO DEVER corrompido, SANTO triplo reconhecível."
+        ],
+        "duvida": "Miniatura 350x350 alternativa da 303; transcrição não exaurida devido corrupção."
+      },
+      "duvidas": "Miniatura 350x350 alternativa da 303; transcrição não exaurida devido corrupção.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 310,
+      "key": "f85491df524ae25b",
+      "title": "Prefácio do Natal do Senhor I",
+      "page": "https://cn.org.br/portal/prefacio-do-natal-do-senhor-i/",
+      "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-23-17-37-15-480x479.png",
+      "evidence": "docs/revisao/evidencias/f85491df524ae25b-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "'Senhor, Pai santo, Deus eterno e todo-poderoso' vira 'Senhor.Pu santo Dous stornoa todo-poderpsa'; 'visível' vira 'vewe'."
+        ],
+        "cifra": [
+          "Sol vira Sal/Sot, La- vira la/La e Mi vira MM/Ma; harmonia alterada e menores perdidos."
+        ],
+        "alinhamento": [
+          "Instrução litúrgica e palavras dos versos corrompidas; P. vira BR."
+        ],
+        "repeticao": [
+          "Duas É NOSSO DEVER e SANTO triplo reconhecíveis."
+        ],
+        "duvida": "Alternativa 480x479 da 303; transcrição não exaurida devido corrupção extensa."
+      },
+      "duvidas": "Alternativa 480x479 da 303; transcrição não exaurida devido corrupção extensa.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 311,
+      "key": "11abef77fcea3352",
+      "title": "Prefácio Para O Advento E Natal",
+      "page": "https://cn.org.br/portal/prefacio-para-o-advento-e-natal/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/prefacio-para-o-advento-e-natal.png",
+      "evidence": "docs/revisao/evidencias/11abef77fcea3352-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "'É NOSSO' vira 'ENOSSO' sem acento; 'Pai santo' vira 'Paisanto'; 'Se grande era a nossa culpa' vira 'Se grande eraa nossa culpa'."
+        ],
+        "cifra": [
+          "Sol/La-/Fa/Mi/Do visualmente presentes na ordem da ficha."
+        ],
+        "alinhamento": [
+          "Acentos das respostas separados em pontos em linhas próprias; P. vira Pp; espaços fundidos."
+        ],
+        "repeticao": [
+          "Duas É NOSSO DEVER e três SANTO presentes."
+        ]
+      },
+      "duvidas": "Requer nova comparação após corrigir achados; versão estendida não aprovada.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 312,
+      "key": "eedf43af5846b855",
+      "title": "Prefácio Para O Tempo Pascal",
+      "page": "https://cn.org.br/portal/prefacio-para-o-tempo-pascal/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/prefacio-para-o-tempo-pascal.png",
+      "evidence": "docs/revisao/evidencias/eedf43af5846b855-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "'É Ele' vira 'EEle'; 'imolado' vira 'imoiado'; 'pecado do mundo' vira 'pecadodo mundo'."
+        ],
+        "cifra": [
+          "Sol/La-/Re-/Fa/Mi preservados na ordem geral."
+        ],
+        "alinhamento": [
+          "BIS A sem barra de escopo; lacuna antes de É Ele; P. vira PR."
+        ],
+        "repeticao": [
+          "Duas É NOSSO DEVER presentes; BIS A sem escopo gráfico."
+        ]
+      },
+      "duvidas": "Requer nova comparação após corrigir achados; versão estendida não aprovada.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 313,
+      "key": "bb128939f0e30c10",
+      "title": "Prontuário De Acordes",
+      "page": "https://cn.org.br/portal/prontuario-de-acordes/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/prontuario-de-acordes-1.png",
+      "evidence": "docs/revisao/evidencias/bb128939f0e30c10-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "Não é canto: prontuário de posições de acordes; HTML substitui diagramas por fragmentos como ROR/BEER/ERES."
+        ],
+        "cifra": [
+          "Nomes de muitos acordes sobrevivem, mas todos os diagramas de digitação foram omitidos."
+        ],
+        "alinhamento": [
+          "Grade de sete colunas de diagramas totalmente perdida; nomes ficam sem a posição correspondente."
+        ],
+        "repeticao": [
+          "Não se aplica: documento didático, não cadastrar como canto."
+        ],
+        "duvida": "Reprovação refere-se à fidelidade do documento; classificar como material de apoio."
+      },
+      "duvidas": "Reprovação refere-se à fidelidade do documento; classificar como material de apoio.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 314,
+      "key": "78afa9993b27c216",
+      "title": "Prontuário De Acordes",
+      "page": "https://cn.org.br/portal/prontuario-de-acordes/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/prontuario-de-acordes-2.png",
+      "evidence": "docs/revisao/evidencias/78afa9993b27c216-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "Não é canto: segunda página do prontuário; aparecem textos espúrios 'Pedido', 'polo', 'ERR'."
+        ],
+        "cifra": [
+          "La# / Sib inicial perde # no La; Si6 vira si6, mas ausência de todos os diagramas é a falha principal."
+        ],
+        "alinhamento": [
+          "Todas as grades de digitação, inclusive campos vazios, foram omitidas."
+        ],
+        "repeticao": [
+          "Não se aplica: documento didático; não tratar como novo canto."
+        ],
+        "duvida": "Segunda página do mesmo material de apoio da 313."
+      },
+      "duvidas": "Segunda página do mesmo material de apoio da 313.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 315,
+      "key": "aac739fc9c405d15",
+      "title": "Salmodia para as Orações Universais",
+      "page": "https://cn.org.br/portal/salmodia-para-as-oracoes-universais/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/salmodia-para-as-oracoes-universais.png",
+      "evidence": "docs/revisao/evidencias/aac739fc9c405d15-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "'sinal e instrumento da presença' vira 'sinale instrumentoda presença'; 'confiado a seus' vira 'confiadoa seus'; 'Ó SENHOR' vira 'O SENHOR' nas primeiras respostas."
+        ],
+        "cifra": [
+          "Mi-, Re e Sol presentes; sequências Mi- Re Mi- mantidas."
+        ],
+        "alinhamento": [
+          "Parêntese espúrio acima da terceira resposta; asterisco da nota editorial perdido."
+        ],
+        "repeticao": [
+          "Quatro ESCUTAI-NOS, Ó SENHOR reconhecíveis, com perda de acento em três."
+        ]
+      },
+      "duvidas": "Requer nova comparação após corrigir achados; versão estendida não aprovada.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 316,
+      "key": "6e7332252e6d60d6",
+      "title": "Salmodia Para O Evangelho",
+      "page": "https://cn.org.br/portal/salmodia-para-o-evangelho/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/salmodia-para-o-evangelho.png",
+      "evidence": "docs/revisao/evidencias/6e7332252e6d60d6-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "'porém não acolheis o nosso testemunho' vira 'porém não acolheiso nosso testemunho'; 'vida eterna' vira 'vidaeterna'; 'Palavra da salvação' perde 'da'."
+        ],
+        "cifra": [
+          "Mi-, Si7, La-, Sol e Re mantidos; grupos colados como Mi-Si7 dificultam separação."
+        ],
+        "alinhamento": [
+          "Cifras finais dos versos continuam próximas das terminações, mas palavras e cifras coladas comprometem leitura."
+        ],
+        "repeticao": [
+          "Duas GLÓRIA A VÓS, SENHOR presentes."
+        ]
+      },
+      "duvidas": "Requer nova comparação após corrigir achados; versão estendida não aprovada.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 317,
+      "key": "d1965d6b06db4aa5",
+      "title": "Salmodia Para O Rosário",
+      "page": "https://cn.org.br/portal/salmodia-para-o-rosario/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/salmodia-para-o-rosario.png",
+      "evidence": "docs/revisao/evidencias/d1965d6b06db4aa5-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "'bendita sois vós entre as mulheres' vira 'benditasoisvósentreas mulheres'; 'PRINCÍPIO' vira 'PRINCÍCIO'; 'E SEMPRE' vira 'ESEMPRE'."
+        ],
+        "cifra": [
+          "Mi-, Si7, La-, Sol e Re presentes; Si7Mi- final sem separador."
+        ],
+        "alinhamento": [
+          "Palavras coladas alteram relação das cifras às sílabas; final da Glória muito comprimido."
+        ],
+        "repeticao": [
+          "Ave Maria e Glória presentes, sem omissão de resposta."
+        ]
+      },
+      "duvidas": "Requer nova comparação após corrigir achados; versão estendida não aprovada.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 318,
+      "key": "7a7227ba0d58c46c",
+      "title": "Salmodia para o Salmo Responsorial",
+      "page": "https://cn.org.br/portal/salmodia-para-o-salmo-responsorial/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/salmodia-para-o-salmo-responsorial.png",
+      "evidence": "docs/revisao/evidencias/7a7227ba0d58c46c-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "'ó Senhor' vira '6 Senhor' na estrofe; 'terra sedenta e sem' vira 'terrasedenta esem'; Ano A recebe acento À."
+        ],
+        "cifra": [
+          "Mi-, La-, Si7 e Do visualmente mantidos."
+        ],
+        "alinhamento": [
+          "BIS A perde barra lateral; reticências dos refrões descem para linha própria."
+        ],
+        "repeticao": [
+          "Duas retomadas SOIS VÓS presentes; alcance do bis inicial não preservado."
+        ]
+      },
+      "duvidas": "Requer nova comparação após corrigir achados; versão estendida não aprovada.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 319,
+      "key": "9d46afd9e77c8103",
+      "title": "Salmodia Vi",
+      "page": "https://cn.org.br/portal/salmodia-vi/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/salmodia-vi.png",
+      "evidence": "docs/revisao/evidencias/9d46afd9e77c8103-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "'Cantai ao Senhor' vira 'Cantaiao Senhor'; 'perversos' aparece 'dosperversos'; identificação Sl 8 da salmodia X vira 'SJ E:)'."
+        ],
+        "cifra": [
+          "Do7 nas duas primeiras respostas da salmodia VI vira Do?; demais Mi-/Re-/Sol/La- preservados em grande parte."
+        ],
+        "alinhamento": [
+          "Verso 'toquem harpa e tambor em sua honra' fragmentado em duas alturas; letra de Sl 8 quebrada irregularmente."
+        ],
+        "repeticao": [
+          "Salmodias VI–X e respostas presentes; nota editorial perdeu asterisco."
+        ]
+      },
+      "duvidas": "Requer nova comparação após corrigir achados; versão estendida não aprovada.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 320,
+      "key": "68171aa37fe03049",
+      "title": "Salmodias Para As Laudes",
+      "page": "https://cn.org.br/portal/salmodias-para-as-laudes/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/salmodias-para-as-laudes.png",
+      "evidence": "docs/revisao/evidencias/68171aa37fe03049-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "'ó Senhor Deus' vira '6SenhorDeus'; 'ao clamor da minha prece' vira 'clambda minha prece'; 'Ó MEU REI' perde acento."
+        ],
+        "cifra": [
+          "Re- inicial da salmodia V vira Re (maior); La7 vira Lar; La da flexa da IV vira 'a'."
+        ],
+        "alinhamento": [
+          "Verso 'vosso nome por todo o universo' disperso em duas linhas; cifras de V sem associação segura à letra."
+        ],
+        "repeticao": [
+          "Salmodias I–V e suas respostas presentes; nota editorial sem asterisco."
+        ]
+      },
+      "duvidas": "Requer nova comparação após corrigir achados; versão estendida não aprovada.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 321,
+      "key": "a63a5e42f6790cdc",
+      "title": "Santo 1982",
+      "page": "https://cn.org.br/portal/santo-1982/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/santo-1982.png",
+      "evidence": "docs/revisao/evidencias/a63a5e42f6790cdc-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "'Os céus e a terra' vira 'Os céuseaterra'; 'NO ALTO' vira 'NOALTO'; 'É O' vira 'ÉO'."
+        ],
+        "cifra": [
+          "La-, Sol, Fa, Mi e Re- presentes sem alteração harmônica inequívoca."
+        ],
+        "alinhamento": [
+          "Palavras coladas; reticências finais separadas em linhas próprias."
+        ],
+        "repeticao": [
+          "Dois blocos de quatro HOSANA, duas ocorrências 'em nome do Senhor' e retomadas finais presentes."
+        ]
+      },
+      "duvidas": "Requer nova comparação após corrigir achados; versão estendida não aprovada.",
+      "inspecaoVisual": true
+    },
+    {
+      "sequence": 322,
+      "key": "27d72157759673ec",
+      "title": "Santo 1988",
+      "page": "https://cn.org.br/portal/santo-1988/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/santo-1988.png",
+      "evidence": "docs/revisao/evidencias/27d72157759673ec-pair.jpg",
+      "variant": "rascunho normal",
+      "status": "Reprovado",
+      "achados": {
+        "letra": [
+          "'Os céus e a terra' vira 'Os céuseaterra'; 'Bendito o que vem' vira 'Benditoo que vem'; 'no alto do' vira 'noaltodo'."
+        ],
+        "cifra": [
+          "La-, Sol, Fa e Mi mantidos, inclusive Santo final Fa/Mi."
+        ],
+        "alinhamento": [
+          "Texto colado reduz clareza da posição das cifras em 'Os céus e a terra'."
+        ],
+        "repeticao": [
+          "Alternância S/A, duas duplas de SANTO e HOSANA antes e depois de Bendito preservadas."
+        ]
+      },
+      "duvidas": "Requer nova comparação após corrigir achados; versão estendida não aprovada.",
+      "inspecaoVisual": true
+    }
+  ]
+}

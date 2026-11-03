@@ -7,37 +7,39 @@ import "package:dio/dio.dart";
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import "package:flutter/material.dart";
-import "package:flutter_form_builder/flutter_form_builder.dart";
 import "package:flutter_speed_dial/flutter_speed_dial.dart";
 import "package:get/get.dart";
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import "package:numberpicker/numberpicker.dart";
 import "package:path_provider/path_provider.dart";
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import "package:percent_indicator/linear_percent_indicator.dart";
 import "../helpers/global.dart";
+import "../helpers/song_presentation.dart";
 import "../helpers/player_widget.dart";
 import "../model/canto.dart";
 import "../pages/listas.dart";
-import "package:wakelock/wakelock.dart";
+import "package:wakelock_plus/wakelock_plus.dart";
 import "package:webview_flutter/webview_flutter.dart";
 
 class CantoPage extends StatefulWidget {
   final Canto canto;
 
-  CantoPage({Key key, @required this.canto}) : super(key: key);
+  CantoPage({Key? key, required this.canto}) : super(key: key);
 
   @override
   _CantoPageState createState() => _CantoPageState();
 }
 
 class _CantoPageState extends State<CantoPage> {
-  final GlobalKey<FormBuilderState> _formKey = GlobalKey<FormBuilderState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final ctrlAnotacoes = TextEditingController();
-  WebViewController webViewController;
+  late final WebViewController webViewController;
+  Timer? _scrollTimer;
+  bool _scrollTickRunning = false;
+  bool _pageReady = false;
   bool exibePlayer = false;
   String localFilePath = "";
-  String strCanto;
+  String strCanto = "";
   int scroll = 0;
   int hasTransp = 0;
   int transSalv = 0;
@@ -50,59 +52,73 @@ class _CantoPageState extends State<CantoPage> {
   int brightnessStage = 0;
   bool brightnessAuto = true;
   bool brightnessChange = false;
-  Color back;
+  Color back = Colors.white;
 
   @override
   void initState() {
-    Wakelock.enable();
+    WakelockPlus.enable();
     estendido = globals.prefs.getBool("estendido") ?? true;
     super.initState();
+    transpor();
+    webViewController = WebViewController()
+      ..setJavaScriptMode(JavaScriptMode.unrestricted)
+      ..enableZoom(true)
+      ..setBackgroundColor(Colors.transparent)
+      ..setNavigationDelegate(NavigationDelegate(
+        onPageStarted: (_) => _pageReady = false,
+        onPageFinished: (_) => _pageReady = true,
+      ));
+    _loadCanto();
+  }
+
+  Future<void> _loadCanto() async {
+    _pageReady = false;
+    await webViewController.loadHtmlString(presentSongHtml(strCanto,
+        category: widget.canto.categoria, dark: darktheme));
+  }
+
+  Future<bool> _canScrollVertically() async {
+    if (!_pageReady || !mounted) return false;
+    final value = await webViewController.runJavaScriptReturningResult(
+      '(function(){var e=document.scrollingElement || document.documentElement;'
+      'return e.scrollHeight > e.clientHeight && '
+      'e.scrollTop + e.clientHeight < e.scrollHeight - 1;})()');
+    return value == true || value.toString() == 'true';
+  }
+
+  @override
+  void dispose() {
+    _scrollTimer?.cancel();
+    ctrlAnotacoes.dispose();
+    WakelockPlus.disable();
+    super.dispose();
   }
 
   navigateOption(String value) {
-    if (value == "1") Get.to(() => ListasPage(select: widget.canto.id)).then((value) => setState(() {}));
+    if (value == "1") Get.to(() => ListasPage(select: widget.canto.id))?.then((value) => setState(() {}));
     if (value == "2") anotacoes();
   }
 
   @override
   Widget build(BuildContext context) {
-    if (brightnessAuto) {
-      if (darktheme != checkDarkMode(context)) {
-          if (webViewController != null)
-            Timer(Duration(milliseconds: 10), () {
-              transpor();
-              webViewController.loadUrl(Uri.dataFromString(strCanto, mimeType: "text/html", encoding: Encoding.getByName("utf-8")).toString());
-              brightnessChange = false;
-              setState(() {});
-            });
-      }
-      darktheme = checkDarkMode(context);
-    } else {
-      if (webViewController != null) {
-        if (brightnessChange) {
-          Timer(Duration(milliseconds: 10), () {
-            transpor();
-            webViewController.loadUrl(Uri.dataFromString(strCanto, mimeType: "text/html", encoding: Encoding.getByName("utf-8")).toString());
-            brightnessChange = false;
-            setState(() {});
-          });
-        }
-      }
+    final nextDark = brightnessAuto ? checkDarkMode(context) : darktheme;
+    if (darktheme != nextDark || brightnessChange) {
+      darktheme = nextDark;
+      brightnessChange = false;
+      transpor();
+      _loadCanto();
     }
 
-    if (widget.canto.categoria == 1) back = darktheme ? hexToColor("#333333") : hexToColor("#ffffff");
-    if (widget.canto.categoria == 2) back = darktheme ? hexToColor("#282b2e") : hexToColor("#c7d7e8");
-    if (widget.canto.categoria == 3) back = darktheme ? hexToColor("#2b3325") : hexToColor("#d6ffba");
-    if (widget.canto.categoria == 4) back = darktheme ? hexToColor("#33291f") : hexToColor("#FFCC99");
+    back = SongColors.forCategory(widget.canto.categoria, dark: darktheme).backgroundColor;
 
     transpor();
 
-    return WillPopScope(
-      onWillPop: () {
-        Wakelock.disable();
+    return PopScope<Object?>(
+      onPopInvokedWithResult: (didPop, result) {
+        if (didPop) {
+        WakelockPlus.disable();
         scroll = 0;
-        Navigator.pop(context, false);
-        return Future.value(false);
+        }
       },
       child: Scaffold(
           backgroundColor: back,
@@ -187,7 +203,7 @@ class _CantoPageState extends State<CantoPage> {
                             ],
                           ),
                           onTap: () async {
-                            if (await webViewController.canScrollVertically()) setState(() => setTimer());
+                            if (await _canScrollVertically()) setTimer();
                           },
                           backgroundColor: Theme.of(context).colorScheme.secondary),
                       if (widget.canto.url != "")
@@ -216,7 +232,7 @@ class _CantoPageState extends State<CantoPage> {
                                   Center(
                                       child: Padding(
                                     padding: EdgeInsets.only(bottom: 10),
-                                    child: Icon(MdiIcons.themeLightDark, size: 18, color: Theme.of(context).colorScheme.onSecondary),
+                                    child: Icon(Icons.brightness_6, size: 18, color: Theme.of(context).colorScheme.onSecondary),
                                   )),
                                   Center(
                                       child: Padding(
@@ -224,7 +240,7 @@ class _CantoPageState extends State<CantoPage> {
                                     child: Text("Auto", style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSecondary)),
                                   )),
                                 ])
-                              : Icon((darktheme ? MdiIcons.brightness4 : MdiIcons.brightness5), color: Theme.of(context).colorScheme.onSecondary),
+                              : Icon((darktheme ? Icons.brightness_4 : Icons.brightness_5), color: Theme.of(context).colorScheme.onSecondary),
                           onTap: () {
                             if (brightnessStage == 2) {
                               brightnessAuto = true;
@@ -278,17 +294,11 @@ class _CantoPageState extends State<CantoPage> {
                         ),
                       ),
                     Expanded(
-                      child: WebView(
-                        onWebViewCreated: (WebViewController controller) {
-                          webViewController = controller;
+                      child: WebViewWidget(
+                        controller: webViewController,
+                        gestureRecognizers: <Factory<OneSequenceGestureRecognizer>>{
+                          Factory<OneSequenceGestureRecognizer>(() => EagerGestureRecognizer()),
                         },
-                        gestureRecognizers: <Factory<OneSequenceGestureRecognizer>>[
-                          new Factory<OneSequenceGestureRecognizer>(
-                            () => new EagerGestureRecognizer(),
-                          ),
-                        ].toSet(),
-                        initialUrl: Uri.dataFromString(strCanto, mimeType: "text/html", encoding: Encoding.getByName("utf-8")).toString(),
-                        gestureNavigationEnabled: true,
                       ),
                     ),
                   ],
@@ -298,8 +308,8 @@ class _CantoPageState extends State<CantoPage> {
                 Container(
                   width: 100,
                   decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.background,
-                      border: Border(left: BorderSide(width: 1, color: Theme.of(context).colorScheme.onBackground))),
+                      color: Theme.of(context).colorScheme.surface,
+                      border: Border(left: BorderSide(width: 1, color: Theme.of(context).colorScheme.onSurface))),
                   child: getMenuLateral(),
                 ),
             ],
@@ -312,7 +322,7 @@ class _CantoPageState extends State<CantoPage> {
   Widget divider() {
     return Padding(
       padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
-      child: Divider(color: Theme.of(context).colorScheme.onBackground, height: 2),
+      child: Divider(color: Theme.of(context).colorScheme.onSurface, height: 2),
     );
   }
 
@@ -330,7 +340,7 @@ class _CantoPageState extends State<CantoPage> {
         InkWell(
           child: Container(
             height: 60,
-            child: Icon(MdiIcons.commentEditOutline, size: 25, color: Theme.of(context).colorScheme.onSecondary),
+            child: Icon(Icons.edit_note, size: 25, color: Theme.of(context).colorScheme.onSecondary),
           ),
           onTap: () => navigateOption("2"),
         ),
@@ -381,7 +391,7 @@ class _CantoPageState extends State<CantoPage> {
             ),
           ),
           onTap: () async {
-            if (await webViewController.canScrollVertically()) setState(() => setTimer());
+            if (await _canScrollVertically()) setTimer();
           },
         ),
         if (widget.canto.url != "") divider(),
@@ -452,7 +462,7 @@ class _CantoPageState extends State<CantoPage> {
                     Center(
                         child: Padding(
                       padding: EdgeInsets.only(bottom: 10),
-                      child: Icon(MdiIcons.themeLightDark, size: 18, color: Theme.of(context).colorScheme.onSecondary),
+                      child: Icon(Icons.brightness_6, size: 18, color: Theme.of(context).colorScheme.onSecondary),
                     )),
                     Center(
                         child: Padding(
@@ -460,7 +470,7 @@ class _CantoPageState extends State<CantoPage> {
                       child: Text("Auto", style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSecondary)),
                     )),
                   ])
-                : Icon((darktheme ? MdiIcons.brightness4 : MdiIcons.brightness5), color: Theme.of(context).colorScheme.onSecondary),
+                : Icon((darktheme ? Icons.brightness_4 : Icons.brightness_5), color: Theme.of(context).colorScheme.onSecondary),
           ),
         ),
         divider(),
@@ -468,15 +478,27 @@ class _CantoPageState extends State<CantoPage> {
     );
   }
 
-  setTimer() {
+  void setTimer() {
     scroll++;
-    Timer.periodic(Duration(milliseconds: 200), (timer) async {
-      if (!(await webViewController.canScrollVertically())) {
-        setState(() => scroll = 0);
+    _scrollTimer ??= Timer.periodic(const Duration(milliseconds: 200), (_) async {
+      if (!mounted || scroll == 0) {
+        _scrollTimer?.cancel();
+        _scrollTimer = null;
         return;
       }
-      if (scroll == 0) timer.cancel();
-      webViewController.scrollBy(0, 1);
+      if (_scrollTickRunning || !_pageReady) return;
+      _scrollTickRunning = true;
+      try {
+        if (await _canScrollVertically()) {
+          if (mounted) await webViewController.scrollBy(0, scroll);
+        } else {
+          _scrollTimer?.cancel();
+          _scrollTimer = null;
+          if (mounted) setState(() => scroll = 0);
+        }
+      } finally {
+        _scrollTickRunning = false;
+      }
     });
   }
 
@@ -669,15 +691,14 @@ class _CantoPageState extends State<CantoPage> {
     return Container(
         margin: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         width: 100,
-        child: FlatButton(
+        child: TextButton(
+            style: TextButton.styleFrom(backgroundColor: Theme.of(context).colorScheme.secondary, foregroundColor: Theme.of(context).colorScheme.onSecondary),
             child: FittedBox(fit: BoxFit.scaleDown, child: Text(nota)),
-            color: Theme.of(context).colorScheme.secondary,
-            textColor: Theme.of(context).colorScheme.onSecondary,
             onPressed: () async {
               hasTransp = numero;
               transpor();
               //scroll = 0;
-              webViewController.loadUrl(Uri.dataFromString(strCanto, mimeType: "text/html", encoding: Encoding.getByName("utf-8")).toString());
+              _loadCanto();
               setState(() {});
               Navigator.of(context).pop();
             }));
@@ -687,9 +708,9 @@ class _CantoPageState extends State<CantoPage> {
     return Container(
         margin: EdgeInsets.only(left: 8, right: 8, top: 20),
         width: 120,
-        child: FlatButton(
+        child: TextButton(
+            style: TextButton.styleFrom(backgroundColor: Theme.of(context).colorScheme.secondary),
             child: Icon((salvar > 0) ? Icons.save : Icons.delete, color: Theme.of(context).colorScheme.primary),
-            color: Theme.of(context).colorScheme.secondary,
             onPressed: () async {
               (salvar > 0)
                   ? globals.prefs.setInt("TRANSP_" + widget.canto.id.toString(), salvar)
@@ -697,7 +718,7 @@ class _CantoPageState extends State<CantoPage> {
               hasTransp = 0;
               transpor();
               //scroll = 0;
-              webViewController.loadUrl(Uri.dataFromString(strCanto, mimeType: "text/html", encoding: Encoding.getByName("utf-8")).toString());
+              _loadCanto();
               setState(() {});
               Navigator.of(context).pop();
             }));
@@ -705,8 +726,12 @@ class _CantoPageState extends State<CantoPage> {
 
   getCapoDialog() {
     int localSelection = capoSelected;
+    final isDark = checkDarkMode(context);
+    final dialogTextColor = isDark ? Colors.white : Colors.black;
     return Get.defaultDialog(
         title: "Capotraste",
+        backgroundColor: isDark ? const Color(0xFF212121) : Colors.white,
+        titleStyle: TextStyle(fontSize: 20, color: dialogTextColor),
         radius: 4,
         content: ConstrainedBox(
             constraints: BoxConstraints(minWidth: MediaQuery.of(context).size.width * 0.6),
@@ -714,48 +739,47 @@ class _CantoPageState extends State<CantoPage> {
               padding: EdgeInsets.all(4),
               child: Column(
                 children: [
-                  Stack(
-                    children: [
-                      Align(
-                          alignment: Alignment.center,
-                          child: NumberPicker.integer(
-                            initialValue: capoSelected,
-                            highlightSelectedValue: false,
-                            itemExtent: 45,
-                            minValue: 0,
-                            maxValue: 30,
-                            onChanged: (value) {
-                              if (value != localSelection) {
-                                localSelection = value;
-                              }
-                            },
-                          )),
-                      Align(
-                          alignment: Alignment.center,
-                          child: Container(
-                            margin: EdgeInsets.only(top: 57.5),
-                            height: 20,
-                            width: 20,
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Theme.of(context).colorScheme.primary),
-                            ),
-                          )),
-                    ],
+                  StatefulBuilder(
+                    builder: (context, updateDialog) => NumberPicker(
+                      value: localSelection,
+                      itemHeight: 48,
+                      itemWidth: 96,
+                      minValue: 0,
+                      maxValue: 30,
+                      textStyle: TextStyle(
+                        fontSize: 18,
+                        color: dialogTextColor,
+                      ),
+                      selectedTextStyle: TextStyle(
+                        fontSize: 26,
+                        fontWeight: FontWeight.bold,
+                        color: dialogTextColor,
+                      ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(
+                          color: isDark ? Colors.white54 : Colors.black54,
+                        ),
+                      ),
+                      onChanged: (value) {
+                        if (value != localSelection) {
+                          updateDialog(() => localSelection = value);
+                        }
+                      },
+                    ),
                   ),
                   Container(
                       margin: EdgeInsets.only(top: 12),
                       width: 100,
-                      child: FlatButton(
+                      child: TextButton(
+            style: TextButton.styleFrom(backgroundColor: isDark ? const Color(0xFF424242) : const Color(0xFFEEEEEE), foregroundColor: dialogTextColor),
                         child: FittedBox(fit: BoxFit.scaleDown, child: Text("Salvar")),
-                        color: Theme.of(context).colorScheme.secondary,
-                        textColor: Theme.of(context).colorScheme.onSecondary,
                         onPressed: () async {
                           await globals.prefs.setInt("CAPOT_" + widget.canto.id.toString(), localSelection);
                           capoSelected = localSelection;
                           transpor();
                           //scroll = 0;
-                          webViewController
-                              .loadUrl(Uri.dataFromString(strCanto, mimeType: "text/html", encoding: Encoding.getByName("utf-8")).toString());
+                          _loadCanto();
                           setState(() {});
                           Navigator.of(context).pop();
                         },
@@ -788,14 +812,14 @@ class _CantoPageState extends State<CantoPage> {
     bool wifiOnly = globals.prefs.getBool("wfOnly") ?? false;
     if (wifiOnly) {
       var connectivityResult = await (Connectivity().checkConnectivity());
-      if (connectivityResult == ConnectivityResult.mobile) {
+      if (connectivityResult.contains(ConnectivityResult.mobile) && !connectivityResult.contains(ConnectivityResult.wifi)) {
         snackBar(Get.overlayContext, "Uso de redes móveis não permitido nas configurações!");
         return;
       }
     }
 
     var connectivityResult = await (Connectivity().checkConnectivity());
-    if (connectivityResult == ConnectivityResult.none) {
+    if (connectivityResult.contains(ConnectivityResult.none)) {
       snackBar(Get.overlayContext, "Sem conexão de internet!");
       return;
     }
@@ -804,32 +828,28 @@ class _CantoPageState extends State<CantoPage> {
       snackBar(Get.overlayContext, "Iniciando download");
       var url = "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/audios/" + widget.canto.html + ".mp3";
 
-      StreamController<int> progressStreamController = new StreamController();
-      Dio dio = new Dio();
-      dio.get(
-        url,
-        onReceiveProgress: (received, total) {
-          progressStreamController.add(((received / total) * 100).round());
-        },
-        options: Options(
-            responseType: ResponseType.bytes,
-            followRedirects: false,
-            validateStatus: (status) {
-              return status < 500;
-            }),
-      ).then((response) async {
-        file.writeAsBytes(response.data).then((value) {
-          widget.canto.downloaded = true;
+      try {
+        final response = await Dio().get<List<int>>(
+          url,
+          options: Options(responseType: ResponseType.bytes),
+          onReceiveProgress: (received, total) {
+            if (mounted && total > 0) {
+              setState(() => percentDownload = (received / total).clamp(0.0, 1.0).toDouble());
+            }
+          },
+        );
+        final bytes = response.data;
+        if (bytes == null || bytes.isEmpty) throw StateError('Áudio vazio.');
+        await file.writeAsBytes(bytes, flush: true);
+        await widget.canto.mp3Downloaded();
+        if (mounted) setState(() {
           localFilePath = file.path;
           exibePlayer = true;
-          setState(() {});
         });
-      }).whenComplete(() => progressStreamController.close());
-
-      await for (int p in progressStreamController.stream) {
-        setState(() {
-          percentDownload = p / 100;
-        });
+      } catch (error) {
+        if (mounted) snackBar(context, 'Erro ao baixar áudio: $error');
+      } finally {
+        if (mounted) setState(() => downloading = false);
       }
     }
   }
@@ -846,17 +866,17 @@ class _CantoPageState extends State<CantoPage> {
               padding: EdgeInsets.all(4),
               child: Column(children: [
                 Expanded(
-                  child: FormBuilder(
+                  child: Form(
                     key: _formKey,
-                    child: FormBuilderTextField(
+                    child: TextFormField(
                         cursorColor: Theme.of(context).colorScheme.primary,
-                        name: "Anotacoes",
+
                         minLines: 10,
                         maxLines: 100,
                         textAlign: TextAlign.center,
                         textCapitalization: TextCapitalization.sentences,
                         controller: ctrlAnotacoes,
-                        onSubmitted: (val) {
+                        onFieldSubmitted: (val) {
                           globals.prefs.setString("ANOT_" + widget.canto.id.toString(), ctrlAnotacoes.text);
                           Navigator.of(context).pop();
                         },
@@ -869,10 +889,9 @@ class _CantoPageState extends State<CantoPage> {
       confirm: Container(
         margin: EdgeInsets.only(top: 15),
         width: 100,
-        child: FlatButton(
+        child: TextButton(
+            style: TextButton.styleFrom(backgroundColor: Theme.of(context).colorScheme.primary, foregroundColor: Theme.of(context).colorScheme.onPrimary),
             child: Icon(Icons.check, color: Theme.of(context).colorScheme.onPrimary),
-            color: Theme.of(context).colorScheme.primary,
-            textColor: Theme.of(context).colorScheme.onPrimary,
             onPressed: () {
               globals.prefs.setString("ANOT_" + widget.canto.id.toString(), ctrlAnotacoes.text);
               Navigator.of(context).pop();
@@ -881,10 +900,9 @@ class _CantoPageState extends State<CantoPage> {
       cancel: Container(
         margin: EdgeInsets.only(top: 15),
         width: 100,
-        child: FlatButton(
+        child: TextButton(
+            style: TextButton.styleFrom(backgroundColor: Theme.of(context).colorScheme.secondary, foregroundColor: Theme.of(context).colorScheme.onSecondary),
             child: Icon(Icons.delete, color: Theme.of(context).colorScheme.onSecondary),
-            color: Theme.of(context).colorScheme.secondary,
-            textColor: Theme.of(context).colorScheme.onSecondary,
             onPressed: () {
               globals.prefs.remove("ANOT_" + widget.canto.id.toString());
               Navigator.of(context).pop();

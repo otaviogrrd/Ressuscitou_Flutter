@@ -1,0 +1,40 @@
+name: Official portal source review
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [master]
+    paths:
+      - "tools/portal_sources.py"
+      - "tools/test_portal_sources.py"
+      - ".github/workflows/portal-sources.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: portal-review-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  sheets:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install OCR tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y tesseract-ocr tesseract-ocr-por python3-pil
+      - name: Test source parser and HTML draft layout
+        run: python3 -m unittest discover -s tools -p 'test_*.py'
+      - name: Download sheets and prepare review drafts
+        run: python3 tools/portal_sources.py --drafts --output portal-review
+      - name: Save source review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: official-portal-review
+          path: portal-review/
+          if-no-files-found: ignore
+          retention-days: 14

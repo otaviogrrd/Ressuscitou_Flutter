@@ -1,0 +1,4 @@
+numpy>=2,<3
+snowballstemmer>=3.0,<4
+fastapi>=0.115,<1
+httpx>=0.28,<1

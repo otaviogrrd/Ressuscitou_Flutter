@@ -1,13 +1,14 @@
 import "dart:async";
 
 import "package:flutter/material.dart";
-import "package:flutter_form_builder/flutter_form_builder.dart";
 import "package:get/get.dart";
 import "package:intl/intl.dart";
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import "package:url_launcher/url_launcher.dart";
+import "package:url_launcher/url_launcher.dart" as launcher;
 
 import "../helpers/global.dart";
+import "../helpers/canto_search.dart";
+import "../helpers/canto_hybrid_search.dart";
+import "../widgets/canto_search_results.dart";
 import "../model/canto.dart";
 import '../model/mensagem.dart';
 import "../pages/audios.dart";
@@ -22,7 +23,7 @@ import "sobre.dart";
 class HomePage extends StatefulWidget {
   final bool selectable;
 
-  HomePage({Key key, @required this.selectable}) : super(key: key);
+  HomePage({Key? key, required this.selectable}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -30,9 +31,12 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List<Canto> listCantos = [];
+  late Future<List<Canto>> _cantosFuture;
+  late CantoHybridSearch _hybridSearch;
   List<Canto> filterListCantos = [];
+  Map<Canto, CantoSearchResult> _searchResults = {};
   int selectedCateg = 0;
-  final GlobalKey<FormBuilderState> formKey = GlobalKey<FormBuilderState>();
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   String searchField = "";
   bool showSearch = false;
   bool requestFocus = false;
@@ -42,19 +46,36 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    Timer.run(() => getTermo());
+    _hybridSearch = CantoHybridSearch([], onChanged: () { if (mounted) setState(() {}); });
+    _cantosFuture = CantoService().getCantosLocal();
+    Timer.run(() { if (mounted) getTermo(); });
+  }
+
+  void _refreshCantos() {
+    if (!mounted) return;
+    setState(() {
+      _cantosFuture = CantoService().getCantosLocal();
+    });
+  }
+
+  @override
+  void dispose() {
+    _hybridSearch.dispose();
+    searchFocus.dispose();
+    searchController.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    globals.tablet = isTablet(MediaQueryData.fromWindow(WidgetsBinding.instance.window));
+    globals.tablet = isTablet(MediaQuery.of(context));
     return Scaffold(
       appBar: AppBar(title: Image.asset("assets/img/logo.png", color: Colors.white, height: 30), actions: [
         if (!showSearch) IconButton(icon: Icon(Icons.search, size: 25), onPressed: () => setState(() => showSearch = requestFocus = true)),
       ]),
       drawer: (globals.tablet)
           ? null
-          : (widget.selectable != null && widget.selectable)
+          : (widget.selectable)
               ? null
               : Drawer(child: getMenuLateral()),
       body: getCantosLocal(),
@@ -88,10 +109,9 @@ class _HomePageState extends State<HomePage> {
             ),
             Container(
               width: 100,
-              child: FlatButton(
+              child: TextButton(
+            style: TextButton.styleFrom(backgroundColor: Theme.of(context).colorScheme.primary, foregroundColor: Theme.of(context).colorScheme.onPrimary),
                   child: FittedBox(fit: BoxFit.scaleDown, child: Text("Entendi")),
-                  color: Theme.of(context).colorScheme.primary,
-                  textColor: Theme.of(context).colorScheme.onPrimary,
                   onPressed: () {
                     globals.prefs.setBool("TermosIniciaisLidos", true);
                     Navigator.pop(context);
@@ -127,10 +147,9 @@ class _HomePageState extends State<HomePage> {
             ),
             Container(
               width: 100,
-              child: FlatButton(
+              child: TextButton(
+            style: TextButton.styleFrom(backgroundColor: Theme.of(context).colorScheme.primary, foregroundColor: Theme.of(context).colorScheme.onPrimary),
                   child: FittedBox(fit: BoxFit.scaleDown, child: Text("Entendi")),
-                  color: Theme.of(context).colorScheme.primary,
-                  textColor: Theme.of(context).colorScheme.onPrimary,
                   onPressed: () {
                     globals.prefs.setBool("msgTabletLida", true);
                     Navigator.pop(context);
@@ -174,10 +193,9 @@ class _HomePageState extends State<HomePage> {
             ),
             Container(
               width: 100,
-              child: FlatButton(
+              child: TextButton(
+            style: TextButton.styleFrom(backgroundColor: Theme.of(context).colorScheme.primary, foregroundColor: Theme.of(context).colorScheme.onPrimary),
                   child: FittedBox(fit: BoxFit.scaleDown, child: Text("Fechar")),
-                  color: Theme.of(context).colorScheme.primary,
-                  textColor: Theme.of(context).colorScheme.onPrimary,
                   onPressed: () {
                     globals.prefs.setString("MessageLida", DateFormat("yyyy-MM-dd").format(DateTime.now()));
                     Navigator.pop(context);
@@ -199,7 +217,7 @@ class _HomePageState extends State<HomePage> {
                 if (globals.tablet)
                   Container(
                     width: 275,
-                    decoration: BoxDecoration(border: Border(right: BorderSide(width: 1, color: Theme.of(context).colorScheme.onBackground))),
+                    decoration: BoxDecoration(border: Border(right: BorderSide(width: 1, color: Theme.of(context).colorScheme.onSurface))),
                     child: getMenuLateral(),
                   ),
               Expanded(
@@ -210,17 +228,23 @@ class _HomePageState extends State<HomePage> {
                     child: ListView.builder(
                         itemCount: filterListCantos.length,
                         itemBuilder: (context, index) {
-                          return InkWell(
-                            onTap: () => Get.to(() => CantoPage(canto: filterListCantos[index])).then((value) => {setState(() {})}),
+                          final row = InkWell(
+                            onTap: () => Get.to(() => CantoPage(canto: filterListCantos[index]))?.then((value) => _refreshCantos()),
                             child: (widget.selectable)
                                 ? CheckboxListTile(
+                                    subtitle: _searchSubtitle(filterListCantos[index]),
                                     dense: true,
                                     controlAffinity: ListTileControlAffinity.leading,
                                     onChanged: (value) => setState(() {
-                                      filterListCantos[index].selected = value;
-                                      (value)
-                                          ? globals.listaGlobal.add(filterListCantos[index])
-                                          : globals.listaGlobal.removeWhere((e) => e.id == filterListCantos[index].id);
+                                      filterListCantos[index].selected = value ?? false;
+                                      final canto = filterListCantos[index];
+                                      if (value == true) {
+                                        if (!globals.listaGlobal.any((item) => item.id == canto.id)) {
+                                          globals.listaGlobal.add(canto);
+                                        }
+                                      } else {
+                                        globals.listaGlobal.removeWhere((item) => item.id == canto.id);
+                                      }
                                     }),
                                     checkColor: checkDarkMode(context) ? Theme.of(context).colorScheme.primary : null,
                                     activeColor:
@@ -256,6 +280,7 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                   )
                                 : ListTile(
+                                    subtitle: _searchSubtitle(filterListCantos[index]),
                                     dense: true,
                                     contentPadding: EdgeInsets.only(left: 16, right: 10),
                                     leading: ClipOval(
@@ -280,6 +305,11 @@ class _HomePageState extends State<HomePage> {
                                     trailing: geticon(filterListCantos[index]),
                                   ),
                           );
+                          return CantoSearchResultGroup(
+                            result: _searchResults[filterListCantos[index]],
+                            previousResult: index == 0 ? null : _searchResults[filterListCantos[index - 1]],
+                            child: row,
+                          );
                         }),
                   ),
                 ],
@@ -293,7 +323,7 @@ class _HomePageState extends State<HomePage> {
 
   geticon(Canto canto) {
     if (canto.url != "") {
-      if (canto.downloaded != null && canto.downloaded)
+      if (canto.downloaded)
         return Icon(Icons.music_note, color: Theme.of(context).colorScheme.primary);
       else
         return Icon(Icons.music_note, color: Colors.grey);
@@ -303,10 +333,14 @@ class _HomePageState extends State<HomePage> {
 
   getCantosLocal() {
     return FutureBuilder(
-        future: CantoService().getCantosLocal(),
+        future: _cantosFuture,
         builder: (BuildContext cont, AsyncSnapshot<List<Canto>> snapshot) {
           if (snapshot.hasData) {
-            listCantos = snapshot.data;
+            if (!identical(listCantos, snapshot.data)) {
+              listCantos = snapshot.data!;
+              _hybridSearch.dispose();
+              _hybridSearch = CantoHybridSearch(listCantos, onChanged: () { if (mounted) setState(() {}); });
+            }
             return listaCantos();
           } else
             return Center(child: CircularProgressIndicator());
@@ -316,7 +350,7 @@ class _HomePageState extends State<HomePage> {
   Widget divider() {
     return Padding(
       padding: EdgeInsets.fromLTRB(5, 2, 0, 2),
-      child: Divider(color: Theme.of(context).colorScheme.onBackground, height: 2.0),
+      child: Divider(color: Theme.of(context).colorScheme.onSurface, height: 2.0),
     );
   }
 
@@ -339,7 +373,7 @@ class _HomePageState extends State<HomePage> {
             ),
             ListTile(
                 title: Text("Ordem Alfabética"),
-                leading: Icon(MdiIcons.sortAlphabeticalAscending, size: 25, color: Theme.of(context).colorScheme.primary),
+                leading: Icon(Icons.sort_by_alpha, size: 25, color: Theme.of(context).colorScheme.primary),
                 onTap: () => setState(() => selectCateg(0))),
 //            ListTile(
 //                title: Padding(
@@ -349,14 +383,14 @@ class _HomePageState extends State<HomePage> {
 //                onTap: () => setState(() => selectCateg(0))),
             ListTile(
                 title: Text("Índice Litúrgico"),
-                leading: Icon(MdiIcons.fileTree, size: 25, color: Theme.of(context).colorScheme.primary),
+                leading: Icon(Icons.account_tree, size: 25, color: Theme.of(context).colorScheme.primary),
 //                title: Padding(
 //                  padding: EdgeInsets.only(left: 40),
 //                  child: Text("Índice Litúrgico", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
 //                ),
                 onTap: () {
                   if (!globals.tablet) Navigator.of(context).pop();
-                  Get.to(() => LiturgicoPage()).then((value) => setState(() {}));
+                  Get.to(() => LiturgicoPage())?.then((value) => _refreshCantos());
                 }),
             divider(),
             Padding(
@@ -408,26 +442,26 @@ class _HomePageState extends State<HomePage> {
                 leading: Icon(Icons.line_style, size: 25, color: Theme.of(context).colorScheme.primary),
                 title: Text("Acordes"),
                 onTap: () {
-                  Get.to(() => ImageViwerPage(img: "assets/img/acordes.jpg", title: "Acordes")).then((value) => setState(() {}));
+                  Get.to(() => ImageViwerPage(img: "assets/img/acordes.jpg", title: "Acordes"))?.then((value) => _refreshCantos());
                 }),
             ListTile(
                 title: Text("Arpejos"),
                 leading: Icon(Icons.timeline, size: 25, color: Theme.of(context).colorScheme.primary),
                 onTap: () {
-                  Get.to(() => ImageViwerPage(img: "assets/img/arpejos.jpg", title: "Arpejos")).then((value) => setState(() {}));
+                  Get.to(() => ImageViwerPage(img: "assets/img/arpejos.jpg", title: "Arpejos"))?.then((value) => _refreshCantos());
                 }),
             divider(),
             ListTile(
                 title: Text("Listas"),
                 leading: Icon(Icons.list, size: 25, color: Theme.of(context).colorScheme.primary),
-                onTap: () => Get.to(() => ListasPage()).then((value) => setState(() {}))),
+                onTap: () => Get.to(() => ListasPage())?.then((value) => _refreshCantos())),
             ListTile(
                 title: Text("Áudios"),
                 leading: Icon(Icons.music_note, size: 25, color: Theme.of(context).colorScheme.primary),
-                onTap: () => Get.to(() => AudiosPage()).then((value) => setState(() {}))),
+                onTap: () => Get.to(() => AudiosPage())?.then((value) => _refreshCantos())),
             ListTile(
                 title: Text("Mensagens"),
-                leading: Icon(MdiIcons.messageTextOutline, size: 25, color: Theme.of(context).colorScheme.primary),
+                leading: Icon(Icons.message_outlined, size: 25, color: Theme.of(context).colorScheme.primary),
                 onTap: () => Get.to(() => MensagensPage())),
             divider(),
             ListTile(
@@ -438,7 +472,7 @@ class _HomePageState extends State<HomePage> {
             ListTile(
                 title: Text("Opções"),
                 leading: Icon(Icons.settings, size: 25, color: Theme.of(context).colorScheme.primary),
-                onTap: () => Get.to(() => SettingsPage()).then((value) => setState(() {}))),
+                onTap: () => Get.to(() => SettingsPage())?.then((value) => _refreshCantos())),
             ListTile(
                 title: Text("Sobre"),
                 leading: Icon(Icons.info_outline, size: 25, color: Theme.of(context).colorScheme.primary),
@@ -447,7 +481,7 @@ class _HomePageState extends State<HomePage> {
         ),
         (globals.tablet)
             ? Container()
-            : Container(height: statusBarHeight, decoration: BoxDecoration(color: Theme.of(context).colorScheme.primaryVariant)),
+            : Container(height: statusBarHeight, decoration: BoxDecoration(color: Theme.of(context).colorScheme.primaryContainer)),
       ],
     );
   }
@@ -462,21 +496,18 @@ class _HomePageState extends State<HomePage> {
       padding: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
       child: Stack(
         children: [
-          FormBuilder(
+          Form(
               key: formKey,
               child: Column(children: [
-                FormBuilderTextField(
+                TextFormField(
                     cursorColor: Theme.of(context).colorScheme.primary,
-                    name: "search",
+
                     focusNode: searchFocus,
                     textCapitalization: TextCapitalization.none,
                     textInputAction: TextInputAction.go,
                     controller: searchController,
                     onChanged: (value) {
-                      searchField = value;
-                      setState(() {
-                        filtrar();
-                      });
+                      setState(() => searchField = value);
                     },
                     decoration: InputDecoration(labelText: "Pesquisar"))
               ])),
@@ -489,9 +520,7 @@ class _HomePageState extends State<HomePage> {
                   searchController.text = "";
                 } else
                   showSearch = false;
-                setState(() {
-                  filtrar();
-                });
+                setState(() {});
               },
               child: Container(
                   margin: EdgeInsets.all(5),
@@ -512,44 +541,26 @@ class _HomePageState extends State<HomePage> {
     return ret;
   }
 
-  filtrar() {
-    List<Canto> listTmp;
-    filterListCantos = [];
-    if (selectedCateg != 0) {
-      listTmp = listCantos.where((c) => (c.categoria == selectedCateg)).toList();
-      filterListCantos.addAll(listTmp);
-    } else
-      filterListCantos = listCantos;
+  Widget? _searchSubtitle(Canto canto) {
+    final result = _searchResults[canto];
+    return result?.snippet == null ? null : CantoSearchSnippet(result: result!, query: searchField);
+  }
 
-    listTmp = filterListCantos;
-
-    searchField = searchField.replaceAll("ã", "a");
-    searchField = searchField.replaceAll("õ", "o");
-    searchField = searchField.replaceAll("á", "a");
-    searchField = searchField.replaceAll("é", "é");
-    searchField = searchField.replaceAll("í", "i");
-    searchField = searchField.replaceAll("ó", "o");
-    searchField = searchField.replaceAll("ú", "u");
-    searchField = searchField.replaceAll("ç", "c");
-    searchField = searchField.replaceAll(new RegExp(r"[^\w\s]+"), "");
-    searchField = searchField.replaceAll(" ", "");
-
-    if (searchField != "") {
-      filterListCantos = listTmp.where((p) => (p.conteudo.toLowerCase().contains(searchField.toLowerCase()))).toList();
-    }
-
+  void filtrar() {
+    final results = _hybridSearch.search(searchField, category: selectedCateg);
+    _searchResults = {for (final result in results) result.canto: result};
+    filterListCantos = results.map((result) => result.canto).toList();
     if (widget.selectable) {
-      for (var c = 0; c < filterListCantos.length; c++) {
-        globals.listaGlobal.forEach((element) {
-          if (element.id == filterListCantos[c].id) filterListCantos[c].selected = element.selected;
-        });
+      final selectedIds = globals.listaGlobal.map((canto) => canto.id).toSet();
+      for (final canto in filterListCantos) {
+        canto.selected = selectedIds.contains(canto.id);
       }
     }
   }
 
   launchUrl() async {
     const url = "http://neo-transposer.com/";
-    launch(url).then(
+    launcher.launchUrl(Uri.parse(url)).then(
       (bool isLaunch) {
         if (isLaunch) {
         } else {

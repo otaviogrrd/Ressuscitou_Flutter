@@ -1,0 +1,34 @@
+{
+  "scope": "Ficha faltante recuperada, inspeção visual real",
+  "entries": [
+    {
+      "sequence": 329,
+      "key": "130138fbde445d60",
+      "title": "Para ti morada santa",
+      "page": "https://cn.org.br/portal/para-ti-morada-santa/",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/para-ti-morada-santa.png",
+      "evidence": "docs/revisao/evidencias/130138fbde445d60-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Junções inequívocas em selarteu, teusangue, fénos e sótu; na segunda coluna tu vais sempre aparece corrompido como tuvai(s)empre.",
+          "Cabeçalho do autor também perde espaços; rascunho não pode substituir transcrição revisada."
+        ],
+        "cifra": [
+          "La-, Mi, Sol e Fa são visíveis nas duas colunas; não foi constatada troca inequívoca de altura nesta inspeção."
+        ],
+        "alinhamento": [
+          "Dois blocos de colunas preservados, mas o espaçamento da letra difere da ficha e exige conferência de ancoragem após reparar as palavras."
+        ],
+        "repeticao": [
+          "Retornos abreviados do refrão permanecem como na ficha; este rascunho normal não valida nem substitui a variante estendida por extenso."
+        ]
+      },
+      "duvidas": [
+        "Inspeção visual de toda a comparação; não é transcrição exaustiva de cada nota."
+      ],
+      "cobertura": "Fonte recuperada da coleta41376623068; captura Chromium local por set_content, CSSoriginal,1100px/deviceScale2; nenhum HTMLdoappalterado."
+    }
+  ]
+}

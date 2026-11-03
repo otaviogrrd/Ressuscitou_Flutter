@@ -1,0 +1,638 @@
+{
+  "scope": "206–219, 268–274, 323–328; somente relatório, catálogo e versão estendida preservados",
+  "entries": [
+    {
+      "sequence": 206,
+      "key": "c672c2018d61854d",
+      "title": "Como escorre o mel",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/como-escorre-o-mel.png",
+      "evidence": "docs/revisao/evidencias/c672c2018d61854d-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Palavras fundidas: 'demeus', 'minhalínguasente', 'sente seu olhar amoroso' vira 'senteseuolharamoroso'."
+        ],
+        "cifra": [],
+        "alinhamento": [
+          "Mi acima de 'um canto novo' fica isolado em enorme intervalo vertical no HTML."
+        ],
+        "repeticao": [
+          "Retornos 'COMO ESCORRE O MEL...' e 'PORQUE A VIDA IMORTAL...' permanecem abreviados, sem expansão."
+        ]
+      },
+      "duvidas": [],
+      "cobertura": "Comparação visual real da imagem composta inteira, ficha à esquerda e HTML à direita; cifras comparadas por altura e qualidade, sem tratar conversão de nomes como erro. Não é certificação de transcrição integral."
+    },
+    {
+      "sequence": 207,
+      "key": "0b03e7f1036eb212",
+      "title": "Como lírio entre espinhos",
+      "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-24-15-15-40.png",
+      "evidence": "docs/revisao/evidencias/0b03e7f1036eb212-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "'perfumedemirra', 'repousasobremeu', 'estousentada' fundem palavras."
+        ],
+        "cifra": [],
+        "alinhamento": [],
+        "repeticao": [
+          "BIS A. conservado nas duas passagens de 'INTRODUZIU-ME' e 'E A BANDEIRA', sem texto por extenso."
+        ]
+      },
+      "duvidas": [],
+      "cobertura": "Comparação visual real da imagem composta inteira, ficha à esquerda e HTML à direita; cifras comparadas por altura e qualidade, sem tratar conversão de nomes como erro. Não é certificação de transcrição integral."
+    },
+    {
+      "sequence": 208,
+      "key": "0f68c0d651935019",
+      "title": "Como lírio entre espinhos",
+      "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-24-15-15-40-300x300.png",
+      "evidence": "docs/revisao/evidencias/0f68c0d651935019-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "HTML contém ruído 'Chrono Contes1Ina', 'SASALADO BANQUETT' e tabela numérica no lugar da letra."
+        ],
+        "cifra": [
+          "Cifras substituídas por letras/números de OCR; La-/Re-/Mi não preservados de forma utilizável."
+        ],
+        "alinhamento": [
+          "Tabela de coordenadas invade corpo do canto."
+        ],
+        "repeticao": [
+          "Não reproduz os refrães nem as respostas repetidas."
+        ]
+      },
+      "duvidas": [
+        "Fonte desfocada limita conferência fina, mas corrupção do HTML inequívoca."
+      ],
+      "cobertura": "Comparação visual real da imagem composta inteira, ficha à esquerda e HTML à direita; cifras comparadas por altura e qualidade, sem tratar conversão de nomes como erro. Não é certificação de transcrição integral."
+    },
+    {
+      "sequence": 209,
+      "key": "9f81fc3b4c530579",
+      "title": "Como lírio entre espinhos",
+      "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-24-15-15-40-150x150.png",
+      "evidence": "docs/revisao/evidencias/9f81fc3b4c530579-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Quase toda letra ausente: HTML só apresenta fragmento vermelho 'my eyQtd os (ame'."
+        ],
+        "cifra": [
+          "Sequência harmônica ausente."
+        ],
+        "alinhamento": [
+          "Corpo quase todo vazio."
+        ],
+        "repeticao": [
+          "Todas as repetições do canto ausentes."
+        ]
+      },
+      "duvidas": [
+        "Fonte muito desfocada; não certifico caracteres individuais."
+      ],
+      "cobertura": "Comparação visual real da imagem composta inteira, ficha à esquerda e HTML à direita; cifras comparadas por altura e qualidade, sem tratar conversão de nomes como erro. Não é certificação de transcrição integral."
+    },
+    {
+      "sequence": 210,
+      "key": "e96e0f3c5dd4058c",
+      "title": "Como lírio entre espinhos",
+      "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-24-15-15-40-768x768.png",
+      "evidence": "docs/revisao/evidencias/e96e0f3c5dd4058c-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "'demirra', 'émeu', 'Suamão' e 'meu amado entreosjovens' têm fusões."
+        ],
+        "cifra": [
+          "La- de 'A sua sombra' transcrito La, perdendo menor."
+        ],
+        "alinhamento": [],
+        "repeticao": [
+          "BIS A. e barras continuam em vez de expansão das duas respostas."
+        ]
+      },
+      "duvidas": [],
+      "cobertura": "Comparação visual real da imagem composta inteira, ficha à esquerda e HTML à direita; cifras comparadas por altura e qualidade, sem tratar conversão de nomes como erro. Não é certificação de transcrição integral."
+    },
+    {
+      "sequence": 211,
+      "key": "bc060756d22be58a",
+      "title": "Como lírio entre espinhos",
+      "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-24-15-15-40-830x830.png",
+      "evidence": "docs/revisao/evidencias/bc060756d22be58a-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "'Asuasombra', 'estousentada', 'esquerdaestásobreminhacabeça' fundem palavras."
+        ],
+        "cifra": [],
+        "alinhamento": [
+          "Fa de 'COMO ÉS BELA' fica separado verticalmente da letra pela colisão das colunas."
+        ],
+        "repeticao": [
+          "BIS A. ainda indicado nas respostas em vez de repetição por extenso."
+        ]
+      },
+      "duvidas": [],
+      "cobertura": "Comparação visual real da imagem composta inteira, ficha à esquerda e HTML à direita; cifras comparadas por altura e qualidade, sem tratar conversão de nomes como erro. Não é certificação de transcrição integral."
+    },
+    {
+      "sequence": 212,
+      "key": "4eabc508e479e640",
+      "title": "Como lírio entre espinhos",
+      "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-24-15-15-40-230x230.png",
+      "evidence": "docs/revisao/evidencias/4eabc508e479e640-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Título interno vira 'COMO LINO ENTRE OSEsPINMAS'; letra substituída por 'sate mat eteee', '=Raven conan...' e fragmentos."
+        ],
+        "cifra": [
+          "Cifras da ficha ausentes."
+        ],
+        "alinhamento": [
+          "Grande área vazia em vez das estrofes."
+        ],
+        "repeticao": [
+          "Refrães e BIS sem reprodução."
+        ]
+      },
+      "duvidas": [
+        "Fonte desfocada impede cotejo caractere a caractere."
+      ],
+      "cobertura": "Comparação visual real da imagem composta inteira, ficha à esquerda e HTML à direita; cifras comparadas por altura e qualidade, sem tratar conversão de nomes como erro. Não é certificação de transcrição integral."
+    },
+    {
+      "sequence": 213,
+      "key": "0d4b2d46543b59c8",
+      "title": "Como lírio entre espinhos",
+      "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-24-15-15-40-350x350.png",
+      "evidence": "docs/revisao/evidencias/0d4b2d46543b59c8-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "'POMBAS SÃO TEUS OLHOS' vira 'POMBAS BAD TEUSOLHOS'; 'NA SALA DO BANQUETE' vira 'HA SALADO GAMQUETE'."
+        ],
+        "cifra": [
+          "La-/Re-/Mi viram sinais como 'ta', 'mm', 'ae'; sequência inutilizável."
+        ],
+        "alinhamento": [
+          "Tabela numérica vermelha ocupa parte central inferior."
+        ],
+        "repeticao": [
+          "Respostas repetidas corrompidas e sem expansão."
+        ]
+      },
+      "duvidas": [
+        "Fonte desfocada; erros evidentes não dependem de detalhes finos."
+      ],
+      "cobertura": "Comparação visual real da imagem composta inteira, ficha à esquerda e HTML à direita; cifras comparadas por altura e qualidade, sem tratar conversão de nomes como erro. Não é certificação de transcrição integral."
+    },
+    {
+      "sequence": 214,
+      "key": "f8b83040506a8d7e",
+      "title": "Como lírio entre espinhos",
+      "sourceUrl": "https://cn.org.br/portal/wp-content/uploads/2023/10/Screenshot-from-2023-10-24-15-15-40-480x480.png",
+      "evidence": "docs/revisao/evidencias/f8b83040506a8d7e-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "'Como perfume de mirra' vira 'Como pertume de mira'; 'Como lírio' vira 'Camp lino'; 'repousa sobre meu peito' vira 'repousa sobes meu paro'."
+        ],
+        "cifra": [
+          "La- e Re- perdem menor; Mi sobre 'peito' vira La; Mi sobre 'LEITO' vira Lab."
+        ],
+        "alinhamento": [],
+        "repeticao": [
+          "BISA permanece na primeira resposta e segunda marca vira ruído 'a gic'."
+        ]
+      },
+      "duvidas": [],
+      "cobertura": "Comparação visual real da imagem composta inteira, ficha à esquerda e HTML à direita; cifras comparadas por altura e qualidade, sem tratar conversão de nomes como erro. Não é certificação de transcrição integral."
+    },
+    {
+      "sequence": 215,
+      "key": "80ec796084687e87",
+      "title": "Como Lírio Entre Os Espinhos",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/como-lirio-entre-os-espinhos.png",
+      "evidence": "docs/revisao/evidencias/80ec796084687e87-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "'perfumedemirraé', 'ansiavaestousentada', 'esquerdaestásobreminhacabeça' fundem palavras."
+        ],
+        "cifra": [],
+        "alinhamento": [
+          "'que' deslocado para linha isolada entre 'sombra' e sua continuação."
+        ],
+        "repeticao": [
+          "BIS A. preservado sem expansão nas duas respostas."
+        ]
+      },
+      "duvidas": [],
+      "cobertura": "Comparação visual real da imagem composta inteira, ficha à esquerda e HTML à direita; cifras comparadas por altura e qualidade, sem tratar conversão de nomes como erro. Não é certificação de transcrição integral."
+    },
+    {
+      "sequence": 216,
+      "key": "fd1ac39a2770e3ee",
+      "title": "Formosa és, amiga minha",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/formosa-es-amiga-minha.png",
+      "evidence": "docs/revisao/evidencias/fd1ac39a2770e3ee-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "'As curvas dos' vira 'As curvasdos'; 'fulgurante como' vira 'fulgurantecomo'; 'torre de' vira 'torrede'."
+        ],
+        "cifra": [
+          "La7 recorrente vira La? em Jerusalém, filha de príncipe, obra de mãos e demais versos."
+        ],
+        "alinhamento": [
+          "La? de 'obra de mãos' separado da frase por grande espaço vertical."
+        ],
+        "repeticao": [
+          "BIS A. vira PISA.; retornos FORMOSA ÉS permanecem em reticências."
+        ]
+      },
+      "duvidas": [],
+      "cobertura": "Comparação visual real da imagem composta inteira, ficha à esquerda e HTML à direita; cifras comparadas por altura e qualidade, sem tratar conversão de nomes como erro. Não é certificação de transcrição integral."
+    },
+    {
+      "sequence": 217,
+      "key": "94f7c6b4859eec03",
+      "title": "Onde Te Escondeste, Amado",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/onde-te-escondeste-amado.png",
+      "evidence": "docs/revisao/evidencias/94f7c6b4859eec03-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "'te escondeste' vira 'teescondeste'; 'cervo fugiste' vira 'cervofugiste'; 'plantados pela mão' vira 'plantados pelamão'."
+        ],
+        "cifra": [
+          "Mi e Fa7 13 se fundem em 'MiFa713' em passagens; não preserva separação inequívoca dos acordes."
+        ],
+        "alinhamento": [
+          "Mi antes de 'Ó bosques' separado verticalmente; diagrama final Fa7 13 perdido e sobra apenas 'Fa713'."
+        ],
+        "repeticao": [
+          "Retorno MIL GRAÇAS DERRAMANDO permanece abreviado."
+        ]
+      },
+      "duvidas": [],
+      "cobertura": "Comparação visual real da imagem composta inteira, ficha à esquerda e HTML à direita; cifras comparadas por altura e qualidade, sem tratar conversão de nomes como erro. Não é certificação de transcrição integral."
+    },
+    {
+      "sequence": 218,
+      "key": "0a99da568299cd5c",
+      "title": "Roubaste o meu coração",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/roubaste-o-meu-coracao.png",
+      "evidence": "docs/revisao/evidencias/0a99da568299cd5c-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Último 'ROUBASTE O MEU CORAÇÃO' da abertura omitido: fica só ponto sob Re-. 'ó amados' vira '6 amados'."
+        ],
+        "cifra": [],
+        "alinhamento": [
+          "Re- da linha omitida permanece suspenso; La antes de 'Ó AMADOS' muito distante da letra."
+        ],
+        "repeticao": [
+          "BIS A. conservado; retorno final em reticências."
+        ]
+      },
+      "duvidas": [],
+      "cobertura": "Comparação visual real da imagem composta inteira, ficha à esquerda e HTML à direita; cifras comparadas por altura e qualidade, sem tratar conversão de nomes como erro. Não é certificação de transcrição integral."
+    },
+    {
+      "sequence": 219,
+      "key": "23e40fcd8666a539",
+      "title": "Suba O Esposo Ao Lenho Do Seu Tálamo",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/suba-o-esposo-ao-lenho-do-seu-talamo.png",
+      "evidence": "docs/revisao/evidencias/23e40fcd8666a539-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "'e saia a Igreja virgem' vira 'e saiaaIgrejavirgem'; 'Ferido no seu lado logo saiu' vira 'Feridono seu ladologosaiu'."
+        ],
+        "cifra": [],
+        "alinhamento": [],
+        "repeticao": [
+          "BIS A. mantido; ambos retornos 'SUBA O ESPOSO,...' não expandidos."
+        ]
+      },
+      "duvidas": [],
+      "cobertura": "Comparação visual real da imagem composta inteira, ficha à esquerda e HTML à direita; cifras comparadas por altura e qualidade, sem tratar conversão de nomes como erro. Não é certificação de transcrição integral."
+    },
+    {
+      "sequence": 268,
+      "key": "6bdcf0d5ec28fdbc",
+      "title": "Ladainha Penitencial I",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/ladainha-penitencial-i.png",
+      "evidence": "docs/revisao/evidencias/6bdcf0d5ec28fdbc-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "'vista ao' vira 'vistaao'; 'tivestes piedade' vira 'tivestespiedade'; 'que sois o único' vira 'que soiso único'."
+        ],
+        "cifra": [],
+        "alinhamento": [],
+        "repeticao": [
+          "Respostas 'TENDE PIEDADE DE MIM,...' continuam abreviadas, omitindo 'QUE SOU PECADOR' em cada retorno."
+        ]
+      },
+      "duvidas": [],
+      "cobertura": "Comparação visual real da imagem composta inteira, ficha à esquerda e HTML à direita; cifras comparadas por altura e qualidade, sem tratar conversão de nomes como erro. Não é certificação de transcrição integral."
+    },
+    {
+      "sequence": 269,
+      "key": "ae533ceca1753212",
+      "title": "Ladainha Penitencial II",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/ladainha-penitencial-ii.png",
+      "evidence": "docs/revisao/evidencias/ae533ceca1753212-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "'Pelos pecados' vira 'Pelospecados'; 'por meio da' vira 'por meioda'; 'nossos pais e' vira 'nossospaise'."
+        ],
+        "cifra": [],
+        "alinhamento": [
+          "Reticências em linhas próprias separam respostas das invocações."
+        ],
+        "repeticao": [
+          "'Pelos pecados que cometemos...' e 'TENDE PIEDADE DE MIM...' permanecem abreviados em todos os grupos."
+        ]
+      },
+      "duvidas": [],
+      "cobertura": "Comparação visual real da imagem composta inteira, ficha à esquerda e HTML à direita; cifras comparadas por altura e qualidade, sem tratar conversão de nomes como erro. Não é certificação de transcrição integral."
+    },
+    {
+      "sequence": 270,
+      "key": "e4de9a053106da9f",
+      "title": "Oração Eucarística II",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/oracao-eucaristica-ii-1.png",
+      "evidence": "docs/revisao/evidencias/e4de9a053106da9f-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "'esteja convosco' vira 'estejaconvosco'; 'Na verdade, ó Pai' vira 'Naverdade, 6Pai'; 'vós sois santo' vira 'vós soissanto'."
+        ],
+        "cifra": [],
+        "alinhamento": [
+          "Marcador P. vira Pp em múltiplas falas; cifras e texto da resposta 'É NOSSO DEVER' separados por grandes vazios."
+        ],
+        "repeticao": [
+          "BIS A. de MORRENDO permanece sem expansão."
+        ]
+      },
+      "duvidas": [],
+      "cobertura": "Comparação visual real da imagem composta inteira, ficha à esquerda e HTML à direita; cifras comparadas por altura e qualidade, sem tratar conversão de nomes como erro. Não é certificação de transcrição integral."
+    },
+    {
+      "sequence": 271,
+      "key": "ca94230dda696fe5",
+      "title": "Oração Eucarística II",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/oracao-eucaristica-ii-2.png",
+      "evidence": "docs/revisao/evidencias/ca94230dda696fe5-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "'para ser' vira 'paraser'; 'livremente a paixão' vira 'livrementea paixão'; 'ó Pai' vira '6 Pai'; 'por vós' vira 'porvós'."
+        ],
+        "cifra": [],
+        "alinhamento": [
+          "La7 sobre 'Tomai, todos, e bebei' separado da frase por enorme intervalo."
+        ],
+        "repeticao": []
+      },
+      "duvidas": [],
+      "cobertura": "Comparação visual real da imagem composta inteira, ficha à esquerda e HTML à direita; cifras comparadas por altura e qualidade, sem tratar conversão de nomes como erro. Não é certificação de transcrição integral."
+    },
+    {
+      "sequence": 272,
+      "key": "0ee8b0856319c6ec",
+      "title": "Oração Eucarística II",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/oracao-eucaristica-ii-3.png",
+      "evidence": "docs/revisao/evidencias/0ee8b0856319c6ec-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "'pelo Espírito Santo' vira 'peloEspíritoSanto'; 'ó Pai' vira '6 Pai'; 'com o nosso' vira 'comonosso'; 'e todos' vira 'etodos'."
+        ],
+        "cifra": [],
+        "alinhamento": [
+          "Marcadores N. do papa e bispo ficam acima da linha; ruído 'SE' surge antes da nota de rodapé."
+        ],
+        "repeticao": []
+      },
+      "duvidas": [],
+      "cobertura": "Comparação visual real da imagem composta inteira, ficha à esquerda e HTML à direita; cifras comparadas por altura e qualidade, sem tratar conversão de nomes como erro. Não é certificação de transcrição integral."
+    },
+    {
+      "sequence": 273,
+      "key": "49a02dbc7f9a264b",
+      "title": "Oração Eucarística IV",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/oracao-eucaristica-iv-1.png",
+      "evidence": "docs/revisao/evidencias/49a02dbc7f9a264b-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "'celebramos vosso' vira 'celebramosvosso'; 'Criastes o ser humano' vira 'Criasteso serhumano'; 'em luz inacessível' vira 'em luzinacessível'."
+        ],
+        "cifra": [],
+        "alinhamento": [
+          "'Demos graças ao Senhor, nosso Deus' quebra em duas linhas com ordem visual inadequada: 'Demos Senhor, Deus.' acima de 'graças ao nosso'."
+        ],
+        "repeticao": []
+      },
+      "duvidas": [],
+      "cobertura": "Comparação visual real da imagem composta inteira, ficha à esquerda e HTML à direita; cifras comparadas por altura e qualidade, sem tratar conversão de nomes como erro. Não é certificação de transcrição integral."
+    },
+    {
+      "sequence": 274,
+      "key": "531d4471c61cde58",
+      "title": "Oração Eucarística IV",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/oracao-eucaristica-iv-2.png",
+      "evidence": "docs/revisao/evidencias/531d4471c61cde58-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "'oferecestes aliança' vira 'oferecestesaliança'; 'família humana' vira 'famíliahumana'; 'próprio Filho' vira 'próprioFilho'; 'Espírito Santo' vira 'EspíritoSanto'."
+        ],
+        "cifra": [],
+        "alinhamento": [
+          "Artigo 'a' de 'e a instruístes' isolado em linha inferior."
+        ],
+        "repeticao": [
+          "BIS de RESSUSCITANDO DOS MORTOS permanece sem texto duplicado."
+        ]
+      },
+      "duvidas": [],
+      "cobertura": "Comparação visual real da imagem composta inteira, ficha à esquerda e HTML à direita; cifras comparadas por altura e qualidade, sem tratar conversão de nomes como erro. Não é certificação de transcrição integral."
+    },
+    {
+      "sequence": 323,
+      "key": "4d0e5ca8ec912b35",
+      "title": "Santo Hebraico",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/santo-hebraico.png",
+      "evidence": "docs/revisao/evidencias/4d0e5ca8ec912b35-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "'Os céus e a terra' vira 'Os céuseaterra'; 'do Senhor' vira 'doSenhor'."
+        ],
+        "cifra": [
+          "Sol- e Re- da primeira estrofe aparecem fundidos como 'Sol-Re-', prejudicando separação."
+        ],
+        "alinhamento": [
+          "'que' de 'Bendito o que vem' isolado em linha abaixo entre 'o' e 'vem'."
+        ],
+        "repeticao": [
+          "Retornos SANTO É SANTO permanecem em reticências."
+        ]
+      },
+      "duvidas": [],
+      "cobertura": "Comparação visual real da imagem composta inteira, ficha à esquerda e HTML à direita; cifras comparadas por altura e qualidade, sem tratar conversão de nomes como erro. Não é certificação de transcrição integral."
+    },
+    {
+      "sequence": 324,
+      "key": "6b99ed0fa6b906eb",
+      "title": "Santo Palestina 74",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/santo-palestina-74.png",
+      "evidence": "docs/revisao/evidencias/6b99ed0fa6b906eb-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "'Os céus e a terra' vira 'Oscéuseaterra'; 'nome do Senhor' vira 'nomedo Senhor'; 'SANTO É O' vira 'SANTO ÉO'."
+        ],
+        "cifra": [
+          "Re- Sol- aparecem fundidos como 'Re-Sol-' na estrofe e Bendito."
+        ],
+        "alinhamento": [
+          "Sol-/La acima de primeiro IAHWEH fica afastado verticalmente da letra."
+        ],
+        "repeticao": [
+          "Resposta final HOSANA, HOSANA,... sem expansão."
+        ]
+      },
+      "duvidas": [],
+      "cobertura": "Comparação visual real da imagem composta inteira, ficha à esquerda e HTML à direita; cifras comparadas por altura e qualidade, sem tratar conversão de nomes como erro. Não é certificação de transcrição integral."
+    },
+    {
+      "sequence": 325,
+      "key": "4f17564f7604679a",
+      "title": "Santo Palomeras 65",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/santo-palomeras-65.png",
+      "evidence": "docs/revisao/evidencias/4f17564f7604679a-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "'proclamam a vossa glória' vira 'proclamamavossaglória'; 'hosana nas alturas' vira 'hosananasalturas'; 'Bendito o que vem' vira 'Benditooquevem'."
+        ],
+        "cifra": [],
+        "alinhamento": [],
+        "repeticao": [
+          "Ambos retornos SANTO SANTO SANTO continuam abreviados."
+        ]
+      },
+      "duvidas": [],
+      "cobertura": "Comparação visual real da imagem composta inteira, ficha à esquerda e HTML à direita; cifras comparadas por altura e qualidade, sem tratar conversão de nomes como erro. Não é certificação de transcrição integral."
+    },
+    {
+      "sequence": 326,
+      "key": "91f19f053068e9d7",
+      "title": "Santo Roma 77",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/santo-roma-77.png",
+      "evidence": "docs/revisao/evidencias/91f19f053068e9d7-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "'Os céus e a terra' vira 'Oscéuseaterra'; 'proclamam vossa glória' vira 'proclamamvossaglória'; 'do Senhor' vira 'doSenhor'."
+        ],
+        "cifra": [
+          "La-/Sol da entrada Bendito apresentados sem espaço como 'La-Sol'."
+        ],
+        "alinhamento": [
+          "La- de 'proclamam vossa glória' e La-/Sol/La- anteriores à estrofe separados verticalmente da letra."
+        ],
+        "repeticao": [
+          "BIS inicial preservado; três retornos SANTO e HOSANA mantidos em reticências."
+        ]
+      },
+      "duvidas": [],
+      "cobertura": "Comparação visual real da imagem composta inteira, ficha à esquerda e HTML à direita; cifras comparadas por altura e qualidade, sem tratar conversão de nomes como erro. Não é certificação de transcrição integral."
+    },
+    {
+      "sequence": 327,
+      "key": "92f08c523d7f6e25",
+      "title": "Tabela Para Transportar",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/tabela-para-transportar.png",
+      "evidence": "docs/revisao/evidencias/92f08c523d7f6e25-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Prosa fundida: 'altosou baixospara', 'tessiturado cantore', 'tonalidademaior'. Adições 6ª, 7ª, 7ª aum viram '6º,72,722aum'."
+        ],
+        "cifra": [
+          "Tabela maior: Fa# vira Fait, Fa# final da linha Sol vira Fab; Sol# final da linha La vira Sol. Menor: Sol-/La- da linha Mi- perdem menor; Fa#- da linha Si- vira Fat-."
+        ],
+        "alinhamento": [
+          "Bordas, setas e colunas de tônica desaparecem; mini tabela explicativa vira ruído espalhado acima das tabelas."
+        ],
+        "repeticao": []
+      },
+      "duvidas": [
+        "Tabela conferida também em recorte ampliado; não é canto, repetição não aplicável."
+      ],
+      "cobertura": "Comparação visual real da imagem composta inteira, ficha à esquerda e HTML à direita; cifras comparadas por altura e qualidade, sem tratar conversão de nomes como erro. Não é certificação de transcrição integral."
+    },
+    {
+      "sequence": 328,
+      "key": "f00cdabff70099fe",
+      "title": "Te Deum",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/te-deum.png",
+      "evidence": "docs/revisao/evidencias/f00cdabff70099fe-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "'toda a terra vos adora' vira 'toda aterravosadora'; 'abriste aos que têm fé o reino dos céus' vira 'abristesaos quetêm fé oreinodos céus'; 'guiai e protegei vossos filhos' vira 'guiaie protegeivossosfilhos'."
+        ],
+        "cifra": [],
+        "alinhamento": [],
+        "repeticao": [
+          "Quatro retornos A VÓS CANTAM OS ANJOS continuam em reticências, sem refrão integral."
+        ]
+      },
+      "duvidas": [],
+      "cobertura": "Comparação visual real da imagem composta inteira, ficha à esquerda e HTML à direita; cifras comparadas por altura e qualidade, sem tratar conversão de nomes como erro. Não é certificação de transcrição integral."
+    }
+  ]
+}

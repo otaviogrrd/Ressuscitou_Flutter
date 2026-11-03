@@ -1,0 +1,428 @@
+{
+  "scope": "Revisão visual real das sequências 148–164; somente evidências pareadas, sem alteração de catálogo.",
+  "entries": [
+    {
+      "sequence": 148,
+      "key": "b70f426854962754",
+      "title": "Quem nos separará",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/quem-nos-separara.png",
+      "evidence": "docs/revisao/evidencias/b70f426854962754-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Fusões 'Seseguros', 'quenem amorte,nem', 'outracriatura', 'nospoderá separardeDeus', 'Atribulação'."
+        ],
+        "cifra": [],
+        "alinhamento": [
+          "Linha que nem a morte,nem a vida fragmenta a vida acima do restante; cifras e texto separados em MANIFESTADO."
+        ],
+        "repeticao": [
+          "BIS A. inicial e três retornos QUEM NOS SEPARARÁ sem expansão por extenso."
+        ]
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 149,
+      "key": "4c4d1a1b471ec060",
+      "title": "Quero andar",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/quero-andar.png",
+      "evidence": "docs/revisao/evidencias/4c4d1a1b471ec060-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Fusões 'saciar-medelas', 'sãoânsias deamizade', 'deobediência'; última linha LA LA LA... da fonte não aparece no HTML."
+        ],
+        "cifra": [
+          "Mi aparece como Ml em Re- Ml sobre saciar-me e nas ânsias (l no lugar de i)."
+        ],
+        "alinhamento": [],
+        "repeticao": [
+          "Retorno NA VEREDA abreviado; vocalização final LA LA LA omitida."
+        ]
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 150,
+      "key": "d3d9cfc144e55ee8",
+      "title": "Quero cantar",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/quero-cantar.png",
+      "evidence": "docs/revisao/evidencias/d3d9cfc144e55ee8-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Fusões 'TIQUERO', 'meuDeus', 'emti', 'operigo', 'deitadoentreleões', 'despertai,harpae'; ó Deus vira 6Deus."
+        ],
+        "cifra": [
+          "Fa#- sobre misericórdia da primeira estrofe da coluna direita vira Faf-."
+        ],
+        "alinhamento": [
+          "Cifra Mi- separada da linha leões devoradores por grande vão."
+        ],
+        "repeticao": [
+          "BIS A. inicial e seis retornos QUERO CANTAR abreviados."
+        ]
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 151,
+      "key": "6cf8508c732d54f0",
+      "title": "Ressuscitou",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/ressuscitou.png",
+      "evidence": "docs/revisao/evidencias/6cf8508c732d54f0-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Fusões 'Amorte', 'estáa', 'aminha', 'asua', 'sehoje nosamamos', 'elemorremos', 'elevivemos'."
+        ],
+        "cifra": [],
+        "alinhamento": [
+          "Cifras e palavras da estrofe Se com ele morremos muito espaçadas verticalmente."
+        ],
+        "repeticao": [
+          "Três retornos RESSUSCITOU permanecem com reticências."
+        ]
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 152,
+      "key": "0820bea17497607c",
+      "title": "Resurrexit",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/resurrexit.png",
+      "evidence": "docs/revisao/evidencias/0820bea17497607c-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Fusões 'EUSOU', 'morrerájamais', 'tunisto?Crês', 'creioque', 'Filhode Deus', 'devir ao mundo'."
+        ],
+        "cifra": [],
+        "alinhamento": [
+          "Diagrama Mi7 do rodapé omitido, resta nome de cifra; barras soltas antes das quatro GLÓRIA na coluna direita."
+        ],
+        "repeticao": [
+          "Retornos RESURREXIT preservam reticências sem expansão."
+        ]
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 153,
+      "key": "5b56614079fcce0d",
+      "title": "Salve Rainha",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/salve-rainha.png",
+      "evidence": "docs/revisao/evidencias/5b56614079fcce0d-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Fusões 'eesperança', 'echorando', 'nestevalede', 'misericordiososa', 'destedesterro', 'benditofrutodo', 'pornós', 'Paraque'."
+        ],
+        "cifra": [],
+        "alinhamento": [],
+        "repeticao": []
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 154,
+      "key": "994252000b9c58a1",
+      "title": "Salve Rainha dos céus",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/salve-rainha-dos-ceus.png",
+      "evidence": "docs/revisao/evidencias/994252000b9c58a1-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Fusões 'rainhados', 'abristeocaminho', 'anossa'; três vogais I... do melisma da fonte não aparecem no HTML."
+        ],
+        "cifra": [],
+        "alinhamento": [
+          "La-/Sol/La- do melisma ficam sem sílabas abaixo."
+        ],
+        "repeticao": [
+          "Retorno final ALEGRA-TE VIRGEM MARIA permanece abreviado."
+        ]
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 155,
+      "key": "ddc53b05a5285984",
+      "title": "Se hoje escutardes a sua voz",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/se-hoje-escutardes-a-sua-voz.png",
+      "evidence": "docs/revisao/evidencias/ddc53b05a5285984-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Fusões 'exultemosno', 'rochedo', 'seuencontro', 'esalmos', 'ouvísseishoje', 'vistoas', 'fazersuavontade', 'issonão entrarãono'."
+        ],
+        "cifra": [
+          "Sol7 vira Sol? no refrão inicial, aclamemos, adoremos e como no dia de Massa."
+        ],
+        "alinhamento": [],
+        "repeticao": [
+          "BIS A. inicial e quatro retornos SE HOJE ESCUTARDES abreviados."
+        ]
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 156,
+      "key": "719d3ba9280a1c2d",
+      "title": "Se me refugiei no Senhor",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/se-me-refugiei-no-senhor.png",
+      "evidence": "docs/revisao/evidencias/719d3ba9280a1c2d-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Fusões 'seique', 'flechasàcorda', 'fazerojusto', 'oSenhor', 'seutemplo', 'tronono', 'escrutaosjustos', 'nãoama'."
+        ],
+        "cifra": [],
+        "alinhamento": [
+          "Cifras Do/Si7 na segunda pergunta Que pode fazer o justo afastadas por grande vão vertical."
+        ],
+        "repeticao": [
+          "Retorno SE ME REFUGIEI abreviado."
+        ]
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 157,
+      "key": "7b5a235e56f80a73",
+      "title": "Se o Senhor não constrói a casa",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/se-o-senhor-nao-constroi-a-casa.png",
+      "evidence": "docs/revisao/evidencias/7b5a235e56f80a73-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Fusões 'Seo Senhornão', 'vigiamas', 'vãovos', 'conseguiropão', 'dáaos seusamigos', 'sãoos', 'Felizohomem', 'portaosinimigos'."
+        ],
+        "cifra": [],
+        "alinhamento": [],
+        "repeticao": [
+          "BIS A. inicial e três retornos SE O SENHOR permanecem sem expansão por extenso."
+        ]
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 158,
+      "key": "45fcc94bce1f6a06",
+      "title": "Se vós ressuscitastes com Cristo",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/se-vos-ressuscitastes-com-cristo.png",
+      "evidence": "docs/revisao/evidencias/45fcc94bce1f6a06-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Fusões 'Aspiraiàs coisasdo', 'vidaestáoculta', 'Cristoem', 'Cristoaparecer', 'avossa', 'aparecereisgloriososcom'."
+        ],
+        "cifra": [],
+        "alinhamento": [
+          "Letras soltas e/na acima de E NÃO ÀS DA TERRA nas duas colunas; acentos viram pontos isolados em ONDE ESTÁ/SENTADO À DIREITA."
+        ],
+        "repeticao": [
+          "BIS A. inicial e dois retornos SE VÓS RESSUSCITASTES abreviados."
+        ]
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 159,
+      "key": "e4fc5200c75f72b6",
+      "title": "Seduziste-me Senhor",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/seduziste-me-senhor.png",
+      "evidence": "docs/revisao/evidencias/e4fc5200c75f72b6-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Fusões 'Palavraépara', 'corriapormeus', 'Nasceu-teum', 'ventrede', 'verpenas', 'hinosao' e 'louvaiseu'."
+        ],
+        "cifra": [],
+        "alinhamento": [
+          "Mi7 de Dizia-me fica afastado da frase por grande espaço vertical."
+        ],
+        "repeticao": [
+          "BIS A. do início e MAS O SENHOR sem expansão; dois retornos SEDUZISTE-ME abreviados."
+        ]
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 160,
+      "key": "30c78c682c716f70",
+      "title": "Senhor, ajuda-me a não duvidar de Ti",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/senhor-ajuda-me-a-nao-duvidar-de-ti.png",
+      "evidence": "docs/revisao/evidencias/30c78c682c716f70-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Fusões 'nãoduvidardeti', 'nãoduvidarnuncado', 'teuAmor', 'Tuagraça', 'deixoumeu coraçãojáflorescido', 'milânsias', 'nestateiaqueenvolveminha', 'amorobscura', 'TEIAQUE'."
+        ],
+        "cifra": [],
+        "alinhamento": [
+          "Cifras da resposta A NÃO DUVIDAR NUNCA ficam distantes verticalmente; acentos/pontos soltos sobre a letra."
+        ],
+        "repeticao": [
+          "Retorno SENHOR AJUDA-ME abreviado até A NÃO DUVIDAR NUNCA."
+        ]
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 161,
+      "key": "48ba3334e469735f",
+      "title": "Senhor, não me corrijas na tua cólera",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/senhor-nao-me-corrijas-na-tua-colera.png",
+      "evidence": "docs/revisao/evidencias/48ba3334e469735f-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Fusões 'NÃOME', 'estousem', 'sedesmoronam', 'porquearrasadatenho', 'portuamisericórdia', 'Estou cansadode', 'inundodelágrimasminha', 'Senhorescutameus'."
+        ],
+        "cifra": [
+          "Fa# vira Faf em e tu Senhor até quando (solo e resposta final), TE RECORDA e escuta meus soluços."
+        ],
+        "alinhamento": [
+          "Diagrama Fa#5/9dim não reproduzido; fica nome de cifra e caracteres avulsos no rodapé."
+        ],
+        "repeticao": [
+          "BIS A. inicial e QUE NINGUÉM sem expansão; três retornos SENHOR NÃO ME CORRIJAS abreviados."
+        ]
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 162,
+      "key": "81e8605357e6327a",
+      "title": "Sequência De Corpus Christi",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/sequencia-de-corpus-christi-1.png",
+      "evidence": "docs/revisao/evidencias/81e8605357e6327a-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Fusões 'louvá-lonão', 'teulouvor', 'elacelebrar', 'foientregue', 'júbilocantemos', 'poistransborda', 'Cristofezna', 'preceitoconhecemos', 'vinhoamigo', 'todocristão', 'vistatutranscendes'."
+        ],
+        "cifra": [],
+        "alinhamento": [
+          "É por todos recebido fragmenta por abaixo de É todos recebido, rompendo ordem da frase."
+        ],
+        "repeticao": [
+          "Três respostas TERRA EXULTA só trazem primeira linha; duas usam reticências e nenhuma expande refrão completo."
+        ]
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 163,
+      "key": "f1b1ba51456d49f4",
+      "title": "Sequência De Corpus Christi",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/sequencia-de-corpus-christi-2.png",
+      "evidence": "docs/revisao/evidencias/f1b1ba51456d49f4-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Fusões 'efeitoébem', 'trazem', 'igualcomida', 'Eisa hóstiadividida', 'partículatambém', 'sinalque', 'Eiso pão', 'filhoso', 'sinaisprefigurado', 'porAbraão foiimolado', 'famíliaassim'."
+        ],
+        "cifra": [],
+        "alinhamento": [
+          "Nota vermelha final sobre forma longa/abreviada fragmentada em alturas diferentes; ** da chamada vira wk avulso à esquerda."
+        ],
+        "repeticao": [
+          "Dois retornos TERRA EXULTA permanecem abreviados."
+        ]
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    },
+    {
+      "sequence": 164,
+      "key": "52f923f7c0cc2e97",
+      "title": "Sermão da montanha",
+      "sourceUrl": "https://d1f12s1rtcamoi.cloudfront.net/fichas/sermao-da-montanha.png",
+      "evidence": "docs/revisao/evidencias/52f923f7c0cc2e97-pair.jpg",
+      "status": "Reprovado",
+      "inspecaoVisual": true,
+      "achados": {
+        "letra": [
+          "Fusões 'Erguendoosolhospara', 'osseusdiscípulos', 'FELIZESVÓS', 'SEREISSACIADOS', 'HAVEISDE', 'avossarecompensa', 'TEREISCHORO', 'AOUTRA', 'E SEREISPERDOADOS'."
+        ],
+        "cifra": [
+          "Si Fa# vira SIFa& em A QUEM LEVAR O QUE É TEU/PERDOAI; SI Faé em NÃO CONDENEIS; fusões SolRe/LaMi prejudicam separação de acordes."
+        ],
+        "alinhamento": [
+          "Cifras SolRe ficam isoladas entre FELIZES VÓS QUE AGORA e TENDES FOME; pontos/acentos avulsos nas respostas."
+        ],
+        "repeticao": []
+      },
+      "duvidas": [
+        "Revisão da evidência renderizada; não certifica transcrição integral nem comportamento em dispositivo físico."
+      ],
+      "cobertura": "Ficha oficial à esquerda e HTML à direita inspecionados visualmente; conversão entre letras e solfejo aceita quando altura e qualidade coincidem."
+    }
+  ]
+}
