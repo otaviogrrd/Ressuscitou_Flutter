@@ -1,7 +1,7 @@
 name: ressuscitou
 description: Ressuscitou
 publish_to: none
-version: 3.1.0+28
+version: 3.2.0+29
 
 environment:
   sdk: '>=3.13.0 <4.0.0'
