@@ -111,6 +111,8 @@ void main() {
 
   test('stored cantos remain available without a network request', () async {
     SharedPreferences.setMockInitialValues({
+      'cantosFonte': CantoService().urlCantos,
+      'cantosVersao': 64,
       'listCantos': jsonEncode([
         {'id': 42, 'titulo': 'Canto local', 'nr_2019': '007'},
       ]),

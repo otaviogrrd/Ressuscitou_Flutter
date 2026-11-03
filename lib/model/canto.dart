@@ -205,6 +205,7 @@ class Canto {
 }
 
 class CantoService {
+  static const bundledCatalogVersion = 64;
   static Catalogo? catalogoAtual;
   static Future<Map<String, int>>? _portalCategories;
   static Future<Map<String, dynamic>>? _reviewedHtml;
@@ -259,10 +260,11 @@ class CantoService {
         // A new source has its own version sequence. Do not compare it with
         // the old repository's version (e.g. 63).
         final sameSource = globals.prefs.getString('cantosFonte') == urlCantos;
-        final cantosVersaoLocal = globals.prefs.getInt("cantosVersao") ?? -1;
+        final cantosVersaoLocal = globals.prefs.getInt("cantosVersao") ?? bundledCatalogVersion;
         int cantosVersao = int.parse(response.body.trim());
         if (cantosVersao < 0) throw const FormatException("Versão de catálogo inválida.");
-        if (!sameSource || globals.prefs.getString("listCantos") == null || cantosVersaoLocal < cantosVersao) {
+        if (cantosVersao >= bundledCatalogVersion &&
+            (!sameSource || globals.prefs.getString("listCantos") == null || cantosVersaoLocal < cantosVersao)) {
           Response res = await get(Uri.parse(urlCantos)).timeout(const Duration(seconds: 30));
           if (res.statusCode == 200) {
             final catalogo = Catalogo.fromJson(jsonDecode(utf8.decode(res.bodyBytes)));
@@ -295,7 +297,11 @@ class CantoService {
   }
 
   Future<List<Canto>> getCantosLocal() async {
-    String str = globals.prefs.getString("listCantos") ?? await rootBundle.loadString("assets/cantos.json");
+    final sameSource = globals.prefs.getString('cantosFonte') == urlCantos;
+    final cachedVersion = globals.prefs.getInt('cantosVersao') ?? -1;
+    final cached = sameSource && cachedVersion >= bundledCatalogVersion
+        ? globals.prefs.getString('listCantos') : null;
+    final str = cached ?? await rootBundle.loadString("assets/cantos.json");
 
 
     final catalogo = Catalogo.fromJson(jsonDecode(str));
