@@ -728,6 +728,8 @@ class _CantoPageState extends State<CantoPage> {
     int localSelection = capoSelected;
     return Get.defaultDialog(
         title: "Capotraste",
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        titleStyle: TextStyle(fontSize: 20, color: Theme.of(context).colorScheme.onSurface),
         radius: 4,
         content: ConstrainedBox(
             constraints: BoxConstraints(minWidth: MediaQuery.of(context).size.width * 0.6),
@@ -735,32 +737,34 @@ class _CantoPageState extends State<CantoPage> {
               padding: EdgeInsets.all(4),
               child: Column(
                 children: [
-                  Stack(
-                    children: [
-                      Align(
-                          alignment: Alignment.center,
-                          child: StatefulBuilder(builder: (context, updateDialog) => NumberPicker(
-                            value: localSelection,
-                            itemHeight: 45,
-                            minValue: 0,
-                            maxValue: 30,
-                            onChanged: (value) {
-                              if (value != localSelection) {
-                                updateDialog(() => localSelection = value);
-                              }
-                            },
-                          ))),
-                      Align(
-                          alignment: Alignment.center,
-                          child: Container(
-                            margin: EdgeInsets.only(top: 57.5),
-                            height: 20,
-                            width: 20,
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Theme.of(context).colorScheme.primary),
-                            ),
-                          )),
-                    ],
+                  StatefulBuilder(
+                    builder: (context, updateDialog) => NumberPicker(
+                      value: localSelection,
+                      itemHeight: 48,
+                      itemWidth: 96,
+                      minValue: 0,
+                      maxValue: 30,
+                      textStyle: TextStyle(
+                        fontSize: 18,
+                        color: Theme.of(context).colorScheme.onSurface,
+                      ),
+                      selectedTextStyle: TextStyle(
+                        fontSize: 26,
+                        fontWeight: FontWeight.bold,
+                        color: Theme.of(context).colorScheme.onSurface,
+                      ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(
+                          color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.35),
+                        ),
+                      ),
+                      onChanged: (value) {
+                        if (value != localSelection) {
+                          updateDialog(() => localSelection = value);
+                        }
+                      },
+                    ),
                   ),
                   Container(
                       margin: EdgeInsets.only(top: 12),
