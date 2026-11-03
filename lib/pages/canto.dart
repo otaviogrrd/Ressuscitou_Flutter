@@ -726,10 +726,12 @@ class _CantoPageState extends State<CantoPage> {
 
   getCapoDialog() {
     int localSelection = capoSelected;
+    final isDark = checkDarkMode(context);
+    final dialogTextColor = isDark ? Colors.white : Colors.black;
     return Get.defaultDialog(
         title: "Capotraste",
-        backgroundColor: Colors.white,
-        titleStyle: TextStyle(fontSize: 20, color: Colors.black),
+        backgroundColor: isDark ? const Color(0xFF212121) : Colors.white,
+        titleStyle: TextStyle(fontSize: 20, color: dialogTextColor),
         radius: 4,
         content: ConstrainedBox(
             constraints: BoxConstraints(minWidth: MediaQuery.of(context).size.width * 0.6),
@@ -746,17 +748,17 @@ class _CantoPageState extends State<CantoPage> {
                       maxValue: 30,
                       textStyle: TextStyle(
                         fontSize: 18,
-                        color: Colors.black,
+                        color: dialogTextColor,
                       ),
                       selectedTextStyle: TextStyle(
                         fontSize: 26,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black,
+                        color: dialogTextColor,
                       ),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
                         border: Border.all(
-                          color: Colors.black54,
+                          color: isDark ? Colors.white54 : Colors.black54,
                         ),
                       ),
                       onChanged: (value) {
@@ -770,7 +772,7 @@ class _CantoPageState extends State<CantoPage> {
                       margin: EdgeInsets.only(top: 12),
                       width: 100,
                       child: TextButton(
-            style: TextButton.styleFrom(backgroundColor: const Color(0xFFEEEEEE), foregroundColor: Colors.black),
+            style: TextButton.styleFrom(backgroundColor: isDark ? const Color(0xFF424242) : const Color(0xFFEEEEEE), foregroundColor: dialogTextColor),
                         child: FittedBox(fit: BoxFit.scaleDown, child: Text("Salvar")),
                         onPressed: () async {
                           await globals.prefs.setInt("CAPOT_" + widget.canto.id.toString(), localSelection);
