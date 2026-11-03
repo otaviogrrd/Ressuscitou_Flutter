@@ -36,3 +36,12 @@ Retirar uma versão da distribuição não desinstala nem bloqueia automaticamen
 O leitor aceita a raiz `{edicao, categorias, cantos}`. Os nomes e a ordem do índice vêm de `categorias` da raiz; os vínculos vêm de `categorias` de cada canto. `categoria` continua sendo a etapa/cor e não é sobrescrita pelo mapa legado quando a edição é explícita. O cache preserva o objeto completo. O formato antigo em lista continua legível com conversão dos booleanos para os dez grupos definidos para a migração, sem Laudes; essa conversão não comprova as 260 associações editoriais de 2026.
 
 O app rejeita categorias sem ID/nome/ordem válidos, IDs ou ordens repetidos, vínculos duplicados e referências inexistentes. O total de 260 associações deve ser validado pelo gerador contra o índice revisado, não como restrição permanente do leitor. A URL do gerador ainda precisa ser definida; o endpoint remoto antigo não foi trocado.
+
+## Fonte da próxima build
+
+- JSON: https://raw.githubusercontent.com/otaviogrrd/ressucitou_geradorjson/main/cantos.json
+- Versão: https://raw.githubusercontent.com/otaviogrrd/ressucitou_geradorjson/main/cantos_versao.txt
+- `cantos_versao.txt` deve conter um inteiro não negativo, incrementado a cada publicação do catálogo.
+- Na primeira conexão à nova fonte, o app baixa o catálogo independentemente do número salvo da fonte antiga. Só registra a nova fonte após validar e persistir o catálogo. Sem rede ou se a atualização falhar, mantém o catálogo local disponível.
+- A mudança não transfere os MP3s: os endereços de áudio permanecem no repositório Ressuscitou_Android.
+- O endpoint deve estar publicado com o esquema novo antes da próxima build ser distribuída. A alteração no app não publica arquivos no gerador.

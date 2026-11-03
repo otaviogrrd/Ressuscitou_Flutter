@@ -243,9 +243,9 @@ class CantoService {
     applyReviewedHtmlCorrections(cantos, reviewed);
   }
 
-  final String urlCantos = "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/cantos.json";
+  final String urlCantos = "https://raw.githubusercontent.com/otaviogrrd/ressucitou_geradorjson/main/cantos.json";
   final String urlCantosVersao =
-      "https://raw.githubusercontent.com/otaviogrrd/Ressuscitou_Android/master/cantos_versao.txt";
+      "https://raw.githubusercontent.com/otaviogrrd/ressucitou_geradorjson/main/cantos_versao.txt";
 
   Future<List<Canto>> getCantos() async {
     try {
@@ -256,9 +256,13 @@ class CantoService {
       }
       Response response = await get(Uri.parse(urlCantosVersao)).timeout(const Duration(seconds: 15));
       if (response.statusCode == 200) {
-        int cantosVersaoLocal = (globals.prefs.getInt("cantosVersao") ?? 56);
-        int cantosVersao = int.parse(response.body);
-        if (cantosVersaoLocal < cantosVersao) {
+        // A new source has its own version sequence. Do not compare it with
+        // the old repository's version (e.g. 63).
+        final sameSource = globals.prefs.getString('cantosFonte') == urlCantos;
+        final cantosVersaoLocal = globals.prefs.getInt("cantosVersao") ?? -1;
+        int cantosVersao = int.parse(response.body.trim());
+        if (cantosVersao < 0) throw const FormatException("Versão de catálogo inválida.");
+        if (!sameSource || globals.prefs.getString("listCantos") == null || cantosVersaoLocal < cantosVersao) {
           Response res = await get(Uri.parse(urlCantos)).timeout(const Duration(seconds: 30));
           if (res.statusCode == 200) {
             final catalogo = Catalogo.fromJson(jsonDecode(utf8.decode(res.bodyBytes)));
@@ -269,8 +273,13 @@ class CantoService {
             }
             catalogoAtual = catalogo;
             globals.cantosGlobal = list;
-            globals.prefs.setInt("cantosVersao", cantosVersao);
-            globals.prefs.setString("listCantos", jsonEncode(catalogo.toJson()));
+            // Save data first. Mark the source/version only after the validated
+            // catalog has been persisted, so failures can be retried.
+            if (!await globals.prefs.setString("listCantos", jsonEncode(catalogo.toJson()))) {
+              throw StateError('Não foi possível salvar o catálogo.');
+            }
+            await globals.prefs.setInt("cantosVersao", cantosVersao);
+            await globals.prefs.setString('cantosFonte', urlCantos);
             return list;
           }
         }else{
