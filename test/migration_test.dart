@@ -71,7 +71,7 @@ void main() {
       id: 42,
       titulo: 'Canto de ensaio',
       numero: '007',
-      adve: true,
+      categorias: ['advento-natal'],
       htmlBase64: base64Encode(utf8.encode('<h1>Ensaio</h1>')),
       downloaded: true,
     );
@@ -81,7 +81,7 @@ void main() {
     expect(canto.id, 42);
     expect(canto.titulo, 'Canto de ensaio');
     expect(restored.numero, '007');
-    expect(restored.adve, isTrue);
+    expect(restored.categorias, ['advento-natal']);
     expect(restored.downloaded, isTrue);
     expect(Canto.fromJson({'id': 7}).selected, isFalse);
     expect(Canto.fromJson({'id': 7}).titulo, isEmpty);

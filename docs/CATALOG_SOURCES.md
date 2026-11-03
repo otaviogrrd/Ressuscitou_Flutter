@@ -30,3 +30,9 @@
 ## Versões antigas
 
 Retirar uma versão da distribuição não desinstala nem bloqueia automaticamente cópias já instaladas. O código atual não tem um bloqueio remoto obrigatório por versão. A retirada da loja e eventual desativação de fontes antigas precisam ser planejadas junto à atualização; nenhuma foi executada aqui.
+
+## Catálogo com índice dinâmico
+
+O leitor aceita a raiz `{edicao, categorias, cantos}`. Os nomes e a ordem do índice vêm de `categorias` da raiz; os vínculos vêm de `categorias` de cada canto. `categoria` continua sendo a etapa/cor e não é sobrescrita pelo mapa legado quando a edição é explícita. O cache preserva o objeto completo. O formato antigo em lista continua legível com conversão dos booleanos para os dez grupos definidos para a migração, sem Laudes; essa conversão não comprova as 260 associações editoriais de 2026.
+
+O app rejeita categorias sem ID/nome/ordem válidos, IDs ou ordens repetidos, vínculos duplicados e referências inexistentes. O total de 260 associações deve ser validado pelo gerador contra o índice revisado, não como restrição permanente do leitor. A URL do gerador ainda precisa ser definida; o endpoint remoto antigo não foi trocado.
