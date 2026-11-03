@@ -267,7 +267,9 @@ class _AudiosPageState extends State<AudiosPage> {
         return ListView.builder(
             itemCount: listCantos2.length,
             itemBuilder: (context, index) {
-              return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+              return Padding(
+                padding: const EdgeInsets.only(top: 8, bottom: 8, right: 16),
+                child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
                 Expanded(
                     child: Padding(
                   padding: EdgeInsets.only(left: 16, right: 16),
@@ -278,7 +280,7 @@ class _AudiosPageState extends State<AudiosPage> {
                         height: 45,
                         width: 45,
                         child: CircularPercentIndicator(
-                          radius: 30.0,
+                          radius: 20.0,
                           lineWidth: 2,
                           percent: listCantos2[index].percentDownload,
                           center: FittedBox(
@@ -291,7 +293,8 @@ class _AudiosPageState extends State<AudiosPage> {
                         ),
                       )
                     : Container(height: 45, width: 45, child: Icon(Icons.check)),
-              ]);
+              ]),
+              );
             });
     }
     if (listCantos.isNotEmpty) {
