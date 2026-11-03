@@ -101,6 +101,12 @@ class MainPage extends StatelessWidget {
           ),
         ),
       ),
+      // AppBar handles the top inset; protect page controls from Android's
+      // gesture area and three-button navigation in edge-to-edge mode.
+      builder: (context, child) => SafeArea(
+        top: false,
+        child: child ?? const SizedBox.shrink(),
+      ),
       home: Splash(),
     );
   }

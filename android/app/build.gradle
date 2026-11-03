@@ -12,7 +12,7 @@ if (keystorePropertiesFile.exists()) {
 
 android {
     namespace "br.org.cn.ressuscitou"
-    compileSdk flutter.compileSdkVersion
+    compileSdk 36
     ndkVersion flutter.ndkVersion
 
     compileOptions {
@@ -27,7 +27,7 @@ android {
     defaultConfig {
         applicationId "br.org.cn.ressuscitou"
         minSdk flutter.minSdkVersion
-        targetSdk flutter.targetSdkVersion
+        targetSdk 36
         versionCode flutter.versionCode
         versionName flutter.versionName
     }
@@ -52,4 +52,10 @@ android {
 
 flutter {
     source '../..'
+}
+
+// Keep the Android host libraries current independently of Flutter's transitive defaults.
+dependencies {
+    implementation "androidx.activity:activity-ktx:1.13.0"
+    implementation "androidx.fragment:fragment-ktx:1.9.1"
 }

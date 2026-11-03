@@ -28,8 +28,8 @@ jobs:
           python3 - <<'PY'
           import os
           code = os.environ["PLAY_BUILD_NUMBER"]
-          if not code.isascii() or not code.isdecimal() or not 29 <= int(code) <= 2100000000:
-              raise SystemExit("Informe um versionCode inteiro entre 29 e 2100000000, acima do maior usado na Play Console.")
+          if not code.isascii() or not code.isdecimal() or not 4029 <= int(code) <= 2100000000:
+              raise SystemExit("Informe um versionCode inteiro entre 4029 e 2100000000, acima do maior usado na Play Console.")
           PY
       - uses: actions/setup-java@v4
         with:
@@ -49,6 +49,11 @@ jobs:
           set -euo pipefail
           flutter analyze --no-fatal-infos lib test
           flutter test
+      - name: Record Android release dependencies
+        run: |
+          set -euo pipefail
+          mkdir -p play-validation
+          (cd android && ./gradlew :app:dependencies --configuration releaseRuntimeClasspath) > play-validation/android-dependencies.txt
       - name: Restore upload signing key
         env:
           ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
@@ -110,6 +115,13 @@ jobs:
           path: build/app/outputs/bundle/release/app-release.aab
           if-no-files-found: error
           retention-days: 30
+      - name: Save Android validation reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ressuscitou-play-validation-${{ inputs.build_number }}
+          path: play-validation/
+          if-no-files-found: ignore
       - name: Remove signing material
         if: always()
         run: |
