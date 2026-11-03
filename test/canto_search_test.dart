@@ -43,10 +43,10 @@ void main() {
 
   test('number lookup prioritizes exact numbers and accepts leading zeros', () {
     final songs = [
-      Canto(id: 1, nr2019: '017', titulo: 'Outro'),
-      Canto(id: 2, nr2019: '007', titulo: 'Exato'),
-      Canto(id: 3, nr2019: '120', numero: '7', titulo: 'Número antigo'),
-      Canto(id: 7, nr2019: '999', titulo: 'ID não é número de canto'),
+      Canto(id: 1, numero: '017', titulo: 'Outro'),
+      Canto(id: 2, numero: '007', titulo: 'Exato'),
+      Canto(id: 3, numero: '7', titulo: 'Outro com mesmo número'),
+      Canto(id: 7, numero: '999', titulo: 'ID não é número de canto'),
     ];
     final index = CantoSearchIndex(songs);
     expect(index.search('7').map((canto) => canto.id), [2, 3, 1]);

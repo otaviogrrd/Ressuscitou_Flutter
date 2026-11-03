@@ -72,7 +72,7 @@ class _LiturgicoPageState extends State<LiturgicoPage> {
                         leading: CircleAvatar(
                           backgroundColor: getColorCateg(canto.categoria),
                           foregroundColor: Colors.black,
-                          child: Text(canto.nr2019, style: const TextStyle(fontSize: 12)),
+                          child: Text(canto.numero, style: const TextStyle(fontSize: 12)),
                         ),
                         title: Text(canto.titulo),
                         trailing: canto.url.isEmpty

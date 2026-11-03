@@ -25,7 +25,6 @@ class Canto {
   bool comu;
   bool cfin;
   String numero;
-  String nr2019;
   String conteudo;
   String htmlBase64;
   String extBase64;
@@ -46,7 +45,6 @@ class Canto {
     this.url = "",
     this.categoria = 0,
     this.numero = "",
-    this.nr2019 = "",
     this.adve = false,
     this.laud = false,
     this.entr = false,
@@ -67,6 +65,14 @@ class Canto {
     this.selected = false,
   });
 
+  static String _readNumber(Map<String, dynamic> json) {
+    for (final key in ['nr_2026', 'nr_2019', 'numero']) {
+      final value = json[key]?.toString().trim() ?? '';
+      if (value.isNotEmpty) return value;
+    }
+    return '';
+  }
+
   factory Canto.fromJson(Map<String, dynamic> json) {
     return Canto(
       id: json["id"] ?? 0,
@@ -74,8 +80,9 @@ class Canto {
       html: json["html"] ?? "",
       url: json["url"] ?? "",
       categoria: json["categoria"] ?? 0,
-      numero: json["numero"] ?? "",
-      nr2019: json["nr_2019"] ?? "",
+      // Legacy catalogs used numero for the old edition. Prefer the newest
+      // edition field when present; new catalogs only need numero.
+      numero: _readNumber(json),
       adve: json["adve"] ?? false,
       laud: json["laud"] ?? false,
       entr: json["entr"] ?? false,
@@ -104,7 +111,6 @@ class Canto {
         "url": this.url,
         "categoria": this.categoria,
         "numero": this.numero,
-        "nr_2019": this.nr2019,
         "adve": this.adve,
         "laud": this.laud,
         "entr": this.entr,

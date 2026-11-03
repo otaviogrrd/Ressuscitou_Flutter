@@ -46,7 +46,7 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
     if (value == "4") {
       String share = "";
       globals.listaGlobal.forEach((element) {
-        share = share + element.nr2019.padLeft(3, "0") + " - " + element.titulo + "\n";
+        share = share + element.numero.padLeft(3, "0") + " - " + element.titulo + "\n";
       });
       SharePlus.instance.share(ShareParams(text: "Confira a lista *${listaNew.titulo}*, que criei no App *ressuscitou*:\n\n$share", sharePositionOrigin: Rect.fromLTWH(0, 0, MediaQuery.sizeOf(context).width, 1)));
     }
@@ -178,7 +178,7 @@ class _ListaDetalhePageState extends State<ListaDetalhePage> {
                                             child: Padding(
                                                 padding: EdgeInsets.all(8),
                                                 child: Text(
-                                                  item.nr2019,
+                                                  item.numero,
                                                   style: TextStyle(color: Colors.black),
                                                 )))))),
                             title: Text(item.titulo),
