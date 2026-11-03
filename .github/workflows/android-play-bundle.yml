@@ -49,11 +49,6 @@ jobs:
           set -euo pipefail
           flutter analyze --no-fatal-infos lib test
           flutter test
-      - name: Record Android release dependencies
-        run: |
-          set -euo pipefail
-          mkdir -p play-validation
-          (cd android && ./gradlew :app:dependencies --configuration releaseRuntimeClasspath) > play-validation/android-dependencies.txt
       - name: Restore upload signing key
         env:
           ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
@@ -108,8 +103,14 @@ jobs:
             --build-number="$PLAY_BUILD_NUMBER" \
             --dart-define=SEARCH_API_URL="${SEARCH_API_URL:-}"
           jarsigner -verify build/app/outputs/bundle/release/app-release.aab
+          mkdir -p play-validation
           python3 tools/check_android_native_alignment.py build/app/outputs/bundle/release/app-release.aab | tee play-validation/native-alignment.txt
           find build/app/intermediates -path '*release*' -name AndroidManifest.xml -exec cp {} play-validation/ \;
+      - name: Record Android release dependencies
+        run: |
+          set -euo pipefail
+          mkdir -p play-validation
+          (cd android && ./gradlew :app:dependencies --configuration releaseRuntimeClasspath) > play-validation/android-dependencies.txt
       - name: Save signed App Bundle
         uses: actions/upload-artifact@v4
         with:
