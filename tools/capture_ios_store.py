@@ -18,6 +18,10 @@ for family in ('iPhone', 'iPad'):
     candidates = [d for d in all_devices if d['name'].startswith(family)]
     if not candidates:
         raise SystemExit(f'No available {family} simulator')
+    if family == 'iPad':
+        candidates = [d for d in candidates if 'Pro' in d['name'] and ('13-inch' in d['name'] or '12.9' in d['name'])]
+        if not candidates:
+            raise SystemExit('No iPad Pro 13-inch/12.9-inch simulator available')
     device = candidates[-1]
     udid = device['udid']
     if device['state'] != 'Booted':
