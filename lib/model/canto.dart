@@ -205,7 +205,7 @@ class Canto {
 }
 
 class CantoService {
-  static const bundledCatalogVersion = 64;
+  static const bundledCatalogVersion = 66;
   static Catalogo? catalogoAtual;
   static Future<Map<String, int>>? _portalCategories;
   static Future<Map<String, dynamic>>? _reviewedHtml;
