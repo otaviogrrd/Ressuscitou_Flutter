@@ -67,19 +67,16 @@ class MensagemService {
       List<dynamic> body = jsonDecode(str);
       List<Mensagem> list = body.map((dynamic item) => Mensagem.fromJson(item)).toList();
 
-      String build = globals.packInfo.buildNumber;
+      final build = int.parse(globals.packInfo.buildNumber);
 
       if (defaultTargetPlatform == TargetPlatform.iOS) {
         list.removeWhere((element) => element.plataforma == "Android");
       }
       if (defaultTargetPlatform == TargetPlatform.android) {
         list.removeWhere((element) => element.plataforma == "iOS");
-        if (kReleaseMode) {
-          if (build.length == 4) build = build.substring(1, 4); //em release temos as build 1???, 2???, e 4???: para cada tipo de android
-        }
       }
-      list.removeWhere((element) => element.buildDe > int.parse(build));
-      list.removeWhere((element) => element.buildAte < int.parse(build));
+      list.removeWhere((element) => element.buildDe > build);
+      list.removeWhere((element) => element.buildAte < build);
 
       list.forEach((element) {
         element.data_Ini = DateFormat("yyyy-MM-dd").parse(element.dataIni);
