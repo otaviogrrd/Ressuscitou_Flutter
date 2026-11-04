@@ -104,6 +104,7 @@ jobs:
             --dart-define=SEARCH_API_URL="${SEARCH_API_URL:-}"
           jarsigner -verify build/app/outputs/bundle/release/app-release.aab
           mkdir -p play-validation
+          cp build/app/outputs/mapping/release/mapping.txt play-validation/
           python3 tools/check_android_native_alignment.py build/app/outputs/bundle/release/app-release.aab | tee play-validation/native-alignment.txt
           find build/app/intermediates -path '*release*' -name AndroidManifest.xml -exec cp {} play-validation/ \;
       - name: Record Android release dependencies
