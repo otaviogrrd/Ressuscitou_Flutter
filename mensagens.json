@@ -16,7 +16,7 @@
     "conteudo": "O repertório do aplicativo foi atualizado conforme a oitava edição do livro Ressuscitou, de 2026, com revisão dos textos, da numeração e do Índice Litúrgico.\n\nOs catequistas introduzirão os cantos de acordo com a etapa do Caminho em que se encontra cada comunidade.",
     "dataIni": "2026-11-04",
     "dataFim": "2026-12-05",
-    "buildDe": 4036,
+    "buildDe": 4042,
     "buildAte": 2100000000
   },
   {
@@ -32,12 +32,12 @@
   {
     "id": "6",
     "plataforma": "iOS",
-    "titulo": "Atualização do Ressuscitou em breve",
-    "conteudo": "Em breve, uma nova versão estará disponível na App Store para iPhone e iPad, com os cantos atualizados conforme a oitava edição do livro Ressuscitou, de 2026, e o Índice Litúrgico revisado.\n\nAssim que a atualização estiver disponível, atualize o aplicativo pela App Store.",
+    "titulo": "Novo aplicativo Ressuscitou em breve",
+    "conteudo": "Este aplicativo e seu repertório deixaram de receber atualizações!\n\nEm breve, o novo aplicativo oficial Ressuscitou estará disponível na App Store, com os cantos conforme a oitava edição do livro, de 2026, incluindo os textos, a numeração e o Índice Litúrgico revisados.\n\nSerá necessário baixar o novo aplicativo.",
     "dataIni": "2026-11-04",
-    "dataFim": "2026-12-05",
+    "dataFim": "9999-12-31",
     "buildDe": 0,
-    "buildAte": 4035
+    "buildAte": 4041
   },
   {
     "id": "5",
