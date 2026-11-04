@@ -85,8 +85,6 @@ workflows:
       cocoapods: default
     scripts:
       - *dependencies
-      - name: Compilar app para simulador
-        script: flutter build ios --simulator --debug
       - name: Capturar iPhone e iPad
         script: python3 tools/capture_ios_store.py
     artifacts:
