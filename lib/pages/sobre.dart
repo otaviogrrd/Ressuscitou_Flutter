@@ -161,7 +161,9 @@ class _SobrePageState extends State<SobrePage> {
   }
 
   launchUrl() async {
-    const url = "https://play.google.com/store/apps/details?id=br.org.cn.ressuscitou&hl=pt_BR";
+    final url = Platform.isIOS
+        ? 'https://apps.apple.com/br/app/id6744075366?action=write-review'
+        : 'https://play.google.com/store/apps/details?id=br.org.cn.ressuscitou&hl=pt_BR';
     launcher.launchUrl(Uri.parse(url)).then(
       (bool isLaunch) {
         if (!isLaunch) {
