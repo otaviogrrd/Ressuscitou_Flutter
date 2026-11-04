@@ -43,7 +43,7 @@ class _SobrePageState extends State<SobrePage> {
                         fit: BoxFit.scaleDown,
                         child: Padding(
                           padding: EdgeInsets.symmetric(horizontal: 10),
-                          child: Text("Deixe sua avaliação e cometário!",
+                          child: Text("Deixe sua avaliação e comentário!",
                               style: TextStyle(color: Theme.of(context).colorScheme.onPrimary, fontWeight: FontWeight.bold)),
                         )),
                     decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(4)), color: Theme.of(context).colorScheme.primary),
