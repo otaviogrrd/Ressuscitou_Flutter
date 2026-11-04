@@ -132,9 +132,21 @@ class _SobrePageState extends State<SobrePage> {
               SizedBox(height: 50),
               InkWell(
                 onTap: () => Get.to(() => LicensePage(
-                      applicationLegalese: "Os Cantos do Livro Ressuscitou, de Francisco José Gómez de Argüello Wirtz,"
-                          "distribuídos em português(BR) pelo Centro Neocatecumenal do Brasil (neocatechumenaleiter.org),"
-                          "estão livres de restrições de direitos autorais e de direitos conexos conhecidos.",
+                      applicationLegalese: 'Cantos e direitos autorais\n\n'
+                          'Conforme a Nota da Oitava Edição do livro Ressuscitou, os cantos de autoria de Kiko Argüello '
+                          'estão registrados na Sociedade Italiana de Autores e Editores, com cobertura mundial, '
+                          'para garantir seu livre uso pelos irmãos nas liturgias do Caminho Neocatecumenal '
+                          'e preservar sua autenticidade e finalidade própria.\n\n'
+                          'O livro Ressuscitou do Caminho Neocatecumenal no Brasil está registrado em nome da '
+                          'Associação Virgem do Terceiro Milênio para a Evangelização Itinerante, '
+                          'ISBN 978-65-84381-00-1. A nota informa a proibição de venda em lojas ou empresas comerciais '
+                          'e orienta a preservar os cantos e as catequeses, evitando alterações, lucro '
+                          'e publicação em plataformas além das oficiais.\n\n'
+                          'A disponibilização gratuita não equivale à ausência de direitos autorais '
+                          'nem constitui autorização geral de reprodução ou redistribuição.\n\n'
+                          'Este aplicativo é uma ferramenta de apoio aos salmistas para ensaios, consultas '
+                          'e preparações; não deve ser utilizado em celebrações. '
+                          'Esta declaração não atribui caráter oficial ao aplicativo nem declara autorização dos titulares.',
                     )),
                 child: Container(
                   height: 45,
