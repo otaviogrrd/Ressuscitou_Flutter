@@ -1,5 +1,45 @@
 [
   {
+    "id": "9",
+    "plataforma": "Android",
+    "titulo": "Cantos atualizados — edição 2026",
+    "conteudo": "O repertório do aplicativo foi atualizado conforme a oitava edição do livro Ressuscitou, de 2026, com revisão dos textos, da numeração e do Índice Litúrgico.\n\nOs catequistas introduzirão os cantos de acordo com a etapa do Caminho em que se encontra cada comunidade.",
+    "dataIni": "2026-11-04",
+    "dataFim": "2026-12-05",
+    "buildDe": 4029,
+    "buildAte": 2100000000
+  },
+  {
+    "id": "8",
+    "plataforma": "iOS",
+    "titulo": "Cantos atualizados — edição 2026",
+    "conteudo": "O repertório do aplicativo foi atualizado conforme a oitava edição do livro Ressuscitou, de 2026, com revisão dos textos, da numeração e do Índice Litúrgico.\n\nOs catequistas introduzirão os cantos de acordo com a etapa do Caminho em que se encontra cada comunidade.",
+    "dataIni": "2026-11-04",
+    "dataFim": "2026-12-05",
+    "buildDe": 4036,
+    "buildAte": 2100000000
+  },
+  {
+    "id": "7",
+    "plataforma": "Android",
+    "titulo": "Nova versão do Ressuscitou",
+    "conteudo": "A nova versão do aplicativo traz os cantos atualizados conforme a oitava edição do livro Ressuscitou, de 2026, e o Índice Litúrgico revisado.\n\nA atualização está sendo liberada gradualmente na Google Play. Atualize quando ela estiver disponível para você.\n\nA versão para iPhone e iPad estará disponível em breve na App Store.",
+    "dataIni": "2026-11-04",
+    "dataFim": "2026-12-05",
+    "buildDe": 0,
+    "buildAte": 4028
+  },
+  {
+    "id": "6",
+    "plataforma": "iOS",
+    "titulo": "Atualização do Ressuscitou em breve",
+    "conteudo": "Em breve, uma nova versão estará disponível na App Store para iPhone e iPad, com os cantos atualizados conforme a oitava edição do livro Ressuscitou, de 2026, e o Índice Litúrgico revisado.\n\nAssim que a atualização estiver disponível, atualize o aplicativo pela App Store.",
+    "dataIni": "2026-11-04",
+    "dataFim": "2026-12-05",
+    "buildDe": 0,
+    "buildAte": 4035
+  },
+  {
     "id": "5",
     "plataforma": "",
     "titulo": "Novos Áudios Adicionados",
