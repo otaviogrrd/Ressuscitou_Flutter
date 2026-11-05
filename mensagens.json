@@ -1,29 +1,19 @@
 [
   {
-    "id": "9",
-    "plataforma": "Android",
-    "titulo": "Cantos atualizados — edição 2026",
-    "conteudo": "O repertório do aplicativo foi atualizado conforme a oitava edição do livro Ressuscitou, de 2026, com revisão dos textos, da numeração e do Índice Litúrgico.\n\nOs catequistas introduzirão os cantos de acordo com a etapa do Caminho em que se encontra cada comunidade.",
-    "dataIni": "2026-11-04",
-    "dataFim": "2026-12-05",
-    "buildDe": 4029,
-    "buildAte": 2100000000
-  },
-  {
     "id": "8",
-    "plataforma": "iOS",
+    "plataforma": "",
     "titulo": "Cantos atualizados — edição 2026",
-    "conteudo": "O repertório do aplicativo foi atualizado conforme a oitava edição do livro Ressuscitou, de 2026, com revisão dos textos, da numeração e do Índice Litúrgico.\n\nOs catequistas introduzirão os cantos de acordo com a etapa do Caminho em que se encontra cada comunidade.",
+    "conteudo": "O repertório do aplicativo foi atualizado conforme a oitava edição do livro Ressuscitou, de 2026, com revisão dos textos, da numeração e do Índice Litúrgico.\n\nCaso encontrem diferenças em relação às fichas podem comunicar no e-mail: otavio.grrd@gmail.com\n\nOs catequistas introduzirão os cantos de acordo com a etapa do Caminho em que se encontra cada comunidade.",
     "dataIni": "2026-11-04",
-    "dataFim": "2026-12-05",
-    "buildDe": 4042,
-    "buildAte": 2100000000
+    "dataFim": "2026-12-31",
+    "buildDe": 4030,
+    "buildAte": 99999
   },
   {
     "id": "7",
     "plataforma": "Android",
     "titulo": "Nova versão do Ressuscitou",
-    "conteudo": "A nova versão do aplicativo traz os cantos atualizados conforme a oitava edição do livro Ressuscitou, de 2026, e o Índice Litúrgico revisado.\n\nA atualização está sendo liberada gradualmente na Google Play. Atualize quando ela estiver disponível para você.\n\nA versão para iPhone e iPad estará disponível em breve na App Store.",
+    "conteudo": "A nova versão do aplicativo traz os cantos atualizados conforme a oitava edição do livro Ressuscitou, de 2026, e o Índice Litúrgico revisado.\n\nA atualização está disponível na Google Play.\n\nA versão para iPhone e iPad estará disponível em breve na App Store.",
     "dataIni": "2026-11-04",
     "dataFim": "2026-12-05",
     "buildDe": 0,
