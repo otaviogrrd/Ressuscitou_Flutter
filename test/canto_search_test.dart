@@ -33,7 +33,7 @@ void main() {
   test('titles and black lyrics ignore accents and punctuation', () {
     final songs = [
       Canto(id: 1, titulo: 'É o Senhor'),
-      Canto(id: 2, titulo: 'Outro', conteudo: 'indiceantigo', htmlBase64: encodedLyrics('Glória ao Senhor')),
+      Canto(id: 2, titulo: 'Outro', htmlBase64: encodedLyrics('Glória ao Senhor')),
     ];
     final index = CantoSearchIndex(songs);
     expect(index.search('e o senhor').first.id, 1);
@@ -43,10 +43,10 @@ void main() {
 
   test('number lookup prioritizes exact numbers and accepts leading zeros', () {
     final songs = [
-      Canto(id: 1, nr2019: '017', titulo: 'Outro'),
-      Canto(id: 2, nr2019: '007', titulo: 'Exato'),
-      Canto(id: 3, nr2019: '120', numero: '7', titulo: 'Número antigo'),
-      Canto(id: 7, nr2019: '999', titulo: 'ID não é número de canto'),
+      Canto(id: 1, numero: '017', titulo: 'Outro'),
+      Canto(id: 2, numero: '007', titulo: 'Exato'),
+      Canto(id: 3, numero: '7', titulo: 'Outro com mesmo número'),
+      Canto(id: 7, numero: '999', titulo: 'ID não é número de canto'),
     ];
     final index = CantoSearchIndex(songs);
     expect(index.search('7').map((canto) => canto.id), [2, 3, 1]);
@@ -106,7 +106,7 @@ void main() {
   test('black HTML shows the original accented lyric phrase', () {
     final encoded = encodedLyrics('<FONT COLOR="#FF0000">Do Sol Re</FONT>\n'
         '<FONT COLOR="#000000">Uma manhã de paz &amp; alegria.</FONT>');
-    final canto = Canto(titulo: 'Outro canto', conteudo: 'umamanhadepazealegria', htmlBase64: encoded);
+    final canto = Canto(titulo: 'Outro canto', htmlBase64: encoded);
     final result = CantoSearchIndex([canto]).searchResults('manha de paz').single;
     expect(result.subtitle, 'Trecho: Uma manhã de paz & alegria.');
     expect(result.approximate, isFalse);
@@ -186,7 +186,7 @@ void main() {
   });
 
   test('only black HTML is searched, never the legacy index or other colors', () {
-    final canto = Canto(titulo: 'Exemplo', conteudo: 'indiceremovido palavraantiga', htmlBase64: encodedLyrics(
+    final canto = Canto(titulo: 'Exemplo', htmlBase64: encodedLyrics(
         '<FONT COLOR="#FF0000">cifras vermelhas</FONT>'
         '<FONT COLOR="#008000">anotação verde</FONT>'
         '<span>texto sem cor explícita</span>'
@@ -215,8 +215,8 @@ void main() {
 
   test('HTML without black lyrics does not fall back to compact content', () {
     final index = CantoSearchIndex([
-      Canto(titulo: 'Exemplo', conteudo: 'conteudolegadosemespacos', htmlBase64: 'broken!'),
-      Canto(titulo: 'Outro', conteudo: 'conteúdo legado sem espaços', htmlBase64: encodedLyrics('texto sem tag preta', black: false)),
+      Canto(titulo: 'Exemplo', htmlBase64: 'broken!'),
+      Canto(titulo: 'Outro', htmlBase64: encodedLyrics('texto sem tag preta', black: false)),
     ]);
     expect(index.search('conteudo legado'), isEmpty);
     expect(index.search('conteudolegadosemespacos'), isEmpty);

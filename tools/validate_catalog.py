@@ -70,7 +70,11 @@ def main():
     parser.add_argument('--baseline', type=Path)
     args = parser.parse_args()
     data = json.loads(args.catalog.read_text(encoding='utf-8'))
+    if isinstance(data, dict):
+        data = data['cantos']
     baseline = json.loads(args.baseline.read_text(encoding='utf-8')) if args.baseline else None
+    if isinstance(baseline, dict):
+        baseline = baseline['cantos']
     errors = validate_catalog(data, baseline)
     for error in errors:
         print(error, file=sys.stderr)

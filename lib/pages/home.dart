@@ -263,7 +263,7 @@ class _HomePageState extends State<HomePage> {
                                                         child: Padding(
                                                           padding: EdgeInsets.all(8),
                                                           child: Text(
-                                                            filterListCantos[index].nr2019,
+                                                            filterListCantos[index].numero,
                                                             style: TextStyle(color: Colors.black),
                                                           ),
                                                         ))))),
@@ -294,7 +294,7 @@ class _HomePageState extends State<HomePage> {
                                                     child: Padding(
                                                       padding: EdgeInsets.all(8),
                                                       child: Text(
-                                                        filterListCantos[index].nr2019,
+                                                        filterListCantos[index].numero,
                                                         style: TextStyle(color: Colors.black),
                                                       ),
                                                     ))))),

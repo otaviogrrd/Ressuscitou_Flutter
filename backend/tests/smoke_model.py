@@ -9,6 +9,8 @@ from search_service.engine import SearchEngine
 model = SentenceTransformer('sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2', device='cpu', trust_remote_code=False)
 model.max_seq_length = 128
 songs = json.load(open('assets/cantos.json', encoding='utf-8'))
+if isinstance(songs, dict):
+    songs = songs['cantos']
 engine = SearchEngine(songs, model)
 assert engine.documents
 results = engine.search('levando sempre o poder de Jesus')

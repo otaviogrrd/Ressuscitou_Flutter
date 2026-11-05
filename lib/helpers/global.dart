@@ -125,7 +125,9 @@ bool checkDarkMode(BuildContext context) {
   return Theme.of(context).colorScheme.primary == globals.lightRedDarkTheme;
 }
 
-Color getColorCateg(int categoria) => SongColors.forCategory(categoria).backgroundColor;
+Color getColorCateg(int categoria) => categoria == 1
+    ? const Color(0xFFE0E0E0)
+    : SongColors.forCategory(categoria).backgroundColor;
 
 String getPrettyJSONString(jsonObject) {
   var encoder = new JsonEncoder.withIndent("     ");

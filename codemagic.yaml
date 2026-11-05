@@ -74,3 +74,20 @@ workflows:
         # Upload for internal testing; beta and App Store reviews remain manual.
         submit_to_testflight: false
         submit_to_app_store: false
+
+  ios-store-captures:
+    name: iOS - capturas reais para App Store
+    instance_type: mac_mini_m2
+    max_build_duration: 45
+    environment:
+      flutter: 3.47.7
+      xcode: latest
+      cocoapods: default
+    scripts:
+      - *dependencies
+      - name: Compilar app para simulador
+        script: flutter build ios --simulator --debug
+      - name: Capturar iPhone e iPad
+        script: python3 tools/capture_ios_store.py
+    artifacts:
+      - build/store-captures/**

@@ -22,7 +22,7 @@ void main() {
   });
 
   test('all bundled HTML bodies keep exact whitespace, notes and markers', () async {
-    final data = jsonDecode(await rootBundle.loadString('assets/cantos.json')) as List;
+    final data = (jsonDecode(await rootBundle.loadString('assets/cantos.json')) as Map<String, dynamic>)['cantos'] as List;
     for (final record in data) {
       final canto = Canto.fromJson(record as Map<String, dynamic>);
       for (final encoded in [canto.htmlBase64, canto.extBase64]) {

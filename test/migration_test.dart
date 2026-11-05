@@ -12,6 +12,37 @@ import 'package:shared_preferences/shared_preferences.dart';
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
+  test('number-only catalogs display and serialize the current number', () {
+    final canto = Canto.fromJson({'id': 227, 'numero': '21'});
+    expect(canto.numero, '21');
+    expect(canto.id, 227);
+    expect(canto.toJson()['numero'], '21');
+    expect(canto.toJson().containsKey('nr_2019'), isFalse);
+    expect(canto.toJson().containsKey('nr_2026'), isFalse);
+    expect(Canto.fromJson(canto.toJson()).numero, '21');
+  });
+
+  test('legacy catalogs prefer the newest non-empty edition number', () {
+    expect(Canto.fromJson({'numero': '227', 'nr_2019': '21'}).numero, '21');
+    expect(Canto.fromJson({
+      'numero': '227', 'nr_2019': '21', 'nr_2026': '22',
+    }).numero, '22');
+    expect(Canto.fromJson({
+      'numero': '227', 'nr_2019': '21', 'nr_2026': ' ',
+    }).numero, '21');
+    expect(Canto.fromJson({'numero': 21}).numero, '21');
+    expect(Canto.fromJson({}).numero, isEmpty);
+  });
+
+  test('legacy content is ignored and not serialized', () {
+    final canto = Canto.fromJson({
+      'id': 227, 'numero': '21', 'conteudo': 'indiceantigosemespacos',
+    });
+    expect(canto.id, 227);
+    expect(canto.numero, '21');
+    expect(canto.toJson().containsKey('conteudo'), isFalse);
+  });
+
   test('older backups retain lists, transpositions, capo and notes', () {
     final backup = <String, dynamic>{
       'listas': [
@@ -35,12 +66,12 @@ void main() {
     expect(sparse.cantos.single.trans, 0);
   });
 
-  test('serializing a canto preserves its values and legacy JSON keys', () {
+  test('serializing a canto preserves its values and canonical number', () {
     final canto = Canto(
       id: 42,
       titulo: 'Canto de ensaio',
-      nr2019: '007',
-      adve: true,
+      numero: '007',
+      categorias: ['advento-natal'],
       htmlBase64: base64Encode(utf8.encode('<h1>Ensaio</h1>')),
       downloaded: true,
     );
@@ -49,8 +80,8 @@ void main() {
     expect(restored.toJson(), serialized);
     expect(canto.id, 42);
     expect(canto.titulo, 'Canto de ensaio');
-    expect(restored.nr2019, '007');
-    expect(restored.adve, isTrue);
+    expect(restored.numero, '007');
+    expect(restored.categorias, ['advento-natal']);
     expect(restored.downloaded, isTrue);
     expect(Canto.fromJson({'id': 7}).selected, isFalse);
     expect(Canto.fromJson({'id': 7}).titulo, isEmpty);
@@ -80,6 +111,8 @@ void main() {
 
   test('stored cantos remain available without a network request', () async {
     SharedPreferences.setMockInitialValues({
+      'cantosFonte': CantoService().urlCantos,
+      'cantosVersao': CantoService.bundledCatalogVersion,
       'listCantos': jsonEncode([
         {'id': 42, 'titulo': 'Canto local', 'nr_2019': '007'},
       ]),

@@ -246,7 +246,7 @@ class _SearchEntry {
   _SearchEntry(this.canto, this.order) {
     title = _SearchPhrase(canto.titulo);
     lyrics = _SearchPhrase(_blackLyrics(canto));
-    numbers = [canto.nr2019, canto.numero].map(_numberKey).whereType<String>().toList();
+    numbers = [canto.numero].map(_numberKey).whereType<String>().toList();
   }
 }
 
